@@ -1,0 +1,5 @@
+Juan: CrearPublicacion, Publicacion, Conversaciones, IComando
+Ionas: VerHistorial, ListaComandos, ListaConversaciones, Lista Emprendedores, ListaEmpresa
+Pilar: SignUp, Historial(CompraVenta), ListaAdministradores, RegistroPublicaciones
+Santiago: Administrador, IUsuario, DatosDeMateriales, Emprendedor, Empresa
+Esteban: BuscarPublicaciones, BusquedaPublicacion, RegistroPublicaciones
