@@ -1,4 +1,6 @@
-namespace luegovemos
+using System;
+
+namespace ConsoleApplication
 {
     public class ListaComandos : IComandos
     {
