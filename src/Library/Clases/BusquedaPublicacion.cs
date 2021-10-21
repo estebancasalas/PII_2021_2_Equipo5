@@ -1,6 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-namespace ClassLibrary
+
+using System;
+
+namespace ConsoleApplication
 {
     /// <summary>
     /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
@@ -32,5 +33,5 @@ namespace ClassLibrary
 
             return result;
         }
-    }
+      }
 }
