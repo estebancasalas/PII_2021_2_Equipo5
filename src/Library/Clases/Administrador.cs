@@ -1,7 +1,12 @@
 
-class Administrador : IUsuario
-{ 
-    public string id {get; set;}
-    public string nombre {get; set;}
+using System;
 
+namespace ConsoleApplication
+{
+    class Administrador : IUsuario
+    { 
+        public string id {get; set;}
+        public string nombre {get; set;}
+
+    }
 }
