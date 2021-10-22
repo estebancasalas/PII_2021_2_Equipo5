@@ -1,4 +1,4 @@
-namespace luegovemos
+namespace ConsoleApplication
 {
     public class VerHistorial : IComandos
     {
