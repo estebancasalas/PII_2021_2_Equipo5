@@ -12,6 +12,7 @@ namespace ConsoleApplication
         {
             if (comando == "emprendedor")
             {
+                //En vez de que SignUp cree el usuario, que llame a un metodo de otra clase para crearlo.
                 Console.WriteLine("Ingrese su nombre: ");
                 string nombre = Console.ReadLine();
                 Console.WriteLine("Ingrese su apellido: ");
