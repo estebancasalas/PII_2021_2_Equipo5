@@ -4,7 +4,12 @@ namespace ConsoleApplication
 {
     public class CrearPublicacion : IComandos
     {
-        public string nombre = "/CrearPublicacion";
+        public string Nombre; 
+        public string nombre 
+        {
+            get => Nombre; 
+            set => Nombre = "/CrearPublicacion";
+        }
         public string titulo;
         public DatosDeMateriales datosDeMateriales;
         public string PalabrasClave;
