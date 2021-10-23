@@ -2,7 +2,7 @@ using System;
 
 namespace ConsoleApplication
 {
-    public class Publicacion
+    public class Publicacione
     {
     }
 }
