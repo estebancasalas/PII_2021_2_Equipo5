@@ -1,5 +1,5 @@
 Juan: CrearPublicacion, Publicacion, Conversaciones, IComando
 Ionas: VerHistorial, ListaComandos, ListaConversaciones, Lista Emprendedores, ListaEmpresa
-Pilar: SignUp, Historial(CompraVenta), ListaAdministradores, RegistroPublicaciones
+Pilar: SignUp, Historial(CompraVenta), ListaAdministradores, RegistroPublicaciones, IFormato, IFormatoSalida, ComienzoHandlers, AbstractHandlers, Singleton, IHandler, Traductor
 Santiago: Administrador, IUsuario, DatosDeMateriales, Emprendedor, Empresa
-Esteban: BuscarPublicaciones, BusquedaPublicacion, 
+Esteban: BuscarPublicaciones, BusquedaPublicacion, BusquedaCategoría, BusquedaKeyWord, BusquedaZona, Mensaje
