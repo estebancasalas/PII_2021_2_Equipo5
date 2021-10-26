@@ -2,7 +2,7 @@ using System;
 
 namespace ConsoleApplication
 {
-    public class ListaEmpresa : Empresa
+    public class ListaEmpresa
     {
         Lista <Empresa> ListEmpresa = new Lista<Empresa> (); 
     }

@@ -1,3 +1,4 @@
+
 using System;
 
 namespace ConsoleApplication
@@ -18,3 +19,4 @@ namespace ConsoleApplication
         }
     }
 }
+

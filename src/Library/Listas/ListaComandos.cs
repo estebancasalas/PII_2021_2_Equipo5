@@ -2,8 +2,9 @@ using System;
 
 namespace ConsoleApplication
 {
-    public class ListaComandos : IComandos
+    public class ListaComandos
     {
         static List <Icomandos> ListComandos = new List<Icomandos> (); 
+
     }
 }
