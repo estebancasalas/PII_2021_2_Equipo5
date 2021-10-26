@@ -1,8 +1,11 @@
-namespace luegovemos
+namespace ConsoleApplication
 {
     public class VerHistorial : IComandos
     {
-        public void EjecutarComando(); 
+        public void EjecutarComando()
+        {
+            
+        } 
 
     }
 }

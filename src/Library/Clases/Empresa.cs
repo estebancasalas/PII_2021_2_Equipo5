@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleApplication
 {
@@ -11,8 +12,8 @@ namespace ConsoleApplication
     /// </summary>
     public class Empresa
     {
-        private string id {get;}
-        private string nombre {get;}
+        private List<int> listaIdEmpresarios {get;}
+        private string nombreDeLaEmpresa {get;}
         private string ubicacion {get;}
         private string rubro {get;}
     }

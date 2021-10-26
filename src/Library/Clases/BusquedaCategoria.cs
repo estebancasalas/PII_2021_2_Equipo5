@@ -1,28 +1,24 @@
-
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleApplication
 {
     /// <summary>
     /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
     /// </summary>
-    public class BusquedaKeyWord : Busqueda
+    public class BusquedaCategoria
     {
-        public static List<Publicacion> Buscar(string tipoDeBusqueda, string input)
+        public List<Publicacion> Buscar(List<string> categorias)
         {
             List<Publicacion> result = new List<Publicacion>();
-            
-            //Pedir las palabras clave
 
-            List<string> keyWords = new List<string>();
-
-            foreach (Publicacion publicacion in RegistroPublicaciones)
+            foreach (Publicacion publicacion in RegistroPublicaciones) //Donde estan gaurdadas las publicaciones?
             {
                 bool found = false;
                 int keyWordsPos = 0;
-                while (!found && keyWordsPos < keyWords.Count)
+                while (!found && keyWordsPos < categorias.Count)
                 {
-                    if (publicacion.PalabrasClave.Contains(keyWords[keyWordsPos]))
+                    if (publicacion.Categoria.Contains(categorias[keyWordsPos]))  //Categorias?? es de la publicacion o esta dentro de DatosMateriales
                     {
                         result.Add(publicacion);
                         keyWordsPos++ ;
@@ -33,5 +29,5 @@ namespace ConsoleApplication
 
             return result;
         }
-      }
+    }
 }
