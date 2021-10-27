@@ -2,7 +2,8 @@ using System;
 
 namespace Library
 {
-    public class Bot
+    public interface IFormatoDeEntrada
     {
+        
     }
 }

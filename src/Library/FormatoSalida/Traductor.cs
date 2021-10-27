@@ -2,7 +2,7 @@ using System;
 
 namespace Library
 {
-    public class Traductor : IFormato
+    public class Traductor : IFormatoSalida
     {
         public string PrintLine(string line)
         {
