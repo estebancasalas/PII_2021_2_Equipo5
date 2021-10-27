@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApplication
+namespace Library
 {
     /// <summary>
     /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
