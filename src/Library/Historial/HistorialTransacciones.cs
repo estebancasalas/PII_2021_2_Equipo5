@@ -1,4 +1,4 @@
-namespace ConsoleApplication
+namespace Library
 {
     public class HistorialTrasacciones
     {

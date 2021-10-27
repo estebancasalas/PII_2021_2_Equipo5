@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApplication
+namespace Library
 {
     /// <summary>
     /// Pregunta por el tipo de busqueda, pide a la clase correspondiente que la realice y devuelve una lista con las coincidencias.
