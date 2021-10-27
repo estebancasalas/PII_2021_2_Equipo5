@@ -14,6 +14,7 @@ namespace ConsoleApplication
         public DatosDeMateriales datosDeMateriales;
         public string PalabrasClave;
         public string FrecuenciaDeDisponibilidad;
+        public string Ubicacion;
 
         public void EjecutarComando()
         {
@@ -25,8 +26,10 @@ namespace ConsoleApplication
             string PalabrasClave = Console.ReadLine();
             Console.WriteLine("Ingrese la frecuencia de disponibilidad: ");
             string FrecuenciaDeDisponibilidad = Console.ReadLine();
+            Console.WriteLine("Ingrese la ubicación: ");
+            string Ubicacion = Console.ReadLine();
             
-            Publicacion publicacion = new Publicacion(titulo, datosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad);
+            Publicacion publicacion = new Publicacion(titulo, datosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad, Ubicacion);
         }
     }
 }
