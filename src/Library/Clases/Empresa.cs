@@ -16,5 +16,13 @@ namespace Library
         private string nombreDeLaEmpresa {get;}
         private string ubicacion {get;}
         private string rubro {get;}
+
+        public Empresa(string nombre, string ubicacion, string rubro)
+        {
+            this.listaIdEmpresarios = new List<int>();
+            this.nombreDeLaEmpresa = nombre;
+            this.ubicacion = ubicacion;
+            this.rubro = rubro;
+        }
     }
 }
