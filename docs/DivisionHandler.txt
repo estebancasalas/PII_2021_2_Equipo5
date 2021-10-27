@@ -1,0 +1,9 @@
+Pilar: ComienzoHandlers, AceptarInvitacion, BuscarPublicacion, CrearPublicacion, IHandler, AbstractHandlers,
+
+Juan: Handlers empresa y VerificacionHandler.
+
+Esteban: Emprendedor; especificaciones, habilitaciones, nombre, rubro, ubicacion.
+
+Ionas: CrearUsuario, Finalizar, FrecuenciaDeDispoinibilidad, Habilitaciones, Historial.
+
+Santiago: Invitar, Materiales, PalabrasClave, Titulo, Ubicacion.
