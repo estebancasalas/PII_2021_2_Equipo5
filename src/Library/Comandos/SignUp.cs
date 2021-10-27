@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace ConsoleApplication
+namespace Library
 {
     public class SignUp
 
     {
         public string Nombre = "/Registrarse";
-        public Usuario EjecutarComando(string comando)
+        public void EjecutarComando(string comando)
         {
             if (comando == "emprendedor")
             {
@@ -17,8 +17,8 @@ namespace ConsoleApplication
                 string nombre = Console.ReadLine();
                 Console.WriteLine("Ingrese su apellido: ");
                 string apellido = Console.ReadLine();
-                Emprendedor result = new Emprendedor(nombre , apellido);
-                return result;
+                Emprendedor result = new Emprendedor(nombre , apellido); //Va arriba y sin parametros.
+                //return result;
             }
             if (comando == "empresa")
             {

@@ -1,6 +1,6 @@
 using System;
 
-namespace ConsoleApplication
+namespace Library
 {
     public class CrearPublicacion : IComandos
     {
@@ -14,19 +14,22 @@ namespace ConsoleApplication
         public DatosDeMateriales datosDeMateriales;
         public string PalabrasClave;
         public string FrecuenciaDeDisponibilidad;
+        public string Ubicacion;
 
         public void EjecutarComando()
         {
             Console.WriteLine("Ingrese título: ");
             string titulo = Console.ReadLine();
             Console.WriteLine("Ingrese los datos de su material: ");
-            DatosDeMateriales datosDeMateriales = Console.ReadLine();
+            string DatosDeMateriales = Console.ReadLine();
             Console.WriteLine("Ingrese palabras clave: ");
             string PalabrasClave = Console.ReadLine();
             Console.WriteLine("Ingrese la frecuencia de disponibilidad: ");
             string FrecuenciaDeDisponibilidad = Console.ReadLine();
+            Console.WriteLine("Ingrese la ubicación: ");
+            string Ubicacion = Console.ReadLine();
             
-            Publicacion publicacion = new Publicacion(titulo, datosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad);
+            Publicacion publicacion = new Publicacion(titulo, datosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad, Ubicacion);
         }
     }
 }

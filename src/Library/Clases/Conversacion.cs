@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace ConsoleApplication
+namespace Library
 {
     public class Conversacion
     {

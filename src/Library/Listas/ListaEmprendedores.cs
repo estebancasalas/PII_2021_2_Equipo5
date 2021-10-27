@@ -1,8 +1,8 @@
 using System;
 
-namespace ConsoleApplication
+namespace Library
 {
-    public class ListaEmprendedores : Emprendedor
+    public class ListaEmprendedores 
     {
         Lista <Emprendedor> ListEmprendedores = new Lista<Emprendedor> ();
     }
