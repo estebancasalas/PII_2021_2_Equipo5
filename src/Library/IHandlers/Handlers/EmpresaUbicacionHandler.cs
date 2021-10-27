@@ -3,18 +3,18 @@ using System.Text;
 
 namespace Library
 {
-    public class EmpresaNombreHandler : IHandler
+    public class EmpresaUbicacionHandler : IHandler
     {
         public void Handle(Mensaje mensaje)
         {
             if (!mensaje.Text.Contains('/'))
             {
-                Empresa.nombreDeLaEmpresa = mensaje;
+                Empresa.ubicacion = mensaje;
             }
             else
             {
                 this.Next.Handle(mensaje);
-            }
+            } 
         }
     }
 }
