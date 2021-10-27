@@ -1,6 +1,6 @@
 using System;
 
-namespace ConsoleApplication
+namespace Library
 {
     /// <summary>
     /// Clase con los datos del emprendedor. Incluye:

@@ -1,6 +1,6 @@
 using System;
 
-namespace ConsoleApplication
+namespace Library
 {
     public class CrearPublicacion : IComandos
     {
@@ -21,7 +21,7 @@ namespace ConsoleApplication
             Console.WriteLine("Ingrese título: ");
             string titulo = Console.ReadLine();
             Console.WriteLine("Ingrese los datos de su material: ");
-            DatosDeMateriales datosDeMateriales = Console.ReadLine();
+            string DatosDeMateriales = Console.ReadLine();
             Console.WriteLine("Ingrese palabras clave: ");
             string PalabrasClave = Console.ReadLine();
             Console.WriteLine("Ingrese la frecuencia de disponibilidad: ");
