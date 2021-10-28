@@ -2,7 +2,6 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 
-
 namespace Library
 {
     public class VerHistorial : IComandos
