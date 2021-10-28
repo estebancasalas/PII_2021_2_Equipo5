@@ -27,5 +27,14 @@ namespace Library
         private string rubro {get;}
         private string habilitaciones{get;}
         private string  especializaciones {get;}
+
+        public Emprendedor(string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
+        {
+            this.nombre = nombre;
+            this.ubicacion = ubicacion;
+            this.rubro = rubro;
+            this.habilitaciones = habilitaciones;
+            this.especializaciones = especializaciones;
+        }
      }
 }
