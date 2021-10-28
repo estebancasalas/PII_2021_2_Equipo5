@@ -4,6 +4,6 @@ namespace Library
 {
     public class ListaEmpresa
     {
-        Lista <Empresa> ListEmpresa = new Lista<Empresa> (); 
+        public static Lista <Empresa> listEmpresa = new Lista<Empresa> (); 
     }
 }
