@@ -5,9 +5,9 @@ namespace Library
 {
     public class RegistroPublicaciones
     {
-        private List<Publicacion> activas = new List<Publicacion>();
-        private List<Publicacion> eliminadas = new List<Publicacion>();
-        private List<Publicacion> pausadas = new List<Publicacion>();
+        public static List<Publicacion> Activas {get; set;} = new List<Publicacion>();
+        public static List<Publicacion> aliminadas = new List<Publicacion>();
+        public static List<Publicacion> pausadas = new List<Publicacion>();
 
 
 //Se utilizan estos metodos para lograr una correcta encapsulacion de la clase
