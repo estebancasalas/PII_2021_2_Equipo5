@@ -4,7 +4,7 @@ namespace Library
 {
     public interface IHandler
     {
-        IHandler Next {get; }
+        IHandler Next {get;}
         void Handle(Mensaje mensaje);
     }
 }
