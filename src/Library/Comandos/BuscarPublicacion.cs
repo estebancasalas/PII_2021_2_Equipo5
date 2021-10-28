@@ -18,9 +18,9 @@ namespace Library
             while (!opcionValida)
             {
                 Console.WriteLine("Que tipo de busqueda desea realizar?\n1-Categoria\n2-Zona\n3-Palabras Clave");
-                string tipoBusqueda = Console.ReadLine();
+                string mensaje = Console.ReadLine();
                 //Pide las categorias y realiza la busqueda
-                if (tipoBusqueda == "1")
+                if (mensaje == "1")
                 {   
                     string flag = ""; //Puede inicializarse una unica vez fuera de los if?
                     List<string> categorias = new List<string>();
@@ -33,7 +33,7 @@ namespace Library
                     opcionValida = true;
                 }
                 //Pide la zona y realiza la busqueda
-                else if (tipoBusqueda == "2")
+                else if (mensaje == "2")
                 {
                     Console.WriteLine("Ingresar zona.");
                     string zona = Console.ReadLine();
@@ -42,7 +42,7 @@ namespace Library
                     opcionValida = true;
                 }
                 //Pide las palabras clave y realiza la busqueda.
-                else if (tipoBusqueda == "3")
+                else if (mensaje == "3")
                 {
                     string flag = ""; //Puede inicializarse una unica vez fuera de los if?
                     List<string> palabras = new List<string>();
