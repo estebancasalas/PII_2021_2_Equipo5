@@ -1,6 +1,6 @@
 using System;
 
-namespace ConsoleApplication
+namespace Library
 {
     public interface IComandos
     {
@@ -9,4 +9,5 @@ namespace ConsoleApplication
         void EjecutarComando();
         
     }
+    //Borramos esta interfaz?
 }

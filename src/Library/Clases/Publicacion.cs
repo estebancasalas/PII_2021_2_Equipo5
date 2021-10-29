@@ -19,6 +19,7 @@ namespace Library
             this.FrecuenciaDeDisponibilidad = FrecuenciaDeDisponibilidad;
             this.Ubicacion = ubicacion;
         }
+        //Falta categoria.
     }
 }
 

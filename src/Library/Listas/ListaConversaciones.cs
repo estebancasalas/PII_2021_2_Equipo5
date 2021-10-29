@@ -6,4 +6,5 @@ namespace ConsoleApplication
     {
         Lista <ListaConversacion> ListConversacion = new Lista<ListaConversacion> (); 
     }
+    //Falta system.collection.generic
 }

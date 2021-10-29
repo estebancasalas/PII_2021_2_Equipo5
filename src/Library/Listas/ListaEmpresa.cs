@@ -6,4 +6,5 @@ namespace Library
     {
         public static Lista <Empresa> listEmpresa = new Lista<Empresa> (); 
     }
+    //Falta system.collection.generic
 }

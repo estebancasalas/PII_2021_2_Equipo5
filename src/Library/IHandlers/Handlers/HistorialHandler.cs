@@ -10,11 +10,12 @@ namespace Library
                    
             if (mensaje.Text == "/historial")
             {
-                Output.PrintLine($"Tu historial es {}.");
+                Output.PrintLine($"Tu historial es {}."); //Arreglar error.
             }
             else
             {
                 this.Next.Handle(mensaje);
             }
         }
+    }
 }
