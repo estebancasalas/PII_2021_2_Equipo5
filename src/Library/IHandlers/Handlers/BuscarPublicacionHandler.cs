@@ -13,7 +13,6 @@ namespace Library
             {
                 BuscarPublicacion buscador = new BuscarPublicacion ();
                 List<Publicacion> result = buscador.EjecutarComando();
-                //Test pull
 
             }
             else
