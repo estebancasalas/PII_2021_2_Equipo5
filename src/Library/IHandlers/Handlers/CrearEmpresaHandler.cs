@@ -20,7 +20,7 @@ namespace Library
             Console.WriteLine("Indique rubro: ");
             rubro = Console.ReadLine();
             Empresa empresa = new Empresa(this.nombreDeLaEmpresa, this.ubicacion, this.rubro);
-            ListaEmpresa.listEmpresa.Add(empresa);
+            ListaEmpresa.Empresas.Add(empresa);
             mensaje.Text = Console.ReadLine();
             this.Next.Handle(mensaje);
         }
