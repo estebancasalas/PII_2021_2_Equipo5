@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 
 namespace Library
 {
     public class ListaEmprendedores 
     {
-        Lista <Emprendedor> ListEmprendedores = new Lista<Emprendedor> ();
+        public static List<Emprendedor> Emprendedores = new List<Emprendedor>();
     }
     //Falta system.collection.generic
 }

@@ -1,10 +1,11 @@
-using System;
+using System.Collections.Generic;
 
-namespace ConsoleApplication
+namespace Library
 {
     public class ListaConversaciones 
     {
-        Lista <ListaConversacion> ListConversacion = new Lista<ListaConversacion> (); 
+        //Falta clase conversacionees
+        public static List<Conversacion> Conversaciones = new List<Conversacion>();
     }
     //Falta system.collection.generic
 }
