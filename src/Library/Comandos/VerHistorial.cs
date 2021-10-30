@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class VerHistorial : IComandos
+    public class VerHistorial
     {
-        public void EjecutarComando()
+        public void EjecutarComando(Mensaje mensaje)
         {
             StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n ");
             bool encontrar = false;
@@ -26,10 +26,10 @@ namespace Library
             // mover foreach a otra clase y encontrar registro. Ver los puntos 
             foreach (Publicacion publicacion in RegistrosHistoriales.Historiales[i].Transacciones)
             {
-                Resultado.Append($"{cantidad} de {material} desde la siguente publicacion{publicacion}\n");
+                Resultado.Append($" {} de {} desde la siguente publicacion{publicacion}\n");
             } 
         } 
-        //Arreglar errores
+        // Esperar clase transaccion 
 
         
 

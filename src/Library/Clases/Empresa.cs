@@ -23,6 +23,8 @@ namespace Library
             this.nombreDeLaEmpresa = nombre;
             this.ubicacion = ubicacion;
             this.rubro = rubro;
+
+            // borrar ---> "this.listaIdEmpresarios = new List<int>();" 
         }
     }
 }
