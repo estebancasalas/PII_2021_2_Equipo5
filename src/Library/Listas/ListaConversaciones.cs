@@ -7,4 +7,5 @@ namespace Library
         //Falta clase conversacionees
         public static List<Conversacion> Conversaciones = new List<Conversacion>();
     }
+    //Falta system.collection.generic
 }

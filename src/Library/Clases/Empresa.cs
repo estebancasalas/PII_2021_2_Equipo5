@@ -12,7 +12,7 @@ namespace Library
     /// </summary>
     public class Empresa
     {
-        private List<int> listaIdEmpresarios {get;}
+        public List<int> listaIdEmpresarios {get;}
         private string nombreDeLaEmpresa {get;}
         private string ubicacion {get;}
         private string rubro {get;}

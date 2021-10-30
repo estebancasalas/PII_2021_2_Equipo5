@@ -29,6 +29,7 @@ namespace Library
                 Resultado.Append($"{cantidad} de {material} desde la siguente publicacion{publicacion}\n");
             } 
         } 
+        //Arreglar errores
 
         
 

@@ -9,4 +9,5 @@ namespace Library
         void EjecutarComando();
         
     }
+    //Borramos esta interfaz?
 }

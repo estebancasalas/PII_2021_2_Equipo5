@@ -8,4 +8,5 @@ namespace Library
         public static List<IComandos> ListComandos = new List<IComandos>(); 
 
     }
+    //Falta system.collection.generic
 }

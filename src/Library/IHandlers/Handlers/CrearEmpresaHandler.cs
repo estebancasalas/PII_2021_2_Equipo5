@@ -50,6 +50,13 @@ namespace Library
                 this.Next.Handle(mensaje);
             }
 
+            Console.WriteLine("Indique rubro: ");
+            rubro = Console.ReadLine();
+            Empresa empresa = new Empresa(this.nombreDeLaEmpresa, this.ubicacion, this.rubro);
+            ListaEmpresa.Empresas.Add(empresa);
+            mensaje.Text = Console.ReadLine();
+            this.Next.Handle(mensaje);
+
         }
     }
 }
