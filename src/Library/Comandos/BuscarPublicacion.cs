@@ -35,10 +35,12 @@ namespace Library
                 //Pide la zona y realiza la busqueda
                 else if (tipoBusqueda == "2")
                 {
-                    Console.WriteLine("Ingresar zona.");
+                    Console.WriteLine("1-Buscar por cuidad.\n2-Buscar por departamento.");
+                    string tipoZona = Console.ReadLine();
+                    Console.WriteLine("Donde desea buscar?.");
                     string zona = Console.ReadLine();
                     BusquedaZona buscador = new BusquedaZona();
-                    result = buscador.Buscar(zona);
+                    result = buscador.Buscar(tipoZona, zona);
                     opcionValida = true;
                 }
                 //Pide las palabras clave y realiza la busqueda.

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LocationApi;
 
 namespace Library
 {
@@ -8,9 +9,15 @@ namespace Library
     /// </summary>
     public class BusquedaZona
     {
-        public List<Publicacion> Buscar(string ubicacion)
+        public List<Publicacion> Buscar(string tipo ,string ubicacion)
         {
-            ????????
+            LocationApiClient client = new LocationApiClient();
+            Location location = await client.GetLocation(ubicacion);
+            if (tipo == "1")
+            {
+
+            }
+            
 
             return result;
         }
