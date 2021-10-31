@@ -40,7 +40,7 @@ namespace Library
                     Console.WriteLine("Donde desea buscar?.");
                     string zona = Console.ReadLine();
                     BusquedaZona buscador = new BusquedaZona();
-                    result = buscador.Buscar(tipoZona, zona);
+                    result = buscador.Buscar(tipoZona, zona); //Hacer clase para las busquedas por zona
                     opcionValida = true;
                 }
                 //Pide las palabras clave y realiza la busqueda.
