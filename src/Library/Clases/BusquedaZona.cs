@@ -9,16 +9,19 @@ namespace Library
     /// </summary>
     public class BusquedaZona
     {
-        public async Task<List<Publicacion>> Buscar(string tipoZona ,string ubicacion)
+        public List<Publicacion> Buscar(string tipoZona ,string ubicacion)
         {
+            /*
             LocationApiClient client = new LocationApiClient();
             Location location = await client.GetLocation(ubicacion);
+            */
             List<Publicacion> result = new List<Publicacion>();
+            
             if (tipoZona == "1")
             {
                 foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
                 {
-                    if (location.Locality == ubicacion)
+                    if (publicacion.Ubicacion.Locality == ubicacion)
                     {
                         result.Add(publicacion);
                     }
@@ -28,7 +31,7 @@ namespace Library
             {
                 foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
                 {
-                    if (location.Locality == ubicacion)
+                    if (publicacion.Ubicacion.Locality == ubicacion)
                     {
                         result.Add(publicacion);
                     }
