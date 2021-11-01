@@ -14,9 +14,9 @@ namespace Library
     {
         // public List <Transacciones> Transacciones = new List<Transacciones>();
         public List<int> listaIdEmpresarios {get;}
-        private string nombreDeLaEmpresa {get;}
-        private string ubicacion {get;}
-        private string rubro {get;}
+        public string nombreDeLaEmpresa {get;}
+        public string ubicacion {get;}
+        public string rubro {get;}
 
         public Empresa(string nombre, string ubicacion, string rubro)
         {
