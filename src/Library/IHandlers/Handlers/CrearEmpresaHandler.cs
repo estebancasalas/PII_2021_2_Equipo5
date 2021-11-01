@@ -1,31 +1,28 @@
 using System;
-using System.Text;
 using System.Collections.Generic;
 
 namespace Library
 {
-    public class CrearPublicacionHandler : AbstarctHandler
+    public class CrearEmpresaHandler : IHandler
     {
-        public override void Handle(Mensaje mensaje)
-        {
-            base.Handle(mensaje);
-            if (mensaje.Text == "/CrearPublicación")
-            {
-                CrearPublicacion publicacioncreada = new CrearPublicacion ();
-            }
-            else
-            {
-                this.Next.Handle(mensaje);
-            }
+        public IHandler Next {get; set;}
+        private string nombreDeLaEmpresa;
+        private string ubicacion;
+        private string rubro;
 
+        public void Handle(Mensaje mensaje)
+        {
+            Console.WriteLine("Indique nombre: ");
+            nombreDeLaEmpresa = Console.ReadLine();
+            Console.WriteLine("Indique ubicacion: ");
+            ubicacion = Console.ReadLine();
             Console.WriteLine("Indique rubro: ");
             rubro = Console.ReadLine();
             Empresa empresa = new Empresa(this.nombreDeLaEmpresa, this.ubicacion, this.rubro);
             ListaEmpresa.Empresas.Add(empresa);
+            empresa.listaIdEmpresarios.Add(mensaje.Id);
             mensaje.Text = Console.ReadLine();
             this.Next.Handle(mensaje);
-
-            // Cambiar nombre de la clase por crearempresahandler. Poner tipo strring a rubro.
         }
     }
 }
