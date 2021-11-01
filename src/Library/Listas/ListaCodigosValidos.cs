@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public  class listaCodigosValidos
+    public  class ListaCodigosValidos
     {
         public static List<string> CodigosValidos = new List<string> (); 
     
