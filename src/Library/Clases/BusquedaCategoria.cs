@@ -18,7 +18,9 @@ namespace Library
                 int keyWordsPos = 0;
                 while (!found && keyWordsPos < categorias.Count)
                 {
+
                     if (publicacion.Material.Categoria.Contains(categorias[keyWordsPos]))  //Categorias?? es de la publicacion o esta dentro de DatosMateriales
+
                     {
                         result.Add(publicacion);
                         keyWordsPos++ ;
