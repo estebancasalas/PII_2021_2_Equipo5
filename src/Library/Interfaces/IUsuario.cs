@@ -6,17 +6,14 @@ namespace Library
     public interface IUsuario
 
     {
-        /// <summary>
-        /// id del usuario
-        /// </summary>
-        /// <value></value>
-        string id {get; set;}
+        
         /// <summary>
         /// nombre del usuario
         /// </summary>
         /// <value></value>
         string nombre {get; set;}
-
+        string rubro {get; set;}
+        string ubicacion {get; set;}
 
     }
 }
