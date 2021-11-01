@@ -1,12 +1,15 @@
 using System;
+using LocationApi;
+using System.Threading.Tasks;
+
 
 namespace Library
 {
     public interface IUbicacion
     {
-        string ubicacion {get; set;}
         
-        void Ubicacion();
+        
+        async void GetUbicacion(string ubicacion);
         
     }
 
