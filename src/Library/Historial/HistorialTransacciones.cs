@@ -5,7 +5,8 @@ namespace Library
 {
     public class HistorialTrasacciones
     {
-        public List <Publicacion> Transacciones = new List<Publicacion>();
+
+        public List <Transacciones> Transacciones = new List<Transacciones>();
     }
     
 }
