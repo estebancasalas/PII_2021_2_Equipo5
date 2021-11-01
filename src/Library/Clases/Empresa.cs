@@ -13,17 +13,17 @@ namespace Library
     public class Empresa // : IUsuario
     {
         // public List <Transacciones> Transacciones = new List<Transacciones>();
-        public List<int> listaIdEmpresarios {get;}
-        public string nombreDeLaEmpresa {get;}
-        public string ubicacion {get;}
-        public string rubro {get;}
+        public List<int> ListaIdEmpresarios {get;}
+        public string NombreDeLaEmpresa {get;}
+        public string Ubicacion {get;}
+        public string Rubro {get;}
 
         public Empresa(string nombre, string ubicacion, string rubro)
         {
-            this.listaIdEmpresarios = new List<int>();
-            this.nombreDeLaEmpresa = nombre;
-            this.ubicacion = ubicacion;
-            this.rubro = rubro;
+            this.ListaIdEmpresarios = new List<int>();
+            this.NombreDeLaEmpresa = nombre;
+            this.Ubicacion = ubicacion;
+            this.Rubro = rubro;
 
             // borrar ---> "this.listaIdEmpresarios = new List<int>();" 
 
