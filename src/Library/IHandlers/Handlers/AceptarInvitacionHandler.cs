@@ -11,7 +11,7 @@ namespace Library
         {
             Console.Write ("Asi que usted pertenece a una empresa, porfavor escriba el codigo que le otorgaron: ");
             this.codigo = Console.ReadLine();
-            if (listaCodigosValidos.CodigosValidos.Contains(codigo))
+            if (ListaCodigosValidos.CodigosValidos.Contains(codigo))
             {
                 this.Next.Handle(mensaje);
             }
