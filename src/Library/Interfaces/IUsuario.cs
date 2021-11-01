@@ -15,5 +15,13 @@ namespace Library
         string rubro {get; set;}
         string ubicacion {get; set;}
 
+        
+        /*
+        public List <Transaccion> Transacciones = new List<Transaccion>();
+
+
+        
+        */
     }
+
 }

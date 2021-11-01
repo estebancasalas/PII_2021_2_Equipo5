@@ -10,8 +10,9 @@ namespace Library
     /// -ubicacion (private string)
     /// -rubro (private string)
     /// </summary>
-    public class Empresa
+    public class Empresa // : IUsuario
     {
+        // public List <Transacciones> Transacciones = new List<Transacciones>();
         public List<int> listaIdEmpresarios {get;}
         private string nombreDeLaEmpresa {get;}
         private string ubicacion {get;}
@@ -25,6 +26,8 @@ namespace Library
             this.rubro = rubro;
 
             // borrar ---> "this.listaIdEmpresarios = new List<int>();" 
+
+
         }
     }
 }

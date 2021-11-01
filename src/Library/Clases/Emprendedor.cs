@@ -11,7 +11,7 @@ namespace Library
     /// -habilitaciones (private string)
     /// -especializaciones (private string)
     /// </summary>
-    public class Emprendedor
+    public class Emprendedor // : IUsuario
     {
         /// <summary>
         /// id del Emprendedor.
@@ -27,6 +27,8 @@ namespace Library
         private string rubro {get;}
         private string habilitaciones{get;}
         private string  especializaciones {get;}
+
+        // public List <Transacciones> Transacciones = new List<Transacciones>();
 
         public Emprendedor(string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
         {
