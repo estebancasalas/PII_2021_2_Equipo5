@@ -10,7 +10,8 @@ namespace Library
                    
             if (mensaje.Text == "/historial")
             {
-                Output.PrintLine($"Tu historial es {}."); //Arreglar error.
+                // VerHistorial historial = new VerHistorial();
+                Output.PrintLine($"Tu historial es {historial}."); //Arreglar error.
             }
             else
             {

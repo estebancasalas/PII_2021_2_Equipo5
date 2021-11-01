@@ -16,8 +16,7 @@ namespace Library
         string nombre {get; set;}
         string rubro {get; set;}
         string ubicacion {get; set;}
-
         List <Transaccion> historial {get; set;}
-
     }
+
 }

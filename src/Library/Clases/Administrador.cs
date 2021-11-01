@@ -9,6 +9,7 @@ namespace Library
         public string nombre {get; set;}
 
         // Crear método para crear invitaciones. Que sea de tipo string y se agregue a la clase listaDeCodigos. 
+        // Administrador implementa IUsuario?
 
     }
 

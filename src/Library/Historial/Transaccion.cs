@@ -9,6 +9,8 @@ namespace Library
         private string nombreDelMaterial;
         private double cantidad; 
         private Emprendedor comprador; 
+
+        
      
     }
 }
