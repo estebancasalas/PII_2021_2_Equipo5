@@ -44,5 +44,6 @@ namespace Library
             /// </summary>
             /// <value></value>
             private string habilitaciones {get;}
+            private string categoria {get;}
         }
 }
