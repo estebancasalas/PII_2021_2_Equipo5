@@ -6,5 +6,3 @@ build_property.ProjectTypeGuids =
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
-build_property.RootNamespace = Library2
-build_property.ProjectDir = c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\
