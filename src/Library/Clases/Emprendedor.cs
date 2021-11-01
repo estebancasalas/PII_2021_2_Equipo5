@@ -18,25 +18,25 @@ namespace Library
         /// </summary>
         /// <value></value>
         public string id {get; set;}
-        private string nombre {get;}
+        public string Nombre {get;}
         /// <summary>
         /// ubicación del emprendedor
         /// </summary>
         /// <value></value>
-        public string ubicacion {get; set;}
-        private string rubro {get;}
-        private string habilitaciones{get;}
-        private string  especializaciones {get;}
+        public string Ubicacion {get; set;}
+        public string Rubro {get;}
+        public string Habilitaciones{get;}
+        public string Especializaciones {get;}
 
         // public List <Transacciones> Transacciones = new List<Transacciones>();
 
         public Emprendedor(string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
         {
-            this.nombre = nombre;
-            this.ubicacion = ubicacion;
-            this.rubro = rubro;
-            this.habilitaciones = habilitaciones;
-            this.especializaciones = especializaciones;
+            this.Nombre = nombre;
+            this.Ubicacion = ubicacion;
+            this.Rubro = rubro;
+            this.Habilitaciones = habilitaciones;
+            this.Especializaciones = especializaciones;
         }
      }
 }
