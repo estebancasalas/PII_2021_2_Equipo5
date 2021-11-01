@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class Transacciones
+    public class Transaccion
     {
         private Empresa vendedor; 
         private string nombreDelMaterial;
