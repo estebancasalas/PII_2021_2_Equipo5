@@ -13,7 +13,7 @@ namespace Library
             {
                 i = i + 1;
             }
-            return ListaEmpresa.Empresas[i].listaIdEmpresarios.Count;
+            Console.WriteLine($"La cantidad de trabajadores de la empresa es: {ListaEmpresa.Empresas[i].listaIdEmpresarios.Count}");
             mensaje.Text = Console.ReadLine();
             this.Next.Handle(mensaje);
         }
