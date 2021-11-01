@@ -10,8 +10,11 @@ namespace Library
                    
             if (mensaje.Text == "/historial")
             {
-                // VerHistorial historial = new VerHistorial();
-                Output.PrintLine($"Tu historial es {historial}."); //Arreglar error.
+                Console.WriteLine("¿Cuál es tu nombre?");
+                string nombre = Console.ReadLine();
+                VerHistorial historial = new VerHistorial();
+                nombre = historial.EjecutarComando(nombre);
+                Console.WriteLine(nombre);
             }
             else
             {
@@ -19,4 +22,4 @@ namespace Library
             }
         }
     }
-}  //Llama a VerHistorial.
+}  
