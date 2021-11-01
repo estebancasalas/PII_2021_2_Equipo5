@@ -18,43 +18,43 @@ namespace Library
             /// Nombre del material
             /// </summary>
             /// <value></value>
-            public string nombre {get;}
+            public string Nombre {get;}
             /// <summary>
             /// Costo del material
             /// </summary>
             /// <value></value>
-            public double costo {get;}
+            public double Costo {get;}
             /// <summary>
             /// Cantidad de material
             /// </summary>
             /// <value></value>
-            public double cantidad {get;}
+            public double Cantidad {get;}
             /// <summary>
             /// ubicación del material
             /// </summary>
             /// <value></value>
-            public string ubicacion {get;}
+            public string Ubicacion {get;}
             /// <summary>
             /// Unidad (Kg, L, etc) del material
             /// </summary>
             /// <value></value>
-            public string unidad {get;}
+            public string Unidad {get;}
             /// <summary>
             /// Habilitaciónes del material
             /// </summary>
             /// <value></value>
-            public string habilitaciones {get;}
-            public string categoria {get;}
+            public string Habilitaciones {get;}
+            public string Categoria {get;}
 
-            public Material(string nombre, double costo, double cantiadad, string ubicacion, string unidad, string habilitaciones, string categoria)
+            public Material(string Nombre, double Costo, double Cantiadad, string Ubicacion, string Unidad, string Habilitaciones, string Categoria)
         {
-            this.nombre = nombre;
-            this.costo = costo;
-            this.cantidad = cantidad;
-            this.ubicacion = ubicacion;
-            this.unidad = unidad;
-            this.habilitaciones = habilitaciones;
-            this.categoria = categoria;
+            this.Nombre = Nombre;
+            this.Costo = Costo;
+            this.Cantidad = Cantidad;
+            this.Ubicacion = Ubicacion;
+            this.Unidad = Unidad;
+            this.Habilitaciones = Habilitaciones;
+            this.Categoria = Categoria;
         }
         }
 }
