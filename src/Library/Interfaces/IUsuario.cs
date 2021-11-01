@@ -14,7 +14,7 @@ namespace Library
         /// </summary>
         /// <value></value>
         string nombre {get; set;}
-        string rubro {get; set;}
+        string rubro {get; set;} 
         string ubicacion {get; set;}
         List <Transaccion> historial {get; set;}
     }
