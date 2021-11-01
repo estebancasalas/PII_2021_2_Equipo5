@@ -8,7 +8,7 @@ namespace Library
         
         public VerificarInvitacion(string invitacion)
         {
-             if (ListaInvitaciones.ListInvitaciones.Contains(invitacion))
+             if (ListaInvitaciones.Invitaciones.Contains(invitacion))
             {
                 valido = true;
             }

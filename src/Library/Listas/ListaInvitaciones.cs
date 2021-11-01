@@ -5,7 +5,7 @@ namespace Library
 {
     public class ListaInvitaciones
     {
-        public static List <string> ListInvitaciones = new List<string> (); 
+        public static List <string> Invitaciones = new List<string> (); 
 
     }
 }
