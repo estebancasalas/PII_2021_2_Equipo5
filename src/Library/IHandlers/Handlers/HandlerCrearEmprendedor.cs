@@ -11,7 +11,7 @@ namespace Library
             Console.WriteLine("Cual es su rubro?");
             string rubro = Console.ReadLine();
             Console.WriteLine("Cual es la direccion de su domicilio?");
-            string ubicacion = Console.ReadLine() //Hay que hacer clase para conseguir la ubicacion.
+            string ubicacion = Console.ReadLine(); //Hay que hacer clase para conseguir la ubicacion.
             Console.WriteLine("Posee alguna habilitacion?");
             string habilitacion = Console.ReadLine();
             Console.WriteLine("En que se especializa?");
