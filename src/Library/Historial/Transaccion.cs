@@ -5,12 +5,9 @@ namespace Library
 {
     public class Transaccion
     {
-        private Empresa vendedor; 
-        private string nombreDelMaterial;
-        private double cantidad; 
-        private Emprendedor comprador; 
-
-        
-     
+        public Empresa Vendedor; 
+        public string NombreDelMaterial;
+        public double Cantidad; 
+        public Emprendedor Comprador; 
     }
 }
