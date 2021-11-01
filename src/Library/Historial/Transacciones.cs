@@ -8,7 +8,7 @@ namespace Library
         private Empresa vendedor; 
         private string nombreDelMaterial;
         private double cantidad; 
-        private Emprendedor coprador; 
+        private Emprendedor comprador; 
      
     }
 }
