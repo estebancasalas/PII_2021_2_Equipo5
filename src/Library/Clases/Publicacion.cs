@@ -1,4 +1,4 @@
-
+using LocationApi;
 using System;
 
 namespace Library
@@ -14,9 +14,9 @@ namespace Library
             set{ this.PalabrasClave = value; }
         }
         private string FrecuenciaDeDisponibilidad {get; set;}
-        private string Ubicacion {get; set;}
+        public Location Ubicacion {get; set;}
 
-        public Publicacion(string titulo, Material material, string PalabrasClave, string FrecuenciaDeDisponibilidad, string ubicacion)
+        public Publicacion(string titulo, Material material, string PalabrasClave, string FrecuenciaDeDisponibilidad, Location ubicacion)
         {
             this.titulo = titulo;
             this.Material = material;
