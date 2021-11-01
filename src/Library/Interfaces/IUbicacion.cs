@@ -9,7 +9,7 @@ namespace Library
     {
         
         
-        async void GetUbicacion(string ubicacion);
+        Task <Location> GetUbicacion(string ubicacion);
         
     }
 
