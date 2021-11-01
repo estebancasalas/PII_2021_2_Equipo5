@@ -17,9 +17,9 @@ namespace Library
             }
         }*/
 
-        public override void Handle(Mensaje mensaje)
+        public void Handle(Mensaje mensaje)
         {
-            Console.WriteLine("Cual es su nombre?");
+            Console.WriteLine("Cual es el nombre del material?");
             string nombre = Console.ReadLine();
             Console.WriteLine("Cual es su costo?");
             double costo = Convert.ToDouble(Console.ReadLine());
@@ -31,11 +31,11 @@ namespace Library
             string unidad = Console.ReadLine();
             Console.WriteLine("Posee alguna habilitación?");
             string habilitaciones = Console.ReadLine();
+
             Console.WriteLine("Cuál es la categoría?");
             string categoria = Console.ReadLine();
 
             Material material = new Material(nombre, costo, cantidad, ubicacion, unidad, habilitaciones, categoria);
-
         }
     }
 }
