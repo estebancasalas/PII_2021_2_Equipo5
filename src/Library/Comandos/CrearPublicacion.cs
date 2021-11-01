@@ -11,7 +11,7 @@ namespace Library
             set => Nombre = "/CrearPublicacion";
         }
         public string titulo;
-        public DatosDeMateriales datosDeMateriales;
+        public Material DatosDeMateriales;
         public string PalabrasClave;
         public string FrecuenciaDeDisponibilidad;
         public string Ubicacion;
@@ -21,7 +21,7 @@ namespace Library
             Console.WriteLine("Ingrese título: ");
             string titulo = Console.ReadLine();
             Console.WriteLine("Ingrese los datos de su material: ");
-            string DatosDeMateriales = Console.ReadLine();
+            string datosDeMateriales = Console.ReadLine();
             Console.WriteLine("Ingrese palabras clave: ");
             string PalabrasClave = Console.ReadLine();
             Console.WriteLine("Ingrese la frecuencia de disponibilidad: ");
@@ -29,7 +29,7 @@ namespace Library
             Console.WriteLine("Ingrese la ubicación: ");
             string Ubicacion = Console.ReadLine();
             
-            Publicacion publicacion = new Publicacion(titulo, datosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad, Ubicacion);
+            Publicacion publicacion = new Publicacion(titulo, DatosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad, Ubicacion);
         }
     }
 }
