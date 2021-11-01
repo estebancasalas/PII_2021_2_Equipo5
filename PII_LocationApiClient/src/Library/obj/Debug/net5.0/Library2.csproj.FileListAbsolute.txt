@@ -1,0 +1,12 @@
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\bin\Debug\net5.0\Library2.deps.json
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\bin\Debug\net5.0\Library2.dll
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\bin\Debug\net5.0\ref\Library2.dll
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\bin\Debug\net5.0\Library2.pdb
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\obj\Debug\net5.0\Library2.csproj.AssemblyReference.cache
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\obj\Debug\net5.0\Library2.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\obj\Debug\net5.0\Library2.AssemblyInfoInputs.cache
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\obj\Debug\net5.0\Library2.AssemblyInfo.cs
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\obj\Debug\net5.0\Library2.csproj.CoreCompileInputs.cache
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\obj\Debug\net5.0\Library2.dll
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\obj\Debug\net5.0\ref\Library2.dll
+c:\Users\ecasa\OneDrive - Universidad Católica del Uruguay\P2\Proyecto\Proyecto_Equipo_5\PII_LocationApiClient\src\Library\obj\Debug\net5.0\Library2.pdb

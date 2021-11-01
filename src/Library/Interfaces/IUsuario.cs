@@ -1,4 +1,4 @@
-namespace ConsoleApplication
+namespace Library
 {
     ///<summary>
     /// Interfaz con los datos de usuario

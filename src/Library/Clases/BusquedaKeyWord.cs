@@ -13,7 +13,7 @@ namespace Library
         {
             List<Publicacion> result = new List<Publicacion>();
 
-            foreach (Publicacion publicacion in RegistroPublicaciones) //Donde estan gaurdadas las publicaciones?
+            foreach (Publicacion publicacion in RegistroPublicaciones.Activas) //Donde estan gaurdadas las publicaciones?
             {
                 bool found = false;
                 int keyWordsPos = 0;
@@ -30,5 +30,6 @@ namespace Library
 
             return result;
         }
+        //Arreglar errores.
     }
 }

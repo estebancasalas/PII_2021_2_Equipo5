@@ -7,7 +7,12 @@ namespace Library
     {
         private string titulo {get; set;}
         private DatosDeMateriales material {get; set;}
-        private string PalabrasClave {get; set;}
+        private string palabrasClave;
+        public string PalabrasClave
+        {
+            get{ return this.palabrasClave; }
+            set{ this.PalabrasClave = value; }
+        }
         private string FrecuenciaDeDisponibilidad {get; set;}
         private string Ubicacion {get; set;}
 
@@ -19,6 +24,7 @@ namespace Library
             this.FrecuenciaDeDisponibilidad = FrecuenciaDeDisponibilidad;
             this.Ubicacion = ubicacion;
         }
+        //Falta categoria.
     }
 }
 

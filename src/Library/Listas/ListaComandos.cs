@@ -1,10 +1,12 @@
-using System;
+using System.Collections.Generic;
 
 namespace Library
 {
     public class ListaComandos
     {
-        static List <Icomandos> ListComandos = new List<Icomandos> (); 
+        //Esto? no va a existir mas no?
+        public static List<IComandos> ListComandos = new List<IComandos>(); 
 
     }
+    //Falta system.collection.generic
 }

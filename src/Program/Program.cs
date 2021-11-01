@@ -6,7 +6,7 @@
 
 using System;
 
-namespace ConsoleApplication
+namespace Library
 {
     /// <summary>
     /// Programa de consola de demostración.
