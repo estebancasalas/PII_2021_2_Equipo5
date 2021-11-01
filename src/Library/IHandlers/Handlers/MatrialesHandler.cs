@@ -3,7 +3,8 @@ using System.Text;
 
 namespace Library
 {
-    public class MaterialesHandler  :IHandler
+    public class MaterialesHandler : AbstractHandler
+
     {
         public IHandler Next {get; set;}
         /*public void Handle(Mensaje mensaje)
@@ -21,20 +22,20 @@ namespace Library
             Console.WriteLine("Cual es el nombre del material?");
             string nombre = Console.ReadLine();
             Console.WriteLine("Cual es su costo?");
-            string costo = Console.ReadLine();
+            double costo = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Cual es la cantidad?");
-            string cantidad = Console.ReadLine(); 
+            double cantidad = Convert.ToDouble(Console.ReadLine()); 
             Console.WriteLine("Cual es la ubicación");
             string ubicacion = Console.ReadLine(); //Hay que hacer clase para conseguir la ubicacion.
             Console.WriteLine("Cuantas unidades?");
             string unidad = Console.ReadLine();
             Console.WriteLine("Posee alguna habilitación?");
             string habilitaciones = Console.ReadLine();
-            Console.WriteLine("A que categoria pertenece?");
+
+            Console.WriteLine("Cuál es la categoría?");
             string categoria = Console.ReadLine();
 
-            Material material = new Material(nombre, Convert.ToDouble(costo), Convert.ToDouble(cantidad), ubicacion, unidad, habilitaciones, categoria);
-
+            Material material = new Material(nombre, costo, cantidad, ubicacion, unidad, habilitaciones, categoria);
         }
     }
 }
