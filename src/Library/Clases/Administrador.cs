@@ -12,7 +12,7 @@ namespace Library
         /// Guarda el id de el administrador al registrarse 
         /// </summary>
         /// <value></value>
-        public string Id {get; set;}
+        public int Id {get; set;}
         /// <summary>
         /// Guarda el nombre que pone el administrador al registrarse 
         /// </summary>
@@ -23,7 +23,7 @@ namespace Library
         /// </summary>
         /// <param name="Id"></param>
         /// <param name="Nombre"></param>
-        public Administrador(string Id, string Nombre)
+        public Administrador(int Id, string Nombre)
         {
             this.Id = Id;
             this.Nombre = Nombre;

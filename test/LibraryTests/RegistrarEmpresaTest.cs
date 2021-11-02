@@ -15,12 +15,15 @@ namespace LibraryTests
     public class RegistrarEmpresaTests
     {
         Mensaje mensaje;
-        Administrador admin;
+        Administrador admin = new Administrador(456, "Esteban");
+        CrearEmpresaHandler handler = new CrearEmpresaHandler();
        
         [SetUp]
         public void Setup()
         {
             mensaje.Text = "/CrearUsuario";
+            mensaje.Id = 1234;
+            admin.CrearInvitacion("Empresa1", "Montevideo", "textil", "9876");
 
         }
 
