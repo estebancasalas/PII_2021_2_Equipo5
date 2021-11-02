@@ -6,17 +6,22 @@
 
 
 using NUnit.Framework;
+using Library;
 
-namespace Tests
+namespace LibraryTests
 {
 
     [TestFixture]
-    public class TrainTests
+    public class RegistrarEmpresaTests
     {
+        Mensaje mensaje;
+        Administrador admin;
        
         [SetUp]
         public void Setup()
         {
+            mensaje.Text = "/CrearUsuario";
+
         }
 
 

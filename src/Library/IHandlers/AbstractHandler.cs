@@ -3,6 +3,7 @@ namespace Library
     public class AbstarctHandler : IHandler
     {
         public IHandler Next {get; set;}
+        public IFormatoDeEntrada Input = Singleton
         public IFormatoSalida Output = Singleton<Traductor>.Instance;
 
         public virtual void Handle(Mensaje mensaje)
