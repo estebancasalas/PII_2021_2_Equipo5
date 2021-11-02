@@ -7,7 +7,7 @@ namespace Library
     /// <summary>
     /// Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en categoría.
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por categoría.
-    /// Esta clase colabora con BuscarPublicacionHandler.
+    /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
     /// </summary>
     public class BusquedaCategoria
     {

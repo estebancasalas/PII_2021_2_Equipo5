@@ -7,10 +7,18 @@ namespace Library
     /// Clase que modela el rol de administrador.
     /// Es el encargado de generar las invitaciones para las empresas.
     /// </summary>
-    class Administrador
+    public class Administrador
     { 
-        public string id {get; set;}
-        public string nombre {get; set;}
+        /// <summary>
+        /// Guarda el id de el administrador al registrarse 
+        /// </summary>
+        /// <value></value>
+        public string Id {get; set;}
+        /// <summary>
+        /// Guarda el nombre que pone el administrador al registrarse 
+        /// </summary>
+        /// <value></value>
+        public string Nombre {get; set;}
         /// <summary>
         /// Método que crea el objeto empresa y su token de invitación.
         /// </summary>
