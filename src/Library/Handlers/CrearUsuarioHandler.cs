@@ -18,11 +18,10 @@ namespace Library
             
             if (mensaje.Text == "/CrearUsuario")
             {
-                //Crear clase que verifica si el usuario ya esta registrado
-                Output.PrintLine("Qué tipo de usuario desea crear? Una empresa o un emprendedor?");
-                mensaje.Text = GetInput; //Falta agregar esto
-                if (nosestaregistrado)
+                VerificadorUsuario verificador = new VerificadorUsuario();
+                if (!verificador.EstaRegistrado(mensaje.Id))
                 {
+                    mensaje.Text = Input.GetInput("Qué tipo de usuario desea crear? Ingrese /empresa o /emprendedor");
                     this.Next.Handle(mensaje); //Este deberia ser el handler de crear empresa o emprendedor
                 }
             }
