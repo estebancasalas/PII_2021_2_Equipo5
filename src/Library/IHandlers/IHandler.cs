@@ -3,7 +3,7 @@ using System;
 namespace Library
 {
     /// <summary>
-    /// Interfaz para la creación de los handlers
+    /// Interfaz para la creación de los handlers.
     /// </summary>
     public interface IHandler
     {

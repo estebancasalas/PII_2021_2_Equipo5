@@ -1,7 +1,7 @@
 namespace Library 
 {
     /// <summary>
-    /// Una clase que implementa un metodo para recorrer los distintos handler existentes en busca de un comando.
+    /// Una clase que implementa un metodo para recorrer los distintos handler existentes en busca de un comando escrito por el usuario.
     /// </summary>
     public class AbstractHandler : IHandler
     {
@@ -21,7 +21,7 @@ namespace Library
         /// <summary>
         /// El metodo se fija si no hay ningun comando apuntando al handler. si no hay se pasa al siguiente.
         /// </summary>
-        /// <param name="mensaje"></param>
+        /// <param name="mensaje"></param>El emensaje escrito por el usuario.
 
         public virtual void Handle(Mensaje mensaje)
         {
