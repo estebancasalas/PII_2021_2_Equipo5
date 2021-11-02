@@ -38,7 +38,7 @@ namespace Library
                
         public void CrearInvitacion(string nombre, string ubicacion, string rubro, string token)
         {
-            Empresa empresa = new Empresa(nombre, ubicacion, rubro);
+            Empresa empresa = new Empresa(nombre, ubicacion, rubro, token);
             ListaInvitaciones.Invitaciones.Add(token);
         } 
     }
