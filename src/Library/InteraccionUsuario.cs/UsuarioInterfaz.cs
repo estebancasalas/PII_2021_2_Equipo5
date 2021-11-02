@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
+    //borrar clase?
     public class UsuarioInterfaz
     {
         public IEntaradaDeLaCadena StringInput = Singleton<LeerConsola>.Instance;
