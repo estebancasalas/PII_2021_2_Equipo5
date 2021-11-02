@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class CrearPublicacionHandler : AbstarctHandler
+    public class CrearPublicacionHandler : AbstractHandler
     {
         public override void Handle(Mensaje mensaje)
         {

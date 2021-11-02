@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Library
 {
-    public class HabilitacionesHandler : AbstarctHandler
+    public class HabilitacionesHandler : AbstractHandler
     {
         public override void Handle (Mensaje mensaje)
         {

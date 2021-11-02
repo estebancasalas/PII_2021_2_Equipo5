@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Library
 {
-    public class FinalizarHandler : AbstarctHandler
+    public class FinalizarHandler : AbstractHandler
     {
         public override void Handle (Mensaje mensaje)
         {

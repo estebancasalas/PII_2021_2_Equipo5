@@ -4,7 +4,10 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class BuscarPublicacionHandler : AbstarctHandler
+    /// <summary>
+    /// Este handler te dirrecciona a la clase BuscarPublicación, implemnta AbstractHandler 
+    /// </summary>
+    public class BuscarPublicacionHandler : AbstractHandler
     {
         public override void Handle(Mensaje mensaje)
         {
