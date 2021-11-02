@@ -4,13 +4,25 @@ using System.Collections.Generic;
 namespace Library
 {
     /// <summary>
-    /// Pregunta por el tipo de busqueda, pide a la clase correspondiente que la realice y devuelve una lista con las coincidencias.
-    /// Ademas, se debera preguntar por los parametros necesarios para la busqueda.
-    /// En caso de una busqueda por mas de un tipo, se realizan todas las busquedas y de devuelve las coincidencias comunes a todas las busquedas.
+    /// Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
+    /// devuelve una lista con las coincidencias.
+    /// Además, se deberá preguntar por los parámetros necesarios para la búsqueda.
+    /// En caso de una búsqueda por más de un tipo, se realizan todas las búsquedas y 
+    /// devuelve las coincidencias comunes a todas las búsquedas.
+    /// Esta clase además cumple con el principio SRP, ya que tiene como responsabilidad
+    /// devolver una lista de publicaciones que cumplen con lo buscado, pero delega
+    /// la responsabilidad de buscar a otras clases. 
     /// </summary>
-    public class BuscarPublicacion //: IComandos
+    public class BuscarPublicacion
     {
-        public string nombre { get; set;}
+        /// <summary>
+        /// EjecutarComando se encarga de buscar una publicación por categoría, zona y 
+        /// palabras claves. Luego las delega a cada una de las clases que se encargan de 
+        /// búsqueda. 
+        /// Finalmente, devuelve una lista con todas la publiaciones encontradas, de la búsqueda
+        /// que se realizó. 
+        /// </summary>
+        /// <returns></returns>
         public List<Publicacion> EjecutarComando()
         {
             List<Publicacion> result = new List<Publicacion>();
@@ -22,7 +34,7 @@ namespace Library
                 //Pide las categorias y realiza la busqueda
                 if (mensaje == "1")
                 {   
-                    string flag = ""; //Puede inicializarse una unica vez fuera de los if?
+                    string flag = ""; 
                     List<string> categorias = new List<string>();
                     while (flag != "0")
                     {
@@ -40,13 +52,13 @@ namespace Library
                     Console.WriteLine("Donde desea buscar?.");
                     string zona = Console.ReadLine();
                     BusquedaZona buscador = new BusquedaZona();
-                    result = buscador.Buscar(tipoZona, zona); //Hacer clase para las busquedas por zona
+                    result = buscador.Buscar(tipoZona, zona); 
                     opcionValida = true;
                 }
                 //Pide las palabras clave y realiza la busqueda.
                 else if (mensaje == "3")
                 {
-                    string flag = ""; //Puede inicializarse una unica vez fuera de los if?
+                    string flag = ""; 
                     List<string> palabras = new List<string>();
                     while (flag != "0")
                     {

@@ -3,7 +3,9 @@ using System;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela un usario del tipo emprendedor. Implementa la interfaz IUsuario.
+    /// Clase que modela un usario del tipo emprendedor. 
+    /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
+    /// surjan nuevos tipos de usuario.
     /// </summary>
     public class Emprendedor : IUsuario
     {
