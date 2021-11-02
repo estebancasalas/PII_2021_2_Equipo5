@@ -3,6 +3,9 @@ using System.Text;
 
 namespace Library
 {
+    /// <summary>
+    /// Handler para la ubicación.
+    /// </summary>
     public class UbicacionHandler :IHandler
     {
         public IHandler Next {get; set;}

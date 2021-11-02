@@ -3,6 +3,9 @@ using System.Text;
 
 namespace Library
 {
+    /// <summary>
+    /// Handler para los materiales
+    /// </summary>
     public class MaterialesHandler : AbstractHandler
 
     {

@@ -3,6 +3,9 @@ using System.Text;
 
 namespace Library
 {
+    /// <summary>
+    /// Handler para las palabras clave
+    /// </summary>
     public class PalabrasClavesHandler :IHandler
     {
         public IHandler Next {get; set;}
