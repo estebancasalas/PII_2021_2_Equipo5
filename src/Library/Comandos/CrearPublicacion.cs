@@ -1,6 +1,7 @@
 using System;
 using LocationApi;
 
+
 namespace Library
 {
     /// <summary>
@@ -20,21 +21,11 @@ namespace Library
         /// con el principio SRP.
         /// </summary>
         /// <returns></returns>
-        public async void EjecutarComando()
-        {
-            Console.WriteLine("Ingrese título: ");
-            string titulo = Console.ReadLine();
-            Console.WriteLine("Ingrese palabras clave: ");
-            string PalabrasClave = Console.ReadLine();
-            Console.WriteLine("Ingrese la frecuencia de disponibilidad: ");
-            string FrecuenciaDeDisponibilidad = Console.ReadLine();
-            Console.WriteLine("Ingrese la ubicación: ");
-            IUbicacion ubicacion = new Ubicacion();
-            Location Localizacion = await ubicacion.GetUbicacion(Console.ReadLine());
-            //Llamar al material handler para que ingrese los datos del material del que desea 
-            //crear la publicación  
-            
-            Publicacion publicacion = new Publicacion(titulo, DatosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad, Localizacion);
+        public async void EjecutarComando(Material material, string titulo, string PalabrasClave, string frecuencia, string ubicacion)
+        { 
+            IUbicacion localizador = new Ubicacion();
+            Location Localizacion = await localizador.GetUbicacion(ubicacion);
+            Publicacion publicacion = new Publicacion(titulo, DatosDeMateriales, PalabrasClave, frecuencia, Localizacion);
         }
     }
 }
