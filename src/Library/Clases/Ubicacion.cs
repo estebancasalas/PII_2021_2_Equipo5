@@ -10,7 +10,6 @@ namespace Library
         {
             LocationApiClient client = new LocationApiClient();
             Location location = await client.GetLocation(ubicacion);
-            //string coordenadas = $"Latitud: {location.Latitude}, Longitud: {location.Longitude}";
 
             return location;
             

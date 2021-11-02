@@ -13,10 +13,9 @@ namespace Library
         /// nombre del usuario
         /// </summary>
         /// <value></value>
-        string nombre {get; set;}
-        string rubro {get; set;} 
-        string ubicacion {get; set;}
-        List <Transaccion> historial {get; set;}
+        string Nombre {get; set;}
+        string Rubro {get; set;} 
+        string Ubicacion {get; set;}
     }
 
 }

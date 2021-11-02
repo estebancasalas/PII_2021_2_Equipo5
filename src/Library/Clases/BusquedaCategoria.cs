@@ -3,11 +3,19 @@ using System.Collections.Generic;
 
 namespace Library
 {
+
     /// <summary>
-    /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
+    /// Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en categoría.
+    /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por categoría.
+    /// Esta clase colabora con BuscarPublicacionHandler.
     /// </summary>
     public class BusquedaCategoria
     {
+        /// <summary>
+        /// Toma como parámetro una lista de categorías y recorre la lista de publicaciones buscando coincidencias.
+        /// </summary>
+        /// <param name="categorias"></param>Lista de categorías, son pedidas por el handler al usuario.
+        /// <returns></returns>
         public List<Publicacion> Buscar(List<string> categorias)
         {
             List<Publicacion> result = new List<Publicacion>();
