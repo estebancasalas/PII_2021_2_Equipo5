@@ -21,7 +21,7 @@ namespace Library
             
             foreach (Transaccion transaccion in HistorialTransacciones.Transacciones)
             {
-                if (transaccion.Vendedor.NombreDeLaEmpresa == nombre || transaccion.Comprador.Nombre == nombre) 
+                if (transaccion.Vendedor.Nombre == nombre || transaccion.Comprador.Nombre == nombre) 
                 {
                     Resultado.Append($" {transaccion.Vendedor} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador}\n");
                 }
