@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Library
 {
-    public class FrecuenciaDeDisponibilidadHandler : AbstarctHandler
+    public class FrecuenciaDeDisponibilidadHandler : AbstractHandler
     {
         public override void Handle (Mensaje mensaje)
         {

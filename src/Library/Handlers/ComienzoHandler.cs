@@ -3,7 +3,10 @@ using System.Text;
 
 namespace Library
 {
-    public class ComienzoHandler : AbstarctHandler
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ComienzoHandler : AbstractHandler
     {
         public override void Handle (Mensaje mensaje)
         {

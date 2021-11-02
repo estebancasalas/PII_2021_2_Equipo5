@@ -2,7 +2,7 @@ using System;
 
 namespace Library
 {
-    public class CrearEmprendedorHandler : AbstarctHandler
+    public class CrearEmprendedorHandler : AbstractHandler
     {
         public override void Handle(Mensaje mensaje)
         {

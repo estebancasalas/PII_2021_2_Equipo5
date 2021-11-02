@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Library
 {
-    public class HistorialHandler : AbstarctHandler
+    public class HistorialHandler : AbstractHandler
     {
         public override void Handle (Mensaje mensaje)
         {

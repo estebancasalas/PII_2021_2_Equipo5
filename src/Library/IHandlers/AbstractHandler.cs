@@ -1,6 +1,6 @@
 namespace Library 
 {
-    public class AbstarctHandler : IHandler
+    public class AbstractHandler : IHandler
     {
         public IHandler Next {get; set;}
         public IEntaradaDeLaCadena Input = Singleton<LeerConsola>.Instance;

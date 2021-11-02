@@ -3,11 +3,11 @@ using System.Text;
 
 namespace Library
 {
-    public class CrearUsuarioHandler : AbstarctHandler
+    public class CrearUsuarioHandler : AbstractHandler
     {
         public IHandler Next2; //Esto agregue yo.
 
-        public CrearUsuarioHandler(AbstarctHandler next, IHandler next2) //Esto agregue yo
+        public CrearUsuarioHandler(AbstractHandler next, IHandler next2) //Esto agregue yo
         {
             this.Next = next;
             this.Next2 = next2;
