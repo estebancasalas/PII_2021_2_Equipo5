@@ -7,6 +7,7 @@ namespace Library
     /// Handler para invitar a una empresa a registrarse. Implementa IHandler porque la interacción no es
     /// con el usuario, sino que es entre Handlers. (no debe implementar AbstractHandler?)
     /// </summary>
+
     public class InvitarHandler :IHandler
     {
         /// <summary>
@@ -24,7 +25,7 @@ namespace Library
             /*if (mensaje.Text.Contains("/"))
             {}
             else
-            {
+            {4
                 this.Next.Handle(mensaje);
             }*/
 
