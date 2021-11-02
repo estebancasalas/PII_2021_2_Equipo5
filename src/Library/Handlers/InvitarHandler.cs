@@ -14,7 +14,7 @@ namespace Library
             /*if (mensaje.Text.Contains("/"))
             {}
             else
-            {
+            {4
                 this.Next.Handle(mensaje);
             }*/
 
