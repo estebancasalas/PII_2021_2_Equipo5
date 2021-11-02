@@ -11,11 +11,16 @@ namespace Library
     public class Empresa : IUsuario
     {
         /// <summary>
+        /// Guarda la invitación de la empresa.
+        /// </summary>
+        /// <value></value>
+        public string Invitacion {get; set;}
+        /// <summary>
         /// La listaIdEmpresarios se encarga de registrar todos los usuarios que 
         /// puede tener una misma empresa.
         /// </summary>
         /// <value></value>
-        public List<int> ListaIdEmpresarios {get; set;}
+        public List<int> ListaIdEmpresarios = new List<int>();
         /// <summary>
         /// Guarda el nombre de la empresa.
         /// </summary>
@@ -32,17 +37,19 @@ namespace Library
         /// <value></value>
         public string Rubro {get;set;}
         /// <summary>
-        /// Es el constructor que se encarga de crear a la empresa en su totalidad
+        /// Es el constructor que se encarga de crear a la empresa en su totalidad.
         /// </summary>
-        /// <param name="nombre"></param>Se encarga de guardar el nombre de la empresa dentro del objeto empresa
-        /// <param name="ubicacion"></param>Se encarga de guardar la ubicación de la empresa dentro del objeto empresa
-        /// <param name="rubro"></param>Se encarga de guardar el rubro de la empresa dentro del objeto empresa
-        public Empresa(string nombre, string ubicacion, string rubro)
+        /// <param name="nombre"></param>Se encarga de guardar el nombre de la empresa dentro del objeto empresa.
+        /// <param name="ubicacion"></param>Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.
+        /// <param name="rubro"></param>Se encarga de guardar el rubro de la empresa dentro del objeto empresa.
+        /// <param name="invitacion"></param>Se encarga de guardar la invitación de la empresa dentro del objeto empresa.
+        public Empresa(string nombre, string ubicacion, string rubro, string invitacion)
         {
-            this.ListaIdEmpresarios = new List<int>();
+            this.Invitacion = invitacion;
             this.Nombre = nombre;
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
         }
     }
 }
+ 

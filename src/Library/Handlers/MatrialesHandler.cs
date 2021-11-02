@@ -3,21 +3,19 @@ using System.Text;
 
 namespace Library
 {
+    /// <summary>
+    /// Handler encargado de la creación de un objeto de la clase Material. Implementa AbstractHandler
+    /// porque interactúa con el usuario.
+    /// </summary>
     public class MaterialesHandler : AbstractHandler
 
     {
-        public IHandler Next {get; set;}
-        /*public void Handle(Mensaje mensaje)
-        {
-            if (mensaje.Text.Contains("/"))
-            {}
-            else
-            {
-                this.Next.Handle(mensaje);
-            }
-        }*/
-
-        public void Handle(Mensaje mensaje)
+        /// <summary>
+        /// Método que evalúa el mensaje y crea un Material. Le pide los datos al usuario y luego crea
+        /// un objeto Material con esos datos.
+        /// </summary>
+        /// <param name="mensaje"></param>
+        public override void Handle(Mensaje mensaje)
         {
             Console.WriteLine("Cual es el nombre del material?");
             string nombre = Console.ReadLine();
@@ -29,7 +27,6 @@ namespace Library
             string unidad = Console.ReadLine();
             Console.WriteLine("Posee alguna habilitación?");
             string habilitaciones = Console.ReadLine();
-
             Console.WriteLine("Cuál es la categoría?");
             string categoria = Console.ReadLine();
 

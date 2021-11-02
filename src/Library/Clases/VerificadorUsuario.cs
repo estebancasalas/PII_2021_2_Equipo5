@@ -15,7 +15,7 @@ namespace Library
         /// Método que recorre las listas de empresas y emprendedore buscando un id. Si encuentra el id retorna true, en caso 
         /// contrario retorna false. 
         /// </summary>
-        /// <param name="ubicacion"></param>Es el id que se desea saber si esta registrado o no. 
+        /// <param name="id"></param>Es el id que se desea saber si esta registrado o no. 
         /// <returns></returns>
         public bool EstaRegistrado(int id)
         {
