@@ -3,6 +3,9 @@ using System.Text;
 
 namespace Library
 {
+/// <summary>
+/// Handler para invitar usuarios.
+/// </summary>
     public class InvitarHandler :IHandler
     {
         public IHandler Next {get; set;}
