@@ -20,7 +20,7 @@ namespace Library
             rubro = Console.ReadLine();
             Empresa empresa = new Empresa(this.nombreDeLaEmpresa, this.ubicacion, this.rubro);
             ListaEmpresa.Empresas.Add(empresa);
-            empresa.listaIdEmpresarios.Add(mensaje.Id);
+            empresa.ListaIdEmpresarios.Add(mensaje.Id);
             mensaje.Text = Console.ReadLine();
             this.Next.Handle(mensaje);
         }

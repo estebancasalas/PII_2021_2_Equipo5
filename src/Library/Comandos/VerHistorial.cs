@@ -4,32 +4,36 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class VerHistorial
+    /// <summary>
+    ///Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta 
+    /// </summary>
+    public class VerHistorial 
     {
-        public void EjecutarComando(Mensaje mensaje)
-        {
+        
+        /// <summary>
+        /// método que recorre la lista de transacciones de el usuario y retorna su historial.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
+        public string EjecutarComando(string nombre)
+        {  
             StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n ");
-            bool encontrar = false;
-            int i = 0;
-                        
-            while (!encontrar && i < RegistrosHistoriales.Historiales.Count)  
+            
+            foreach (Transaccion transaccion in HistorialTransacciones.Transacciones)
             {
-                if (mensaje.Id == RegistrosHistoriales.Historiales[i].id) 
+                if (transaccion.Vendedor.NombreDeLaEmpresa == nombre || transaccion.Comprador.Nombre == nombre) 
                 {
-                    encontrar = true; 
+                    Resultado.Append($" {transaccion.Vendedor} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador}\n");
                 }
-                else 
-                {
-                    i += 1;
-                }
+                
             }
-            // mover foreach a otra clase y encontrar registro. Ver los puntos 
-            foreach (Publicacion publicacion in RegistrosHistoriales.Historiales[i].Transacciones)
-            {
-                Resultado.Append($" {} de {} desde la siguente publicacion{publicacion}\n");
-            } 
+            return Resultado.ToString();
+            
+
         } 
-        // Esperar clase transaccion 
+        
+
+        
 
         
 

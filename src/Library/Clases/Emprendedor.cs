@@ -3,38 +3,58 @@ using System;
 namespace Library
 {
     /// <summary>
-    /// Clase con los datos del emprendedor. Incluye:
-    /// -id (public string)
-    /// -nombre (private string)
-    /// -ubicación (public string)
-    /// -rubro (private string)
-    /// -habilitaciones (private string)
-    /// -especializaciones (private string)
+    /// Clase que modela un usario del tipo emprendedor. Implementa la interfaz IUsuario.
     /// </summary>
-    public class Emprendedor
+    public class Emprendedor : IUsuario
     {
         /// <summary>
-        /// id del Emprendedor.
+        /// Id del Emprendedor.
         /// </summary>
         /// <value></value>
-        public string id {get; set;}
-        private string nombre {get;}
+        public int Id {get; set;}
         /// <summary>
-        /// ubicación del emprendedor
+        /// Nombre del emprendedor.
         /// </summary>
         /// <value></value>
-        public string ubicacion {get; set;}
-        private string rubro {get;}
-        private string habilitaciones{get;}
-        private string  especializaciones {get;}
+        public string Nombre {get; set;}
+        /// <summary>
+        /// Ubicación del emprendedor.
+        /// </summary>
+        /// <value></value>
+        public string Ubicacion {get; set;}
+        /// <summary>
+        /// Rubro del emprendedor.
+        /// </summary>
+        /// <value></value>
+        public string Rubro {get; set;}
+        /// <summary>
+        /// Habilitaciones del emprendedor(Link al documento).
+        /// </summary>
+        /// <value></value>
+        public string Habilitaciones{get;}
+        /// <summary>
+        /// Especializaciones del emprendedor.
+        /// </summary>
+        /// <value></value>
+        public string Especializaciones {get;}
+        /// <summary>
+        /// Constructor de la clase emprendedor.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nombre"></param>
+        /// <param name="ubicacion"></param>
+        /// <param name="rubro"></param>
+        /// <param name="habilitaciones"></param>
+        /// <param name="especializaciones"></param>
 
-        public Emprendedor(string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
+        public Emprendedor(int id, string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
         {
-            this.nombre = nombre;
-            this.ubicacion = ubicacion;
-            this.rubro = rubro;
-            this.habilitaciones = habilitaciones;
-            this.especializaciones = especializaciones;
+            this.Id = id;
+            this.Nombre = nombre;
+            this.Ubicacion = ubicacion;
+            this.Rubro = rubro;
+            this.Habilitaciones = habilitaciones;
+            this.Especializaciones = especializaciones;
         }
      }
 }

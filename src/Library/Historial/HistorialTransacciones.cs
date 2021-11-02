@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class HistorialTrasacciones
+    public class HistorialTransacciones
     {
 
-        public List <Transacciones> Transacciones = new List<Transacciones>();
+        public static List <Transaccion> Transacciones = new List<Transaccion>();
     }
     
 }

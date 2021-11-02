@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Library
 {
     ///<summary>
@@ -6,17 +8,14 @@ namespace Library
     public interface IUsuario
 
     {
-        /// <summary>
-        /// id del usuario
-        /// </summary>
-        /// <value></value>
-        string id {get; set;}
+        
         /// <summary>
         /// nombre del usuario
         /// </summary>
         /// <value></value>
-        string nombre {get; set;}
-
-
+        string Nombre {get; set;}
+        string Rubro {get; set;} 
+        string Ubicacion {get; set;}
     }
+
 }

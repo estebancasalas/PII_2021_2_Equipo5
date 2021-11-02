@@ -1,4 +1,5 @@
 using System;
+using LocationApi;
 
 namespace Library
 {
@@ -14,9 +15,9 @@ namespace Library
         public Material DatosDeMateriales;
         public string PalabrasClave;
         public string FrecuenciaDeDisponibilidad;
-        public string Ubicacion;
+        public Location Localizacion;
 
-        public void EjecutarComando()
+        public async void EjecutarComando()
         {
             Console.WriteLine("Ingrese título: ");
             string titulo = Console.ReadLine();
@@ -27,9 +28,10 @@ namespace Library
             Console.WriteLine("Ingrese la frecuencia de disponibilidad: ");
             string FrecuenciaDeDisponibilidad = Console.ReadLine();
             Console.WriteLine("Ingrese la ubicación: ");
-            string Ubicacion = Console.ReadLine();
+            IUbicacion ubicacion = new Ubicacion();
+            Location Localizacion = await ubicacion.GetUbicacion(Console.ReadLine());
             
-            Publicacion publicacion = new Publicacion(titulo, DatosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad, Ubicacion);
+            Publicacion publicacion = new Publicacion(titulo, DatosDeMateriales, PalabrasClave, FrecuenciaDeDisponibilidad, Localizacion);
         }
     }
 }
