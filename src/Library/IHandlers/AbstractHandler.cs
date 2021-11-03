@@ -3,7 +3,7 @@ namespace Library
     public class AbstractHandler : IHandler
     {
         public IHandler Next {get; set;}
-        public IEntaradaDeLaCadena Input = Singleton<LeerConsola>.Instance;
+        public EntaradaDeLaCadena Input = Singleton<LeerConsola>.Instance;
         public IFormatoSalida Output = Singleton<Traductor>.Instance;
 
         public virtual void Handle(Mensaje mensaje)
