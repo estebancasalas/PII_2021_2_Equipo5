@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\juanp\\.nuget\\packages\\": {}
+    "C:\\Users\\ecasa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\UCU\\Programación 2\\Proyecto\\Proyecto_Equipo_5\\PII_LocationApiClient\\src\\Library\\Library2.csproj",
+      "projectUniqueName": "c:\\Users\\ecasa\\OneDrive - Universidad Católica del Uruguay\\P2\\Proyecto\\Proyecto_Equipo_5\\PII_LocationApiClient\\src\\Library\\Library2.csproj",
       "projectName": "Library2",
-      "projectPath": "c:\\UCU\\Programación 2\\Proyecto\\Proyecto_Equipo_5\\PII_LocationApiClient\\src\\Library\\Library2.csproj",
-      "packagesPath": "C:\\Users\\juanp\\.nuget\\packages\\",
-      "outputPath": "c:\\UCU\\Programación 2\\Proyecto\\Proyecto_Equipo_5\\PII_LocationApiClient\\src\\Library\\obj\\",
+      "projectPath": "c:\\Users\\ecasa\\OneDrive - Universidad Católica del Uruguay\\P2\\Proyecto\\Proyecto_Equipo_5\\PII_LocationApiClient\\src\\Library\\Library2.csproj",
+      "packagesPath": "C:\\Users\\ecasa\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\ecasa\\OneDrive - Universidad Católica del Uruguay\\P2\\Proyecto\\Proyecto_Equipo_5\\PII_LocationApiClient\\src\\Library\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\juanp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ecasa\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
