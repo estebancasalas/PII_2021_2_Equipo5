@@ -38,7 +38,7 @@ namespace LibraryTests
             admin.CrearInvitacion("Empresa1", "Montevideo", "textil", "ValidToken");
             registrarEmpresario.token = "ValidToken";
             registrarEmpresario.Handle(mensaje);
-            Assert.That(ListaEmpresa.Empresas[0].ListaIdEmpresarios.Contains(1234));
+            Assert.That(ListaEmpresa.Empresas[0].ListaIdEmpresarios.Contains(1234),Is.True);
         }
         [Test]
         public void InvitacionInvalidaTest()
