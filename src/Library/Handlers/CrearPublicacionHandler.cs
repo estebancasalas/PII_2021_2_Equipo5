@@ -18,8 +18,9 @@ namespace Library
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override void Handle(Mensaje mensaje)
         {
-            base.Handle(mensaje);
-            if (mensaje.Text == "/CrearPublicación")
+            //base.Handle(mensaje);
+            VerificarEmpresarioId verif = new VerificarEmpresarioId();
+            if (mensaje.Text == "/CrearPublicación" && verif.Verificar(mensaje.Id))
             {
                 string nombreDelMaterial = Input.GetInput("Ingrese el material:");
                 string categoria = Input.GetInput("Ingrese la categoria:");
