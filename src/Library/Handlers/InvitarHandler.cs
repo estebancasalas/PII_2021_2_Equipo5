@@ -42,10 +42,10 @@ namespace Library
                     if (ListaAdminastradores.administradores[i].Id == mensaje.Id)
                     {
                         notfound = false;
-                        //nombre = Input.GetInput("nombre empresa");
-                        //ubicacion = Input.GetInput("ubicacion de la empresa");
-                        //rubro = Input.GetInput("rubro de la empresa");
-                        //token = Input.GetInput("Codigo de invitacion");
+                        nombre = Input.GetInput("nombre empresa");
+                        ubicacion = Input.GetInput("ubicacion de la empresa");
+                        rubro = Input.GetInput("rubro de la empresa");
+                        token = Input.GetInput("Codigo de invitacion");
                         ListaAdminastradores.administradores[i].CrearInvitacion(nombre, ubicacion, rubro, token);
                     }
                     else
