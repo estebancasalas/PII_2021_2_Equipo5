@@ -3,7 +3,7 @@ using System;
 namespace Library
 {
     /// <summary>
-    /// Se usa en los handlers que requieren la utilización del patrón singleton.
+    /// Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class Singleton<T> where T : new ()
