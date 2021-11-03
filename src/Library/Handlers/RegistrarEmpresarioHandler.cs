@@ -23,7 +23,7 @@ namespace Library
         {
             if (mensaje.Text == "/empresa")
             {
-                //token = Input.GetInput("Ingrese su código de invitación.");
+                token = Input.GetInput("Ingrese su código de invitación: ");
                 VerificarInvitacion verificador = new VerificarInvitacion(token); //Qué pasa si no ingresa nada?
                 if (verificador.valido)
                 {

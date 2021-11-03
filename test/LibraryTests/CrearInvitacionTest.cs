@@ -29,7 +29,7 @@ namespace LibraryTests
             Administrador admin = new Administrador(1234, "admin");
             invitar = new InvitarHandler();
             invitar.nombre = "empresa1";
-            invitar.rubro = "texil";
+            invitar.rubro = "textil";
             invitar.token = "invitacion1";
             invitar.ubicacion = "mi ksa";
             invitar.Handle(mensaje);
