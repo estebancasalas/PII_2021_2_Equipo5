@@ -15,12 +15,6 @@ namespace LibraryTests
         [SetUp]
         public void Setup()
         {
-            
-        }
-
-        [Test]
-        public void PublicacionValidaTest()
-        {
             diccionario.Add("Ingrese el material:", "tela");
             diccionario.Add("Ingrese la categoria:", "Textiles");
             diccionario.Add("Ingrese la unidad con la que cuantifica el material:", "Metro");
@@ -32,6 +26,12 @@ namespace LibraryTests
             diccionario.Add("Ingrese frequencia de disponibilidad: ", "mensual");
             diccionario.Add("Ingrese dónde se encuentra: ", "Av. 8 de Octubre 2738");
             diccionario.Add("Ingrese nombre de la empresa: ", "Esteban telas");
+        }
+
+        [Test]
+        public void PublicacionValidaTest()
+        {
+            
             Mensaje mensaje = new Mensaje(1234,"/CrearPublicación");
             Empresa empresa = new Empresa("Esteban telas", "Av. 8 de Octubre 2738", "textil", "1");
             empresa.ListaIdEmpresarios.Add(mensaje.Id);
@@ -43,9 +43,9 @@ namespace LibraryTests
         [Test]
         public void PublicacionNoValidaTest()
         {
-            Mensaje mensaje = new Mensaje(1234,"/CrearPublicación");
-            Empresa empresa = new Empresa("Esteban telas", "Av. 8 de Octubre 2738", "textil", "1");
-            empresa.ListaIdEmpresarios.Add(mensaje.Id);
+
+            Mensaje mensaje = new Mensaje(789,"/CrearPublicación");
+            IUsuario emprendedor = new Emprendedor(789,"", "", "", "", "");
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             publi.Input = lector;
             publi.Handle(mensaje);

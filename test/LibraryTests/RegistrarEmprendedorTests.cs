@@ -23,7 +23,7 @@ namespace LibraryTests
         }
 
         [Test]
-        public void PublicacionValidaTest()
+        public void RegistrarEmprendedorTest()
         {
             Mensaje mensaje = new Mensaje(1234,"mensaje");
             EntaradaDeLaCadena lector = new LectorTest(diccionario);

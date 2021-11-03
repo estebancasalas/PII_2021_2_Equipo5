@@ -41,6 +41,7 @@ namespace Library
             }
             else
             {
+                Output.PrintLine("Para crear publicaciones debe pertenecer a una empresa.");
                 this.Next.Handle(mensaje);
             }
         }

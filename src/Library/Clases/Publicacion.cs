@@ -54,7 +54,6 @@ namespace Library
             this.NombreEmpresa = nombreEmpresa;
             RegistroPublicaciones.AñadirNuevaPublicacion(this);
         }
-        //Falta categoria.
     }
 }
 
