@@ -21,12 +21,19 @@ namespace Library
             {
                 i++;
             }
+            if (i > RegistroPublicaciones.Activas.Count)
+            {
+                return null;
+            }
+            else
+            {
             int j = 0;
             while (j<ListaEmpresa.Empresas.Count && ListaEmpresa.Empresas[i].Nombre !=RegistroPublicaciones.Activas[i].NombreEmpresa)
             {
                 j++;
             }
             return ListaEmpresa.Empresas[j];
+            }
         }
     }
 }
