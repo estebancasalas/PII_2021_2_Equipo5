@@ -1,9 +1,17 @@
-Juan: CrearPublicacion, Publicacion, Conversaciones, IComando
+Juan: CrearPublicacion, Publicacion, Conversaciones, IComando, BuscarEmprendedorId, BuscarEmpresaPorPublicacion, 
+VerificarEmpresarioId,
 
-Ionas: VerHistorial, ListaComandos, ListaConversaciones, Lista Emprendedores, ListaEmpresa
 
-Pilar: SignUp, HistorialTransacciones, ListaAdministradores, RegistroPublicaciones, IFormato, IFormatoSalida, ComienzoHandlers, AbstractHandlers, Singleton, IHandler, Traductor
+Ionas: VerHistorial, ListaComandos, ListaConversaciones, ListaEmprendedores, ListaEmpresa, IUsuario, ListaCodigosValidos, 
+ListaDeUsuarios, ListaInvitaciones,
 
-Santiago: Administrador, IUsuario, DatosDeMateriales, Emprendedor, Empresa
 
-Esteban: BuscarPublicaciones, BusquedaPublicacion, BusquedaCategoría, BusquedaKeyWord, BusquedaZona, Mensaje
+Pilar: BuscarEmpresa, BuscarEmprendedor, HistorialTransacciones, ListaAdministradores, RegistroPublicaciones,  Singleton, 
+AbstractHandler, IHandler, Traductor, VerificarInvitacion, Transaccion,
+
+
+Santiago: Administrador, IUsuario, Material, Emprendedor, Empresa, CrearMaterial, Ubicacion
+
+
+Esteban: BuscarPublicaciones, BusquedaPublicacion, BusquedaCategoría, BusquedaKeyWord, BusquedaZona, Mensaje, VerificadorUsuario, 
+IUbicacion

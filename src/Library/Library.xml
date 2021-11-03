@@ -33,15 +33,36 @@
             <summary>
             Método que crea el objeto empresa y su token de invitación.
             </summary>
-            <param name="nombre"></param>Nombre de la empresa.
-            <param name="ubicacion"></param>Ubicación de la empresa.
-            <param name="rubro"></param>Rubro de la empresa.
-            <param name="token"></param>Token de invitación creada por el administrador.
+            <param name="nombre">Nombre de la empresa.</param>
+            <param name="ubicacion">Ubicación de la empresa.</param>
+            <param name="rubro">Rubro de la empresa.</param>
+            <param name="token">Token de invitación creada por el administrador.</param>
         </member>
-        <member name="T:Library.Bot">
+        <member name="T:Library.BuscarEmprendedorId">
             <summary>
-            
+            Clase para buscar un emprendedor por su id. Cumple con SRP, ya que existe una clase que conoce
+            todas las instancias de emprendedor pero no tiene la responsabilidad de buscar.
             </summary>
+        </member>
+        <member name="M:Library.BuscarEmprendedorId.Buscar(System.Int32)">
+            <summary>
+            Método que busca un emprendedor por su Id.
+            </summary>
+            <param name="id">Id para buscar el emprendedor</param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.BuscarEmpresaPorPublicacion">
+            <summary>
+            Clase que sirve para buscar empresas. Cumple con SRP, ya que hay una clase encargada de 
+            conocer todas las empresas que no tiene la responsabilidad de buscarlas.
+            </summary>
+        </member>
+        <member name="M:Library.BuscarEmpresaPorPublicacion.Buscar(System.String)">
+            <summary>
+            Método para buscar una empresa a partir de una publicación.
+            </summary>
+            <param name="nombrePublicacion">Se pasa el nombre de la publicación para buscar la empresa</param>
+            <returns></returns>
         </member>
         <member name="T:Library.BusquedaCategoria">
             <summary>
@@ -54,7 +75,7 @@
             <summary>
             Toma como parámetro una lista de categorías y recorre la lista de publicaciones buscando coincidencias.
             </summary>
-            <param name="categorias"></param>Lista de categorías, son pedidas por el handler al usuario.
+            <param name="categorias">Lista de categorías, son pedidas por el handler al usuario.</param>
             <returns></returns>
         </member>
         <member name="T:Library.BusquedaKeyWord">
@@ -103,7 +124,25 @@
             <summary>
             Método encargado de agregar el mensaje enviado como parámetro a la lista de mensajes.
             </summary>
-            <param name="mensaje"></param>
+            <param name="mensaje">Mensaje a agregar en la conversación.</param>
+        </member>
+        <member name="T:Library.CrearMaterial">
+            <summary>
+            Clase encargadad de crear un Material. Creada con SRP para que CrearPublicacionHandler no tenga
+            la responsabilidad de crear una instancia de Material.
+            </summary>
+        </member>
+        <member name="M:Library.CrearMaterial.Crear(System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <summary>
+            Método que crea el objeto Material, recibe como parámetros los datos del objeto.
+            </summary>
+            <param name="nombre">Nombre del material.</param>
+            <param name="costo">Costo por unidad del material.</param>
+            <param name="cantidad">Cantidad del material.</param>
+            <param name="unidad">Unidad con la que se cuantifica el material.</param>
+            <param name="habilitacion">Habilitaciones del material.</param>
+            <param name="categoria">Categoría del material.</param>
+            <returns></returns>
         </member>
         <member name="T:Library.Emprendedor">
             <summary>
@@ -152,12 +191,12 @@
             <summary>
             Constructor de la clase emprendedor.
             </summary>
-            <param name="id"></param>
-            <param name="nombre"></param>
-            <param name="ubicacion"></param>
-            <param name="rubro"></param>
-            <param name="habilitaciones"></param>
-            <param name="especializaciones"></param>
+            <param name="id">Id del emprendedor</param>
+            <param name="nombre">Nombre del emprendedor</param>
+            <param name="ubicacion">Ubicación del emprendedor</param>
+            <param name="rubro">Rubro del emprendedor</param>
+            <param name="habilitaciones">Habilitaciones que tiene el emprendedor</param>
+            <param name="especializaciones">Especializaciones que tiene el emprendedor</param>
         </member>
         <member name="T:Library.Empresa">
             <summary>
@@ -201,10 +240,10 @@
             <summary>
             Es el constructor que se encarga de crear a la empresa en su totalidad.
             </summary>
-            <param name="nombre"></param>Se encarga de guardar el nombre de la empresa dentro del objeto empresa.
-            <param name="ubicacion"></param>Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.
-            <param name="rubro"></param>Se encarga de guardar el rubro de la empresa dentro del objeto empresa.
-            <param name="invitacion"></param>Se encarga de guardar la invitación de la empresa dentro del objeto empresa.
+            <param name="nombre">Se encarga de guardar el nombre de la empresa dentro del objeto empresa.</param>
+            <param name="ubicacion">Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.</param>
+            <param name="rubro">Se encarga de guardar el rubro de la empresa dentro del objeto empresa.</param>
+            <param name="invitacion">Se encarga de guardar la invitación de la empresa dentro del objeto empresa.</param>
         </member>
         <member name="T:Library.Material">
             <summary>
@@ -248,63 +287,69 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
+        <member name="F:Library.Material.PosiblesCategorias">
             <summary>
             Constructor del material.
             </summary>
-            <param name="Nombre"></param>El nombre del material.
-            <param name="Costo"></param>El costo del material.
-            <param name="Cantiadad"></param>La cantidad del material.
-            <param name="Unidad"></param>La unidad en la cual se cuantifica el material
-            <param name="Habilitaciones"></param>Las habliitaciones que se necesitan para el material.
-            <param name="Categoria"></param>La categoría del material.
+            <summary>
+            Lista que contiene las categorías del material.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <param name="Nombre">El nombre del material.</param>
+            <param name="Costo">El costo del material.</param>
+            <param name="Cantiadad">La cantidad del material.</param>
+            <param name="Unidad">La unidad en la cual se cuantifica el material.</param>
+            <param name="Habilitaciones">Las habliitaciones que se necesitan para el material.</param>
+            <param name="categoria">La categoría del material.</param>
         </member>
         <member name="T:Library.Publicacion">
             <summary>
             Clase que modela un usario del tipo publicación. 
             </summary>
         </member>
-        <member name="P:Library.Publicacion.titulo">
+        <member name="F:Library.Publicacion.NombreEmpresa">
+            <summary>
+            Nombre de quien hace la publicación.
+            </summary>
+        </member>
+        <member name="F:Library.Publicacion.titulo">
             <summary> 
             Se encarga de guardar el título de la publicación dentro del objeto publicación.
             </summary>
             <value></value>
         </member>
-        <member name="P:Library.Publicacion.Material">
+        <member name="F:Library.Publicacion.Material">
             <summary>
             Se encarga de guardar el material de la publicación dentro del objeto publicación.
             </summary>
             <value></value>
         </member>
-        <member name="F:Library.Publicacion.palabrasClave">
+        <member name="F:Library.Publicacion.PalabrasClave">
             <summary>
             Se encarga de guardar las palabras claves para lograr una búsqueda efectiva dentro del objeto publicación.
             </summary>
         </member>
-        <member name="P:Library.Publicacion.PalabrasClave">
+        <member name="F:Library.Publicacion.FrecuenciaDeDisponibilidad">
             <summary>
-            Son los metodos get y set para poder acceder a el atributo palabrasClaves desde otras clases.   
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Publicacion.FrecuenciaDeDisponibilidad">
-            <summary>
-            Permite conocer cada cuanto tiempo se genera el mismo y los guarda en el objeto material. 
+            Permite conocer cada cuánto tiempo se genera el mismo y los guarda en el objeto material. 
             </summary>
             <value></value>
         </member>
         <member name="P:Library.Publicacion.Ubicacion">
             Atributo en dónde se guarda la ubicación del material.
         </member>
-        <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,LocationApi.Location)">
+        <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,LocationApi.Location,System.String)">
             <summary>
-            Constructor de la ubicación 
+            Constructor de la clase Publicacion.
             </summary>
-            <param name="titulo"></param> Es el título de la publicación.
-            <param name="material"></param>Es el material de la publicación.
-            <param name="PalabrasClave"></param>Son las palabras claves de la publicación.
-            <param name="FrecuenciaDeDisponibilidad"></param>Es la frecuencia de disponibilidad de la publicación.
-            <param name="ubicacion"></param>Es la ubicación de la publicación.
+            <param name="titulo">Título de la publicación</param>
+            <param name="material">Material que se va a publicar</param>
+            <param name="PalabrasClave">Palabras clave para buscar la publicación</param>
+            <param name="FrecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
+            <param name="ubicacion">Ubicación del vendedor</param>
+            <param name="nombreEmpresa">Nombre de quien vende el material</param>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>
@@ -318,7 +363,7 @@
             GetUbicacion es el método que al pasarle una ubicación la convierte en las coordenadas
             de la misma. 
             </summary>
-            <param name="ubicacion"></param>Es la dirección que nos pasa el cliente. 
+            <param name="ubicacion">Es la dirección que pasa el cliente.</param> 
             <returns></returns>
         </member>
         <member name="T:Library.VerificadorUsuario">
@@ -332,7 +377,7 @@
             Método que recorre las listas de empresas y emprendedore buscando un id. Si encuentra el id retorna true, en caso 
             contrario retorna false. 
             </summary>
-            <param name="id"></param>Es el id que se desea saber si esta registrado o no. 
+            <param name="id">Es el id que se desea saber si esta registrado o no.</param> 
             <returns></returns>
         </member>
         <member name="T:Library.VerificarInvitacion">
@@ -354,7 +399,7 @@
             válida o no. 
             Esto lo realiza recorriendo la lista con invitaciones válidas.
             </summary>
-            <param name="invitacion"></param>
+            <param name="invitacion">Se pasa como parámetro la invitación a verificar</param>
         </member>
         <member name="T:Library.BuscarPublicacion">
             <summary>
@@ -389,7 +434,7 @@
             adquirir los datos del material que se encuentran/pide en la clase Material.
             </summary>
         </member>
-        <member name="M:Library.CrearPublicacion.EjecutarComando(Library.Material,System.String,System.String,System.String,System.String)">
+        <member name="M:Library.CrearPublicacion.EjecutarComando(Library.Material,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Método que pide los datos necesarios para crear una publicación. Deriva la
             responsabilidad de crear la publicación a la clase Publicacion para cumplir
@@ -398,69 +443,60 @@
             <returns></returns>
         </member>
         <member name="T:Library.VerHistorial">
-             <summary>
-            Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta 
-             </summary>
+            <summary>
+            Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta. 
+            </summary>
         </member>
         <member name="M:Library.VerHistorial.EjecutarComando(System.String)">
             <summary>
-            método que recorre la lista de transacciones de el usuario y retorna su historial.
+            Método que recorre la lista de transacciones de el usuario y retorna su historial.
             </summary>
-            <param name="nombre"></param>
+            <param name="nombre">Nombre de quien quiere ver el historial</param>
             <returns></returns>
         </member>
-        <member name="T:Library.IEntaradaDeLaCadena">
-             <summary>
-             IEntradaDeLaCadena y IEntradaInt cumplen con el patrón de ISP ya que se utilizan interfaces chicas para implementar solo el comportamiento
-            que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada.
-             </summary>
-        </member>
-        <member name="M:Library.IEntaradaDeLaCadena.GetInput(System.String)">
+        <member name="T:Library.EntaradaDeLaCadena">
             <summary>
-            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta. 
-            </summary>
-            <param name="message"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Library.IEntradaInt">
-             <summary>
             IEntradaDeLaCadena y IEntradaInt cumplen con el patrón de ISP ya que se utilizan interfaces chicas para implementar solo el comportamiento
-            que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada. 
-            Cumple también con el principio DIP ya que la comunicación de los mismos es con las clases de alto nivel.
-             </summary>
+            que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada.
+            </summary>
         </member>
-        <member name="M:Library.IEntradaInt.GetInput(System.String)">
+        <member name="M:Library.EntaradaDeLaCadena.GetInput(System.String)">
             <summary>
             El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta. 
             </summary>
             <param name="message"></param>
             <returns></returns>
         </member>
-        <member name="T:Library.IntLeerConosla">
-             <summary>
-            IntLeerConosla se encarga de recibir un int dede la consola, para que el usurio pueda interactuar con el menú del bot. 
-            Es la impelemntación de una interface, porque la idea es que más adelnate se agregaran más maneras de intercatuar con el usurio.
-             </summary>
+        <member name="T:Library.LectorTest">
+            <summary>
+            LectorTest hereda la clase de EntradaDeLaCadena para simular la interacción con el 
+            usuario en los tests.
+            Cumple con DIP pues la comunicación es a través de clases de alto nivel y
+            abstracciones (Interfaces).
+            Cumple SRP pues su única razón de cambio es recibir una línea de la consola.
+            Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput 
+            usar en tiempo de ejecución, dependiendo el parámetro. 
+            </summary>
         </member>
-        <member name="M:Library.IntLeerConosla.GetInput(System.String)">
+        <member name="M:Library.LectorTest.GetInput(System.String)">
             <summary>
             El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
             </summary>
-            <param name="message"></param>
+            <param name="message">Mensaje que se muestra en consola al usuario</param>
             <returns></returns>
         </member>
         <member name="T:Library.LeerConsola">
-             <summary>
+            <summary>
             LeerConsola es una implementación de la interface IEntaradaDeLaCadena para interactuar con el usuario a través de la
             consola. Cumple con DIP pues la comunicación es a través de clases de alto nivel y abstracciones (Interfaces).
             Cumple SRP pues su unica razon de cambio es recibir una linea de la consola.
-             </summary>
+            </summary>
         </member>
         <member name="M:Library.LeerConsola.GetInput(System.String)">
             <summary>
             El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
             </summary>
-            <param name="message"></param>
+            <param name="message">Mensaje que se muestra en consola al usuario</param>
             <returns></returns>
         </member>
         <member name="T:Library.IFormatoSalida">
@@ -476,7 +512,7 @@
             Método para las clases que implementen esta interfaz. Muestra en pantalla el string pasado
             como parámetro.
             </summary>
-            <param name="line"></param>
+            <param name="line">Lo que se muestra en consola</param>
             <returns></returns>
         </member>
         <member name="T:Library.Traductor">
@@ -491,30 +527,46 @@
             <summary>
             Método encargado de modelar el string pasado como parámetro. Luego, lo muestra en pantalla.
             </summary>
-            <param name="line"></param>
+            <param name="line">Lo que se modela para mostrar en pantalla</param>
             <returns></returns>
         </member>
         <member name="T:Library.BuscarPublicacionHandler">
             <summary>
-            Este handler te dirrecciona a la clase BuscarPublicación, implemnta AbstractHandler 
-            </summary>
-        </member>
-        <member name="T:Library.ComienzoHandler">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Library.FinalizarHandler">
-            <summary>
-            Handler final, para salir de la ejecución del bot. Implementa AbstractHandler porque
+            Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque 
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
+        <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
             <summary>
-            Método
+            Método para buscar en la lista de publicaciones.
             </summary>
-            <param name="mensaje"></param>
+            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        </member>
+        <member name="T:Library.ComienzoHandler">
+            <summary>
+            Primer Handler de la Chain of Responsibility. Implementa AbstractHandler porque interactúa
+            con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.ComienzoHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que verifica el mensaje. Actúa si el mensaje es "/start" y sino lo envía
+            al siguiente Handler.
+            </summary>
+            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        </member>
+        <member name="T:Library.ComprarHandler">
+            <summary>
+            Primer Handler de la Chain of Responsibility. Implementa AbstractHandler porque interactúa
+            con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.ComprarHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que verifica el mensaje. Actúa si el mensaje es "/start" y sino lo envía
+            al siguiente Handler.
+            </summary>
+            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         </member>
         <member name="T:Library.CrearEmprendedorHandler">
             <summary>
@@ -527,7 +579,80 @@
             Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
             dé los datos para crear un emprendedor. Colabora con la clase Emprendedor.
             </summary>
-            <param name="mensaje"></param>
+            <param name="mensaje">Indica que se quiere crear un emprendedor</param>
+        </member>
+        <member name="T:Library.CrearPublicacionHandler">
+            <summary>
+            Handler para crear una publicación. Implementa AbstractHandler porque interactúa
+            con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.CrearPublicacionHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
+            datos de materiales y llama a la clase CrearMaterial para cumplir con el SRP. Luego, se
+            llama a la clase CrearPublicacion por la misma razón.
+            </summary>
+            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        </member>
+        <member name="T:Library.CrearUsuarioHandler">
+            <summary>
+            Handler encargado de crear un usuario. Implementa AbstractHandler porque interactúa con
+            el usuario. Único Handler que tiene dos atributos Next, se envía el mensaje a uno de ellos
+            en base a si el usuario está previamente registrado. Esto es para que no se saltee la verificación
+            de usuario. De no ser por ambos Next, se podrían duplicar los usuarios.
+            </summary>
+        </member>
+        <member name="F:Library.CrearUsuarioHandler.Next2">
+            <summary>
+            Atributo del segundo Next.
+            </summary>
+        </member>
+        <member name="M:Library.CrearUsuarioHandler.#ctor(Library.AbstractHandler,Library.IHandler)">
+            <summary>
+            Constructor de la clase.
+            </summary>
+            <param name="next">Handler de la subcadena</param>
+            <param name="next2">Handler siguiente en la cadena principal</param>
+        </member>
+        <member name="M:Library.CrearUsuarioHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que interpreta el mensaje. Si el mensaje es "/CrearUsuario", el método se encarga de 
+            verificar que la Id no esté previamente registrada. En caso de que no lo esté, se envía el 
+            mensaje a uno de los siguientes Handlers. 
+            Si el mensaje es diferente a "/CrearUsuario", se manda el mensaje a otro Handler.
+            </summary>
+            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        </member>
+        <member name="T:Library.EmpresaCantidadTrabajadores">
+            <summary>
+            Handler que muestra la cantidad de trabajadores que hay en una empresa. Implementa IHandler
+            porque no interactúa con el usuario, solo muestra en pantalla.
+            </summary>
+        </member>
+        <member name="P:Library.EmpresaCantidadTrabajadores.Next">
+            <summary>
+            Siguiente Handler en la cadena.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.EmpresaCantidadTrabajadores.Handle(Library.Mensaje)">
+            <summary>
+            Método que evalúa el mensaje. Busca la empresa y muestra la cantidad de trabajadores que tiene.
+            </summary>
+            <param name="mensaje">Contiene el Id con el que se encuentra la empresa deseada.</param>
+        </member>
+        <member name="T:Library.FinalizarHandler">
+            <summary>
+            Handler final, para salir de la ejecución del bot. Implementa AbstractHandler porque
+            interactúa con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
+            </summary>
+            <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
         </member>
         <member name="T:Library.HistorialHandler">
             <summary>
@@ -541,7 +666,7 @@
             al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
             se envía al siguiente Handler.
             </summary>
-            <param name="mensaje"></param>
+            <param name="mensaje">Indica que se quiere ver el historial</param>
         </member>
         <member name="T:Library.InvitarHandler">
             <summary>
@@ -549,30 +674,42 @@
             con el usuario.
             </summary>
         </member>
+        <member name="F:Library.InvitarHandler.nombre">
+            <summary>
+            Nombre de la emrpesa.
+            </summary>
+        </member>
+        <member name="F:Library.InvitarHandler.ubicacion">
+            <summary>
+            Ubicación de la empresa.
+            </summary>
+        </member>
+        <member name="F:Library.InvitarHandler.rubro">
+            <summary>
+            Rubro de la empresa.
+            </summary>
+        </member>
+        <member name="F:Library.InvitarHandler.token">
+            <summary>
+            Token de invitación.
+            </summary>
+        </member>
         <member name="M:Library.InvitarHandler.Handle(Library.Mensaje)">
             <summary>
             Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación 
             para el mismo?
             </summary>
-            <param name="mensaje"></param>
-        </member>
-        <member name="T:Library.MaterialesHandler">
-            <summary>
-            Handler encargado de la creación de un objeto de la clase Material. Implementa AbstractHandler
-            porque interactúa con el usuario.
-            </summary>
-        </member>
-        <member name="M:Library.MaterialesHandler.Handle(Library.Mensaje)">
-            <summary>
-            Método que evalúa el mensaje y crea un Material. Le pide los datos al usuario y luego crea
-            un objeto Material con esos datos.
-            </summary>
-            <param name="mensaje"></param>
+            <param name="mensaje">Indica que se quiere crear una invitación</param>
         </member>
         <member name="T:Library.RegistrarEmpresarioHandler">
             <summary>
             Handler para registrar un empresario en una empresa. Implementa AbstractHandler
             porque interactúa con el usuario.
+            </summary>
+        </member>
+        <member name="F:Library.RegistrarEmpresarioHandler.token">
+            <summary>
+            Token para verificar que es válida la invitación.
             </summary>
         </member>
         <member name="M:Library.RegistrarEmpresarioHandler.Handle(Library.Mensaje)">
@@ -581,7 +718,7 @@
             empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
             es una invitación válida.S
             </summary>
-            <param name="mensaje"></param>
+            <param name="mensaje">Indica que se quiere registrar un empresario</param>
         </member>
         <member name="T:Library.HistorialTransacciones">
             <summary>
@@ -620,14 +757,65 @@
             La cantidad del material que se vendió o se compró.
             </summary>
         </member>
+        <member name="M:Library.Transaccion.#ctor(Library.Empresa,Library.Emprendedor,System.String,System.Double)">
+            <summary>
+            Constructor de la clase.
+            </summary>
+            <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>
+            <param name="comprador">Comprador, es un objeto de la clase Emprendedor</param>
+            <param name="nombre">Nombre del material, tipo string</param>
+            <param name="cantidad">Cantidad del material, tipo double</param>
+        </member>
+        <member name="T:Library.AbstractHandler">
+            <summary>
+            Una clase que implementa un metodo para recorrer los distintos handler existentes en busca de un comando escrito por el usuario.
+            Como usa la interfaz IHandler también usa Chain of Resposibility para que los handlers que usen AbstractHandler permitan que se recorran otros handlers.
+            </summary>
+        </member>
+        <member name="P:Library.AbstractHandler.Next">
+            <summary>
+            Las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Library.AbstractHandler.Input">
+            <summary>
+            Recibe una cadena, siempre en formato string.
+            </summary>
+        </member>
+        <member name="F:Library.AbstractHandler.Output">
+            <summary>
+            Se envia la cadena recibida tal como está o con algun tipo de cambio implicito o explicito.
+            </summary>
+        </member>
+        <member name="M:Library.AbstractHandler.Handle(Library.Mensaje)">
+            <summary>
+            El metodo se fija si no hay ningun comando apuntando al handler. si no hay se pasa al siguiente.
+            </summary>
+            <param name="mensaje">El emensaje escrito por el usuario.</param>
+        </member>
         <member name="T:Library.IHandler">
             <summary>
-            Interfaz para la creación de los handlers
+            Interfaz para la creación de los handlers.
+            Dada la naturaleza de los handlers se usa el patrón Chain of responsibility, asi se puede recorren todos los handlers hasta que se encuentre el que se necesita.
             </summary>
+        </member>
+        <member name="P:Library.IHandler.Next">
+            <summary>
+            Las clases que apliquen IHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.IHandler.Handle(Library.Mensaje)">
+            <summary>
+            Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
+            </summary>
+            <param name="mensaje">Mensaje escrito por usuario</param>
         </member>
         <member name="T:Library.Mensaje">
             <summary>
             Clase para usar en otras clases que requieran el envio y la recepción de mensajes.
+            Es una clase con patron Mediator ya que los mensajes generados están restringidos a un formato especifico.
             </summary>
         </member>
         <member name="P:Library.Mensaje.Id">
@@ -646,15 +834,20 @@
             <summary>
             El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
             </summary>
-            <param name="id"></param>
-            <param name="text"></param>
+            <param name="id">Id del usuario que escribe el mensaje</param>
+            <param name="text">Lo que escribe el usuario</param>
         </member>
         <member name="T:Library.Singleton`1">
             <summary>
-            Se usa en los handlers que requieren la utilización del patron singleton.
-            
+            Se usa en los handlers que requieren la utilización del patrón singleton.
             </summary>
             <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Library.Singleton`1.Instance">
+            <summary>
+            Se crea una nueva instancia solo si no existe previamente.
+            </summary>
+            <value></value>
         </member>
         <member name="T:Library.IUbicacion">
             <summary>
@@ -666,7 +859,7 @@
             <summary>
             Método para obtener la ubicación en coordenadas a partir de un string.
             </summary>
-            <param name="ubicacion"></param>
+            <param name="ubicacion">Dirección de la que se desea obtener las coordenadas</param>
             <returns></returns>
         </member>
         <member name="T:Library.IUsuario">
@@ -710,20 +903,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Library.ListaCodigosValidos">
-            <summary>
-            ListaCodigosValidos es quien se encarga de tener la lista con todos los 
-            códigos válidos para registrar una empresa. 
-            Se cumple principio SRP ya que libra al administrador de tener que crear los
-            códigos y conocerlos. 
-            </summary>
-        </member>
-        <member name="F:Library.ListaCodigosValidos.CodigosValidos">
-            <summary>
-            Lista con todos los códigos válidos para registrar una empresa.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Library.ListaConversaciones">
             <summary>
             ListaConversaciones es quien se encarga de tener la lista con todos los 
@@ -746,7 +925,7 @@
             Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
             </summary>
         </member>
-        <member name="F:Library.ListaDeUsuario.usuario">
+        <member name="F:Library.ListaDeUsuario.IdUsuarios">
             <summary>
             Lista que contiene a todos los ususarios.
             </summary>
@@ -823,7 +1002,7 @@
             Método para agregar una nueva publicación a la lista de 
             publicaciones activas.
             </summary>
-            <param name="publi"></param>
+            <param name="publi">Publicación a añadir</param>
         </member>
         <member name="M:Library.RegistroPublicaciones.PausarPublicacion(Library.Publicacion)">
             <summary>
@@ -831,7 +1010,7 @@
             la lista de publicaciones pausadas y la remueve de la lista de 
             publicaciones activas.
             </summary>
-            <param name="publi"></param>
+            <param name="publi">Publicación a pausar</param>
         </member>
         <member name="M:Library.RegistroPublicaciones.EliminarPublicacion(Library.Publicacion)">
             <summary>
@@ -839,7 +1018,7 @@
             publicaciones eliminadas y se remueve de la lista de publicaciones activas
             y publicaciones pausadas.
             </summary>
-            <param name="publi"></param>
+            <param name="publi">Publicación a eliminar</param>
         </member>
     </members>
 </doc>

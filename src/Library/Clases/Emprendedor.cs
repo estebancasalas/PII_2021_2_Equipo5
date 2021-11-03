@@ -57,6 +57,7 @@ namespace Library
             this.Rubro = rubro;
             this.Habilitaciones = habilitaciones;
             this.Especializaciones = especializaciones;
+            ListaEmprendedores.Emprendedores.Add(this);
         }
      }
 }

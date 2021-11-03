@@ -14,7 +14,7 @@ namespace Library
         /// Lista que contiene a todos los ususarios.
         /// </summary>
         /// <returns></returns>
-        private List<IUsuario> usuario = new List<IUsuario>();
+        private List<int> IdUsuarios = new List<int>();
 
     }
 }

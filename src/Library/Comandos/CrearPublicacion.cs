@@ -1,5 +1,6 @@
 using System;
 using LocationApi;
+using System.Threading.Tasks;
 
 
 namespace Library
@@ -21,11 +22,11 @@ namespace Library
         /// con el principio SRP.
         /// </summary>
         /// <returns></returns>
-        public async void EjecutarComando(Material material, string titulo, string PalabrasClave, string frecuencia, string ubicacion, string nombreEmpresa)
+        public void EjecutarComando(Material material, string titulo, string PalabrasClave, string frecuencia, string ubicacion, string nombreEmpresa)
         { 
             IUbicacion localizador = new Ubicacion();
-            Location Localizacion = await localizador.GetUbicacion(ubicacion);
-            Publicacion publicacion = new Publicacion(titulo, DatosDeMateriales, PalabrasClave, frecuencia, Localizacion, nombreEmpresa);
+            Location Localizacion = new Location(); //await localizador.GetUbicacion(ubicacion);
+            Publicacion publicacion = new Publicacion(titulo, material, PalabrasClave, frecuencia, Localizacion, nombreEmpresa);
         }
     }
 }

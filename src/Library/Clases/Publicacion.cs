@@ -27,7 +27,7 @@ namespace Library
         /// </summary>
         public string PalabrasClave;
         /// <summary>
-        /// Permite conocer cada cuanto tiempo se genera el mismo y los guarda en el objeto material. 
+        /// Permite conocer cada cuánto tiempo se genera el mismo y los guarda en el objeto material. 
         /// </summary>
         /// <value></value>
         public string FrecuenciaDeDisponibilidad;
@@ -52,8 +52,8 @@ namespace Library
             this.FrecuenciaDeDisponibilidad = FrecuenciaDeDisponibilidad;
             this.Ubicacion = ubicacion;
             this.NombreEmpresa = nombreEmpresa;
+            RegistroPublicaciones.AñadirNuevaPublicacion(this);
         }
-        //Falta categoria.
     }
 }
 

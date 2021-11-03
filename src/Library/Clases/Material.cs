@@ -1,4 +1,4 @@
-
+using System.Collections.Generic;
 using System;
 
 namespace Library
@@ -42,20 +42,33 @@ namespace Library
             /// <summary>
             /// Constructor del material.
             /// </summary>
+            
+            /// <summary>
+            /// Lista que contiene las categorías del material.
+            /// </summary>
+            /// <returns></returns>
+            public List<string> PosiblesCategorias = new List<string>(){"Químicos", "Plásticos", "Celulósicos", "Eléctricos", "Textiles", "Metálicos", "Metálicos ferrosos", "Solventes", "Vidrio", "Residuos orgánicos", "Otros"};
             /// <param name="Nombre">El nombre del material.</param>
             /// <param name="Costo">El costo del material.</param>
             /// <param name="Cantiadad">La cantidad del material.</param>
             /// <param name="Unidad">La unidad en la cual se cuantifica el material.</param>
             /// <param name="Habilitaciones">Las habliitaciones que se necesitan para el material.</param>
-            /// <param name="Categoria">La categoría del material.</param>
-            public Material(string Nombre, double Costo, double Cantiadad, string Unidad, string Habilitaciones, string Categoria)
-        {
+            /// <param name="categoria">La categoría del material.</param>
+            public Material(string Nombre, double Costo, double Cantiadad, string Unidad, string Habilitaciones, string categoria)
+            {
             this.Nombre = Nombre;
             this.Costo = Costo;
             this.Cantidad = Cantidad;
             this.Unidad = Unidad;
             this.Habilitaciones = Habilitaciones;
-            this.Categoria = Categoria;
-        }
+            if (PosiblesCategorias.Contains(categoria))
+            {
+                this.Categoria = categoria;
+            }
+            else
+            {
+                Console.WriteLine("Categoría no válida.");
+            }
+            }
         }
 }

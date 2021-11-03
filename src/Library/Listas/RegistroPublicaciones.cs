@@ -33,7 +33,7 @@ namespace Library
         /// publicaciones activas.
         /// </summary>
         /// <param name="publi">Publicación a añadir</param>
-        public void AñadirNuevaPublicacion(Publicacion publi)
+        public static void AñadirNuevaPublicacion(Publicacion publi)
         {
             RegistroPublicaciones.Activas.Add(publi);
         }
@@ -43,7 +43,7 @@ namespace Library
         /// publicaciones activas.
         /// </summary>
         /// <param name="publi">Publicación a pausar</param>
-        public void PausarPublicacion(Publicacion publi)
+        public static void PausarPublicacion(Publicacion publi)
         {
             foreach (Publicacion publicaciones in Activas)
             {
@@ -60,7 +60,7 @@ namespace Library
         /// y publicaciones pausadas.
         /// </summary>
         /// <param name="publi">Publicación a eliminar</param>
-        public void EliminarPublicacion(Publicacion publi)
+        public static void EliminarPublicacion(Publicacion publi)
         {
             foreach (Publicacion publicaciones in Activas)
             {
