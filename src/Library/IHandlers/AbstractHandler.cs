@@ -14,7 +14,7 @@ namespace Library
         /// <summary>
         /// Recibe una cadena, siempre en formato string.
         /// </summary>
-        public IEntaradaDeLaCadena Input = Singleton<LeerConsola>.Instance;
+        public EntaradaDeLaCadena Input = Singleton<LeerConsola>.Instance;
         /// <summary>
         /// Se envia la cadena recibida tal como está o con algun tipo de cambio implicito o explicito.
         /// </summary>
