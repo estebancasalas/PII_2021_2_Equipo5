@@ -42,12 +42,12 @@ namespace Library
         /// <summary>
         /// Constructor de la clase emprendedor.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        /// <param name="ubicacion"></param>
-        /// <param name="rubro"></param>
-        /// <param name="habilitaciones"></param>
-        /// <param name="especializaciones"></param>
+        /// <param name="id">Id del emprendedor</param>
+        /// <param name="nombre">Nombre del emprendedor</param>
+        /// <param name="ubicacion">Ubicación del emprendedor</param>
+        /// <param name="rubro">Rubro del emprendedor</param>
+        /// <param name="habilitaciones">Habilitaciones que tiene el emprendedor</param>
+        /// <param name="especializaciones">Especializaciones que tiene el emprendedor</param>
 
         public Emprendedor(int id, string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
         {

@@ -10,16 +10,28 @@ namespace Library
 
     public class InvitarHandler : AbstractHandler
     {
+        /// <summary>
+        /// Nombre de la emrpesa.
+        /// </summary>
         public string nombre;
+        /// <summary>
+        /// Ubicación de la empresa.
+        /// </summary>
         public string ubicacion;
+        /// <summary>
+        /// Rubro de la empresa.
+        /// </summary>
         public string rubro;
+        /// <summary>
+        /// Token de invitación.
+        /// </summary>
         public string token;
         /// <summary>
         /// Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación 
         /// para el mismo?
         /// </summary>
-        /// <param name="mensaje"></param>
-        public void Handle(Mensaje mensaje)
+        /// <param name="mensaje">Indica que se quiere crear una invitación</param>
+        public override void Handle(Mensaje mensaje)
         {
             if (mensaje.Text == "/crearinvitacion")
             {

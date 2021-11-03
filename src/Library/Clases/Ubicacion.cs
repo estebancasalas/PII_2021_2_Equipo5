@@ -15,7 +15,7 @@ namespace Library
         /// GetUbicacion es el método que al pasarle una ubicación la convierte en las coordenadas
         /// de la misma. 
         /// </summary>
-        /// <param name="ubicacion"></param>Es la dirección que nos pasa el cliente. 
+        /// <param name="ubicacion">Es la dirección que pasa el cliente.</param> 
         /// <returns></returns>
         public async Task <Location> GetUbicacion(string ubicacion)
         {

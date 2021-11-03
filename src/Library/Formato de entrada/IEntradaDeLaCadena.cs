@@ -4,7 +4,7 @@ namespace Library
 {
     /// <summary>
     /// IEntradaDeLaCadena y IEntradaInt cumplen con el patrón de ISP ya que se utilizan interfaces chicas para implementar solo el comportamiento
-    ///que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada.
+    /// que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada.
     /// </summary>
     public interface IEntaradaDeLaCadena : IFormatoDeEntrada
     {

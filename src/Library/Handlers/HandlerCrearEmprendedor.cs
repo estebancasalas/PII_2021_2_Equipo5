@@ -12,7 +12,7 @@ namespace Library
         /// Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
         /// dé los datos para crear un emprendedor. Colabora con la clase Emprendedor.
         /// </summary>
-        /// <param name="mensaje"></param>
+        /// <param name="mensaje">Indica que se quiere crear un emprendedor</param>
         public override void Handle(Mensaje mensaje)
         {
             Console.WriteLine("¿Cuál es su nombre?");

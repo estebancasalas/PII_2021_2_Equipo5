@@ -22,7 +22,7 @@ namespace Library
         /// <summary>
         /// El metodo se fija si no hay ningun comando apuntando al handler. si no hay se pasa al siguiente.
         /// </summary>
-        /// <param name="mensaje"></param>El emensaje escrito por el usuario.
+        /// <param name="mensaje">El emensaje escrito por el usuario.</param>
 
         public virtual void Handle(Mensaje mensaje)
         {

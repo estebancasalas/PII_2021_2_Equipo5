@@ -21,11 +21,11 @@ namespace Library
         /// con el principio SRP.
         /// </summary>
         /// <returns></returns>
-        public async void EjecutarComando(Material material, string titulo, string PalabrasClave, string frecuencia, string ubicacion)
+        public async void EjecutarComando(Material material, string titulo, string PalabrasClave, string frecuencia, string ubicacion, string nombreEmpresa)
         { 
             IUbicacion localizador = new Ubicacion();
             Location Localizacion = await localizador.GetUbicacion(ubicacion);
-            Publicacion publicacion = new Publicacion(titulo, DatosDeMateriales, PalabrasClave, frecuencia, Localizacion);
+            Publicacion publicacion = new Publicacion(titulo, DatosDeMateriales, PalabrasClave, frecuencia, Localizacion, nombreEmpresa);
         }
     }
 }

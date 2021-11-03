@@ -21,8 +21,8 @@ namespace Library
         /// <summary>
         /// El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="text"></param>
+        /// <param name="id">Id del usuario que escribe el mensaje</param>
+        /// <param name="text">Lo que escribe el usuario</param>
         public Mensaje(int id, string text)
         {
             this.Id = id;

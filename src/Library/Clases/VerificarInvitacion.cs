@@ -19,7 +19,7 @@ namespace Library
         /// válida o no. 
         /// Esto lo realiza recorriendo la lista con invitaciones válidas.
         /// </summary>
-        /// <param name="invitacion"></param>
+        /// <param name="invitacion">Se pasa como parámetro la invitación a verificar</param>
         public VerificarInvitacion(string invitacion)
         {
              if (ListaInvitaciones.Invitaciones.Contains(invitacion))

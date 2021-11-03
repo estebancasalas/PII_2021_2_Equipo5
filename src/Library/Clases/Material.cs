@@ -42,12 +42,12 @@ namespace Library
             /// <summary>
             /// Constructor del material.
             /// </summary>
-            /// <param name="Nombre"></param>El nombre del material.
-            /// <param name="Costo"></param>El costo del material.
-            /// <param name="Cantiadad"></param>La cantidad del material.
-            /// <param name="Unidad"></param>La unidad en la cual se cuantifica el material
-            /// <param name="Habilitaciones"></param>Las habliitaciones que se necesitan para el material.
-            /// <param name="Categoria"></param>La categoría del material.
+            /// <param name="Nombre">El nombre del material.</param>
+            /// <param name="Costo">El costo del material.</param>
+            /// <param name="Cantiadad">La cantidad del material.</param>
+            /// <param name="Unidad">La unidad en la cual se cuantifica el material.</param>
+            /// <param name="Habilitaciones">Las habliitaciones que se necesitan para el material.</param>
+            /// <param name="Categoria">La categoría del material.</param>
             public Material(string Nombre, double Costo, double Cantiadad, string Unidad, string Habilitaciones, string Categoria)
         {
             this.Nombre = Nombre;
