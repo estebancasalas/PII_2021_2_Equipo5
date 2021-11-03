@@ -34,10 +34,23 @@ namespace LibraryTests
             ListaEmpresa lista1 = new ListaEmpresa();
             Mensaje mensaje = new Mensaje(1234,"/empresa");
             RegistrarEmpresarioHandler registrarEmpresario = new RegistrarEmpresarioHandler();
-            Administrador admin = new Administrador(456, "Esteban");
-            admin.CrearInvitacion("Empresa1", "Montevideo", "textil", "InviteEmpresa1");
+            Administrador admin = new Administrador(456, "admin");
+            admin.CrearInvitacion("Empresa1", "Montevideo", "textil", "ValidToken");
+            registrarEmpresario.token = "ValidToken";
             registrarEmpresario.Handle(mensaje);
             Assert.That(ListaEmpresa.Empresas[0].ListaIdEmpresarios.Contains(1234));
+        }
+        [Test]
+        public void InvitacionInvalidaTest()
+        {
+            ListaEmpresa lista1 = new ListaEmpresa();
+            Mensaje mensaje = new Mensaje(1234,"/empresa");
+            RegistrarEmpresarioHandler registrarEmpresario = new RegistrarEmpresarioHandler();
+            Administrador admin = new Administrador(456, "admin");
+            admin.CrearInvitacion("Empresa1", "Montevideo", "textil", "ValidToken");
+            registrarEmpresario.token = "InvalidToken";
+            registrarEmpresario.Handle(mensaje);
+            Assert.That(ListaEmpresa.Empresas[0].ListaIdEmpresarios.Contains(1234),Is.False);   
         }
     }
 }

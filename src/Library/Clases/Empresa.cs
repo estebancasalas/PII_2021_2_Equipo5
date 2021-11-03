@@ -49,6 +49,7 @@ namespace Library
             this.Nombre = nombre;
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
+            ListaEmpresa.Empresas.Add(this);
         }
     }
 }
