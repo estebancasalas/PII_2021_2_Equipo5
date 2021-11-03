@@ -2,6 +2,7 @@ namespace Library
 {
     /// <summary>
     /// Una clase que implementa un metodo para recorrer los distintos handler existentes en busca de un comando escrito por el usuario.
+    /// Como usa la interfaz IHandler también usa Chain of Resposibility para que los handlers que usen AbstractHandler permitan que se recorran otros handlers.
     /// </summary>
     public class AbstractHandler : IHandler
     {
