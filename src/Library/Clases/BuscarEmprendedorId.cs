@@ -21,7 +21,15 @@ namespace Library
             {
                 i++;
             }
-            return ListaEmprendedores.Emprendedores[i];
+            if (i > ListaEmprendedores.Emprendedores.Count)
+            {
+                return null;
+            }
+            else
+            {
+                return ListaEmprendedores.Emprendedores[i];
+            }
+
         }
     }
 }
