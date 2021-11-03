@@ -10,9 +10,9 @@ namespace Library
     public class FinalizarHandler : AbstractHandler
     {
         /// <summary>
-        /// Método
+        /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
         /// </summary>
-        /// <param name="mensaje"></param>
+        /// <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
         public override void Handle (Mensaje mensaje)
         {
                    

@@ -32,10 +32,10 @@ namespace Library
         /// <summary>
         /// Método que crea el objeto empresa y su token de invitación.
         /// </summary>
-        /// <param name="nombre"></param>Nombre de la empresa.
-        /// <param name="ubicacion"></param>Ubicación de la empresa.
-        /// <param name="rubro"></param>Rubro de la empresa.
-        /// <param name="token"></param>Token de invitación creada por el administrador.
+        /// <param name="nombre">Nombre de la empresa.</param>
+        /// <param name="ubicacion">Ubicación de la empresa.</param>
+        /// <param name="rubro">Rubro de la empresa.</param>
+        /// <param name="token">Token de invitación creada por el administrador.</param>
                
         public void CrearInvitacion(string nombre, string ubicacion, string rubro, string token)
         {

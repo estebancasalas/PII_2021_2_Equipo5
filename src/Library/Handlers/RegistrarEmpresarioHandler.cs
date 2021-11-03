@@ -9,14 +9,17 @@ namespace Library
     /// </summary>
     public class RegistrarEmpresarioHandler : AbstractHandler
     {
+        /// <summary>
+        /// Token para verificar que es válida la invitación.
+        /// </summary>
         public string token;
         /// <summary>
         /// Método encargado de verificar si la invitación es válida. En caso de que lo sea y el 
         /// empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
         /// es una invitación válida.S
         /// </summary>
-        /// <param name="mensaje"></param>
-        public void Handle(Mensaje mensaje)
+        /// <param name="mensaje">Indica que se quiere registrar un empresario</param>
+        public override void Handle(Mensaje mensaje)
         {
             if (mensaje.Text == "/empresa")
             {

@@ -5,15 +5,14 @@ namespace LibraryTests
 {
 
     [TestFixture]
-    public class RegistrarEmpresaTests
+    public class VerHistorialTest
     {
         Mensaje mensaje;
-        RegistrarEmpresarioHandler registrarEmpresario;
        
         [SetUp]
         public void Setup()
         {
-            ListaEmpresa lista1 = new ListaEmpresa();
+            //Publicacion publicacion1 = new
 
         }
 

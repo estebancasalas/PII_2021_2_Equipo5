@@ -14,7 +14,7 @@ namespace Library
         /// <summary>
         /// Método para obtener la ubicación en coordenadas a partir de un string.
         /// </summary>
-        /// <param name="ubicacion"></param>
+        /// <param name="ubicacion">Dirección de la que se desea obtener las coordenadas</param>
         /// <returns></returns>
         Task <Location> GetUbicacion(string ubicacion);
         

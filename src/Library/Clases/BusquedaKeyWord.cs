@@ -19,13 +19,13 @@ namespace Library
         {
             List<Publicacion> result = new List<Publicacion>();
 
-            foreach (Publicacion publicacion in RegistroPublicaciones.Activas) //Donde estan gaurdadas las publicaciones?
+            foreach (Publicacion publicacion in RegistroPublicaciones.Activas) 
             {
                 bool found = false;
                 int keyWordsPos = 0;
                 while (!found && keyWordsPos < palabras.Count)
                 {
-                    if (publicacion.PalabrasClave.Contains(palabras[keyWordsPos]))  //PalabrasClave private
+                    if (publicacion.PalabrasClave.Contains(palabras[keyWordsPos]))  
                     {
                         result.Add(publicacion);
                         keyWordsPos++ ;

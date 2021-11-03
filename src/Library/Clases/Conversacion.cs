@@ -24,7 +24,7 @@ namespace Library
         /// <summary>
         /// Método encargado de agregar el mensaje enviado como parámetro a la lista de mensajes.
         /// </summary>
-        /// <param name="mensaje"></param>
+        /// <param name="mensaje">Mensaje a agregar en la conversación.</param>
         void AgregarMensaje(string mensaje)
         {
             mensajes.Add(mensaje);

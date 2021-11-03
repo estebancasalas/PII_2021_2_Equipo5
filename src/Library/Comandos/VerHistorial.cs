@@ -5,15 +5,15 @@ using System.Collections.Generic;
 namespace Library
 {
     /// <summary>
-    ///Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta 
+    /// Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta. 
     /// </summary>
     public class VerHistorial 
     {
         
         /// <summary>
-        /// método que recorre la lista de transacciones de el usuario y retorna su historial.
+        /// Método que recorre la lista de transacciones de el usuario y retorna su historial.
         /// </summary>
-        /// <param name="nombre"></param>
+        /// <param name="nombre">Nombre de quien quiere ver el historial</param>
         /// <returns></returns>
         public string EjecutarComando(string nombre)
         {  

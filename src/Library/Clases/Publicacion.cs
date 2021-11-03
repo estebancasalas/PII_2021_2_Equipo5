@@ -8,53 +8,50 @@ namespace Library
     /// </summary>
     public class Publicacion
     {
+        /// <summary>
+        /// Nombre de quien hace la publicación.
+        /// </summary>
+        public string NombreEmpresa;
         /// <summary> 
         /// Se encarga de guardar el título de la publicación dentro del objeto publicación.
         /// </summary>
         /// <value></value>
-        private string titulo {get; set;}
+        public string titulo;
         /// <summary>
         /// Se encarga de guardar el material de la publicación dentro del objeto publicación.
         /// </summary>
         /// <value></value>
-        public Material Material {get; set;}
+        public Material Material;
         /// <summary>
         /// Se encarga de guardar las palabras claves para lograr una búsqueda efectiva dentro del objeto publicación.
         /// </summary>
-        private string palabrasClave;
-        /// <summary>
-        /// Son los metodos get y set para poder acceder a el atributo palabrasClaves desde otras clases.   
-        /// </summary>
-        /// <value></value>
-        public string PalabrasClave
-        {
-            get{ return this.palabrasClave; }
-            set{ this.palabrasClave = value; }
-        }
+        public string PalabrasClave;
         /// <summary>
         /// Permite conocer cada cuanto tiempo se genera el mismo y los guarda en el objeto material. 
         /// </summary>
         /// <value></value>
-        private string FrecuenciaDeDisponibilidad {get; set;}
+        public string FrecuenciaDeDisponibilidad;
         
         /// Atributo en dónde se guarda la ubicación del material.
         public Location Ubicacion {get; set;}
-        /// <summary>
-        /// Constructor de la ubicación 
-        /// </summary>
-        /// <param name="titulo"></param> Es el título de la publicación.
-        /// <param name="material"></param>Es el material de la publicación.
-        /// <param name="PalabrasClave"></param>Son las palabras claves de la publicación.
-        /// <param name="FrecuenciaDeDisponibilidad"></param>Es la frecuencia de disponibilidad de la publicación.
-        /// <param name="ubicacion"></param>Es la ubicación de la publicación.
+       /// <summary>
+       /// Constructor de la clase Publicacion.
+       /// </summary>
+       /// <param name="titulo">Título de la publicación</param>
+       /// <param name="material">Material que se va a publicar</param>
+       /// <param name="PalabrasClave">Palabras clave para buscar la publicación</param>
+       /// <param name="FrecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
+       /// <param name="ubicacion">Ubicación del vendedor</param>
+       /// <param name="nombreEmpresa">Nombre de quien vende el material</param>
 
-        public Publicacion(string titulo, Material material, string PalabrasClave, string FrecuenciaDeDisponibilidad, Location ubicacion)
+        public Publicacion(string titulo, Material material, string PalabrasClave, string FrecuenciaDeDisponibilidad, Location ubicacion, string nombreEmpresa)
         {
             this.titulo = titulo;
             this.Material = material;
             this.PalabrasClave = PalabrasClave;
             this.FrecuenciaDeDisponibilidad = FrecuenciaDeDisponibilidad;
             this.Ubicacion = ubicacion;
+            this.NombreEmpresa = nombreEmpresa;
         }
         //Falta categoria.
     }

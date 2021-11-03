@@ -14,7 +14,7 @@ namespace Library
         /// <summary>
         /// Toma como parámetro una lista de categorías y recorre la lista de publicaciones buscando coincidencias.
         /// </summary>
-        /// <param name="categorias"></param>Lista de categorías, son pedidas por el handler al usuario.
+        /// <param name="categorias">Lista de categorías, son pedidas por el handler al usuario.</param>
         /// <returns></returns>
         public List<Publicacion> Buscar(List<string> categorias)
         {

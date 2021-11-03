@@ -16,7 +16,7 @@ namespace Library
         /// <summary>
         /// Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
         /// </summary>
-        /// <param name="mensaje"></param>
+        /// <param name="mensaje">Mensaje escrito por usuario</param>
         void Handle(Mensaje mensaje);
     }
 }

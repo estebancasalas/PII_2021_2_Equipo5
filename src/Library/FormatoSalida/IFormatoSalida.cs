@@ -14,7 +14,7 @@ namespace Library
         /// Método para las clases que implementen esta interfaz. Muestra en pantalla el string pasado
         /// como parámetro.
         /// </summary>
-        /// <param name="line"></param>
+        /// <param name="line">Lo que se muestra en consola</param>
         /// <returns></returns>
         string PrintLine (string line);
     }

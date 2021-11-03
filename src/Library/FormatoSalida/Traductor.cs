@@ -13,7 +13,7 @@ namespace Library
         /// <summary>
         /// Método encargado de modelar el string pasado como parámetro. Luego, lo muestra en pantalla.
         /// </summary>
-        /// <param name="line"></param>
+        /// <param name="line">Lo que se modela para mostrar en pantalla</param>
         /// <returns></returns>
         public string PrintLine(string line)
         {

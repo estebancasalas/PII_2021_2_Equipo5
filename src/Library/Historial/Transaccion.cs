@@ -24,5 +24,19 @@ namespace Library
         /// La cantidad del material que se vendió o se compró.
         /// </summary>
         public double Cantidad; 
+        /// <summary>
+        /// Constructor de la clase.
+        /// </summary>
+        /// <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>
+        /// <param name="comprador">Comprador, es un objeto de la clase Emprendedor</param>
+        /// <param name="nombre">Nombre del material, tipo string</param>
+        /// <param name="cantidad">Cantidad del material, tipo double</param>
+        public Transaccion(Empresa vendedor, Emprendedor comprador, string nombre, double cantidad)
+        {
+            this.Vendedor = vendedor;
+            this.Comprador = comprador;
+            this.NombreDelMaterial = nombre;
+            this.Cantidad = cantidad;
+        }
     }
 }

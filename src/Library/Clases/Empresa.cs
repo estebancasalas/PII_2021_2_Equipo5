@@ -39,10 +39,10 @@ namespace Library
         /// <summary>
         /// Es el constructor que se encarga de crear a la empresa en su totalidad.
         /// </summary>
-        /// <param name="nombre"></param>Se encarga de guardar el nombre de la empresa dentro del objeto empresa.
-        /// <param name="ubicacion"></param>Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.
-        /// <param name="rubro"></param>Se encarga de guardar el rubro de la empresa dentro del objeto empresa.
-        /// <param name="invitacion"></param>Se encarga de guardar la invitación de la empresa dentro del objeto empresa.
+        /// <param name="nombre">Se encarga de guardar el nombre de la empresa dentro del objeto empresa.</param>
+        /// <param name="ubicacion">Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.</param>
+        /// <param name="rubro">Se encarga de guardar el rubro de la empresa dentro del objeto empresa.</param>
+        /// <param name="invitacion">Se encarga de guardar la invitación de la empresa dentro del objeto empresa.</param>
         public Empresa(string nombre, string ubicacion, string rubro, string invitacion)
         {
             this.Invitacion = invitacion;
