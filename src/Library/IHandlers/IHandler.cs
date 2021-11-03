@@ -4,6 +4,7 @@ namespace Library
 {
     /// <summary>
     /// Interfaz para la creación de los handlers.
+    /// Dada la naturaleza de los handlers se usa el patrón Chain of responsibility, asi se puede recorren todos los handlers hasta que se encuentre el que se necesita.
     /// </summary>
     public interface IHandler
     {
