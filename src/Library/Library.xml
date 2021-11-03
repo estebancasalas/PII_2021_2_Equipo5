@@ -4,5 +4,842 @@
         <name>Library</name>
     </assembly>
     <members>
+        <member name="T:Library.Administrador">
+            <summary>
+            Clase que modela el rol de administrador.
+            Es el encargado de generar las invitaciones para las empresas.
+            </summary>
+        </member>
+        <member name="P:Library.Administrador.Id">
+            <summary>
+            Guarda el id de el administrador al registrarse 
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Administrador.Nombre">
+            <summary>
+            Guarda el nombre que pone el administrador al registrarse 
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Administrador.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructor de la clase Administrador
+            </summary>
+            <param name="Id"></param>
+            <param name="Nombre"></param>
+        </member>
+        <member name="M:Library.Administrador.CrearInvitacion(System.String,System.String,System.String,System.String)">
+            <summary>
+            Método que crea el objeto empresa y su token de invitación.
+            </summary>
+            <param name="nombre"></param>Nombre de la empresa.
+            <param name="ubicacion"></param>Ubicación de la empresa.
+            <param name="rubro"></param>Rubro de la empresa.
+            <param name="token"></param>Token de invitación creada por el administrador.
+        </member>
+        <member name="T:Library.Bot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Library.BusquedaCategoria">
+            <summary>
+            Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en categoría.
+            Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por categoría.
+            Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
+            </summary>
+        </member>
+        <member name="M:Library.BusquedaCategoria.Buscar(System.Collections.Generic.List{System.String})">
+            <summary>
+            Toma como parámetro una lista de categorías y recorre la lista de publicaciones buscando coincidencias.
+            </summary>
+            <param name="categorias"></param>Lista de categorías, son pedidas por el handler al usuario.
+            <returns></returns>
+        </member>
+        <member name="T:Library.BusquedaKeyWord">
+            <summary>
+            Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en palabras clave.
+            Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por Palabras clave.
+            Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
+            </summary>
+        </member>
+        <member name="M:Library.BusquedaKeyWord.Buscar(System.Collections.Generic.List{System.String})">
+            <summary>
+            Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
+            </summary>
+        </member>
+        <member name="T:Library.BusquedaZona">
+            <summary>
+            Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en zona.
+            Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por zona.
+            Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
+            </summary>
+        </member>
+        <member name="M:Library.BusquedaZona.Buscar(System.String,System.String)">
+            <summary>
+            Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
+            </summary>
+        </member>
+        <member name="T:Library.Conversacion">
+            <summary>
+            La clase conversación se encarga de llevar el conteo de mensajes de cada 
+            uno de los ususarios
+            </summary>
+        </member>
+        <member name="P:Library.Conversacion.id">
+            <summary>
+            Guarda el id del usuario.
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Library.Conversacion.mensajes">
+            <summary>
+            Lista donde se guardan los mensajes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Conversacion.AgregarMensaje(System.String)">
+            <summary>
+            Método encargado de agregar el mensaje enviado como parámetro a la lista de mensajes.
+            </summary>
+            <param name="mensaje"></param>
+        </member>
+        <member name="T:Library.Emprendedor">
+            <summary>
+            Clase que modela un usario del tipo emprendedor. 
+            Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
+            surjan nuevos tipos de usuario.
+            </summary>
+        </member>
+        <member name="P:Library.Emprendedor.Id">
+            <summary>
+            Id del Emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Emprendedor.Nombre">
+            <summary>
+            Nombre del emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Emprendedor.Ubicacion">
+            <summary>
+            Ubicación del emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Emprendedor.Rubro">
+            <summary>
+            Rubro del emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Emprendedor.Habilitaciones">
+            <summary>
+            Habilitaciones del emprendedor(Link al documento).
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Emprendedor.Especializaciones">
+            <summary>
+            Especializaciones del emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Emprendedor.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor de la clase emprendedor.
+            </summary>
+            <param name="id"></param>
+            <param name="nombre"></param>
+            <param name="ubicacion"></param>
+            <param name="rubro"></param>
+            <param name="habilitaciones"></param>
+            <param name="especializaciones"></param>
+        </member>
+        <member name="T:Library.Empresa">
+            <summary>
+            Clase que modela un usario del tipo empresa. 
+            Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
+            surjan nuevos tipos de usuario.
+            </summary>
+        </member>
+        <member name="P:Library.Empresa.Invitacion">
+            <summary>
+            Guarda la invitación de la empresa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Library.Empresa.ListaIdEmpresarios">
+            <summary>
+            La listaIdEmpresarios se encarga de registrar todos los usuarios que 
+            puede tener una misma empresa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Empresa.Nombre">
+            <summary>
+            Guarda el nombre de la empresa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Empresa.Ubicacion">
+            <summary>
+            Guarda la ubicación de la empresa. 
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Empresa.Rubro">
+            <summary>
+            Guarda el rubro de la empresa.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Empresa.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Es el constructor que se encarga de crear a la empresa en su totalidad.
+            </summary>
+            <param name="nombre"></param>Se encarga de guardar el nombre de la empresa dentro del objeto empresa.
+            <param name="ubicacion"></param>Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.
+            <param name="rubro"></param>Se encarga de guardar el rubro de la empresa dentro del objeto empresa.
+            <param name="invitacion"></param>Se encarga de guardar la invitación de la empresa dentro del objeto empresa.
+        </member>
+        <member name="T:Library.Material">
+            <summary>
+            Esta clase se encarga del modelado del material.
+            </summary>
+        </member>
+        <member name="P:Library.Material.Nombre">
+            <summary>
+            Se encarga de guardar el nombre del material dentro del objeto material.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Material.Costo">
+            <summary>
+            Se encarga de guardar el costo del material dentro del objeto material.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Material.Cantidad">
+            <summary>
+            Se encarga de guardar la cantidad que existe del mismo dentro del objeto material.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Material.Unidad">
+            <summary>
+            Se encarga de guardar la unidad en la cual se pesa el material dentro del objeto material.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Material.Habilitaciones">
+            <summary>
+            Se encarga de guardar las habliitaciones, que se necesitan para obtener el material, dentro del objeto material.
+            Link al documento.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Material.Categoria">
+            <summary>
+            Se encarga de guardar la categoría del material dentro del objeto material.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <summary>
+            Constructor del material.
+            </summary>
+            <param name="Nombre"></param>El nombre del material.
+            <param name="Costo"></param>El costo del material.
+            <param name="Cantiadad"></param>La cantidad del material.
+            <param name="Unidad"></param>La unidad en la cual se cuantifica el material
+            <param name="Habilitaciones"></param>Las habliitaciones que se necesitan para el material.
+            <param name="Categoria"></param>La categoría del material.
+        </member>
+        <member name="T:Library.Publicacion">
+            <summary>
+            Clase que modela un usario del tipo publicación. 
+            </summary>
+        </member>
+        <member name="P:Library.Publicacion.titulo">
+            <summary> 
+            Se encarga de guardar el título de la publicación dentro del objeto publicación.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Publicacion.Material">
+            <summary>
+            Se encarga de guardar el material de la publicación dentro del objeto publicación.
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Library.Publicacion.palabrasClave">
+            <summary>
+            Se encarga de guardar las palabras claves para lograr una búsqueda efectiva dentro del objeto publicación.
+            </summary>
+        </member>
+        <member name="P:Library.Publicacion.PalabrasClave">
+            <summary>
+            Son los metodos get y set para poder acceder a el atributo palabrasClaves desde otras clases.   
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Publicacion.FrecuenciaDeDisponibilidad">
+            <summary>
+            Permite conocer cada cuanto tiempo se genera el mismo y los guarda en el objeto material. 
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Publicacion.Ubicacion">
+            Atributo en dónde se guarda la ubicación del material.
+        </member>
+        <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,LocationApi.Location)">
+            <summary>
+            Constructor de la ubicación 
+            </summary>
+            <param name="titulo"></param> Es el título de la publicación.
+            <param name="material"></param>Es el material de la publicación.
+            <param name="PalabrasClave"></param>Son las palabras claves de la publicación.
+            <param name="FrecuenciaDeDisponibilidad"></param>Es la frecuencia de disponibilidad de la publicación.
+            <param name="ubicacion"></param>Es la ubicación de la publicación.
+        </member>
+        <member name="T:Library.Ubicacion">
+            <summary>
+            Esta clase se encarga de generar una ubicación utilizando la API Location.
+            Utliza la interzaz IUbicacion para facilitar la extensión de varias ubicaciones de 
+            un mismo cliente.
+            </summary>
+        </member>
+        <member name="M:Library.Ubicacion.GetUbicacion(System.String)">
+            <summary>
+            GetUbicacion es el método que al pasarle una ubicación la convierte en las coordenadas
+            de la misma. 
+            </summary>
+            <param name="ubicacion"></param>Es la dirección que nos pasa el cliente. 
+            <returns></returns>
+        </member>
+        <member name="T:Library.VerificadorUsuario">
+            <summary>
+            Esta clase tiene la responsabilidad de verificar si un id ya esta registrado.
+            Creada por SRP, ya que colaborará con CrearUsuarioHandler
+            </summary>
+        </member>
+        <member name="M:Library.VerificadorUsuario.EstaRegistrado(System.Int32)">
+            <summary>
+            Método que recorre las listas de empresas y emprendedore buscando un id. Si encuentra el id retorna true, en caso 
+            contrario retorna false. 
+            </summary>
+            <param name="id"></param>Es el id que se desea saber si esta registrado o no. 
+            <returns></returns>
+        </member>
+        <member name="T:Library.VerificarInvitacion">
+            <summary>
+            Esta clase se encarga de verificar que las invitaciones de los trabajadores de 
+            la empresa son válidas. 
+            Patrón SRP para que el Administrador solo tenga que crear la invitación, y que 
+            al mismo tiempo no tenga que verificarla. 
+            </summary>
+        </member>
+        <member name="F:Library.VerificarInvitacion.valido">
+            <summary>
+            valido es el atributo que indica si la invitación es válida o no. 
+            </summary>
+        </member>
+        <member name="M:Library.VerificarInvitacion.#ctor(System.String)">
+            <summary>
+            Es quien se encarga de verificar que la invitación pasada como parámetro sea
+            válida o no. 
+            Esto lo realiza recorriendo la lista con invitaciones válidas.
+            </summary>
+            <param name="invitacion"></param>
+        </member>
+        <member name="T:Library.BuscarPublicacion">
+            <summary>
+            Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
+            devuelve una lista con las coincidencias.
+            Además, se deberá preguntar por los parámetros necesarios para la búsqueda.
+            En caso de una búsqueda por más de un tipo, se realizan todas las búsquedas y 
+            devuelve las coincidencias comunes a todas las búsquedas.
+            Esta clase además cumple con el principio SRP, ya que tiene como responsabilidad
+            devolver una lista de publicaciones que cumplen con lo buscado, pero delega
+            la responsabilidad de buscar a otras clases. 
+            </summary>
+        </member>
+        <member name="M:Library.BuscarPublicacion.EjecutarComando">
+            <summary>
+            EjecutarComando se encarga de buscar una publicación por categoría, zona y 
+            palabras claves. Luego las delega a cada una de las clases que se encargan de 
+            búsqueda. 
+            Finalmente, devuelve una lista con todas la publiaciones encontradas, de la búsqueda
+            que se realizó. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.CrearPublicacion">
+            <summary>
+            CearPublicacion es la clase que se encarga del modelado de la publicación.
+            </summary>
+        </member>
+        <member name="P:Library.CrearPublicacion.DatosDeMateriales">
+            <summary>
+            DatosDeMateriales es el objeto que se utiliza en publicación para luego poder
+            adquirir los datos del material que se encuentran/pide en la clase Material.
+            </summary>
+        </member>
+        <member name="M:Library.CrearPublicacion.EjecutarComando(Library.Material,System.String,System.String,System.String,System.String)">
+            <summary>
+            Método que pide los datos necesarios para crear una publicación. Deriva la
+            responsabilidad de crear la publicación a la clase Publicacion para cumplir
+            con el principio SRP.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.VerHistorial">
+             <summary>
+            Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta 
+             </summary>
+        </member>
+        <member name="M:Library.VerHistorial.EjecutarComando(System.String)">
+            <summary>
+            método que recorre la lista de transacciones de el usuario y retorna su historial.
+            </summary>
+            <param name="nombre"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.IEntaradaDeLaCadena">
+             <summary>
+             IEntradaDeLaCadena y IEntradaInt cumplen con el patrón de ISP ya que se utilizan interfaces chicas para implementar solo el comportamiento
+            que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada.
+             </summary>
+        </member>
+        <member name="M:Library.IEntaradaDeLaCadena.GetInput(System.String)">
+            <summary>
+            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta. 
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.IEntradaInt">
+             <summary>
+            IEntradaDeLaCadena y IEntradaInt cumplen con el patrón de ISP ya que se utilizan interfaces chicas para implementar solo el comportamiento
+            que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada. 
+            Cumple también con el principio DIP ya que la comunicación de los mismos es con las clases de alto nivel.
+             </summary>
+        </member>
+        <member name="M:Library.IEntradaInt.GetInput(System.String)">
+            <summary>
+            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta. 
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.IntLeerConosla">
+             <summary>
+            IntLeerConosla se encarga de recibir un int dede la consola, para que el usurio pueda interactuar con el menú del bot. 
+            Es la impelemntación de una interface, porque la idea es que más adelnate se agregaran más maneras de intercatuar con el usurio.
+             </summary>
+        </member>
+        <member name="M:Library.IntLeerConosla.GetInput(System.String)">
+            <summary>
+            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.LeerConsola">
+             <summary>
+            LeerConsola es una implementación de la interface IEntaradaDeLaCadena para interactuar con el usuario a través de la
+            consola. Cumple con DIP pues la comunicación es a través de clases de alto nivel y abstracciones (Interfaces).
+            Cumple SRP pues su unica razon de cambio es recibir una linea de la consola.
+             </summary>
+        </member>
+        <member name="M:Library.LeerConsola.GetInput(System.String)">
+            <summary>
+            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.IFormatoSalida">
+            <summary>
+            Interfaz para implementar una forma de mostrar un string en pantalla. Al ser una interfaz, se busca
+            que se cumpla el principio OCP a través del principio LSP. Se pueden extender las capacidades del
+            programa sin modificarlo (por ejemplo agregando otras API), al agregar clases que implementen la 
+            interfaz y sustituyendo en el programa principal.
+            </summary>
+        </member>
+        <member name="M:Library.IFormatoSalida.PrintLine(System.String)">
+            <summary>
+            Método para las clases que implementen esta interfaz. Muestra en pantalla el string pasado
+            como parámetro.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.Traductor">
+            <summary>
+            Clase encargada de modelar un string para ser mostrado en pantalla. Implementa la interfaz
+            IFormatoSalida ya que es una de las clases que muestra información en pantalla. 
+            Al implementar una interfaz, es posible extender los usos sin modificar el programa principal ya que
+            depende de una abstracción (patrón Polymorphism).
+            </summary>
+        </member>
+        <member name="M:Library.Traductor.PrintLine(System.String)">
+            <summary>
+            Método encargado de modelar el string pasado como parámetro. Luego, lo muestra en pantalla.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.BuscarPublicacionHandler">
+            <summary>
+            Este handler te dirrecciona a la clase BuscarPublicación, implemnta AbstractHandler 
+            </summary>
+        </member>
+        <member name="T:Library.ComienzoHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Library.FinalizarHandler">
+            <summary>
+            Handler final, para salir de la ejecución del bot. Implementa AbstractHandler porque
+            interactúa con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método
+            </summary>
+            <param name="mensaje"></param>
+        </member>
+        <member name="T:Library.CrearEmprendedorHandler">
+            <summary>
+            Handler encargado de crear un emprendedor. Implementa AbstractHandler porque interactúa con el
+            usuario.
+            </summary>
+        </member>
+        <member name="M:Library.CrearEmprendedorHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
+            dé los datos para crear un emprendedor. Colabora con la clase Emprendedor.
+            </summary>
+            <param name="mensaje"></param>
+        </member>
+        <member name="T:Library.HistorialHandler">
+            <summary>
+            Handler para verificar el historial de un usuario. Implementa AbstractHandler porque
+            interactúa con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.HistorialHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre 
+            al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
+            se envía al siguiente Handler.
+            </summary>
+            <param name="mensaje"></param>
+        </member>
+        <member name="T:Library.InvitarHandler">
+            <summary>
+            Handler para crear una invitacion. Implementa AbstractHandler porque la interacción es
+            con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.InvitarHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación 
+            para el mismo?
+            </summary>
+            <param name="mensaje"></param>
+        </member>
+        <member name="T:Library.MaterialesHandler">
+            <summary>
+            Handler encargado de la creación de un objeto de la clase Material. Implementa AbstractHandler
+            porque interactúa con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.MaterialesHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que evalúa el mensaje y crea un Material. Le pide los datos al usuario y luego crea
+            un objeto Material con esos datos.
+            </summary>
+            <param name="mensaje"></param>
+        </member>
+        <member name="T:Library.RegistrarEmpresarioHandler">
+            <summary>
+            Handler para registrar un empresario en una empresa. Implementa AbstractHandler
+            porque interactúa con el usuario.
+            </summary>
+        </member>
+        <member name="M:Library.RegistrarEmpresarioHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método encargado de verificar si la invitación es válida. En caso de que lo sea y el 
+            empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
+            es una invitación válida.S
+            </summary>
+            <param name="mensaje"></param>
+        </member>
+        <member name="T:Library.HistorialTransacciones">
+            <summary>
+            Clase que se encarga de conocer todas las transacciones que se realizan 
+            de una empresa a un emprendedor o viceversa. 
+            </summary>
+        </member>
+        <member name="F:Library.HistorialTransacciones.Transacciones">
+            <summary>
+            Transacciones es quien tiene la lista con los objetos de la clase Transaccion. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.Transaccion">
+            <summary>
+            Clase que modela las transacciones entre emprendedores y empresas o viceversa. 
+            </summary>
+        </member>
+        <member name="F:Library.Transaccion.Vendedor">
+            <summary>
+            El vendedor es un objeto del tipo Empresa.
+            </summary>
+        </member>
+        <member name="F:Library.Transaccion.Comprador">
+            <summary>
+            El Comprador es un objeto de tipo Emprendedor 
+            </summary>
+        </member>
+        <member name="F:Library.Transaccion.NombreDelMaterial">
+            <summary>
+            El NombreDelMaterial es el nombre del material que se vendió o se compró.
+            </summary>
+        </member>
+        <member name="F:Library.Transaccion.Cantidad">
+            <summary>
+            La cantidad del material que se vendió o se compró.
+            </summary>
+        </member>
+        <member name="T:Library.IHandler">
+            <summary>
+            Interfaz para la creación de los handlers
+            </summary>
+        </member>
+        <member name="T:Library.Mensaje">
+            <summary>
+            Clase para usar en otras clases que requieran el envio y la recepción de mensajes.
+            </summary>
+        </member>
+        <member name="P:Library.Mensaje.Id">
+            <summary>
+            Se guarda una Id en forma de un entero.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Mensaje.Text">
+            <summary>
+            String que guarda un mensaje en forma de texto.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Mensaje.#ctor(System.Int32,System.String)">
+            <summary>
+            El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
+            </summary>
+            <param name="id"></param>
+            <param name="text"></param>
+        </member>
+        <member name="T:Library.Singleton`1">
+            <summary>
+            Se usa en los handlers que requieren la utilización del patron singleton.
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Library.IUbicacion">
+            <summary>
+            Interfaz para implementar el método encargado de obtener una ubicación. Creada para aplicar DIP y
+            Polymorphism en caso de que hayan otras formas de encontrar una ubicación (actualmente solo hay una).
+            </summary>
+        </member>
+        <member name="M:Library.IUbicacion.GetUbicacion(System.String)">
+            <summary>
+            Método para obtener la ubicación en coordenadas a partir de un string.
+            </summary>
+            <param name="ubicacion"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.IUsuario">
+            <summary>
+             Interfaz que contiene los datos utilizados por empresas y emprendedores.
+             Al ser una interfaz, se busca (a través del principio LSP) tener un programa que cumpla con el
+             principio OCP. Esto se logra al tener clases que implementen la interfaz, permitiendo extender
+             las capacidades del programa sin modificarlo. Se extienden al agregar otras clases que implementen
+             la interfaz y sustituyendo en el programa principal.
+            </summary>
+        </member>
+        <member name="P:Library.IUsuario.Nombre">
+            <summary>
+            Nombre de la empresa o emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.IUsuario.Rubro">
+            <summary>
+            Rubro de la empresa o emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.IUsuario.Ubicacion">
+            <summary>
+            Ubicación de la empresa o emprendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Library.ListaAdminastradores">
+            <summary>
+            ListaAdministradores es quien se encarga de tener la lista con todos los 
+            Administradores registrados. 
+            Se cumple principio SRP ya que libra al administrador de tener que crearse a él mismo 
+            y al mismo tiempo conocer todos los Administradores registrados. 
+            </summary>
+        </member>
+        <member name="F:Library.ListaAdminastradores.administradores">
+            <summary>
+            Lista que contiene todos los administradores registrados.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.ListaCodigosValidos">
+            <summary>
+            ListaCodigosValidos es quien se encarga de tener la lista con todos los 
+            códigos válidos para registrar una empresa. 
+            Se cumple principio SRP ya que libra al administrador de tener que crear los
+            códigos y conocerlos. 
+            </summary>
+        </member>
+        <member name="F:Library.ListaCodigosValidos.CodigosValidos">
+            <summary>
+            Lista con todos los códigos válidos para registrar una empresa.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.ListaConversaciones">
+            <summary>
+            ListaConversaciones es quien se encarga de tener la lista con todos los 
+            mensajes enviados.
+            Cumple con el principio SRP ya que cada objeto de la lista tiene los mensajes
+            entre un usuario y el bot, y la lista contiene todas las conversaciones
+            los usuarios y el bot.
+            </summary>
+        </member>
+        <member name="F:Library.ListaConversaciones.Conversaciones">
+            <summary>
+            Lista que contiene las conversaciones entre todos los usuarios y el bot.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.ListaDeUsuario">
+            <summary>
+            ListaDeUsuario es quien se encarga de tener la lista con todos los 
+            usuarios registrados, siendo los usuarios las empresas y emprendedores.  
+            Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
+            </summary>
+        </member>
+        <member name="F:Library.ListaDeUsuario.usuario">
+            <summary>
+            Lista que contiene a todos los ususarios.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.ListaEmprendedores">
+            <summary>
+            Clase la cual contiene una lista en la cual estaran todos los emprendedores. 
+            Cumple con el principio SRP ya que su única responsabilidad es conocer los 
+            emprendedores.
+            </summary>
+        </member>
+        <member name="F:Library.ListaEmprendedores.Emprendedores">
+            <summary>
+            Lista que contiene todos los emprendedores registrados.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.ListaEmpresa">
+            <summary>
+            Clase que contiene una lista en la cual están todas las empresas. 
+            Cumple con el principio SRP ya que su única responsabilidad es conocer los empresas.
+            </summary>
+        </member>
+        <member name="F:Library.ListaEmpresa.Empresas">
+            <summary>
+            Lista que contiene todas las empresas registradas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.ListaInvitaciones">
+            <summary>
+            ListaInvitaciones es quien se encarga de tener la lista con todas las 
+            invitaciones que fueron hechas. 
+            Se cumple principio SRP ya que libra al administrador de conocer todas las
+            invitaciones.
+            </summary>
+        </member>
+        <member name="F:Library.ListaInvitaciones.Invitaciones">
+            <summary>
+            Lista que contiene todas las invtiaciones.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Library.RegistroPublicaciones">
+            <summary>
+            Clase que tiene un registro de las publicaciones activas, eliminadas y 
+            pausadas. Tiene la responsabilidad de conocer el estados de las publicaciones.
+            Se definen los métodos para encapsular la clase y poder modificar los datos
+            sin tener que compartir la información de las listas, cumpliendo con el
+            patrón Expert.
+            </summary>
+        </member>
+        <member name="P:Library.RegistroPublicaciones.Activas">
+            <summary>
+            Lista con las publicaciones activas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Library.RegistroPublicaciones.Eliminadas">
+            <summary>
+            Lista con las publicaciones que fueron eliminadas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Library.RegistroPublicaciones.Pausadas">
+            <summary>
+            Lista con las publicaciones pausadas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.RegistroPublicaciones.AñadirNuevaPublicacion(Library.Publicacion)">
+            <summary>
+            Método para agregar una nueva publicación a la lista de 
+            publicaciones activas.
+            </summary>
+            <param name="publi"></param>
+        </member>
+        <member name="M:Library.RegistroPublicaciones.PausarPublicacion(Library.Publicacion)">
+            <summary>
+            Método para pausar una publicación. Agrega dicha publicación a
+            la lista de publicaciones pausadas y la remueve de la lista de 
+            publicaciones activas.
+            </summary>
+            <param name="publi"></param>
+        </member>
+        <member name="M:Library.RegistroPublicaciones.EliminarPublicacion(Library.Publicacion)">
+            <summary>
+            Método para eliminar una publicación. Se agrega la misma a la lista de
+            publicaciones eliminadas y se remueve de la lista de publicaciones activas
+            y publicaciones pausadas.
+            </summary>
+            <param name="publi"></param>
+        </member>
     </members>
 </doc>

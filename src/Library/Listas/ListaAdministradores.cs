@@ -15,7 +15,7 @@ namespace Library
         /// Lista que contiene todos los administradores registrados.
         /// </summary>
         /// <returns></returns>
-        private List<Administrador> administradores = new List<Administrador>();
+        public static List<Administrador> administradores = new List<Administrador>();
 
     }
 }

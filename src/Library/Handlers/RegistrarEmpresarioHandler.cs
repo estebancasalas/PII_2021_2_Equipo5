@@ -9,6 +9,7 @@ namespace Library
     /// </summary>
     public class RegistrarEmpresarioHandler : AbstractHandler
     {
+        public string token;
         /// <summary>
         /// Método encargado de verificar si la invitación es válida. En caso de que lo sea y el 
         /// empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
@@ -19,7 +20,7 @@ namespace Library
         {
             if (mensaje.Text == "/empresa")
             {
-                string token = Input.GetInput("Ingrese su código de invitación.");
+                //token = Input.GetInput("Ingrese su código de invitación.");
                 VerificarInvitacion verificador = new VerificarInvitacion(token); //Qué pasa si no ingresa nada?
                 if (verificador.valido)
                 {
@@ -30,7 +31,7 @@ namespace Library
                         if (ListaEmpresa.Empresas[i].Invitacion == token)
                         {
                             ListaEmpresa.Empresas[i].ListaIdEmpresarios.Add(mensaje.Id);
-                            notfound = true;
+                            notfound = false;
                         }
                         else
                         {
