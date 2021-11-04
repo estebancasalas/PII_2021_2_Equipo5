@@ -12,8 +12,7 @@ namespace Library
     public class Ubicacion : IUbicacion
     {
         /// <summary>
-        /// GetUbicacion es el método que al pasarle una ubicación la convierte en las coordenadas
-        /// de la misma. 
+        /// GetUbicacion es el método que al pasarle una ubicación la convierte en un objeto de tipo Location. 
         /// </summary>
         /// <param name="ubicacion">Es la dirección que pasa el cliente.</param> 
         /// <returns></returns>

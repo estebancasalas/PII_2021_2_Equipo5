@@ -16,18 +16,33 @@ namespace Library
     /// </summary>
     public class BuscarPublicacion
     {
+        /// <summary>
+        /// Contiene el tipo de búsqueda que se va a realizar
+        /// </summary>
         public string TipoBusqueda;
+        /// <summary>
+        /// Lo que se desea buscar.
+        /// </summary>
         public string Busqueda;
+        /// <summary>
+        /// Lista de coincidencias de la búsqueda.
+        /// </summary>
+        /// <returns></returns>
         public List<Publicacion> result = new List<Publicacion>();
+        /// <summary>
+        /// Constructor de la clase.
+        /// </summary>
+        /// <param name="tipobusqueda"></param>
+        /// <param name="busqueda"></param>
         public BuscarPublicacion(string tipobusqueda, string busqueda)
         {
             this.TipoBusqueda = tipobusqueda;
             this.Busqueda = busqueda;
         }
         /// <summary>
-        /// EjecutarComando se encarga de buscar una publicación por categoría, zona y 
-        /// palabras claves. Luego las delega a cada una de las clases que se encargan de 
-        /// búsqueda. 
+        /// EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y 
+        /// palabras claves). Luego las delega a cada una de las clases que se encargan de 
+        /// búsqueda, para cumplir con SRP. 
         /// Finalmente, devuelve una lista con todas la publiaciones encontradas, de la búsqueda
         /// que se realizó. 
         /// </summary>
@@ -40,13 +55,11 @@ namespace Library
                 BusquedaCategoria buscador = new BusquedaCategoria();
                 result = buscador.Buscar(this.Busqueda);
             }
-            //Pide la zona y realiza la busqueda
             else if (TipoBusqueda.ToLower() == "/ciudad" || TipoBusqueda.ToLower() == "/departamento")
             {
                 BusquedaZona buscador = new BusquedaZona();
                 result = buscador.Buscar(this.TipoBusqueda, this.Busqueda); 
             }
-            //Pide las palabras clave y realiza la busqueda.
             else if (TipoBusqueda == "/palabrasclave")
             {
                 BusquedaKeyWord buscador = new BusquedaKeyWord();
