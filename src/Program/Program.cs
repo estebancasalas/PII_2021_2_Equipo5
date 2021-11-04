@@ -18,6 +18,9 @@ namespace Library
         /// </summary>
         public static void Main()
         {
+            IHandler comienzo = new ComienzoHandler();
+            Mensaje mensaje = new Mensaje(0 ,"/start");
+            comienzo.Handle(mensaje);
           
         }
     }
