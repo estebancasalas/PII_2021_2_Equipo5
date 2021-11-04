@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
+    
     /// <summary>
     /// Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
     /// devuelve una lista con las coincidencias.
@@ -15,6 +16,14 @@ namespace Library
     /// </summary>
     public class BuscarPublicacion
     {
+        public string TipoBusqueda;
+        public string Busqueda;
+        public List<Publicacion> result = new List<Publicacion>();
+        public BuscarPublicacion(string tipobusqueda, string busqueda)
+        {
+            this.TipoBusqueda = tipobusqueda;
+            this.Busqueda = busqueda;
+        }
         /// <summary>
         /// EjecutarComando se encarga de buscar una publicación por categoría, zona y 
         /// palabras claves. Luego las delega a cada una de las clases que se encargan de 
@@ -25,53 +34,27 @@ namespace Library
         /// <returns></returns>
         public List<Publicacion> EjecutarComando()
         {
-            List<Publicacion> result = new List<Publicacion>();
-            bool opcionValida = false;
-            while (!opcionValida)
+                
+            if (TipoBusqueda.ToLower() == "/categoria")
+            {   
+                BusquedaCategoria buscador = new BusquedaCategoria();
+                result = buscador.Buscar(this.Busqueda);
+            }
+            //Pide la zona y realiza la busqueda
+            else if (TipoBusqueda.ToLower() == "/ciudad" || TipoBusqueda.ToLower() == "/departamento")
             {
-                Console.WriteLine("Que tipo de busqueda desea realizar?\n1-Categoria\n2-Zona\n3-Palabras Clave");
-                string mensaje = Console.ReadLine();
-                //Pide las categorias y realiza la busqueda
-                if (mensaje == "1")
-                {   
-                    string flag = ""; 
-                    List<string> categorias = new List<string>();
-                    while (flag != "0")
-                    {
-                        categorias.Add(Console.ReadLine());
-                    }
-                    BusquedaCategoria buscador = new BusquedaCategoria();
-                    result = buscador.Buscar(categorias);
-                    opcionValida = true;
-                }
-                //Pide la zona y realiza la busqueda
-                else if (mensaje == "2")
-                {
-                    Console.WriteLine("1-Buscar por cuidad.\n2-Buscar por departamento.");
-                    string tipoZona = Console.ReadLine();
-                    Console.WriteLine("Donde desea buscar?.");
-                    string zona = Console.ReadLine();
-                    BusquedaZona buscador = new BusquedaZona();
-                    result = buscador.Buscar(tipoZona, zona); 
-                    opcionValida = true;
-                }
-                //Pide las palabras clave y realiza la busqueda.
-                else if (mensaje == "3")
-                {
-                    string flag = ""; 
-                    List<string> palabras = new List<string>();
-                    while (flag != "0")
-                    {
-                        palabras.Add(Console.ReadLine());
-                    }
-                    BusquedaKeyWord buscador = new BusquedaKeyWord();
-                    result = buscador.Buscar(palabras);
-                    opcionValida = true;
-                }
-                else
-                {
-                    Console.WriteLine("Usted no ingreso una opcion valida. Intente nuevamente.");
-                }
+                BusquedaZona buscador = new BusquedaZona();
+                result = buscador.Buscar(this.TipoBusqueda, this.Busqueda); 
+            }
+            //Pide las palabras clave y realiza la busqueda.
+            else if (TipoBusqueda == "/palabrasclave")
+            {
+                BusquedaKeyWord buscador = new BusquedaKeyWord();
+                result = buscador.Buscar(this.Busqueda);
+            }
+            else
+            {
+                Console.WriteLine("Usted no ingreso una opcion valida. Intente nuevamente.");
             }
             return result;
         }

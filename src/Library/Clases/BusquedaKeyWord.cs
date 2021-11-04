@@ -15,22 +15,15 @@ namespace Library
         /// <summary>
         /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
         /// </summary>
-        public List<Publicacion> Buscar(List<string> palabras)
+        public List<Publicacion> Buscar(string palabras)
         {
             List<Publicacion> result = new List<Publicacion>();
 
             foreach (Publicacion publicacion in RegistroPublicaciones.Activas) 
             {
-                bool found = false;
-                int keyWordsPos = 0;
-                while (!found && keyWordsPos < palabras.Count)
+                if (publicacion.PalabrasClave.Contains(palabras))  
                 {
-                    if (publicacion.PalabrasClave.Contains(palabras[keyWordsPos]))  
-                    {
-                        result.Add(publicacion);
-                        keyWordsPos++ ;
-                        found = true;
-                    }
+                    result.Add(publicacion);
                 }
             }
 

@@ -17,7 +17,7 @@ namespace Library
         {
             List<Publicacion> result = new List<Publicacion>();
             
-            if (tipoZona == "1")
+            if (tipoZona.ToLower() == "/ciudad")
             {
                 foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
                 {
@@ -27,7 +27,7 @@ namespace Library
                     }
                 }
             }
-            else if (tipoZona == "2")
+            else if (tipoZona.ToLower() == "/departamento")
             {
                 foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
                 {
