@@ -5,7 +5,9 @@ using System;
 
 namespace LibraryTests
 {
-
+    /// <summary>
+    /// Casos de prueba para el handler Historial.
+    /// </summary>
     [TestFixture]
     public class VerHistorialTest
     {
@@ -22,7 +24,9 @@ namespace LibraryTests
         
 
         
-       
+       /// <summary>
+       /// SetUp de los casos de prueba.
+       /// </summary>
         [SetUp]
         public void Setup()
         {

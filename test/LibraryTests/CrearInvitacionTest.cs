@@ -4,14 +4,18 @@ using System.Collections.Generic;
 
 namespace LibraryTests
 {
-
+    /// <summary>
+    /// Casos de prueba para el metodo CrearInvitacion
+    /// </summary>
     [TestFixture]
     public class CrearInvitacionTests
     {
         Mensaje mensaje;
         InvitarHandler invitar;
-        
-       
+
+        /// <summary>
+        /// Setup de los casos de prueba.
+        /// </summary>
         [SetUp]
         public void Setup()
         {

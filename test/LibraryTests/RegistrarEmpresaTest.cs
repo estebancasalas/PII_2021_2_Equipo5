@@ -4,13 +4,18 @@ using System.Collections.Generic;
 
 namespace LibraryTests
 {
-
+    /// <summary>
+    /// Casos de prueba para el handler RegistrarEmpresario.
+    /// </summary>
     [TestFixture]
     public class RegistrarEmpresaTests
     {
         Mensaje mensaje;
         RegistrarEmpresarioHandler registrarEmpresario;
        
+       /// <summary>
+       /// SetUp de los casos de prueba.
+       /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -39,6 +44,9 @@ namespace LibraryTests
             registrarEmpresario.Handle(mensaje);
             Assert.That(ListaEmpresa.Empresas[1].ListaIdEmpresarios.Contains(1234),Is.True);
         }
+        /// <summary>
+        /// Este test verifica que no es posible el registro con una invitacion invalida.
+        /// </summary>
         [Test]
         public void InvitacionInvalidaTest()
         {

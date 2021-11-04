@@ -10,6 +10,9 @@ namespace Library
     /// </summary>
     public class BuscarPublicacionHandler : AbstractHandler
     {
+        /// <summary>
+        /// Atributo donde se guarda el resultado.
+        /// </summary>
         public List<Publicacion> result;
         /// <summary>
         /// Método para buscar en la lista de publicaciones.

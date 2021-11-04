@@ -9,7 +9,9 @@ namespace Library
     /// </summary>
     public class HistorialHandler : AbstractHandler
     {
-        
+        /// <summary>
+        /// Atributo donde se guarda el resultado.
+        /// </summary>
         public string resultado;
         /// <summary>
         /// Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre 
