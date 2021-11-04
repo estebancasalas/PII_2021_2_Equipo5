@@ -16,5 +16,11 @@
             ids de la empresa.
             </summary>
         </member>
+        <member name="M:LibraryTests.VerHistorialTest.VerHistorialEmprendedorVacioTest">
+            <summary>
+            En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de 
+            ids de la empresa.
+            </summary>
+        </member>
     </members>
 </doc>
