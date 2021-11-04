@@ -16,5 +16,10 @@
             ids de la empresa.
             </summary>
         </member>
+        <member name="M:LibraryTests.VerHistorialTest.VerHistorialEmprendedorNoVacioTest">
+            <summary>
+            Se testea el metodo mostrar historial cuando el emprendedor tiene compras registradas.
+            </summary>
+        </member>
     </members>
 </doc>
