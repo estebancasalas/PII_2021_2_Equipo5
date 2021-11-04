@@ -19,7 +19,9 @@ namespace Library
             base.Handle(mensaje);
             if (mensaje.Text == "/BuscarPublicación")
             {
-                BuscarPublicacion buscador = new BuscarPublicacion ();
+                string tipobusqueda = Input.GetInput("Que tipo de busqueda desea realizar? /categoria, /ciudad, /departamento, /palabrasclave");
+                string busqueda = Input.GetInput("Que desea buscar?");
+                BuscarPublicacion buscador = new BuscarPublicacion (tipobusqueda, busqueda);
                 List<Publicacion> result = buscador.EjecutarComando();
 
             }

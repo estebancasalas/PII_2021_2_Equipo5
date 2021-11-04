@@ -12,28 +12,19 @@ namespace Library
     public class BusquedaCategoria
     {
         /// <summary>
-        /// Toma como parámetro una lista de categorías y recorre la lista de publicaciones buscando coincidencias.
+        /// Toma como parámetro una categoría y recorre la lista de publicaciones buscando coincidencias.
         /// </summary>
-        /// <param name="categorias">Lista de categorías, son pedidas por el handler al usuario.</param>
+        /// <param name="categoria">Categoria del material que se quiere buscar.</param>
         /// <returns></returns>
-        public List<Publicacion> Buscar(List<string> categorias)
+        public List<Publicacion> Buscar(string categoria)
         {
             List<Publicacion> result = new List<Publicacion>();
 
             foreach (Publicacion publicacion in RegistroPublicaciones.Activas) //Donde estan gaurdadas las publicaciones?
             {
-                bool found = false;
-                int keyWordsPos = 0;
-                while (!found && keyWordsPos < categorias.Count)
+                if (publicacion.Material.Categoria.Contains(categoria))  //Categorias?? es de la publicacion o esta dentro de DatosMateriales
                 {
-
-                    if (publicacion.Material.Categoria.Contains(categorias[keyWordsPos]))  //Categorias?? es de la publicacion o esta dentro de DatosMateriales
-
-                    {
-                        result.Add(publicacion);
-                        keyWordsPos++ ;
-                        found = true;
-                    }
+                    result.Add(publicacion);
                 }
             }
 
