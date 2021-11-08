@@ -25,7 +25,6 @@ namespace Library
             string habilitacion = Console.ReadLine();
             Console.WriteLine("¿En qué se especializa?");
             string especializaciones = Console.ReadLine();
-
             Emprendedor emprendedor = new Emprendedor(mensaje.Id, nombre, rubro, ubicacion, habilitacion, especializaciones);
         }
     }

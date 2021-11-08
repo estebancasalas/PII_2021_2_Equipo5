@@ -13,7 +13,7 @@ namespace Library
         /// </summary>
         /// <param name="message">Mensaje que se muestra en consola al usuario</param>
         /// <returns></returns>
-        public override string GetInput (string message)
+        public override string GetInput(string message)
         {
             Console.WriteLine(message);
             return Console.ReadLine();

@@ -33,6 +33,7 @@ namespace Library
         public string FrecuenciaDeDisponibilidad;
         
         /// Atributo en dónde se guarda la ubicación del material.
+
         public Location Ubicacion { get; set; }
        /// <summary>
        /// Constructor de la clase Publicacion.

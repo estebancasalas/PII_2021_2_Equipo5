@@ -28,5 +28,4 @@ namespace Library
         /// <value></value>
         string Ubicacion { get; set ;}
     }
-
 }

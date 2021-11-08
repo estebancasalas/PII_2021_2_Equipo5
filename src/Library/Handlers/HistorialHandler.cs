@@ -19,9 +19,8 @@ namespace Library
         /// se envía al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Indica que se quiere ver el historial</param>
-        public override void Handle (Mensaje mensaje)
-        {
-                   
+        public override void Handle(Mensaje mensaje)
+        { 
             if (mensaje.Text == "/historial")
             {
                 string nombre = Input.GetInput("¿Cuál es tu nombre?");

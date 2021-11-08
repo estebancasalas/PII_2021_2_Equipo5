@@ -16,5 +16,4 @@ namespace Library
         /// <returns></returns>
         public abstract string GetInput (string message);
     }
-
 }

@@ -14,7 +14,7 @@ namespace Library
         /// al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle (Mensaje mensaje)
+        public override void Handle(Mensaje mensaje)
         {
             //En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
             if (mensaje.Text == "/comprar")

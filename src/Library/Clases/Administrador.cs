@@ -35,13 +35,11 @@ namespace Library
         /// <param name="nombre">Nombre de la empresa.</param>
         /// <param name="ubicacion">Ubicación de la empresa.</param>
         /// <param name="rubro">Rubro de la empresa.</param>
-        /// <param name="token">Token de invitación creada por el administrador.</param>
-               
+        /// <param name="token">Token de invitación creada por el administrador.</param>   
         public void CrearInvitacion(string nombre, string ubicacion, string rubro, string token)
         {
             Empresa empresa = new Empresa(nombre, ubicacion, rubro, token);
             ListaInvitaciones.Invitaciones.Add(token);
         } 
     }
-
 }
