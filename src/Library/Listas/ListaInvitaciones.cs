@@ -16,6 +16,5 @@ namespace Library
         /// </summary>
         /// <returns></returns>
         public static List <string> Invitaciones = new List<string> (); 
-
     }
 }

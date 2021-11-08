@@ -12,12 +12,12 @@ namespace Library
         /// Se guarda una Id en forma de un entero.
         /// </summary>
         /// <value></value>
-        public int Id{ get; set;}
+        public int Id{ get; set; }
         /// <summary>
         /// String que guarda un mensaje en forma de texto.
         /// </summary>
         /// <value></value>
-        public string Text {get; set;}
+        public string Text { get; set; }
         /// <summary>
         /// El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
         /// </summary>

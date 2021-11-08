@@ -17,7 +17,6 @@ namespace Library
         public override void Handle (Mensaje mensaje)
         {
             //En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
-            
             if (mensaje.Text == "/comprar")
             {
                 string nombrePublicacion = Input.GetInput("Ingrese nombre de la publicación: "); 

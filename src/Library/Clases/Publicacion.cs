@@ -16,7 +16,7 @@ namespace Library
         /// Se encarga de guardar el título de la publicación dentro del objeto publicación.
         /// </summary>
         /// <value></value>
-        public string titulo;
+        public string Titulo;
         /// <summary>
         /// Se encarga de guardar el material de la publicación dentro del objeto publicación.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Library
         public string FrecuenciaDeDisponibilidad;
         
         /// Atributo en dónde se guarda la ubicación del material.
-        public Location Ubicacion {get; set;}
+        public Location Ubicacion { get; set; }
        /// <summary>
        /// Constructor de la clase Publicacion.
        /// </summary>
@@ -46,7 +46,7 @@ namespace Library
 
         public Publicacion(string titulo, Material material, string PalabrasClave, string FrecuenciaDeDisponibilidad, Location ubicacion, string nombreEmpresa)
         {
-            this.titulo = titulo;
+            this.Titulo = titulo;
             this.Material = material;
             this.PalabrasClave = PalabrasClave;
             this.FrecuenciaDeDisponibilidad = FrecuenciaDeDisponibilidad;

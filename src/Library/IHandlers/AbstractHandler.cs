@@ -11,7 +11,7 @@ namespace Library
         /// Las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
         /// </summary>
         /// <value></value>
-        public IHandler Next {get; set;}
+        public IHandler Next { get; set; }
         /// <summary>
         /// Recibe una cadena, siempre en formato string.
         /// </summary>

@@ -17,7 +17,7 @@ namespace Library
         public Empresa Buscar(string nombrePublicacion)
         {
             int i = 0;
-            while (i<RegistroPublicaciones.Activas.Count && RegistroPublicaciones.Activas[i].titulo != nombrePublicacion)
+            while (i<RegistroPublicaciones.Activas.Count && RegistroPublicaciones.Activas[i].Titulo != nombrePublicacion)
             {
                 i++;
             }

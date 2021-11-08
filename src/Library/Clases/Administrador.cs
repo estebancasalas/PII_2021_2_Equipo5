@@ -12,12 +12,12 @@ namespace Library
         /// Guarda el id de el administrador al registrarse 
         /// </summary>
         /// <value></value>
-        public int Id {get; set;}
+        public int Id { get; set; }
         /// <summary>
         /// Guarda el nombre que pone el administrador al registrarse 
         /// </summary>
         /// <value></value>
-        public string Nombre {get; set;}
+        public string Nombre { get; set; }
         /// <summary>
         /// Constructor de la clase Administrador
         /// </summary>
