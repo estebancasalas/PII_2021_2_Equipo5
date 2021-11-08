@@ -17,5 +17,4 @@ namespace Library
         /// <returns></returns>
         public static List<Conversacion> Conversaciones = new List<Conversacion>();
     }
-
 }

@@ -16,17 +16,16 @@ namespace Library
         /// Nombre de la empresa o emprendedor.
         /// </summary>
         /// <value></value>
-        string Nombre {get; set;}
+        string Nombre { get; set; }
         /// <summary>
         /// Rubro de la empresa o emprendedor.
         /// </summary>
         /// <value></value>
-        string Rubro {get; set;} 
+        string Rubro { get; set; } 
         /// <summary>
         /// Ubicación de la empresa o emprendedor.
         /// </summary>
         /// <value></value>
-        string Ubicacion {get; set;}
+        string Ubicacion { get; set ;}
     }
-
 }

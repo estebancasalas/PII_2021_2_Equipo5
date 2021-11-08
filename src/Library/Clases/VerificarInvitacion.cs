@@ -22,7 +22,7 @@ namespace Library
         /// <param name="invitacion">Se pasa como parámetro la invitación a verificar</param>
         public VerificarInvitacion(string invitacion)
         {
-             if (ListaInvitaciones.Invitaciones.Contains(invitacion))
+            if (ListaInvitaciones.Invitaciones.Contains(invitacion))
             {
                 valido = true;
             }

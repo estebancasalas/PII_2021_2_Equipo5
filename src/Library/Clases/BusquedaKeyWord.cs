@@ -12,7 +12,6 @@ namespace Library
     /// </summary>
     public class BusquedaKeyWord
     {
-        
         /// <summary>
         /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
         /// </summary>
@@ -29,9 +28,7 @@ namespace Library
                     result.Add(publicacion);
                 }
             }
-
             return result;
-        }
-        
+        }   
     }
 }

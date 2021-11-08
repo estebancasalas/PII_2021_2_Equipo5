@@ -14,7 +14,7 @@ namespace Library
         /// </summary>
         /// <param name="nombre">Nombre de le empresa</param>
         /// <returns></returns>
-        public Empresa Buscar (string nombre)
+        public Empresa Buscar(string nombre)
         {
             int i = 0; 
             while (i < ListaEmpresa.Empresas.Count)

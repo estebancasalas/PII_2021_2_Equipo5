@@ -8,7 +8,6 @@ namespace Library
     /// la responsabilidad de crear una instancia de Material.
     /// </summary>
     public class CrearMaterial
-
     {
         /// <summary>
         /// Método que crea el objeto Material, recibe como parámetros los datos del objeto.
@@ -22,7 +21,6 @@ namespace Library
         /// <returns></returns>
         public Material Crear(string nombre, double costo, double cantidad, string unidad, string habilitacion, string categoria)
         {
-
             Material material = new Material(nombre, costo, cantidad, unidad, habilitacion, categoria);
             return material;
         }
