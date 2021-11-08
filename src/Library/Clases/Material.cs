@@ -44,7 +44,7 @@ namespace Library
             /// </summary>
             /// <returns></returns>
             public List<string> PosiblesCategorias = new List<string>(){"Químicos", "Plásticos", "Celulósicos", "Eléctricos", "Textiles", "Metálicos", "Metálicos ferrosos", "Solventes", "Vidrio", "Residuos orgánicos", "Otros"};
-            /// </summary>
+            
             /// <param name="Nombre">El nombre del material.</param>
             /// <param name="Costo">El costo del material.</param>
             /// <param name="Cantiadad">La cantidad del material.</param>
