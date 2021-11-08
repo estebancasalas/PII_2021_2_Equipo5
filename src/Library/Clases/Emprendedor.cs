@@ -13,32 +13,32 @@ namespace Library
         /// Id del Emprendedor.
         /// </summary>
         /// <value></value>
-        public int Id {get; set;}
+        public int Id { get; set; }
         /// <summary>
         /// Nombre del emprendedor.
         /// </summary>
         /// <value></value>
-        public string Nombre {get; set;}
+        public string Nombre { get; set; }
         /// <summary>
         /// Ubicación del emprendedor.
         /// </summary>
         /// <value></value>
-        public string Ubicacion {get; set;}
+        public string Ubicacion { get; set; }
         /// <summary>
         /// Rubro del emprendedor.
         /// </summary>
         /// <value></value>
-        public string Rubro {get; set;}
+        public string Rubro { get; set; }
         /// <summary>
         /// Habilitaciones del emprendedor(Link al documento).
         /// </summary>
         /// <value></value>
-        public string Habilitaciones{get;}
+        public string Habilitaciones{ get; }
         /// <summary>
         /// Especializaciones del emprendedor.
         /// </summary>
         /// <value></value>
-        public string Especializaciones {get;}
+        public string Especializaciones { get; }
         /// <summary>
         /// Constructor de la clase emprendedor.
         /// </summary>

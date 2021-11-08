@@ -4,16 +4,66 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="T:LibraryTests.CrearInvitacionTests">
+            <summary>
+            Casos de prueba para el metodo CrearInvitacion
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionTests.Setup">
+            <summary>
+            Setup de los casos de prueba.
+            </summary>
+        </member>
         <member name="M:LibraryTests.CrearInvitacionTests.InvitacionValidaTest">
             <summary>
             En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de 
             ids de la empresa.
             </summary>
         </member>
+        <member name="T:LibraryTests.RegistrarEmprendedorTests">
+            <summary>
+            Casos de prueba para el handler de CrearEmprendedor.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Setup">
+            <summary>
+            SetUp de los casos de prueba.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.RegistrarEmprendedorTest">
+            <summary>
+            Verifica que el emprendedor se registra correctamente.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.RegistrarEmpresaTests">
+            <summary>
+            Casos de prueba para el handler RegistrarEmpresario.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmpresaTests.Setup">
+            <summary>
+            SetUp de los casos de prueba.
+            </summary>
+        </member>
         <member name="M:LibraryTests.RegistrarEmpresaTests.InvitacionValidaTest">
             <summary>
             En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de 
             ids de la empresa.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmpresaTests.InvitacionInvalidaTest">
+            <summary>
+            Este test verifica que no es posible el registro con una invitacion invalida.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.VerHistorialTest">
+            <summary>
+            Casos de prueba para el handler Historial.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.VerHistorialTest.Setup">
+            <summary>
+            SetUp de los casos de prueba.
             </summary>
         </member>
         <member name="M:LibraryTests.VerHistorialTest.VerHistorialEmprendedorNoVacioTest">
