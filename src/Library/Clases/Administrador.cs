@@ -12,12 +12,12 @@ namespace Library
         /// Guarda el id de el administrador al registrarse 
         /// </summary>
         /// <value></value>
-        public int Id {get; set;}
+        public int Id { get; set; }
         /// <summary>
         /// Guarda el nombre que pone el administrador al registrarse 
         /// </summary>
         /// <value></value>
-        public string Nombre {get; set;}
+        public string Nombre { get; set; }
         /// <summary>
         /// Constructor de la clase Administrador
         /// </summary>
@@ -35,13 +35,11 @@ namespace Library
         /// <param name="nombre">Nombre de la empresa.</param>
         /// <param name="ubicacion">Ubicación de la empresa.</param>
         /// <param name="rubro">Rubro de la empresa.</param>
-        /// <param name="token">Token de invitación creada por el administrador.</param>
-               
+        /// <param name="token">Token de invitación creada por el administrador.</param>   
         public void CrearInvitacion(string nombre, string ubicacion, string rubro, string token)
         {
             Empresa empresa = new Empresa(nombre, ubicacion, rubro, token);
             ListaInvitaciones.Invitaciones.Add(token);
         } 
     }
-
 }

@@ -1,6 +1,5 @@
 using System;
 
-
 namespace Library
 {
     /// <summary>
@@ -46,11 +45,7 @@ namespace Library
                 }
                 i++;
             }
-
-            return found;
-            
+            return found; 
         }
-
-
     }
 }

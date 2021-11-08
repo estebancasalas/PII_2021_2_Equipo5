@@ -34,15 +34,15 @@ namespace Library
         
         /// Atributo en dónde se guarda la ubicación del material.
         public Location Ubicacion {get; set;}
-       /// <summary>
-       /// Constructor de la clase Publicacion.
-       /// </summary>
-       /// <param name="titulo">Título de la publicación</param>
-       /// <param name="material">Material que se va a publicar</param>
-       /// <param name="PalabrasClave">Palabras clave para buscar la publicación</param>
-       /// <param name="FrecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
-       /// <param name="ubicacion">Ubicación del vendedor</param>
-       /// <param name="nombreEmpresa">Nombre de quien vende el material</param>
+        /// <summary>
+        /// Constructor de la clase Publicacion.
+        /// </summary>
+        /// <param name="titulo">Título de la publicación</param>
+        /// <param name="material">Material que se va a publicar</param>
+        /// <param name="PalabrasClave">Palabras clave para buscar la publicación</param>
+        /// <param name="FrecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
+        /// <param name="ubicacion">Ubicación del vendedor</param>
+        /// <param name="nombreEmpresa">Nombre de quien vende el material</param>
 
         public Publicacion(string titulo, Material material, string PalabrasClave, string FrecuenciaDeDisponibilidad, Location ubicacion, string nombreEmpresa)
         {
