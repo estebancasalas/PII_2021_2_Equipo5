@@ -4,10 +4,9 @@ using System.Collections.Generic;
 
 namespace Library
 {
-
     /// <summary>
-    /// La clase conversación se encarga de llevar el conteo de mensajes de cada 
-    /// uno de los ususarios
+    /// La clase conversación se encarga de llevar el conteo de mensajes de cada uno de los ususarios.
+    /// Esta clase está pensada para la proxima entrega, nos va ayudar a poder identificar el estado de la conversación. 
     /// </summary>
     public class Conversacion
     {

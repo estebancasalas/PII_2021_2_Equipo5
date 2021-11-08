@@ -11,15 +11,20 @@ namespace Library
     public class BuscarPublicacionHandler : AbstractHandler
     {
         /// <summary>
+        /// Atributo donde se guarda el resultado.
+        /// </summary>
+        public List<Publicacion> result;
+        /// <summary>
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override void Handle(Mensaje mensaje)
         {
-            base.Handle(mensaje);
-            if (mensaje.Text == "/BuscarPublicación")
+            if (mensaje.Text.ToLower() == "/buscarpublicacion")
             {
-                BuscarPublicacion buscador = new BuscarPublicacion ();
+                string tipobusqueda = Input.GetInput("Que tipo de busqueda desea realizar? /categoria, /ciudad, /departamento, /palabrasclave");
+                string busqueda = Input.GetInput("Que desea buscar?");
+                BuscarPublicacion buscador = new BuscarPublicacion (tipobusqueda, busqueda);
                 List<Publicacion> result = buscador.EjecutarComando();
 
             }

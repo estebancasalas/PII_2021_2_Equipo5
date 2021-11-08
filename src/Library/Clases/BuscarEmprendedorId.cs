@@ -7,7 +7,7 @@ namespace Library
     /// Clase para buscar un emprendedor por su id. Cumple con SRP, ya que existe una clase que conoce
     /// todas las instancias de emprendedor pero no tiene la responsabilidad de buscar.
     /// </summary>
-    public class BuscarEmprendedorId    //que pasa si emprendedor no registrado (i se va de rango)
+    public class BuscarEmprendedorId    
     {
         /// <summary>
         /// Método que busca un emprendedor por su Id.

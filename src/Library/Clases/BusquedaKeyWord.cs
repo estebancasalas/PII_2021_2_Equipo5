@@ -5,7 +5,8 @@ using System.Collections.Generic;
 namespace Library
 {
     /// <summary>
-    /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en palabras clave.
+    /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias 
+    /// en palabras clave.
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por Palabras clave.
     /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
     /// </summary>
@@ -15,27 +16,22 @@ namespace Library
         /// <summary>
         /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
         /// </summary>
-        public List<Publicacion> Buscar(List<string> palabras)
+        /// <param name="palabras">Palabra clave que ayuda a la busqueda.</param>
+        /// <returns></returns>
+        public List<Publicacion> Buscar(string palabras)
         {
             List<Publicacion> result = new List<Publicacion>();
 
             foreach (Publicacion publicacion in RegistroPublicaciones.Activas) 
             {
-                bool found = false;
-                int keyWordsPos = 0;
-                while (!found && keyWordsPos < palabras.Count)
+                if (publicacion.PalabrasClave.Contains(palabras))  
                 {
-                    if (publicacion.PalabrasClave.Contains(palabras[keyWordsPos]))  
-                    {
-                        result.Add(publicacion);
-                        keyWordsPos++ ;
-                        found = true;
-                    }
+                    result.Add(publicacion);
                 }
             }
 
             return result;
         }
-        //Arreglar errores.
+        
     }
 }

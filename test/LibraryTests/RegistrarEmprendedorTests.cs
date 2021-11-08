@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace LibraryTests
 {
+    /// <summary>
+    /// Casos de prueba para el handler de CrearEmprendedor.
+    /// </summary>
 
     [TestFixture]
     public class RegistrarEmprendedorTests
@@ -12,6 +15,9 @@ namespace LibraryTests
         CrearEmprendedorHandler emprendedor = new CrearEmprendedorHandler(); 
         Dictionary<string, string> diccionario = new Dictionary<string, string>();
        
+       /// <summary>
+       /// SetUp de los casos de prueba.
+       /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -22,6 +28,9 @@ namespace LibraryTests
             diccionario.Add("¿En qué se especializa?", "hacer bots y llorar");
         }
 
+        /// <summary>
+        /// Verifica que el emprendedor se registra correctamente.
+        /// </summary>
         [Test]
         public void RegistrarEmprendedorTest()
         {

@@ -10,6 +10,10 @@ namespace Library
     public class HistorialHandler : AbstractHandler
     {
         /// <summary>
+        /// Atributo donde se guarda el resultado.
+        /// </summary>
+        public string resultado;
+        /// <summary>
         /// Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre 
         /// al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
         /// se envía al siguiente Handler.
@@ -20,11 +24,10 @@ namespace Library
                    
             if (mensaje.Text == "/historial")
             {
-                Console.WriteLine("¿Cuál es tu nombre?");
-                string nombre = Console.ReadLine();
+                string nombre = Input.GetInput("¿Cuál es tu nombre?");
                 VerHistorial historial = new VerHistorial();
-                nombre = historial.EjecutarComando(nombre);
-                Console.WriteLine(nombre);
+                resultado = historial.EjecutarComando(nombre);
+                Output.PrintLine(resultado);
             }
             else
             {
@@ -32,4 +35,4 @@ namespace Library
             }
         }
     }
-}  
+}

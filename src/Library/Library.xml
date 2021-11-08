@@ -38,6 +38,19 @@
             <param name="rubro">Rubro de la empresa.</param>
             <param name="token">Token de invitación creada por el administrador.</param>
         </member>
+        <member name="T:Library.BuscarEmprendedor">
+            <summary>
+            La clase BuscarEmprendedor se encarga de buscar un emprendedor en la lista de emprendedores.
+            Creada por el patrón SRP ya que hay clases que necesitan conocer un emprendedor en base a su nombre.
+            </summary>
+        </member>
+        <member name="M:Library.BuscarEmprendedor.Buscar(System.String)">
+            <summary>
+            Método Buscar, recorre la lista de emprendedores y retorna el emprendedor deseado.
+            </summary>
+            <param name="nombre">Nombre del emprendedor que se desea buscar.</param>
+            <returns></returns>
+        </member>
         <member name="T:Library.BuscarEmprendedorId">
             <summary>
             Clase para buscar un emprendedor por su id. Cumple con SRP, ya que existe una clase que conoce
@@ -49,6 +62,19 @@
             Método que busca un emprendedor por su Id.
             </summary>
             <param name="id">Id para buscar el emprendedor</param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.BuscarEmpresa">
+            <summary>
+            La clase BuscarEmpresa se encarga de buscar un empresa en la lista de empresas.
+            Creada por el patrón SRP ya que hay clases que necesitan conocer una empresa en base a su nombre.
+            </summary>
+        </member>
+        <member name="M:Library.BuscarEmpresa.Buscar(System.String)">
+            <summary>
+            Método Buscar, recorre la lista de empresas y retorna la empresa deseada.
+            </summary>
+            <param name="nombre">Nombre de le empresa</param>
             <returns></returns>
         </member>
         <member name="T:Library.BuscarEmpresaPorPublicacion">
@@ -66,29 +92,33 @@
         </member>
         <member name="T:Library.BusquedaCategoria">
             <summary>
-            Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en categoría.
+            Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias 
+            en categoría.
             Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por categoría.
             Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
             </summary>
         </member>
-        <member name="M:Library.BusquedaCategoria.Buscar(System.Collections.Generic.List{System.String})">
+        <member name="M:Library.BusquedaCategoria.Buscar(System.String)">
             <summary>
-            Toma como parámetro una lista de categorías y recorre la lista de publicaciones buscando coincidencias.
+            Toma como parámetro una categoría y recorre la lista de publicaciones buscando coincidencias.
             </summary>
-            <param name="categorias">Lista de categorías, son pedidas por el handler al usuario.</param>
-            <returns></returns>
+            <param name="categoria">Categoria del material que se quiere buscar.</param>
+            <returns>Lista de coincidencias.</returns>
         </member>
         <member name="T:Library.BusquedaKeyWord">
             <summary>
-            Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en palabras clave.
+            Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias 
+            en palabras clave.
             Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por Palabras clave.
             Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
             </summary>
         </member>
-        <member name="M:Library.BusquedaKeyWord.Buscar(System.Collections.Generic.List{System.String})">
+        <member name="M:Library.BusquedaKeyWord.Buscar(System.String)">
             <summary>
             Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
             </summary>
+            <param name="palabras">Palabra clave que ayuda a la busqueda.</param>
+            <returns></returns>
         </member>
         <member name="T:Library.BusquedaZona">
             <summary>
@@ -101,11 +131,14 @@
             <summary>
             Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
             </summary>
+            <param name="tipoZona">Tipo de zona en que se desea buscar(Ciudad, Departamento, etc).</param>
+            <param name="ubicacion">Nombre de la zona.</param>
+            <returns></returns>
         </member>
         <member name="T:Library.Conversacion">
             <summary>
-            La clase conversación se encarga de llevar el conteo de mensajes de cada 
-            uno de los ususarios
+            La clase conversación se encarga de llevar el conteo de mensajes de cada uno de los ususarios.
+            Esta clase está pensada para la proxima entrega, nos va ayudar a poder identificar el estado de la conversación. 
             </summary>
         </member>
         <member name="P:Library.Conversacion.id">
@@ -360,8 +393,7 @@
         </member>
         <member name="M:Library.Ubicacion.GetUbicacion(System.String)">
             <summary>
-            GetUbicacion es el método que al pasarle una ubicación la convierte en las coordenadas
-            de la misma. 
+            GetUbicacion es el método que al pasarle una ubicación la convierte en un objeto de tipo Location. 
             </summary>
             <param name="ubicacion">Es la dirección que pasa el cliente.</param> 
             <returns></returns>
@@ -369,7 +401,7 @@
         <member name="T:Library.VerificadorUsuario">
             <summary>
             Esta clase tiene la responsabilidad de verificar si un id ya esta registrado.
-            Creada por SRP, ya que colaborará con CrearUsuarioHandler
+            Creada por SRP, para que CrearUsuarioHandler no tenga que verificar esto.
             </summary>
         </member>
         <member name="M:Library.VerificadorUsuario.EstaRegistrado(System.Int32)">
@@ -378,6 +410,18 @@
             contrario retorna false. 
             </summary>
             <param name="id">Es el id que se desea saber si esta registrado o no.</param> 
+            <returns></returns>
+        </member>
+        <member name="T:Library.VerificarEmpresarioId">
+            <summary>
+            La clase VerificarEmpresarioID tiene la responsabilidad de verificar si el id está registrado en alguna empresa.
+            </summary>
+        </member>
+        <member name="M:Library.VerificarEmpresarioId.Verificar(System.Int32)">
+            <summary>
+            Método verificar recibe como parámetro un id y recorre la lista de empresas buscando algún empresario con ese id.
+            </summary>
+            <param name="id">id del empresario de tipo entero.</param>
             <returns></returns>
         </member>
         <member name="T:Library.VerificarInvitacion">
@@ -413,11 +457,34 @@
             la responsabilidad de buscar a otras clases. 
             </summary>
         </member>
+        <member name="F:Library.BuscarPublicacion.TipoBusqueda">
+            <summary>
+            Contiene el tipo de búsqueda que se va a realizar
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacion.Busqueda">
+            <summary>
+            Lo que se desea buscar.
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacion.result">
+            <summary>
+            Lista de coincidencias de la búsqueda.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.BuscarPublicacion.#ctor(System.String,System.String)">
+            <summary>
+            Constructor de la clase.
+            </summary>
+            <param name="tipobusqueda"></param>
+            <param name="busqueda"></param>
+        </member>
         <member name="M:Library.BuscarPublicacion.EjecutarComando">
             <summary>
-            EjecutarComando se encarga de buscar una publicación por categoría, zona y 
-            palabras claves. Luego las delega a cada una de las clases que se encargan de 
-            búsqueda. 
+            EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y 
+            palabras claves). Luego las delega a cada una de las clases que se encargan de 
+            búsqueda, para cumplir con SRP. 
             Finalmente, devuelve una lista con todas la publiaciones encontradas, de la búsqueda
             que se realizó. 
             </summary>
@@ -425,13 +492,7 @@
         </member>
         <member name="T:Library.CrearPublicacion">
             <summary>
-            CearPublicacion es la clase que se encarga del modelado de la publicación.
-            </summary>
-        </member>
-        <member name="P:Library.CrearPublicacion.DatosDeMateriales">
-            <summary>
-            DatosDeMateriales es el objeto que se utiliza en publicación para luego poder
-            adquirir los datos del material que se encuentran/pide en la clase Material.
+            Clase que se encarga de crear una publicación. 
             </summary>
         </member>
         <member name="M:Library.CrearPublicacion.EjecutarComando(Library.Material,System.String,System.String,System.String,System.String,System.String)">
@@ -769,7 +830,8 @@
         <member name="T:Library.AbstractHandler">
             <summary>
             Una clase que implementa un metodo para recorrer los distintos handler existentes en busca de un comando escrito por el usuario.
-            Como usa la interfaz IHandler también usa Chain of Resposibility para que los handlers que usen AbstractHandler permitan que se recorran otros handlers.
+            Como depende de la interfaz IHandler también usa Chain of Resposibility para que los handlers que usen AbstractHandler permitan que se recorran otros handlers.
+            También usa singleton porque todos los handlers consultan esta clase para recorrer los handlers.
             </summary>
         </member>
         <member name="P:Library.AbstractHandler.Next">
@@ -839,7 +901,7 @@
         </member>
         <member name="T:Library.Singleton`1">
             <summary>
-            Se usa en los handlers que requieren la utilización del patrón singleton.
+            Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
             </summary>
             <typeparam name="T"></typeparam>
         </member>

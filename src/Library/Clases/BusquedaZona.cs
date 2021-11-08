@@ -13,11 +13,14 @@ namespace Library
         /// <summary>
         /// Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
         /// </summary>
+        /// <param name="tipoZona">Tipo de zona en que se desea buscar(Ciudad, Departamento, etc).</param>
+        /// <param name="ubicacion">Nombre de la zona.</param>
+        /// <returns></returns>
         public List<Publicacion> Buscar(string tipoZona ,string ubicacion)
         {
             List<Publicacion> result = new List<Publicacion>();
             
-            if (tipoZona == "1")
+            if (tipoZona.ToLower() == "/ciudad")
             {
                 foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
                 {
@@ -27,7 +30,7 @@ namespace Library
                     }
                 }
             }
-            else if (tipoZona == "2")
+            else if (tipoZona.ToLower() == "/departamento")
             {
                 foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
                 {
@@ -42,5 +45,5 @@ namespace Library
             return result;
         }
     }
-    //Implemetar API
+    
 }

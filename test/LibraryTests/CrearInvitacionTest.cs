@@ -1,16 +1,21 @@
 using NUnit.Framework;
 using Library;
+using System.Collections.Generic;
 
 namespace LibraryTests
 {
-
+    /// <summary>
+    /// Casos de prueba para el metodo CrearInvitacion
+    /// </summary>
     [TestFixture]
     public class CrearInvitacionTests
     {
         Mensaje mensaje;
         InvitarHandler invitar;
-        
-       
+
+        /// <summary>
+        /// Setup de los casos de prueba.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -28,10 +33,14 @@ namespace LibraryTests
             Mensaje mensaje = new Mensaje(1234,"/crearinvitacion");
             Administrador admin = new Administrador(1234, "admin");
             invitar = new InvitarHandler();
-            invitar.nombre = "empresa1";
-            invitar.rubro = "textil";
-            invitar.token = "invitacion1";
-            invitar.ubicacion = "mi ksa";
+            Dictionary<string, string> diccionario = new Dictionary<string, string>();
+            diccionario.Add("nombre empresa", "empresa1");
+            diccionario.Add("ubicacion de la empresa", "Av. 8 de Octubre 2738");
+            diccionario.Add("rubro de la empresa","textil");
+            diccionario.Add("Codigo de invitacion", "invitacion1");
+            
+            EntaradaDeLaCadena lector = new LectorTest(diccionario);
+            invitar.Input = lector;
             invitar.Handle(mensaje);
             Assert.That(ListaInvitaciones.Invitaciones.Contains("invitacion1"),Is.True);
             Assert.AreEqual(ListaEmpresa.Empresas.Count, 1);

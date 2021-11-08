@@ -14,6 +14,10 @@ namespace Library
     public class LectorTest : EntaradaDeLaCadena
     {
         Dictionary<string,string> diccionario;
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        /// <param name="dic">diccionario del cual se leen las claves</param>
         public LectorTest ( Dictionary<string,string> dic)
         {
             this.diccionario = dic;

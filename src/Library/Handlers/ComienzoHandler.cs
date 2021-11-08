@@ -20,7 +20,7 @@ namespace Library
             
             if (mensaje.Text == "/start")
             {
-                Output.PrintLine("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, para eso escribe /comandos y veras todas tus opciones");
+                Input.GetInput("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, para eso escribe /comandos y veras todas tus opciones");
             }
             else
             {

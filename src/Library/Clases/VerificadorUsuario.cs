@@ -5,7 +5,7 @@ namespace Library
 {
     /// <summary>
     /// Esta clase tiene la responsabilidad de verificar si un id ya esta registrado.
-    /// Creada por SRP, ya que colaborará con CrearUsuarioHandler
+    /// Creada por SRP, para que CrearUsuarioHandler no tenga que verificar esto.
     /// </summary>
     public class VerificadorUsuario
     {
