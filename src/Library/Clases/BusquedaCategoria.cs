@@ -28,7 +28,6 @@ namespace Library
                     result.Add(publicacion);
                 }
             }
-
             return result;
         }
     }

@@ -15,7 +15,5 @@ namespace Library
         /// <param name="message"></param>
         /// <returns></returns>
         public abstract string GetInput (string message);
-    
     }
-
 }

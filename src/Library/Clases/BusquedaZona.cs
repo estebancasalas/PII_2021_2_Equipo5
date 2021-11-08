@@ -19,7 +19,6 @@ namespace Library
         public List<Publicacion> Buscar(string tipoZona ,string ubicacion)
         {
             List<Publicacion> result = new List<Publicacion>();
-            
             if (tipoZona.ToLower() == "/ciudad")
             {
                 foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
@@ -40,10 +39,7 @@ namespace Library
                     }
                 }
             }
-            
-
             return result;
         }
     }
-    
 }

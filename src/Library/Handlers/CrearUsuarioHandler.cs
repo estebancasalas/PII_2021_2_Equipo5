@@ -32,7 +32,7 @@ namespace Library
         /// Si el mensaje es diferente a "/CrearUsuario", se manda el mensaje a otro Handler.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle (Mensaje mensaje)
+        public override void Handle(Mensaje mensaje)
         {
             if (mensaje.Text == "/CrearUsuario")
             {

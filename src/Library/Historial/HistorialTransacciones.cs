@@ -15,5 +15,4 @@ namespace Library
         /// <returns></returns>
         public static List <Transaccion> Transacciones = new List<Transaccion>();
     }
-    
 }

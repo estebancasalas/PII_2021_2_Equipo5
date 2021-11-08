@@ -8,7 +8,7 @@ namespace Library
     /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
     /// surjan nuevos tipos de usuario.
     /// </summary>
-    public class Empresa : IUsuario
+    public class Empresa: IUsuario
     {
         /// <summary>
         /// Guarda la invitación de la empresa.
