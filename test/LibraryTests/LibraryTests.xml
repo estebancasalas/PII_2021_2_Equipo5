@@ -4,6 +4,12 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="M:LibraryTests.BuscarPublicacionTest.BusquedaCategoriaTest">
+            <summary>
+            En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de 
+            ids de la empresa.
+            </summary>
+        </member>
         <member name="T:LibraryTests.CrearInvitacionTests">
             <summary>
             Casos de prueba para el metodo CrearInvitacion

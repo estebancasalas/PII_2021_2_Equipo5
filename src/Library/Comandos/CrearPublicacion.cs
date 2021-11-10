@@ -21,6 +21,7 @@ namespace Library
             IUbicacion localizador = new Ubicacion();
             Location Localizacion = new Location(); //await localizador.GetUbicacion(ubicacion);
             Publicacion publicacion = new Publicacion(titulo, material, PalabrasClave, frecuencia, Localizacion, nombreEmpresa);
+            RegistroPublicaciones.Activas.Add(publicacion);
         }
     }
 }
