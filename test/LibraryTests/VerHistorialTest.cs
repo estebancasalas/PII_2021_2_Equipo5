@@ -69,8 +69,6 @@ namespace LibraryTests
             historial.Input = entrada3;
             historial.Handle(mensaje);
             Assert.That(HistorialTransacciones.Transacciones.Count == 1, Is.True);
-            
-
         } 
     }
 }

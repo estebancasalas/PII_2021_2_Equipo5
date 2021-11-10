@@ -11,14 +11,14 @@ namespace Library
     /// Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput 
     /// usar en tiempo de ejecución, dependiendo el parámetro. 
     /// </summary>
-    public class LectorTest : EntaradaDeLaCadena
+    public class LectorTest: EntaradaDeLaCadena
     {
         Dictionary<string,string> diccionario;
         /// <summary>
         /// Constructor de la clase
         /// </summary>
         /// <param name="dic">diccionario del cual se leen las claves</param>
-        public LectorTest ( Dictionary<string,string> dic)
+        public LectorTest(Dictionary<string,string> dic)
         {
             this.diccionario = dic;
         }
@@ -27,7 +27,7 @@ namespace Library
         /// </summary>
         /// <param name="message">Mensaje que se muestra en consola al usuario</param>
         /// <returns></returns>
-        public override string GetInput (string message)
+        public override string GetInput(string message)
         {
             return diccionario[message];
         }

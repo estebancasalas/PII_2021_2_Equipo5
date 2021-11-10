@@ -8,13 +8,13 @@ namespace Library
     /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
     /// surjan nuevos tipos de usuario.
     /// </summary>
-    public class Empresa : IUsuario
+    public class Empresa: IUsuario
     {
         /// <summary>
         /// Guarda la invitación de la empresa.
         /// </summary>
         /// <value></value>
-        public string Invitacion {get; set;}
+        public string Invitacion { get; set; }
         /// <summary>
         /// La listaIdEmpresarios se encarga de registrar todos los usuarios que 
         /// puede tener una misma empresa.
@@ -25,17 +25,17 @@ namespace Library
         /// Guarda el nombre de la empresa.
         /// </summary>
         /// <value></value>
-        public string Nombre {get; set;}
+        public string Nombre { get; set; }
         /// <summary>
         /// Guarda la ubicación de la empresa. 
         /// </summary>
         /// <value></value>
-        public string Ubicacion {get; set;}
+        public string Ubicacion { get; set; }
         /// <summary>
         /// Guarda el rubro de la empresa.
         /// </summary>
         /// <value></value>
-        public string Rubro {get;set;}
+        public string Rubro { get;set; }
         /// <summary>
         /// Es el constructor que se encarga de crear a la empresa en su totalidad.
         /// </summary>

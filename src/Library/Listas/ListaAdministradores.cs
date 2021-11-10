@@ -16,6 +16,5 @@ namespace Library
         /// </summary>
         /// <returns></returns>
         public static List<Administrador> administradores = new List<Administrador>();
-
     }
 }

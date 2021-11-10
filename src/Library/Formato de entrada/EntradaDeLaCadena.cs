@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
- 
+
 namespace Library
 {
     /// <summary>
@@ -10,12 +10,10 @@ namespace Library
     public abstract class EntaradaDeLaCadena 
     {
         /// <summary>
-        /// El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta. 
+        /// El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">Mensaje para mostrar en cosola.</param>
         /// <returns></returns>
-        public abstract string GetInput (string message);
-    
+        public abstract string GetInput(string message);
     }
-
 }

@@ -17,7 +17,6 @@ namespace Library
         public override void Handle (Mensaje mensaje)
         {
             //En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
-            
             if (mensaje.Text == "/start")
             {
                 Input.GetInput("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, para eso escribe /comandos y veras todas tus opciones");

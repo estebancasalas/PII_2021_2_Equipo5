@@ -13,9 +13,8 @@ namespace Library
         /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
         /// </summary>
         /// <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
-        public override void Handle (Mensaje mensaje)
+        public override void Handle(Mensaje mensaje)
         {
-                   
             if (mensaje.Text == "/Finalizar")
             {
                 Output.PrintLine("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
@@ -26,5 +25,4 @@ namespace Library
             }
         }
     }
-
 }

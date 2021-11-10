@@ -12,7 +12,7 @@ namespace Library
         /// Las clases que apliquen IHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
         /// </summary>
         /// <value></value>
-        IHandler Next {get;}
+        IHandler Next { get; }
         /// <summary>
         /// Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
         /// </summary>

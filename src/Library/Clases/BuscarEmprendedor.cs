@@ -15,7 +15,7 @@ namespace Library
         /// </summary>
         /// <param name="nombre">Nombre del emprendedor que se desea buscar.</param>
         /// <returns></returns>
-        public Emprendedor Buscar (string nombre)
+        public Emprendedor Buscar(string nombre)
         {
             int i = 0; 
             while (i < ListaEmprendedores.Emprendedores.Count)
