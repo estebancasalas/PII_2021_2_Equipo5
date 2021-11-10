@@ -28,7 +28,7 @@ namespace Library
         /// Lista de coincidencias de la búsqueda.
         /// </summary>
         /// <returns></returns>
-        public List<Publicacion> result = new List<Publicacion>();
+        public List<Publicacion> result = Singleton<List<Publicacion>>.Instance;
         /// <summary>
         /// Constructor de la clase.
         /// </summary>

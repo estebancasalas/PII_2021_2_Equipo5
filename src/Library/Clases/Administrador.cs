@@ -9,17 +9,19 @@ namespace Library
     public class Administrador
     { 
         /// <summary>
-        /// Guarda el id de el administrador al registrarse 
+        /// Guarda el id de el administrador al registrarse. 
         /// </summary>
         /// <value></value>
         public int Id { get; set; }
+        
         /// <summary>
-        /// Guarda el nombre que pone el administrador al registrarse 
+        /// Guarda el nombre que pone el administrador al registrarse. 
         /// </summary>
         /// <value></value>
         public string Nombre { get; set; }
+        
         /// <summary>
-        /// Constructor de la clase Administrador
+        /// Constructor de la clase Administrador.
         /// </summary>
         /// <param name="Id"></param>
         /// <param name="Nombre"></param>
@@ -27,8 +29,9 @@ namespace Library
         {
             this.Id = Id;
             this.Nombre = Nombre;
-            ListaAdminastradores.administradores.Add(this);
+            ListaAdminastradores.Administradores.Add(this);
         }
+        
         /// <summary>
         /// Método que crea el objeto empresa y su token de invitación.
         /// </summary>
