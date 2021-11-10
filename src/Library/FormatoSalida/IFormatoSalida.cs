@@ -16,7 +16,7 @@ namespace Library
         /// </summary>
         /// <param name="line">Lo que se muestra en consola</param>
         /// <returns></returns>
-        string PrintLine (string line);
+        string PrintLine(string line);
     }
 
 }

@@ -7,7 +7,7 @@ namespace Library
     /// <summary>
     /// Esta clase se encarga de generar una ubicación utilizando la API Location. Utliza la interzaz IUbicacion para facilitar la extensión de varias ubicaciones de un mismo cliente.
     /// </summary>
-    public class Ubicacion : IUbicacion
+    public class Ubicacion: IUbicacion
     {
         /// <summary>
         /// GetUbicacion es el método que al pasarle una ubicación la convierte en un objeto de tipo Location. 
@@ -18,12 +18,8 @@ namespace Library
         {
             LocationApiClient client = new LocationApiClient();
             Location location = await client.GetLocation(ubicacion);
-
             return location;
-            
         }
-
-
     }
 }
 

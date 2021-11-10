@@ -66,6 +66,6 @@ namespace Library
             {
                 Console.WriteLine("Categoría no válida.");
             }
-            }
         }
+    }
 }

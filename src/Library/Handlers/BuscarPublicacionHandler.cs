@@ -32,7 +32,6 @@ namespace Library
             {
                 this.Next.Handle(mensaje);
             }
-
         }
     }
 }
