@@ -1,43 +1,11 @@
-# Qué hay configurado en esta plantilla
+Equipo 5: Esteban Casalás, Juan Cosentino, Ionas Josponis, Pilar Machado, Santiago Rodríguez.
 
-1. Un proyecto de biblioteca (creado con [`dotnet new classlib --name Library`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new?tabs=netcore22)) en la carpeta `src\Library`
-2. Un proyecto de aplicación de consola (creado con [`dotnet new console --name Program`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new?tabs=netcore22)) en la carpeta `src\Program`
-3. Un proyecto de prueba en [NUnit](https://nunit.org/) (creado con [`dotnet new nunit --name LibraryTests`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new?tabs=netcore22)) en la carpeta `test\LibraryTests`
-4. Un proyecto de [Doxygen](https://www.doxygen.nl/index.html) para generación de sitio web de documentación en la carpeta `docs`
-5. Análisis estático con [Roslyn analyzers](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview) en los proyectos de biblioteca y de aplicación
-6. Análisis de estilo con [StyleCop](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/README.md) en los proyectos de biblioteca y de aplicación
-7. Una solución `ProjectTemplate.sln` que referencia todos los proyectos de C# y facilita la compilación con [`dotnet build`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build).
-8. Tareas preconfiguradas para compilar y ejecutar los proyectos, ejecutar las pruebas, y generar documentación desde VSCode en la carpeta `.vscode`
-9. Análisis de cobertura de los casos de prueba mediante []() que aparece en los márgenes con el complemento de VS Code [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters).
-10. Ejecución automática de compilación y prueba mediante [GitHub Actions](https://docs.github.com/en/actions) configuradas en el repositorio al hacer [push](https://github.com/git-guides/git-push) o [pull request](https://docs.github.com/en/github/collaborating-with-pull-requests).
+El proceso de desarrollo del proyecto comenzó con reuniones para definir un modelo inicial del bot, el cual incluía las clases principales junto con algunos métodos. A medida que avanzamos en la programación del mismo, nos dimos cuenta de que nos faltaban clases, métodos, interfaces, patrones, principios, y demás. Para resolver estos problemas, cada uno creaba y modificaba clases en base a lo que necesitaba, siempre y cuando se aprobara dicho cambio en el equipo. Al trabajar en GitHub, todos los integrantes podían ver los cambios que se hacían en cada pull request, facilitando la transferencia de información entre los integrantes.
+Consideramos que es importante que el trabajo sea en equipos, dado que es una cantidad elevada de trabajo que hay que hacer y es menester realizar una división de tareas. Adicionalmente, a medida que avanzábamos, las tareas se dividían en base a lo que era necesario hacer, en vez de que cada uno creara sus clases o interfaces y se enfocara en eso solamente. Esto fomentó a que el proyecto creciera más rápidamente, dado que el trabajo se podía delegar a otro compañero. Resultó especialmente útil cuando algún integrante no podía trabajar en el proyecto, para que no se atrasara en su totalidad.
 
-Vean este 🎥 [video](https://web.microsoftstream.com/video/55c6a06c-07dc-4f95-a96d-768f198c9044) que explica el funcionamiento de la plantilla.
 
-## Convenciones
+Desafíos: el principal desafío que nos encontramos fue no preveer la cantidad de tiempo que lleva programar y corregir errores. A pesar de que nos juntamos varias veces antes de la entrega, en cada reunión (y luego también cuando cada uno trabajaba por su cuenta) siempre surgían nuevas clases y nuevos cambios en las clases existentes. Para la próxima entrega, vamos a tener en cuenta esto y vamos a ser más precavidos con el tiempo. También nos encontramos con el desafío de llevar la contabilidad de los cambios que se hacían, dado que cada integrante realizaba cambios. Para superar este desafío, escribíamos el cambio en el commit, y luego expandíamos (en caso de que fuera necesario) en el grupo de WhatsApp del equipo, dado que todos tenemos acceso al mismo. Otro desafío que nos encontramos fue saber qué patrón o principio aplicar y cuándo. Inicialmente creábamos las clases sin tenerlos en cuenta, y al ver cómo se relacionaban con las otras, aplicábamos un patrón y modificábamos el código cuando fuera necesario. El hecho de ser varios en el grupo sirvió para ver las opiniones de cada uno y ver qué patrón o principio era mejor aplicar en cada situación.
 
-[Convenciones de código en C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
+Cosas que aprendimos: realizando el proyecto entendimos por qué se aplican los patrones y principios en la programación orientada a objetos. Dado que en la clase hacíamos ejercicios individuales, no era tanto el impacto de aplicar un determinado patrón o principio, pero al trabajar con varias clases simultáneamente se evidenció que son necesarios para programar de forma ordenada, entendible y de manera eficiente. También aprendimos a dividir las tareas y trabajar en conjunto. Nuestra modalidad de trabajo consistía en una división inicial de tareas, y luego trabajábamos juntos arreglando errores y cambiando el programa para que funcione mejor. De esta forma, todos aprendíamos más acerca del programa y también de la teoría detrás del mismo, así como también ver maneras justas de dividir las tareas y ayudarnos mutuamente.
 
-[Convenciones de nombres en C#](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines)
-
-## Dónde encontrar información sobre los errores/avisos al compilar
-
-[C# Compiler Errors (CS*)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/)
-
-[Roslyn Analyzer Warnings (CA*)](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/categories)
-
-[StyleCop Analyzer Warnings (SA*)](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/DOCUMENTATION.md)
-
-# Cómo deshabilitar temporalmente los avisos al compilar
-
-## Roslyn Analyzer
-
-Comentar las siguientes líneas en los archivos de proyecto (`*.csproj`)
-```
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-```
-
-## StyleCop Analyzer
-
-Comentar la línea `<PackageReference Include="StyleCop.Analyzers" Version="1.1.118"/>` en los archivos de proyecto (`*.csproj`)
+Recursos utilizados: los recursos que utilizamos fueron variados. En primer lugar, nos basamos en los ejemplos dados en clase de cómo crear un bot de Telegram. Luego, investigando acerca de bots, descubrimos que un patrón muy útil era el Chain of Responsibility, el cual se investigó a través de la página web Refactoring Guru y algunas otras páginas y videos. También utilizamos los apuntes sacados en clase, junto con los ejercicios de aplicación de principios y patrones a modo de ejemplo para implementar en nuestro programa. Por último, se utilizaron los canales de comunicación para realizar algunas preguntas, así como también preguntas en clase.
