@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Library</name>
+        <name>TelegramBot</name>
     </assembly>
     <members>
         <member name="T:Library.Administrador">
@@ -12,19 +12,19 @@
         </member>
         <member name="P:Library.Administrador.Id">
             <summary>
-            Guarda el id de el administrador al registrarse 
+            Guarda el id de el administrador al registrarse. 
             </summary>
             <value></value>
         </member>
         <member name="P:Library.Administrador.Nombre">
             <summary>
-            Guarda el nombre que pone el administrador al registrarse 
+            Guarda el nombre que pone el administrador al registrarse. 
             </summary>
             <value></value>
         </member>
         <member name="M:Library.Administrador.#ctor(System.Int32,System.String)">
             <summary>
-            Constructor de la clase Administrador
+            Constructor de la clase Administrador.
             </summary>
             <param name="Id"></param>
             <param name="Nombre"></param>
@@ -36,7 +36,7 @@
             <param name="nombre">Nombre de la empresa.</param>
             <param name="ubicacion">Ubicación de la empresa.</param>
             <param name="rubro">Rubro de la empresa.</param>
-            <param name="token">Token de invitación creada por el administrador.</param>
+            <param name="token">Token de invitación creada por el administrador.</param>   
         </member>
         <member name="T:Library.BuscarEmprendedor">
             <summary>
@@ -79,7 +79,7 @@
         </member>
         <member name="T:Library.BuscarEmpresaPorPublicacion">
             <summary>
-            Clase que sirve para buscar empresas. Cumple con SRP, ya que hay una clase encargada de 
+            Clase que sirve para buscar empresas. Cumple con SRP, ya que hay una clase encargada de
             conocer todas las empresas que no tiene la responsabilidad de buscarlas.
             </summary>
         </member>
@@ -87,7 +87,7 @@
             <summary>
             Método para buscar una empresa a partir de una publicación.
             </summary>
-            <param name="nombrePublicacion">Se pasa el nombre de la publicación para buscar la empresa</param>
+            <param name="nombrePublicacion">Se pasa el nombre de la publicación para buscar la empresa.</param>
             <returns></returns>
         </member>
         <member name="T:Library.BusquedaCategoria">
@@ -322,21 +322,11 @@
         </member>
         <member name="F:Library.Material.PosiblesCategorias">
             <summary>
-            Constructor del material.
-            </summary>
-            <summary>
             Lista que contiene las categorías del material.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
-            <param name="Nombre">El nombre del material.</param>
-            <param name="Costo">El costo del material.</param>
-            <param name="Cantiadad">La cantidad del material.</param>
-            <param name="Unidad">La unidad en la cual se cuantifica el material.</param>
-            <param name="Habilitaciones">Las habliitaciones que se necesitan para el material.</param>
-            <param name="categoria">La categoría del material.</param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)" -->
         <member name="T:Library.Publicacion">
             <summary>
             Clase que modela un usario del tipo publicación. 
@@ -347,7 +337,7 @@
             Nombre de quien hace la publicación.
             </summary>
         </member>
-        <member name="F:Library.Publicacion.titulo">
+        <member name="F:Library.Publicacion.Titulo">
             <summary> 
             Se encarga de guardar el título de la publicación dentro del objeto publicación.
             </summary>
@@ -373,7 +363,7 @@
         <member name="P:Library.Publicacion.Ubicacion">
             Atributo en dónde se guarda la ubicación del material.
         </member>
-        <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,LocationApi.Location,System.String)">
+        <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,Ucu.Poo.Locations.Client.Location,System.String)">
             <summary>
             Constructor de la clase Publicacion.
             </summary>
@@ -386,16 +376,14 @@
         </member>
         <member name="T:Library.Ubicacion">
             <summary>
-            Esta clase se encarga de generar una ubicación utilizando la API Location.
-            Utliza la interzaz IUbicacion para facilitar la extensión de varias ubicaciones de 
-            un mismo cliente.
+            Esta clase se encarga de generar una ubicación utilizando la API Location. Utliza la interzaz IUbicacion para facilitar la extensión de varias ubicaciones de un mismo cliente.
             </summary>
         </member>
         <member name="M:Library.Ubicacion.GetUbicacion(System.String)">
             <summary>
             GetUbicacion es el método que al pasarle una ubicación la convierte en un objeto de tipo Location. 
             </summary>
-            <param name="ubicacion">Es la dirección que pasa el cliente.</param> 
+            <param name="ubicacion">Es la dirección que pasa el cliente.</param>
             <returns></returns>
         </member>
         <member name="T:Library.VerificadorUsuario">
@@ -523,9 +511,9 @@
         </member>
         <member name="M:Library.EntaradaDeLaCadena.GetInput(System.String)">
             <summary>
-            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta. 
+            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
             </summary>
-            <param name="message"></param>
+            <param name="message">Mensaje para mostrar en cosola.</param>
             <returns></returns>
         </member>
         <member name="T:Library.LectorTest">
@@ -536,8 +524,14 @@
             abstracciones (Interfaces).
             Cumple SRP pues su única razón de cambio es recibir una línea de la consola.
             Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput 
-            usar en tiempo de ejecución, dependiendo el parámetro. 
+            usar en tiempo de ejecución, dependiendo del objeto que recibe el mensaje GetInput. 
             </summary>
+        </member>
+        <member name="M:Library.LectorTest.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="dic">diccionario del cual se leen las claves</param>
         </member>
         <member name="M:Library.LectorTest.GetInput(System.String)">
             <summary>
@@ -595,6 +589,11 @@
             <summary>
             Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque 
             interactúa con el usuario.
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacionHandler.result">
+            <summary>
+            Atributo donde se guarda el resultado.
             </summary>
         </member>
         <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
@@ -721,6 +720,11 @@
             interactúa con el usuario.
             </summary>
         </member>
+        <member name="F:Library.HistorialHandler.resultado">
+            <summary>
+            Atributo donde se guarda el resultado.
+            </summary>
+        </member>
         <member name="M:Library.HistorialHandler.Handle(Library.Mensaje)">
             <summary>
             Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre 
@@ -780,18 +784,6 @@
             es una invitación válida.S
             </summary>
             <param name="mensaje">Indica que se quiere registrar un empresario</param>
-        </member>
-        <member name="T:Library.HistorialTransacciones">
-            <summary>
-            Clase que se encarga de conocer todas las transacciones que se realizan 
-            de una empresa a un emprendedor o viceversa. 
-            </summary>
-        </member>
-        <member name="F:Library.HistorialTransacciones.Transacciones">
-            <summary>
-            Transacciones es quien tiene la lista con los objetos de la clase Transaccion. 
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:Library.Transaccion">
             <summary>
@@ -959,7 +951,7 @@
             y al mismo tiempo conocer todos los Administradores registrados. 
             </summary>
         </member>
-        <member name="F:Library.ListaAdminastradores.administradores">
+        <member name="F:Library.ListaAdminastradores.Administradores">
             <summary>
             Lista que contiene todos los administradores registrados.
             </summary>
@@ -1032,10 +1024,21 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Library.HistorialTransacciones">
+            <summary>
+            Clase que se encarga de conocer todas las transacciones que se realizan 
+            de una empresa a un emprendedor o viceversa. 
+            </summary>
+        </member>
+        <member name="F:Library.HistorialTransacciones.Transacciones">
+            <summary>
+            Transacciones es quien tiene la lista con los objetos de la clase Transaccion. 
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Library.RegistroPublicaciones">
             <summary>
-            Clase que tiene un registro de las publicaciones activas, eliminadas y 
-            pausadas. Tiene la responsabilidad de conocer el estados de las publicaciones.
+            Clase que tiene un registro de las publicaciones activas, eliminadas y pausadas. Tiene la responsabilidad de conocer el estados de las publicaciones.
             Se definen los métodos para encapsular la clase y poder modificar los datos
             sin tener que compartir la información de las listas, cumpliendo con el
             patrón Expert.

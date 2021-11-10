@@ -25,7 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Library\Library.csproj" />
+    <ProjectReference Include="..\..\src\Library\TelegramBot.csproj" />
+    <ProjectReference Include="..\..\PII_LocationApiClient\src\Library\Library.csproj" />
   </ItemGroup>
 
 </Project>

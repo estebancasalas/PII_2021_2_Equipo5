@@ -15,7 +15,7 @@ namespace Library
         public int Id { get; set; }
         
         /// <summary>
-        /// Guarda el nombre que pone el administrador al registrarse 
+        /// Guarda el nombre que pone el administrador al registrarse. 
         /// </summary>
         /// <value></value>
         public string Nombre { get; set; }
