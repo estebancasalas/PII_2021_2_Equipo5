@@ -1,5 +1,5 @@
 using System;
-using LocationApi;
+using Ucu.Poo.Locations.Client;
 using System.Threading.Tasks;
 
 

@@ -14,7 +14,7 @@ namespace Library
         /// Guarda el id del usuario.
         /// </summary>
         /// <value></value>
-        private int id {get; set;}
+        private int id { get; set; }
         /// <summary>
         /// Lista donde se guardan los mensajes.
         /// </summary>

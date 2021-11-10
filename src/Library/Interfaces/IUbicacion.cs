@@ -1,5 +1,5 @@
 using System;
-using LocationApi;
+using Ucu.Poo.Locations.Client;
 using System.Threading.Tasks;
 
 
@@ -16,7 +16,7 @@ namespace Library
         /// </summary>
         /// <param name="ubicacion">Dirección de la que se desea obtener las coordenadas</param>
         /// <returns></returns>
-        Task <Location> GetUbicacion(string ubicacion);
+        Location GetUbicacion(string ubicacion);
         
     }
 

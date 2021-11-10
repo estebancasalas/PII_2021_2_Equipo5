@@ -4,8 +4,7 @@ using System.Collections.Generic;
 namespace Library
 {
     /// <summary>
-    /// Clase que tiene un registro de las publicaciones activas, eliminadas y 
-    /// pausadas. Tiene la responsabilidad de conocer el estados de las publicaciones.
+    /// Clase que tiene un registro de las publicaciones activas, eliminadas y pausadas. Tiene la responsabilidad de conocer el estados de las publicaciones.
     /// Se definen los métodos para encapsular la clase y poder modificar los datos
     /// sin tener que compartir la información de las listas, cumpliendo con el
     /// patrón Expert.
