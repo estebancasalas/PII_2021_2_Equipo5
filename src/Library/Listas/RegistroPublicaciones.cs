@@ -15,7 +15,7 @@ namespace Library
         /// Lista con las publicaciones activas.
         /// </summary>
         /// <returns></returns>
-        public static List<Publicacion> Activas{get; set;} = new List<Publicacion>();
+        public static List<Publicacion> Activas{ get; set; } = new List<Publicacion>();
         /// <summary>
         /// Lista con las publicaciones que fueron eliminadas.
         /// </summary>
