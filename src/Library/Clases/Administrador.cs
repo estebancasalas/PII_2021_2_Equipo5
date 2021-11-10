@@ -9,7 +9,7 @@ namespace Library
     public class Administrador
     { 
         /// <summary>
-        /// Guarda el id de el administrador al registrarse 
+        /// Guarda el id de el administrador al registrarse. 
         /// </summary>
         /// <value></value>
         public int Id { get; set; }
@@ -19,7 +19,7 @@ namespace Library
         /// <value></value>
         public string Nombre { get; set; }
         /// <summary>
-        /// Constructor de la clase Administrador
+        /// Constructor de la clase Administrador.
         /// </summary>
         /// <param name="Id"></param>
         /// <param name="Nombre"></param>
