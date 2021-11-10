@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using Library;
 using System.Collections.Generic;
-using LocationApi;
+using Ucu.Poo.Locations.Client;
 
 namespace LibraryTests
 {
