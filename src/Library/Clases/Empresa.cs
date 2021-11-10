@@ -26,16 +26,19 @@ namespace Library
         /// </summary>
         /// <value></value>
         public string Nombre { get; set; }
+        
         /// <summary>
         /// Guarda la ubicación de la empresa. 
         /// </summary>
         /// <value></value>
         public string Ubicacion { get; set; }
+        
         /// <summary>
         /// Guarda el rubro de la empresa.
         /// </summary>
         /// <value></value>
         public string Rubro { get;set; }
+        
         /// <summary>
         /// Es el constructor que se encarga de crear a la empresa en su totalidad.
         /// </summary>

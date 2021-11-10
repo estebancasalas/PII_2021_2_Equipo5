@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
+    
     /// <summary>
     /// ListaAdministradores es quien se encarga de tener la lista con todos los 
     /// Administradores registrados. 
@@ -11,6 +12,7 @@ namespace Library
     /// </summary>
     public class ListaAdminastradores
     {
+        
         /// <summary>
         /// Lista que contiene todos los administradores registrados.
         /// </summary>

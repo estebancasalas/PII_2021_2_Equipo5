@@ -10,16 +10,19 @@ namespace Library
     /// </summary>
     public class Conversacion
     {
+        
         /// <summary>
         /// Guarda el id del usuario.
         /// </summary>
         /// <value></value>
         private int id { get; set; }
+        
         /// <summary>
         /// Lista donde se guardan los mensajes.
         /// </summary>
         /// <returns></returns>
         private List<string> mensajes = Singleton<List<string>>.Instance;
+        
         /// <summary>
         /// Método encargado de agregar el mensaje enviado como parámetro a la lista de mensajes.
         /// </summary>

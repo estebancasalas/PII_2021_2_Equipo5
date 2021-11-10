@@ -3,12 +3,14 @@ using System;
 
 namespace Library
 {
+    
     /// <summary>
     /// La clase BuscarEmpresa se encarga de buscar un empresa en la lista de empresas.
     /// Creada por el patrón SRP ya que hay clases que necesitan conocer una empresa en base a su nombre.
     /// </summary>
     public class BuscarEmpresa
     {
+        
         /// <summary>
         /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada.
         /// </summary>

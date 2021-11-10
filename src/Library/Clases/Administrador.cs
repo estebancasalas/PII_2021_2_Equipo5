@@ -13,11 +13,13 @@ namespace Library
         /// </summary>
         /// <value></value>
         public int Id { get; set; }
+        
         /// <summary>
         /// Guarda el nombre que pone el administrador al registrarse 
         /// </summary>
         /// <value></value>
         public string Nombre { get; set; }
+        
         /// <summary>
         /// Constructor de la clase Administrador.
         /// </summary>
@@ -29,6 +31,7 @@ namespace Library
             this.Nombre = Nombre;
             ListaAdminastradores.Administradores.Add(this);
         }
+        
         /// <summary>
         /// Método que crea el objeto empresa y su token de invitación.
         /// </summary>
