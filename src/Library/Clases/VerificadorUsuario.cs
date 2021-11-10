@@ -18,22 +18,13 @@ namespace Library
         /// <returns></returns>
         public bool EstaRegistrado(int id)
         {
-            int i = 0;
-            int j = 0;           
+            int i = 0;           
             while (!found && ListaEmpresa.Empresas.Count>i)
             {
-                while (!found && ListaEmpresa.Empresas[i].ListaIdEmpresarios.Count>j)
+                if (ListaEmpresa.Empresas[i].ListaIdEmpresarios.Contains(id))
                 {
-                    if (ListaEmpresa.Empresas[i].ListaIdEmpresarios[j] == id)
-                    {
-                        found = true;
-                    }
-                    else
-                    {
-                        j++;
-                    }
+                    found = true;
                 }
-                j=0;
                 i++;
             }
             i=0;

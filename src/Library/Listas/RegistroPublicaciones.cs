@@ -16,17 +16,17 @@ namespace Library
         /// Lista con las publicaciones activas.
         /// </summary>
         /// <returns></returns>
-        public static List<Publicacion> Activas {get; set;} = new List<Publicacion>();
+        public static List<Publicacion> Activas {get; set;} = Singleton<List<Publicacion>>.Instance;
         /// <summary>
         /// Lista con las publicaciones que fueron eliminadas.
         /// </summary>
         /// <returns></returns>
-        public static List<Publicacion> Eliminadas = new List<Publicacion>();
+        public static List<Publicacion> Eliminadas = Singleton<List<Publicacion>>.Instance;
         /// <summary>
         /// Lista con las publicaciones pausadas.
         /// </summary>
         /// <returns></returns>
-        public static List<Publicacion> Pausadas = new List<Publicacion>();
+        public static List<Publicacion> Pausadas = Singleton<List<Publicacion>>.Instance;
 
         /// <summary>
         /// Método para agregar una nueva publicación a la lista de 

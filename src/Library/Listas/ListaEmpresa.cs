@@ -12,6 +12,6 @@ namespace Library
         /// Lista que contiene todas las empresas registradas.
         /// </summary>
         /// <returns></returns>
-        public static List<Empresa> Empresas = new List<Empresa>(); 
+        public static List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
     }
 }

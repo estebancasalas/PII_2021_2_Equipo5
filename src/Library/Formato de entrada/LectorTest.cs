@@ -9,7 +9,7 @@ namespace Library
     /// abstracciones (Interfaces).
     /// Cumple SRP pues su única razón de cambio es recibir una línea de la consola.
     /// Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput 
-    /// usar en tiempo de ejecución, dependiendo el parámetro. 
+    /// usar en tiempo de ejecución, dependiendo del objeto que recibe el mensaje GetInput. 
     /// </summary>
     public class LectorTest: EntaradaDeLaCadena
     {

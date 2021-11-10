@@ -27,7 +27,7 @@ namespace Library
         {
             this.Id = Id;
             this.Nombre = Nombre;
-            ListaAdminastradores.administradores.Add(this);
+            ListaAdminastradores.Administradores.Add(this);
         }
         /// <summary>
         /// Método que crea el objeto empresa y su token de invitación.
