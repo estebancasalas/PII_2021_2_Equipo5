@@ -21,7 +21,7 @@ namespace Library
         public void Handle(Mensaje mensaje)
         {
             int i = 0;
-            while (i < ListaEmpresa.Empresas.Count && ListaEmpresa.Empresas[i].ListaIdEmpresarios[0] != mensaje.Id)
+            while (i < ListaEmpresa.Empresas.Count && ListaEmpresa.Empresas[i].ListaIdEmpresarios.Contains(mensaje.Id))
             {
                 i = i + 1;
             }

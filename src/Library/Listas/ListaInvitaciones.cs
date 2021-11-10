@@ -15,6 +15,6 @@ namespace Library
         /// Lista que contiene todas las invtiaciones.
         /// </summary>
         /// <returns></returns>
-        public static List <string> Invitaciones = new List<string> (); 
+        public static List <string> Invitaciones = Singleton<List<string>>.Instance; 
     }
 }

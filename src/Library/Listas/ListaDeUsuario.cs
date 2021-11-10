@@ -14,6 +14,6 @@ namespace Library
         /// Lista que contiene a todos los ususarios.
         /// </summary>
         /// <returns></returns>
-        private List<int> IdUsuarios = new List<int>();
+        private List<int> IdUsuarios = Singleton<List<int>>.Instance; 
     }
 }

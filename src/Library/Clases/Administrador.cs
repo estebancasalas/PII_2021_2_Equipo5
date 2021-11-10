@@ -29,7 +29,7 @@ namespace Library
         {
             this.Id = Id;
             this.Nombre = Nombre;
-            ListaAdminastradores.administradores.Add(this);
+            ListaAdminastradores.Administradores.Add(this);
         }
         
         /// <summary>

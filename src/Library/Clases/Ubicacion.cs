@@ -1,5 +1,5 @@
 using System;
-using LocationApi;
+using Ucu.Poo.Locations.Client;
 using System.Threading.Tasks;
 
 namespace Library
@@ -14,10 +14,10 @@ namespace Library
         /// </summary>
         /// <param name="ubicacion">Es la dirección que pasa el cliente.</param>
         /// <returns></returns>
-        public async Task <Location> GetUbicacion(string ubicacion)
+        public Location GetUbicacion(string ubicacion)
         {
             LocationApiClient client = new LocationApiClient();
-            Location location = await client.GetLocation(ubicacion);
+            Location location = client.GetLocation(ubicacion);
             return location;
         }
     }
