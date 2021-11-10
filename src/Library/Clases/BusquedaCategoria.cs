@@ -19,7 +19,7 @@ namespace Library
         /// <returns>Lista de coincidencias.</returns>
         public List<Publicacion> Buscar(string categoria)
         {
-            List<Publicacion> result = new List<Publicacion>();
+            List<Publicacion> result = Singleton<List<Publicacion>>.Instance;
 
             foreach (Publicacion publicacion in RegistroPublicaciones.Activas) 
             {

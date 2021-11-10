@@ -37,16 +37,16 @@ namespace Library
             {
                 bool notfound = true;
                 int i = 0;
-                while (notfound && i<ListaAdminastradores.administradores.Count)
+                while (notfound && i<ListaAdminastradores.Administradores.Count)
                 {
-                    if (ListaAdminastradores.administradores[i].Id == mensaje.Id)
+                    if (ListaAdminastradores.Administradores[i].Id == mensaje.Id)
                     {
                         notfound = false;
                         nombre = Input.GetInput("nombre empresa");
                         ubicacion = Input.GetInput("ubicacion de la empresa");
                         rubro = Input.GetInput("rubro de la empresa");
                         token = Input.GetInput("Codigo de invitacion");
-                        ListaAdminastradores.administradores[i].CrearInvitacion(nombre, ubicacion, rubro, token);
+                        ListaAdminastradores.Administradores[i].CrearInvitacion(nombre, ubicacion, rubro, token);
                     }
                     else
                     {
