@@ -19,33 +19,8 @@ namespace Library
         public bool EstaRegistrado(int id)
         {
             Empresa empresa = ListaEmpresa.Empresas.Find(x => x.ListaIdEmpresarios.Contains(id));      
-            /*while (!found && ListaEmpresa.Empresas.Count>i)
-            {
-                if (ListaEmpresa.Empresas[i].ListaIdEmpresarios.Contains(id))
-                {
-                    found = true;
-                }
-                i++;
-            }*/
             Emprendedor emprendedor = ListaEmprendedores.Emprendedores.Find(x => x.Id == id);
-            //guardarlo en variable y fijarse que sea diferente de null 
-            /*while (!found && ListaEmprendedores.Emprendedores.Count>i)
-            {
-                if (ListaEmprendedores.Emprendedores[i].Id == id)
-                {
-                    found = true;
-                }
-                i++;
-            }*/
-            if (empresa != null || emprendedor != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (empresa != null || emprendedor != null);
         }
     }
 }
-//Find buscar 

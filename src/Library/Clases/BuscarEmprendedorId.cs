@@ -18,19 +18,8 @@ namespace Library
         /// <returns></returns>
         public Emprendedor Buscar(int id)
         {
-            int i = 0;
-            while (i<ListaEmprendedores.Emprendedores.Count && ListaEmprendedores.Emprendedores[i].Id != id)
-            {
-                i++;
-            }
-            if (i > ListaEmprendedores.Emprendedores.Count)
-            {
-                return null;
-            }
-            else
-            {
-                return ListaEmprendedores.Emprendedores[i];
-            }
+            Emprendedor resultado = ListaEmprendedores.Emprendedores.Find(x => x.Id == id);
+            return resultado;
         }
     }
 }
