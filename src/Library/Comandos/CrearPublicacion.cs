@@ -23,5 +23,6 @@ namespace Library
             Publicacion publicacion = new Publicacion(titulo, material, PalabrasClave, frecuencia, Localizacion, nombreEmpresa);
             RegistroPublicaciones.Activas.Add(publicacion);
         }
+        //Borrar??????
     }
 }
