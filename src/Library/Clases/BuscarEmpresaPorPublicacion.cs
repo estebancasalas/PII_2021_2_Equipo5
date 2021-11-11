@@ -7,7 +7,7 @@ namespace Library
     /// Clase que sirve para buscar empresas. Cumple con SRP, ya que hay una clase encargada de
     /// conocer todas las empresas que no tiene la responsabilidad de buscarlas.
     /// </summary>
-    public class BuscarEmpresaPorPublicacion    
+    public class BuscarEmpresaPorPublicacion : AbstractBuscar
     {
         /// <summary>
         /// Método para buscar una empresa a partir de una publicación.

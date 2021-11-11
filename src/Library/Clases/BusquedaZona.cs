@@ -8,7 +8,7 @@ namespace Library
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por zona.
     /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
     /// </summary>
-    public class BusquedaZona
+    public class BusquedaZona : AbstractBuscar
     {
         /// <summary>
         /// Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
