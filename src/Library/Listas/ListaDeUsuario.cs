@@ -16,4 +16,5 @@ namespace Library
         /// <returns></returns>
         private List<int> IdUsuarios = Singleton<List<int>>.Instance; 
     }
+    // Checkear si cuando se registran se agregan idSSS.
 }

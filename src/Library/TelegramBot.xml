@@ -159,24 +159,6 @@
             </summary>
             <param name="mensaje">Mensaje a agregar en la conversación.</param>
         </member>
-        <member name="T:Library.CrearMaterial">
-            <summary>
-            Clase encargadad de crear un Material. Creada con SRP para que CrearPublicacionHandler no tenga
-            la responsabilidad de crear una instancia de Material.
-            </summary>
-        </member>
-        <member name="M:Library.CrearMaterial.Crear(System.String,System.Double,System.Double,System.String,System.String,System.String)">
-            <summary>
-            Método que crea el objeto Material, recibe como parámetros los datos del objeto.
-            </summary>
-            <param name="nombre">Nombre del material.</param>
-            <param name="costo">Costo por unidad del material.</param>
-            <param name="cantidad">Cantidad del material.</param>
-            <param name="unidad">Unidad con la que se cuantifica el material.</param>
-            <param name="habilitacion">Habilitaciones del material.</param>
-            <param name="categoria">Categoría del material.</param>
-            <returns></returns>
-        </member>
         <member name="T:Library.Emprendedor">
             <summary>
             Clase que modela un usario del tipo emprendedor. 
@@ -326,7 +308,17 @@
             </summary>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)" -->
+        <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Nombre">El nombre del material.</param>
+            <param name="Costo">El costo del material.</param>
+            <param name="Cantiadad">La cantidad del material.</param>
+            <param name="Unidad">La unidad en la cual se cuantifica el material.</param>
+            <param name="Habilitaciones">Las habliitaciones que se necesitan para el material.</param>
+            <param name="categoria">La categoría del material.</param>
+        </member>
         <member name="T:Library.Publicacion">
             <summary>
             Clase que modela un usario del tipo publicación. 
