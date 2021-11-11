@@ -11,7 +11,7 @@ namespace Library
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por Palabras clave.
     /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
     /// </summary>
-    public class BusquedaKeyWord
+    public class BusquedaKeyWord :AbstractBuscar
     {
         
         /// <summary>
