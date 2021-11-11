@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
+    
     /// <summary>
     /// Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en zona.
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por zona.
@@ -10,6 +11,7 @@ namespace Library
     /// </summary>
     public class BusquedaZona
     {
+        
         /// <summary>
         /// Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
         /// </summary>

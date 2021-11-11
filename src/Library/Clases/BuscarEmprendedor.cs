@@ -3,6 +3,7 @@ using System;
 
 namespace Library
 {
+    
     /// <summary>
     /// La clase BuscarEmprendedor se encarga de buscar un emprendedor en la lista de emprendedores.
     /// Creada por el patrón SRP ya que hay clases que necesitan conocer un emprendedor en base a su nombre.

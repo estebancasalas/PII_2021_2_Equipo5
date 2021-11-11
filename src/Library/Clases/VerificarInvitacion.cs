@@ -10,10 +10,12 @@ namespace Library
     /// </summary>
     public class VerificarInvitacion
     {
+        
         /// <summary>
         /// valido es el atributo que indica si la invitación es válida o no. 
         /// </summary>
         public bool valido;
+        
         /// <summary>
         /// Es quien se encarga de verificar que la invitación pasada como parámetro sea
         /// válida o no. 

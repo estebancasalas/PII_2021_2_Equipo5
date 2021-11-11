@@ -8,6 +8,7 @@ namespace Library
     /// </summary>
     public class VerificarEmpresarioId
     {
+        
         /// <summary>
         /// Método verificar recibe como parámetro un id y recorre la lista de empresas buscando algún empresario con ese id.
         /// </summary>

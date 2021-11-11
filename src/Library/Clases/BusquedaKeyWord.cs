@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
+    
     /// <summary>
     /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias 
     /// en palabras clave.
@@ -12,6 +13,7 @@ namespace Library
     /// </summary>
     public class BusquedaKeyWord
     {
+        
         /// <summary>
         /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
         /// </summary>
