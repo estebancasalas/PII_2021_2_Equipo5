@@ -15,16 +15,11 @@ namespace Library
         /// <param name="mensaje">Indica que se quiere crear un emprendedor</param>
         public override void Handle(Mensaje mensaje)
         {
-            Console.WriteLine("¿Cuál es su nombre?");
-            string nombre = Console.ReadLine();
-            Console.WriteLine("¿Cuál es su rubro?");
-            string rubro = Console.ReadLine();
-            Console.WriteLine("¿Cuál es la direccion de su domicilio?");
-            string ubicacion = Console.ReadLine(); //Hay que hacer clase para conseguir la ubicacion.
-            Console.WriteLine("¿Posee alguna habilitacion?");
-            string habilitacion = Console.ReadLine();
-            Console.WriteLine("¿En qué se especializa?");
-            string especializaciones = Console.ReadLine();
+            string nombre = Input.GetInput("¿Cuál es su nombre?");
+            string rubro = Input.GetInput("¿Cuál es su rubro?");
+            string ubicacion = Input.GetInput("¿Cuál es la direccion de su domicilio?");
+            string habilitacion = Input.GetInput("¿Posee alguna habilitacion?");
+            string especializaciones = Input.GetInput("¿En qué se especializa?");
             Emprendedor emprendedor = new Emprendedor(mensaje.Id, nombre, rubro, ubicacion, habilitacion, especializaciones);
         }
     }
