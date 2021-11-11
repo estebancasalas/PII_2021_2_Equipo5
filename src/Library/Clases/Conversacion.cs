@@ -10,6 +10,7 @@ namespace Library
     /// </summary>
 public class Conversacion
     {
+        
         /// <summary>
         /// Guarda el id del usuario.
         /// </summary>

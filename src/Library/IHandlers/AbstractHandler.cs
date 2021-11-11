@@ -5,7 +5,7 @@ namespace Library
     /// Como depende de la interfaz IHandler también usa Chain of Resposibility para que los handlers que usen AbstractHandler permitan que se recorran otros handlers.
     /// También usa singleton porque todos los handlers consultan esta clase para recorrer los handlers.
     /// </summary>
-    public class AbstractHandler : IHandler
+    public abstract class AbstractHandler : IHandler
     {
         /// <summary>
         /// Las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.

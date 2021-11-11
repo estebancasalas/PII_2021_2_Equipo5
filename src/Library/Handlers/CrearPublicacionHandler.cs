@@ -28,9 +28,7 @@ namespace Library
                 double costo = Convert.ToDouble(Input.GetInput("Ingrese el precio por unidad:"));
                 double cantidad = Convert.ToDouble(Input.GetInput("Ingrese la cantidad:"));
                 string habilitaciones = Input.GetInput("Ingrese habilitaciones necesarias para manipular el material:");
-                CrearMaterial materializador = new CrearMaterial();
-                Material material = materializador.Crear(nombreDelMaterial, costo, cantidad, unidad, habilitaciones, categoria);
-                               
+                Material material = new Material(nombreDelMaterial, costo, cantidad, unidad, habilitaciones, categoria);  
                 string titulo = Input.GetInput("Ingrese el título:");
                 string palabrasClave = Input.GetInput("Ingrese palabras claves separadas con ',' : ");
                 string frecuencia = Input.GetInput("Ingrese frequencia de disponibilidad: ");

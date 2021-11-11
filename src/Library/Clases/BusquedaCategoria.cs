@@ -12,6 +12,7 @@ namespace Library
     /// </summary>
     public class BusquedaCategoria : AbstractBuscar
     {
+        
         /// <summary>
         /// Toma como parámetro una categoría y recorre la lista de publicaciones buscando coincidencias.
         /// </summary>
