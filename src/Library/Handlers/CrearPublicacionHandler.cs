@@ -28,16 +28,15 @@ namespace Library
                 double costo = Convert.ToDouble(Input.GetInput("Ingrese el precio por unidad:"));
                 double cantidad = Convert.ToDouble(Input.GetInput("Ingrese la cantidad:"));
                 string habilitaciones = Input.GetInput("Ingrese habilitaciones necesarias para manipular el material:");
-                CrearMaterial materializador = new CrearMaterial();
-                Material material = materializador.Crear(nombreDelMaterial, costo, cantidad, unidad, habilitaciones, categoria);
-                               
+                Material material = new Material(nombreDelMaterial, costo, cantidad, unidad, habilitaciones, categoria);  
                 string titulo = Input.GetInput("Ingrese el título:");
                 string palabrasClave = Input.GetInput("Ingrese palabras claves separadas con ',' : ");
                 string frecuencia = Input.GetInput("Ingrese frequencia de disponibilidad: ");
                 string localizacion = Input.GetInput("Ingrese dónde se encuentra: ");
-                string nombreEmpresa = Input.GetInput("Ingrese nombre de la empresa: ");
-                CrearPublicacion publicacioncreada = new CrearPublicacion ();
-                publicacioncreada.EjecutarComando(material, titulo, palabrasClave, frecuencia, localizacion, nombreEmpresa);
+                Ubicacion ubicacion = new Ubicacion();
+                Location ubi = ubicacion.GetUbicacion(localizacion);
+                BuscarEmpresaId buscador = new BuscarEmpresaId();
+                Publicacion publicacion = new Publicacion (titulo, material, palabrasClave, frecuencia, ubi, buscador.Buscar(mensaje.Id));
             }
             else
             {

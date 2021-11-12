@@ -8,7 +8,7 @@ namespace Library
     /// Clase que sirve para buscar empresas. Cumple con SRP, ya que hay una clase encargada de
     /// conocer todas las empresas que no tiene la responsabilidad de buscarlas.
     /// </summary>
-    public class BuscarEmpresaPorPublicacion    
+    public class BuscarEmpresaPorPublicacion : AbstractBuscar
     {
         
         /// <summary>
@@ -18,24 +18,8 @@ namespace Library
         /// <returns></returns>
         public Empresa Buscar(string nombrePublicacion)
         {
-            int i = 0;
-            while ( i< RegistroPublicaciones.Activas.Count && RegistroPublicaciones.Activas[i].Titulo != nombrePublicacion)
-            {
-                i++;
-            }
-            if (i > RegistroPublicaciones.Activas.Count)
-            {
-                return null;
-            }
-            else
-            {
-            int j = 0;
-            while (j<ListaEmpresa.Empresas.Count && ListaEmpresa.Empresas[i].Nombre !=RegistroPublicaciones.Activas[i].NombreEmpresa)
-            {
-                j++;
-            }
-            return ListaEmpresa.Empresas[j];
-            }
+            Publicacion publicacion = RegistroPublicaciones.Activas.Find(x => x.Titulo == nombrePublicacion);
+            return publicacion.Vendedor;            
         }
     }
 }

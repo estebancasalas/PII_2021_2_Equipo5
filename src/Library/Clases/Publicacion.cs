@@ -13,7 +13,7 @@ namespace Library
         /// <summary>
         /// Nombre de quien hace la publicación.
         /// </summary>
-        public string NombreEmpresa;
+        public Empresa Vendedor;
         
         /// <summary> 
         /// Se encarga de guardar el título de la publicación dentro del objeto publicación.
@@ -47,19 +47,19 @@ namespace Library
         /// </summary>
         /// <param name="titulo">Título de la publicación</param>
         /// <param name="material">Material que se va a publicar</param>
-        /// <param name="PalabrasClave">Palabras clave para buscar la publicación</param>
-        /// <param name="FrecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
+        /// <param name="palabrasClave">Palabras clave para buscar la publicación</param>
+        /// <param name="frecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
         /// <param name="ubicacion">Ubicación del vendedor</param>
-        /// <param name="nombreEmpresa">Nombre de quien vende el material</param>
+        /// <param name="empresa">Nombre de quien vende el material</param>
 
-        public Publicacion(string titulo, Material material, string PalabrasClave, string FrecuenciaDeDisponibilidad, Location ubicacion, string nombreEmpresa)
+        public Publicacion(string titulo, Material material, string palabrasClave, string frecuenciaDeDisponibilidad, Location ubicacion, Empresa empresa)
         {
             this.Titulo = titulo;
             this.Material = material;
-            this.PalabrasClave = PalabrasClave;
-            this.FrecuenciaDeDisponibilidad = FrecuenciaDeDisponibilidad;
+            this.PalabrasClave = palabrasClave;
+            this.FrecuenciaDeDisponibilidad = frecuenciaDeDisponibilidad;
             this.Ubicacion = ubicacion;
-            this.NombreEmpresa = nombreEmpresa;
+            this.Vendedor = empresa;
             RegistroPublicaciones.AñadirNuevaPublicacion(this);
         }
     }
