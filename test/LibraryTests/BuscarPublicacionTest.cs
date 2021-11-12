@@ -27,9 +27,11 @@ namespace LibraryTests
             alfa.Locality = "Montevideo";
             beta.Locality = "Salto";
             gamma.Locality = "Tacuarembó";
+            /*
             a = new Publicacion("A",madera,"PMadera","Frecuencia1",alfa,"SRDL1");
             b = new Publicacion("B",dos,"Material2","Frecuencia2",beta,"SRDL2");
             c = new Publicacion("C",tres,"Material3","Frecuencia3",gamma,"SRDL3");    
+            */
         }
 
         /// <summary>
