@@ -16,5 +16,10 @@ namespace Library
         /// </summary>
         /// <returns></returns>
         public static List <string> Invitaciones = Singleton<List<string>>.Instance; 
+
+        public bool VerificarInvitacion(string invitacion)
+        {
+            return Invitaciones.Contains(invitacion);
+        }
     }
 }
