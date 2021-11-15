@@ -28,7 +28,7 @@ namespace Library
         /// Lista de coincidencias de la búsqueda.
         /// </summary>
         /// <returns></returns>
-        public List<Publicacion> result = Singleton<List<Publicacion>>.Instance;
+        public List<Publicacion> result;
         /// <summary>
         /// Constructor de la clase.
         /// </summary>
@@ -60,13 +60,6 @@ namespace Library
                 BusquedaZonaCiudad buscador = new BusquedaZonaCiudad();
                 result = buscador.Buscar(this.TipoBusqueda, this.Busqueda); 
             }
-            /*
-            else if (TipoBusqueda.ToLower() == "/departamento")
-            {
-                BusquedaZonaDepartamento buscador = new BusquedaZonaDepartamento();
-                result = buscador.Buscar(this.TipoBusqueda, this.Busqueda);
-            }
-            */
             else if (TipoBusqueda == "/palabrasclave")
             {
                 BusquedaKeyWord buscador = new BusquedaKeyWord();
