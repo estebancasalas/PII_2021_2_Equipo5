@@ -19,7 +19,7 @@ namespace Library
         public override void Handle(Mensaje mensaje)
         {
             ListaEmpresa lista = new ListaEmpresa();
-            //base.Handle(mensaje);
+            
             if (mensaje.Text == "/CrearPublicación" && lista.Verificar(mensaje.Id))
             {
                 string nombreDelMaterial = Input.GetInput("Ingrese el material:");

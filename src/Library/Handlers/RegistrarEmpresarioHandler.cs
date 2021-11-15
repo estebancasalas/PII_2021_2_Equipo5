@@ -34,6 +34,7 @@ namespace Library
                         if (ListaEmpresa.Empresas[i].Invitacion == token)
                         {
                             ListaEmpresa.Empresas[i].ListaIdEmpresarios.Add(mensaje.Id);
+                            ListaDeUsuario.IdUsuarios.Add(mensaje.Id); //Crear un metodo de agregar empresario?
                             notfound = false;
                         }
                         else
