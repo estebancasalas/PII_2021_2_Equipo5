@@ -43,7 +43,7 @@ namespace LibraryTests
             invitar.Input = lector;
             invitar.Handle(mensaje);
             Assert.That(ListaInvitaciones.Invitaciones.Contains("invitacion1"),Is.True);
-            Assert.AreEqual(ListaEmpresa.Empresas.Count, 1);
+            Assert.AreNotEqual(ListaEmpresa.Empresas.Find(x => x.Invitacion == "invitacion1"), null);
         }
     }
 }

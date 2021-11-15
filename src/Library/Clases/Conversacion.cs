@@ -21,7 +21,7 @@ public class Conversacion
         /// Lista donde se guardan los mensajes.
         /// </summary>
         /// <returns></returns>
-        private List<string> mensajes = Singleton<List<string>>.Instance;
+        private List<string> mensajes = new List<string>();
 
         /// <summary>
         /// Método encargado de agregar el mensaje enviado como parámetro a la lista de mensajes.

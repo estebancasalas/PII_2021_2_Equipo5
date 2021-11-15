@@ -22,7 +22,7 @@ namespace Library
         {
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
             {
-                string tipobusqueda = Input.GetInput("Que tipo de busqueda desea realizar? /categoria, /ciudad, /departamento, /palabrasclave");
+                string tipobusqueda = Input.GetInput("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
                 string busqueda = Input.GetInput("Que desea buscar?");
                 BuscarPublicacion buscador = new BuscarPublicacion (tipobusqueda, busqueda);
                 this.result = buscador.EjecutarComando();

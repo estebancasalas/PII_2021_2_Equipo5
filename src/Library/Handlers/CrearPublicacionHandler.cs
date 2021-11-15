@@ -22,6 +22,7 @@ namespace Library
             
             if (mensaje.Text == "/CrearPublicación" && lista.Verificar(mensaje.Id))
             {
+                
                 string nombreDelMaterial = Input.GetInput("Ingrese el material:");
                 string categoria = Input.GetInput("Ingrese la categoria:");
                 string unidad = Input.GetInput("Ingrese la unidad con la que cuantifica el material:");

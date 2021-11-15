@@ -21,17 +21,20 @@ namespace LibraryTests
             Material madera = new Material("PMadera",1,2,"Cantidad","Habilitación1","Químicos");
             Material dos = new Material("Material2",3,4,"Cantidad","Habilitación1","Plásticos");
             Material tres = new Material("Material3",5,6,"Cantidad","Habilitación1","Eléctricos");
-            Location alfa = new Location();
-            Location beta = new Location();
-            Location gamma = new Location();
-            alfa.Locality = "Montevideo";
-            beta.Locality = "Salto";
-            gamma.Locality = "Tacuarembó";
-            /*
-            a = new Publicacion("A",madera,"PMadera","Frecuencia1",alfa,"SRDL1");
-            b = new Publicacion("B",dos,"Material2","Frecuencia2",beta,"SRDL2");
-            c = new Publicacion("C",tres,"Material3","Frecuencia3",gamma,"SRDL3");    
-            */
+
+            IUbicacion alfa = new Ubicacion("Uruguay", "Montevideo", null, null, null, null);
+            IUbicacion beta = new Ubicacion("Uruguay", "Salto", null, null, null, null);
+            IUbicacion gamma = new Ubicacion("Uruguay", "Tacuarembo", null, null, null, null);
+
+            Empresa empresa1 = new Empresa("Empresa1", "UbicacionEmpresa1", "maderero", "123");
+            Empresa empresa2 = new Empresa("Empresa2", "UbicacionEmpresa2", "plastico", "1232");
+            Empresa empresa3 = new Empresa("Empresa3", "UbicacionEmpresa3", "electrica", "1233");
+            
+            a = new Publicacion("1", madera, "madera", "todos los dias", alfa, empresa1);
+            b = new Publicacion("2", dos, "plastico", "todos los dias", beta, empresa2);
+            c = new Publicacion("3", tres, "electrico", "todos los dias", beta, empresa3);
+            
+
         }
 
         /// <summary>
@@ -43,7 +46,7 @@ namespace LibraryTests
         {
             
             Dictionary<string, string> diccionario = new Dictionary<string, string>();
-            diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /departamento, /palabrasclave" , "/categoria");
+            diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave" , "/categoria");
             diccionario.Add("Que desea buscar?", "Químicos");
             Mensaje mensaje = new Mensaje(1234,"/buscarpublicacion");
             BuscarPublicacionHandler buscarcategoria = new BuscarPublicacionHandler();
@@ -54,10 +57,10 @@ namespace LibraryTests
         }
 
         [Test]
-        public void BusquedaPorDepartamentoTest()
+        public void BusquedaPorCiudadTest()
         {
             Dictionary<string, string> diccionario = new Dictionary<string, string>();
-            diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /departamento, /palabrasclave" , "/departamento");
+            diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave" , "/ciudad");
             diccionario.Add("Que desea buscar?", "Salto");
             Mensaje mensaje = new Mensaje(1234,"/buscarpublicacion");
             BuscarPublicacionHandler buscardepartamento = new BuscarPublicacionHandler();

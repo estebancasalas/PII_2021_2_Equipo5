@@ -34,15 +34,17 @@ namespace LibraryTests
             Dictionary<string, string> diccionario = new Dictionary<string, string>();
             diccionario.Add("Ingrese su código de invitación: ", "ValidToken");
 
-            ListaEmpresa lista1 = new ListaEmpresa();
             Mensaje mensaje = new Mensaje(1234,"/empresa");
             RegistrarEmpresarioHandler registrarEmpresario = new RegistrarEmpresarioHandler();
-            Administrador admin = new Administrador(456, "admin");
-            admin.CrearInvitacion("Empresa1", "Montevideo", "textil", "ValidToken");
+            Empresa empresa1 = new Empresa("ResgistrarEmpresaTest", "Montevideo", "textil", "ValidToken");
+            ListaInvitaciones.Invitaciones.Add("ValidToken");
             LectorTest lector = new LectorTest(diccionario);
             registrarEmpresario.Input = lector;
             registrarEmpresario.Handle(mensaje);
-            Assert.That(ListaEmpresa.Empresas[1].ListaIdEmpresarios.Contains(1234),Is.True);
+
+            BuscarEmpresa buscarempresa = new BuscarEmpresa();
+            Empresa empresa = buscarempresa.Buscar("ResgistrarEmpresaTest");
+            Assert.That(empresa.ListaIdEmpresarios.Contains(1234), Is.True);
         }
         /// <summary>
         /// Este test verifica que no es posible el registro con una invitacion invalida.
@@ -56,11 +58,12 @@ namespace LibraryTests
             Mensaje mensaje = new Mensaje(1234,"/empresa");
             RegistrarEmpresarioHandler registrarEmpresario = new RegistrarEmpresarioHandler();
             Administrador admin = new Administrador(456, "admin");
-            admin.CrearInvitacion("Empresa1", "Montevideo", "textil", "ValidToken");
+            admin.CrearInvitacion("ResgistrarEmpresaTest", "Montevideo", "textil", "ValidToken");
             LectorTest lector = new LectorTest(diccionario);
             registrarEmpresario.Handle(mensaje);
+
             BuscarEmpresa buscarempresa = new BuscarEmpresa();
-            Empresa empresa = buscarempresa.Buscar("Empresa1");
+            Empresa empresa = buscarempresa.Buscar("ResgistrarEmpresaTest");
             Assert.That(empresa.ListaIdEmpresarios.Contains(1234),Is.False);   
         }
     }

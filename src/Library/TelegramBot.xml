@@ -38,19 +38,6 @@
             <param name="rubro">Rubro de la empresa.</param>
             <param name="token">Token de invitación creada por el administrador.</param>   
         </member>
-        <member name="T:Library.BuscarEmprendedor">
-            <summary>
-            La clase BuscarEmprendedor se encarga de buscar un emprendedor en la lista de emprendedores.
-            Creada por el patrón SRP ya que hay clases que necesitan conocer un emprendedor en base a su nombre.
-            </summary>
-        </member>
-        <member name="M:Library.BuscarEmprendedor.Buscar(System.String)">
-            <summary>
-            Método Buscar, recorre la lista de emprendedores y retorna el emprendedor deseado.
-            </summary>
-            <param name="nombre">Nombre del emprendedor que se desea buscar.</param>
-            <returns></returns>
-        </member>
         <member name="T:Library.BuscarEmprendedorId">
             <summary>
             Clase para buscar un emprendedor por su id. Cumple con SRP, ya que existe una clase que conoce
@@ -379,7 +366,12 @@
             </summary>
             <value></value>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:Library.Ubicacion.Ciudad" -->
+        <member name="P:Library.Ubicacion.Ciudad">
+            <summary>
+            Propiedad que almacena la Ciudad.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:Library.Ubicacion.Direccion">
             <summary>
             Propiedad que almacena la dirección.
@@ -428,53 +420,6 @@
             </summary>
             <param name="ubicacion">Es la dirección que pasa el cliente.</param>
             <returns></returns>
-        </member>
-        <member name="T:Library.VerificadorUsuario">
-            <summary>
-            Esta clase tiene la responsabilidad de verificar si un id ya esta registrado.
-            Creada por SRP, para que CrearUsuarioHandler no tenga que verificar esto.
-            </summary>
-        </member>
-        <member name="M:Library.VerificadorUsuario.EstaRegistrado(System.Int32)">
-            <summary>
-            Método que recorre las listas de empresas y emprendedore buscando un id. Si encuentra el id retorna true, en caso 
-            contrario retorna false. 
-            </summary>
-            <param name="id">Es el id que se desea saber si esta registrado o no.</param> 
-            <returns></returns>
-        </member>
-        <member name="T:Library.VerificarEmpresarioId">
-            <summary>
-            La clase VerificarEmpresarioID tiene la responsabilidad de verificar si el id está registrado en alguna empresa.
-            </summary>
-        </member>
-        <member name="M:Library.VerificarEmpresarioId.Verificar(System.Int32)">
-            <summary>
-            Método verificar recibe como parámetro un id y recorre la lista de empresas buscando algún empresario con ese id.
-            </summary>
-            <param name="id">id del empresario de tipo entero.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Library.VerificarInvitacion">
-            <summary>
-            Esta clase se encarga de verificar que las invitaciones de los trabajadores de 
-            la empresa son válidas. 
-            Patrón SRP para que el Administrador solo tenga que crear la invitación, y que 
-            al mismo tiempo no tenga que verificarla. 
-            </summary>
-        </member>
-        <member name="F:Library.VerificarInvitacion.valido">
-            <summary>
-            valido es el atributo que indica si la invitación es válida o no. 
-            </summary>
-        </member>
-        <member name="M:Library.VerificarInvitacion.#ctor(System.String)">
-            <summary>
-            Es quien se encarga de verificar que la invitación pasada como parámetro sea
-            válida o no. 
-            Esto lo realiza recorriendo la lista con invitaciones válidas.
-            </summary>
-            <param name="invitacion">Se pasa como parámetro la invitación a verificar</param>
         </member>
         <member name="T:Library.BuscarPublicacion">
             <summary>

@@ -21,7 +21,7 @@ namespace Library
         /// <returns></returns>
         public List<Publicacion> Buscar(string palabras)
         {
-            List<Publicacion> result = Singleton<List<Publicacion>>.Instance;
+            List<Publicacion> result = new List<Publicacion>();
 
             foreach (Publicacion publicacion in RegistroPublicaciones.Activas) 
             {
