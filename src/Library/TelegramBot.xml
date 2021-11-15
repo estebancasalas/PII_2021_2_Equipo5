@@ -135,21 +135,6 @@
             <param name="ubicacion">Nombre de la zona.</param>
             <returns></returns>
         </member>
-        <member name="T:Library.BusquedaZonaDepartamento">
-            <summary>
-            Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en zona.
-            Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por zona.
-            Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
-            </summary>
-        </member>
-        <member name="M:Library.BusquedaZonaDepartamento.Buscar(System.String,System.String)">
-            <summary>
-            Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
-            </summary>
-            <param name="tipoZona">Tipo de zona en que se desea buscar(Ciudad, Departamento, etc).</param>
-            <param name="ubicacion">Nombre de la zona.</param>
-            <returns></returns>
-        </member>
         <member name="T:Library.Conversacion">
             <summary>
             La clase conversación se encarga de llevar el conteo de mensajes de cada uno de los ususarios.
@@ -339,7 +324,7 @@
             Clase que modela un usario del tipo publicación. 
             </summary>
         </member>
-        <member name="F:Library.Publicacion.NombreEmpresa">
+        <member name="F:Library.Publicacion.Vendedor">
             <summary>
             Nombre de quien hace la publicación.
             </summary>
@@ -370,25 +355,76 @@
         <member name="P:Library.Publicacion.Ubicacion">
             Atributo en dónde se guarda la ubicación del material.
         </member>
-        <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,Ucu.Poo.Locations.Client.Location,System.String)">
+        <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,Library.IUbicacion,Library.Empresa)">
             <summary>
             Constructor de la clase Publicacion.
             </summary>
             <param name="titulo">Título de la publicación</param>
             <param name="material">Material que se va a publicar</param>
-            <param name="PalabrasClave">Palabras clave para buscar la publicación</param>
-            <param name="FrecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
+            <param name="palabrasClave">Palabras clave para buscar la publicación</param>
+            <param name="frecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
             <param name="ubicacion">Ubicación del vendedor</param>
-            <param name="nombreEmpresa">Nombre de quien vende el material</param>
+            <param name="empresa">Nombre de quien vende el material</param>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>
-            Esta clase se encarga de generar una ubicación utilizando la API Location. Utliza la interzaz IUbicacion para facilitar la extensión de varias ubicaciones de un mismo cliente.
+            Clase que modela una ubicación.
+            Implementa IUbicacion.
+            Colabora con: UbicacionProvider,
             </summary>
         </member>
-        <member name="M:Library.Ubicacion.GetUbicacion(System.String)">
+        <member name="P:Library.Ubicacion.Pais">
             <summary>
-            GetUbicacion es el método que al pasarle una ubicación la convierte en un objeto de tipo Location. 
+            Propiedad que almacena el País.
+            </summary>
+            <value></value>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Library.Ubicacion.Ciudad" -->
+        <member name="P:Library.Ubicacion.Direccion">
+            <summary>
+            Propiedad que almacena la dirección.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Ubicacion.CodigoPostal">
+            <summary>
+            Propiedad que almacena el código postal. 
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Ubicacion.Latitud">
+            <summary>
+            Propiedad que almacena la Latitud de las coordenadas.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Ubicacion.Longitud">
+            <summary>
+            Propiedad que almacena la Longitud de las coordenadas.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Ubicacion.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor de la clase.
+            </summary>
+            <param name="pais"></param>
+            <param name="ciudad"></param>
+            <param name="direccion"></param>
+            <param name="codigoPostal"></param>
+            <param name="latitud"></param>
+            <param name="longitud"></param>
+        </member>
+        <member name="T:Library.UbicacionProvider">
+            <summary>
+            Esta clase se encarga de generar una ubicación utilizando la API Location. 
+            Implementa la interfaz IUbicacionProvider por DIP(Explicado en IUbicacionProvider).
+            Depende de IUbicacion y colabora con CrearPublicacionHandler
+            </summary>
+        </member>
+        <member name="M:Library.UbicacionProvider.GetUbicacion(System.String)">
+            <summary>
+            GetUbicacion es el método que al pasarle una udirección la convierte en un objeto de tipo IUbicacion. 
             </summary>
             <param name="ubicacion">Es la dirección que pasa el cliente.</param>
             <returns></returns>
@@ -482,19 +518,6 @@
             búsqueda, para cumplir con SRP. 
             Finalmente, devuelve una lista con todas la publiaciones encontradas, de la búsqueda
             que se realizó. 
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Library.CrearPublicacion">
-            <summary>
-            Clase que se encarga de crear una publicación. 
-            </summary>
-        </member>
-        <member name="M:Library.CrearPublicacion.EjecutarComando(Library.Material,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Método que pide los datos necesarios para crear una publicación. Deriva la
-            responsabilidad de crear la publicación a la clase Publicacion para cumplir
-            con el principio SRP.
             </summary>
             <returns></returns>
         </member>
@@ -912,15 +935,58 @@
         </member>
         <member name="T:Library.IUbicacion">
             <summary>
-            Interfaz para implementar el método encargado de obtener una ubicación. Creada para aplicar DIP y
-            Polymorphism en caso de que hayan otras formas de encontrar una ubicación (actualmente solo hay una).
+            Interfaz que modela una ubicación.
+            Creada por DIP. Las clases que necesitan trabajar con una o varias ubicaciones ahora dependen de esta abstracción y no de una clase concreta(como podría ser la clase Location
+            en LocationApi).
             </summary>
         </member>
-        <member name="M:Library.IUbicacion.GetUbicacion(System.String)">
+        <member name="P:Library.IUbicacion.Pais">
             <summary>
-            Método para obtener la ubicación en coordenadas a partir de un string.
+            Pais en el que se encuentra la ubicación.
             </summary>
-            <param name="ubicacion">Dirección de la que se desea obtener las coordenadas</param>
+            <value>string</value>
+        </member>
+        <member name="P:Library.IUbicacion.Ciudad">
+            <summary>
+            Ciudad en la que se encuentra la ubicación.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.IUbicacion.Direccion">
+            <summary>
+            Direccion de la ubicación.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.IUbicacion.CodigoPostal">
+            <summary>
+            Codigo postal de la ubicación.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.IUbicacion.Latitud">
+            <summary>
+            Latitud de las coordenadas de la ubicación.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.IUbicacion.Longitud">
+            <summary>
+            Longitud de las coordenadas de la ubicación
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Library.IUbicacionProvider">
+            <summary>
+            Interfaz que modela las clases que obtienen ubicaciones a partir de direcciones. 
+            Creada por DIP, las clases que necesiten obtener una ubicacion dependerán de esta abstracción y no de una clase concreta.
+            </summary>
+        </member>
+        <member name="M:Library.IUbicacionProvider.GetUbicacion(System.String)">
+            <summary>
+            Método para obtener la ubicación de tipo IUbicacion a partir de una dirección en string.
+            </summary>
+            <param name="ubicacion">Dirección de la que se desea obtener la ubicación.</param>
             <returns></returns>
         </member>
         <member name="T:Library.IUsuario">
