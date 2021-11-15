@@ -9,7 +9,7 @@ namespace Library
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por zona.
     /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
     /// </summary>
-    public class BusquedaZona : AbstractBuscar
+    public class BusquedaZonaCiudad : AbstractBuscar
     {
         
         /// <summary>
@@ -25,17 +25,7 @@ namespace Library
             {
                 foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
                 {
-                    if (publicacion.Ubicacion.Locality == ubicacion)
-                    {
-                        result.Add(publicacion);
-                    }
-                }
-            }
-            else if (tipoZona.ToLower() == "/departamento")
-            {
-                foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
-                {
-                    if (publicacion.Ubicacion.Locality == ubicacion)
+                    if (publicacion.Ubicacion.Ciudad == ubicacion)
                     {
                         result.Add(publicacion);
                     }

@@ -1,27 +1,67 @@
-using System;
-using Ucu.Poo.Locations.Client;
-using System.Threading.Tasks;
-
 namespace Library
 {
-    
     /// <summary>
-    /// Esta clase se encarga de generar una ubicación utilizando la API Location. Utliza la interzaz IUbicacion para facilitar la extensión de varias ubicaciones de un mismo cliente.
+    /// Clase que modela una ubicación.
+    /// Implementa IUbicacion.
+    /// Colabora con: UbicacionProvider,
     /// </summary>
-    public class Ubicacion: IUbicacion
+    public class Ubicacion : IUbicacion
     {
-        
         /// <summary>
-        /// GetUbicacion es el método que al pasarle una ubicación la convierte en un objeto de tipo Location. 
+        /// Propiedad que almacena el País.
         /// </summary>
-        /// <param name="ubicacion">Es la dirección que pasa el cliente.</param>
-        /// <returns></returns>
-        public Location GetUbicacion(string ubicacion)
+        /// <value></value>
+        public string Pais { get; set;} = "Uruguay";
+
+        /// Propiedad que almacena la Ciudad.
+        /// </summary>
+        /// <value></value>
+        public string Ciudad { get; set;} = "Montevideo";
+
+        /// <summary>
+        /// Propiedad que almacena la dirección.
+        /// </summary>
+        /// <value></value>
+        public string Direccion { get; set;} = "";
+
+        /// <summary>
+        /// Propiedad que almacena el código postal. 
+        /// </summary>
+        /// <value></value>
+        public string CodigoPostal { get; set;} = "";
+
+        /// <summary>
+        /// Propiedad que almacena la Latitud de las coordenadas.
+        /// </summary>
+        /// <value></value>
+        public string Latitud { get; set;} = "";
+
+        /// <summary>
+        /// Propiedad que almacena la Longitud de las coordenadas.
+        /// </summary>
+        /// <value></value>
+        public string Longitud { get; set;} = "";
+
+        /// <summary>
+        /// Constructor de la clase.
+        /// </summary>
+        /// <param name="pais"></param>
+        /// <param name="ciudad"></param>
+        /// <param name="direccion"></param>
+        /// <param name="codigoPostal"></param>
+        /// <param name="latitud"></param>
+        /// <param name="longitud"></param>
+        public Ubicacion(string pais, string ciudad, string direccion, string codigoPostal, string latitud, string longitud)
         {
-            LocationApiClient client = new LocationApiClient();
-            Location location = client.GetLocation(ubicacion);
-            return location;
+            this.Pais = pais;
+            this.Ciudad = ciudad;
+            this.Direccion = direccion;
+            this.CodigoPostal = codigoPostal;
+            this.Latitud = latitud;
+            this.Longitud = longitud;
         }
+
+
+
     }
 }
-

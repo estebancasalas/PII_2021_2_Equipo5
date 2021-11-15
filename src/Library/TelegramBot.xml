@@ -120,14 +120,29 @@
             <param name="palabras">Palabra clave que ayuda a la busqueda.</param>
             <returns></returns>
         </member>
-        <member name="T:Library.BusquedaZona">
+        <member name="T:Library.BusquedaZonaCiudad">
             <summary>
             Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en zona.
             Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por zona.
             Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
             </summary>
         </member>
-        <member name="M:Library.BusquedaZona.Buscar(System.String,System.String)">
+        <member name="M:Library.BusquedaZonaCiudad.Buscar(System.String,System.String)">
+            <summary>
+            Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
+            </summary>
+            <param name="tipoZona">Tipo de zona en que se desea buscar(Ciudad, Departamento, etc).</param>
+            <param name="ubicacion">Nombre de la zona.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.BusquedaZonaDepartamento">
+            <summary>
+            Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en zona.
+            Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por zona.
+            Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
+            </summary>
+        </member>
+        <member name="M:Library.BusquedaZonaDepartamento.Buscar(System.String,System.String)">
             <summary>
             Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
             </summary>

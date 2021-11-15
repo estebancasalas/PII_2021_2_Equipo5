@@ -55,11 +55,18 @@ namespace Library
                 BusquedaCategoria buscador = new BusquedaCategoria();
                 result = buscador.Buscar(this.Busqueda);
             }
-            else if (TipoBusqueda.ToLower() == "/ciudad" || TipoBusqueda.ToLower() == "/departamento")
+            else if (TipoBusqueda.ToLower() == "/ciudad")
             {
-                BusquedaZona buscador = new BusquedaZona();
+                BusquedaZonaCiudad buscador = new BusquedaZonaCiudad();
                 result = buscador.Buscar(this.TipoBusqueda, this.Busqueda); 
             }
+            /*
+            else if (TipoBusqueda.ToLower() == "/departamento")
+            {
+                BusquedaZonaDepartamento buscador = new BusquedaZonaDepartamento();
+                result = buscador.Buscar(this.TipoBusqueda, this.Busqueda);
+            }
+            */
             else if (TipoBusqueda == "/palabrasclave")
             {
                 BusquedaKeyWord buscador = new BusquedaKeyWord();

@@ -40,7 +40,7 @@ namespace Library
         
         /// Atributo en dónde se guarda la ubicación del material.
 
-        public Location Ubicacion { get; set; }
+        public IUbicacion Ubicacion { get; set; }
         
         /// <summary>
         /// Constructor de la clase Publicacion.
@@ -52,7 +52,7 @@ namespace Library
         /// <param name="ubicacion">Ubicación del vendedor</param>
         /// <param name="empresa">Nombre de quien vende el material</param>
 
-        public Publicacion(string titulo, Material material, string palabrasClave, string frecuenciaDeDisponibilidad, Location ubicacion, Empresa empresa)
+        public Publicacion(string titulo, Material material, string palabrasClave, string frecuenciaDeDisponibilidad, IUbicacion ubicacion, Empresa empresa)
         {
             this.Titulo = titulo;
             this.Material = material;

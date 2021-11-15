@@ -33,8 +33,8 @@ namespace Library
                 string palabrasClave = Input.GetInput("Ingrese palabras claves separadas con ',' : ");
                 string frecuencia = Input.GetInput("Ingrese frequencia de disponibilidad: ");
                 string localizacion = Input.GetInput("Ingrese dónde se encuentra: ");
-                Ubicacion ubicacion = new Ubicacion();
-                Location ubi = ubicacion.GetUbicacion(localizacion);
+                IUbicacionProvider ubicacionProvider = new UbicacionProvider();
+                IUbicacion ubi = ubicacionProvider.GetUbicacion(localizacion);
                 BuscarEmpresaId buscador = new BuscarEmpresaId();
                 Publicacion publicacion = new Publicacion (titulo, material, palabrasClave, frecuencia, ubi, buscador.Buscar(mensaje.Id));
             }
