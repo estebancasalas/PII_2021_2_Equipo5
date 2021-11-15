@@ -24,8 +24,8 @@ namespace Library
             if (mensaje.Text == "/empresa")
             {
                 token = Input.GetInput("Ingrese su código de invitación: ");
-                VerificarInvitacion verificador = new VerificarInvitacion(token); //Qué pasa si no ingresa nada?
-                if (verificador.valido)
+                ListaInvitaciones verificador = new ListaInvitaciones(); //Qué pasa si no ingresa nada?
+                if (verificador.VerificarInvitacion(token))
                 {
                     bool notfound = true;
                     int i = 0;
@@ -34,6 +34,7 @@ namespace Library
                         if (ListaEmpresa.Empresas[i].Invitacion == token)
                         {
                             ListaEmpresa.Empresas[i].ListaIdEmpresarios.Add(mensaje.Id);
+                            ListaDeUsuario.IdUsuarios.Add(mensaje.Id); //Crear un metodo de agregar empresario?
                             notfound = false;
                         }
                         else

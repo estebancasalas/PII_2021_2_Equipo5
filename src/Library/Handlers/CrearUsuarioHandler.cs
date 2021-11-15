@@ -36,8 +36,8 @@ namespace Library
         {
             if (mensaje.Text == "/CrearUsuario")
             {
-                VerificadorUsuario verificador = new VerificadorUsuario();
-                if (!verificador.EstaRegistrado(mensaje.Id))
+                ListaDeUsuario lista = new ListaDeUsuario();
+                if (lista.EstaRegistrado(mensaje.Id))
                 {
                     mensaje.Text = Input.GetInput("Qué tipo de usuario desea crear? Ingrese /empresa o /emprendedor");
                     this.Next.Handle(mensaje); //Este deberia ser el handler de crear empresa o emprendedor

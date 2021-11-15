@@ -13,5 +13,10 @@ namespace Library
         /// </summary>
         /// <returns></returns>
         public static List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
+
+        public bool Verificar(int id)
+        {
+            return Empresas.Find(x => x.ListaIdEmpresarios.Contains(id)) != null;
+        }
     }
 }
