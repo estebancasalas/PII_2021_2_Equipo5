@@ -13,11 +13,20 @@ namespace Library
     /// </summary>
     public class ListaAdminastradores: IJsonConvertible
     {
-            
+        /// <summary>
+        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
+        /// json.
+        /// </summary>
+        /// <returns></returns>    
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(this);
         }
+        /// <summary>
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
+        /// a partir de el archivo json. 
+        /// </summary>
+        /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
             ListaAdminastradores listaAdms = new ListaAdminastradores();

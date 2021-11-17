@@ -21,7 +21,6 @@ namespace LibraryTests
         {
             ListaEmpresa lista1 = new ListaEmpresa();
             Dictionary<string, string> diccionario = new Dictionary<string, string>();
-
         }
 
         /// <summary>
@@ -34,7 +33,7 @@ namespace LibraryTests
             Dictionary<string, string> diccionario = new Dictionary<string, string>();
             diccionario.Add("Ingrese su código de invitación: ", "ValidToken");
 
-            Mensaje mensaje = new Mensaje(1234,"/empresa");
+            Mensaje mensaje = new Mensaje(1000,"/empresa");
             RegistrarEmpresarioHandler registrarEmpresario = new RegistrarEmpresarioHandler();
             Empresa empresa1 = new Empresa("ResgistrarEmpresaTest", "Montevideo", "textil", "ValidToken");
             List <string> lista = Singleton<ListaInvitaciones>.Instance.Invitaciones;
@@ -43,9 +42,8 @@ namespace LibraryTests
             registrarEmpresario.Input = lector;
             registrarEmpresario.Handle(mensaje);
 
-            BuscarEmpresa buscarempresa = new BuscarEmpresa();
-            Empresa empresa = buscarempresa.Buscar("ResgistrarEmpresaTest");
-            Assert.That(empresa.ListaIdEmpresarios.Contains(1234), Is.True);
+            Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(1000);
+            Assert.AreNotEqual(empresa, null);
         }
         /// <summary>
         /// Este test verifica que no es posible el registro con una invitacion invalida.
@@ -56,16 +54,16 @@ namespace LibraryTests
             Dictionary<string, string> diccionario = new Dictionary<string, string>();
             diccionario.Add("Ingrese su código de invitación: ", "InvalidToken");
             ListaEmpresa lista1 = new ListaEmpresa();
-            Mensaje mensaje = new Mensaje(1234,"/empresa");
+            Mensaje mensaje = new Mensaje(1000,"/empresa");
             RegistrarEmpresarioHandler registrarEmpresario = new RegistrarEmpresarioHandler();
             Administrador admin = new Administrador(456, "admin");
             admin.CrearInvitacion("ResgistrarEmpresaTest", "Montevideo", "textil", "ValidToken");
             LectorTest lector = new LectorTest(diccionario);
+            registrarEmpresario.Input = lector;
             registrarEmpresario.Handle(mensaje);
 
-            BuscarEmpresa buscarempresa = new BuscarEmpresa();
-            Empresa empresa = buscarempresa.Buscar("ResgistrarEmpresaTest");
-            Assert.That(empresa.ListaIdEmpresarios.Contains(1234),Is.False);   
+            Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(1000);
+            Assert.AreEqual(empresa, null);  
         }
     }
 }

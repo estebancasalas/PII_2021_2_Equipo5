@@ -45,7 +45,7 @@ namespace LibraryTests
             IFormatoSalida salida = new OutputTest();
             historial.Output = salida;
             historial.Handle(mensaje);
-            string expected = "Tus transacciones son: \n";
+            string expected = "Tus transacciones son:\n";
             Assert.AreEqual(expected, historial.resultado);
         }
 
@@ -66,7 +66,7 @@ namespace LibraryTests
             IFormatoSalida salida = new OutputTest();
             historial.Output = salida;
             historial.Handle(mensaje);
-            string resultado = "Tus transacciones son: \nAdidas vendió 1 de Championes de Messi a Colgatte\n";
+            string resultado = "Tus transacciones son:\nAdidas vendió 1 de Championes de Messi a Colgatte\n";
             Assert.AreEqual(resultado, historial.resultado);
         }
     }

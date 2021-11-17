@@ -11,6 +11,7 @@ namespace Library
     {
         /// <summary>
         /// Lista que contiene todas las empresas registradas.
+        /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
@@ -19,16 +20,12 @@ namespace Library
         {
             return Empresas.Find(x => x.ListaIdEmpresarios.Contains(id)) != null;
         }
-        public string ConvertToJson()
+        public Empresa Buscar(int id)
         {
-            return JsonSerializer.Serialize(this);
+            Empresa empresa = this.Empresas.Find(x => x.ListaIdEmpresarios.Contains(id));
+            return empresa;
         }
-        public void LoadFromJson(string json)
-        {
-            ListaEmpresa listaEmprs = new ListaEmpresa();
-            listaEmprs = JsonSerializer.Deserialize<ListaEmpresa>(json);
-            this.Empresas = listaEmprs.Empresas;
-        }
+
         /// <summary>
         /// Se crea el método Add para añadir una Empresa a la ListaEmpresa ya existente. 
         /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
@@ -38,6 +35,26 @@ namespace Library
         public void Add(Empresa empresa)
         {
             this.Empresas.Add(empresa);
+        }
+        /// <summary>
+        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
+        /// json.
+        /// </summary>
+        /// <returns></returns>
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+        /// <summary>
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
+        /// a partir de el archivo json. 
+        /// </summary>
+        /// <param name="json"></param>
+        public void LoadFromJson(string json)
+        {
+            ListaEmpresa listaEmprs = new ListaEmpresa();
+            listaEmprs = JsonSerializer.Deserialize<ListaEmpresa>(json);
+            this.Empresas = listaEmprs.Empresas;
         }
     }
 }
