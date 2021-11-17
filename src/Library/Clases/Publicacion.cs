@@ -60,7 +60,7 @@ namespace Library
             this.FrecuenciaDeDisponibilidad = frecuenciaDeDisponibilidad;
             this.Ubicacion = ubicacion;
             this.Vendedor = empresa;
-            RegistroPublicaciones.AñadirNuevaPublicacion(this);
+            Singleton<RegistroPublicaciones>.Instance.Add(this);
         }
     }
 }

@@ -18,7 +18,8 @@ namespace Library
         /// <returns></returns>
         public Emprendedor Buscar(int id)
         {
-            Emprendedor resultado = ListaEmprendedores.Emprendedores.Find(x => x.Id == id);
+            List<Emprendedor> lista = Singleton<ListaEmprendedores>.Instance.Emprendedores;
+            Emprendedor resultado = lista.Find(x => x.Id == id);
             return resultado;
         }
     }

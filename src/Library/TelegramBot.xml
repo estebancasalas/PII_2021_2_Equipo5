@@ -471,7 +471,7 @@
             Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta. 
             </summary>
         </member>
-        <member name="M:Library.VerHistorial.EjecutarComando(System.String)">
+        <member name="M:Library.VerHistorial.EjecutarComando(System.Int32)">
             <summary>
             Método que recorre la lista de transacciones de el usuario y retorna su historial.
             </summary>

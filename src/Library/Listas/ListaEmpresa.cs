@@ -12,11 +12,15 @@ namespace Library
         /// Lista que contiene todas las empresas registradas.
         /// </summary>
         /// <returns></returns>
-        public static List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
+        public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
 
         public bool Verificar(int id)
         {
             return Empresas.Find(x => x.ListaIdEmpresarios.Contains(id)) != null;
+        }
+        public void Add(Empresa empresa)
+        {
+            this.Empresas.Add(empresa);
         }
     }
 }

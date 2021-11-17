@@ -23,9 +23,8 @@ namespace Library
         { 
             if (mensaje.Text == "/historial")
             {
-                string nombre = Input.GetInput("¿Cuál es tu nombre?");
                 VerHistorial historial = new VerHistorial();
-                resultado = historial.EjecutarComando(nombre);
+                resultado = historial.EjecutarComando(mensaje.Id);
                 Output.PrintLine(resultado);
             }
             else
