@@ -10,8 +10,8 @@ Pilar: BuscarEmpresa, BuscarEmprendedor, HistorialTransacciones, ListaAdministra
 AbstractHandler, IHandler, Traductor, VerificarInvitacion, Transaccion,
 
 
-Santiago: Administrador, IUsuario, Material, Emprendedor, Empresa, CrearMaterial, Ubicacion
+Santiago: Administrador, IUsuario, Material, Emprendedor, Empresa, CrearMaterial, Ubicacion,
 
 
 Esteban: BuscarPublicaciones, BusquedaPublicacion, BusquedaCategoría, BusquedaKeyWord, BusquedaZona, Mensaje, VerificadorUsuario, 
-IUbicacion
+IUbicacion, IUbicacionProvider, Ubicacion, UbicacionProvider.

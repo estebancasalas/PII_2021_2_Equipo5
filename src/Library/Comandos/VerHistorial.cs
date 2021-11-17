@@ -15,16 +15,20 @@ namespace Library
         /// </summary>
         /// <param name="nombre">Nombre de quien quiere ver el historial</param>
         /// <returns></returns>
-        public string EjecutarComando(string nombre)
+        public string EjecutarComando(int id)
         {  
+<<<<<<< HEAD
             StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n ");
             List<Transaccion> lista = Singleton<HistorialTransacciones>.Instance.Transacciones;
             foreach (Transaccion transaccion in lista)
+=======
+            StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n");
+            HistorialTransacciones historial = new HistorialTransacciones();
+            
+            foreach (Transaccion transaccion in historial.Buscar(id))
+>>>>>>> 3b0ae8df6d682f92e30ab63ade51e2c9c0b52c06
             {
-                if (transaccion.Vendedor.Nombre == nombre || transaccion.Comprador.Nombre == nombre) 
-                {
-                    Resultado.Append($" {transaccion.Vendedor} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador}\n");
-                }
+                    Resultado.Append($"{transaccion.Vendedor.Nombre} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador.Nombre}\n");
             }
             return Resultado.ToString();
         } 

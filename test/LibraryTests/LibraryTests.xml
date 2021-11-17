@@ -41,23 +41,23 @@
             Verifica que el emprendedor se registra correctamente.
             </summary>
         </member>
-        <member name="T:LibraryTests.RegistrarEmpresaTests">
+        <member name="T:LibraryTests.RegistrarEmpresarioTests">
             <summary>
             Casos de prueba para el handler RegistrarEmpresario.
             </summary>
         </member>
-        <member name="M:LibraryTests.RegistrarEmpresaTests.Setup">
+        <member name="M:LibraryTests.RegistrarEmpresarioTests.Setup">
             <summary>
             SetUp de los casos de prueba.
             </summary>
         </member>
-        <member name="M:LibraryTests.RegistrarEmpresaTests.InvitacionValidaTest">
+        <member name="M:LibraryTests.RegistrarEmpresarioTests.InvitacionValidaTest">
             <summary>
             En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de 
             ids de la empresa.
             </summary>
         </member>
-        <member name="M:LibraryTests.RegistrarEmpresaTests.InvitacionInvalidaTest">
+        <member name="M:LibraryTests.RegistrarEmpresarioTests.InvitacionInvalidaTest">
             <summary>
             Este test verifica que no es posible el registro con una invitacion invalida.
             </summary>
@@ -70,6 +70,12 @@
         <member name="M:LibraryTests.VerHistorialTest.Setup">
             <summary>
             SetUp de los casos de prueba.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.VerHistorialTest.VerHistorialEmprendedorVacioTest">
+            <summary>
+            En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de 
+            ids de la empresa.
             </summary>
         </member>
         <member name="M:LibraryTests.VerHistorialTest.VerHistorialEmprendedorNoVacioTest">
