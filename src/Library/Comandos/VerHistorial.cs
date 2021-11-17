@@ -15,15 +15,14 @@ namespace Library
         /// </summary>
         /// <param name="nombre">Nombre de quien quiere ver el historial</param>
         /// <returns></returns>
-        public string EjecutarComando(string nombre)
+        public string EjecutarComando(int id)
         {  
-            StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n ");
-            foreach (Transaccion transaccion in HistorialTransacciones.Transacciones)
+            StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n");
+            HistorialTransacciones historial = new HistorialTransacciones();
+            
+            foreach (Transaccion transaccion in historial.Buscar(id))
             {
-                if (transaccion.Vendedor.Nombre == nombre || transaccion.Comprador.Nombre == nombre) 
-                {
-                    Resultado.Append($" {transaccion.Vendedor} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador}\n");
-                }
+                    Resultado.Append($"{transaccion.Vendedor.Nombre} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador.Nombre}\n");
             }
             return Resultado.ToString();
         } 
