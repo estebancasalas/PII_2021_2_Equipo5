@@ -61,7 +61,8 @@ namespace LibraryTests
             Mensaje mensaje = new Mensaje(567,"/historial");
             Transaccion transaccion = new Transaccion(empresa, emprendedor, "Championes de Messi", 1);
             HistorialTransacciones transacciones = new HistorialTransacciones();
-            HistorialTransacciones.Transacciones.Add(transaccion);
+            List <Transaccion> listaTransacciones = Singleton<HistorialTransacciones>.Instance.Transacciones;
+            listaTransacciones.Add(transaccion);
             IFormatoSalida salida = new OutputTest();
             historial.Output = salida;
             historial.Handle(mensaje);

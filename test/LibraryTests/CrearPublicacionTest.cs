@@ -39,7 +39,8 @@ namespace LibraryTests
             publi = new CrearPublicacionHandler();
             publi.Input = lector;
             publi.Handle(mensaje);
-            Publicacion expected = RegistroPublicaciones.Activas.Find(x => x.Vendedor.Nombre == "Esteban telas");
+            List <Publicacion> listaPublicacion = Singleton<RegistroPublicaciones>.Instance.Activas;
+            Publicacion expected = listaPublicacion.Find(x => x.Vendedor.Nombre == "Esteban telas");
             Assert.AreNotEqual(expected,null);
         }
         [Test]
@@ -63,7 +64,8 @@ namespace LibraryTests
             publi.Input = lector;
             publi.Next = new NullHandler();
             publi.Handle(mensaje);
-            Publicacion expected = RegistroPublicaciones.Activas.Find(x => x.Vendedor.Nombre == "jose");
+             List <Publicacion> listaPublicacion = Singleton<RegistroPublicaciones>.Instance.Activas;
+            Publicacion expected = listaPublicacion.Find(x => x.Vendedor.Nombre == "jose");
             Assert.AreEqual(expected,null);
         }
     }
