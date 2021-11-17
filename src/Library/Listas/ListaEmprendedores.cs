@@ -11,10 +11,6 @@ namespace Library
     /// </summary>
     public class ListaEmprendedores: IJsonConvertible
     {
-        /// <summary>
-        /// Lista que contiene todos los emprendedores registrados.
-        /// </summary>
-        /// <returns></returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(this);
@@ -23,8 +19,20 @@ namespace Library
         {
             ListaEmprendedores listaEmprs = new ListaEmprendedores();
             listaEmprs = JsonSerializer.Deserialize<ListaEmprendedores>(json);
+            this.Emprendedores = listaEmprs.Emprendedores;
         }
+        /// <summary>
+        /// Lista que contiene todos los emprendedores registrados.
+        /// </summary>
+        /// <returns></returns>
         public List<Emprendedor> Emprendedores = Singleton<List<Emprendedor>>.Instance;
+        /// <summary>
+        /// Se crea el método Add para añadir un Emprendedor a la ListaEmprendedores
+        /// ya existente. 
+        /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
+        /// a todos los Emprendedores.
+        /// </summary>
+        /// <param name="emprendedor"></param>
         public void Add(Emprendedor emprendedor)
         {
             this.Emprendedores.Add(emprendedor);

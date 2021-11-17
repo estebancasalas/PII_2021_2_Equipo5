@@ -12,10 +12,6 @@ namespace Library
     /// </summary>
     public class ListaConversaciones: IJsonConvertible 
     {
-        /// <summary>
-        /// Lista que contiene las conversaciones entre todos los usuarios y el bot.
-        /// </summary>
-        /// <returns></returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(this);
@@ -24,10 +20,20 @@ namespace Library
         {
             ListaConversaciones listaConvs = new ListaConversaciones();
             listaConvs = JsonSerializer.Deserialize<ListaConversaciones>(json);
+            this.Conversaciones = listaConvs.Conversaciones;
         }
-         
+        /// <summary>
+        /// Lista que contiene las conversaciones entre todos los usuarios y el bot.
+        /// </summary>
+        /// <returns></returns>
         public List<Conversacion> Conversaciones = Singleton<List<Conversacion>>.Instance;
-        
+        /// <summary>
+        /// Se crea el método Add para añadir una Conversación a la ListaConversaciones
+        /// ya existente. 
+        /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
+        /// todas las conversaciones.
+        /// </summary>
+        /// <param name="conversacion"></param>
         public void Add(Conversacion conversacion)
         {
             this.Conversaciones.Add(conversacion);

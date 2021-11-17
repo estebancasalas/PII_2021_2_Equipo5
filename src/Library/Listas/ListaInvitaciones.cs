@@ -28,9 +28,17 @@ namespace Library
         }
         public void LoadFromJson(string json)
         {
-            ListaAdminastradores listaInvs = new ListaAdminastradores();
-            listaInvs = JsonSerializer.Deserialize<ListaAdminastradores>(json);
+            ListaInvitaciones listaInvs = new ListaInvitaciones();
+            listaInvs = JsonSerializer.Deserialize<ListaInvitaciones>(json);
+            this.Invitaciones = listaInvs.Invitaciones;
         }
+        /// <summary>
+        /// Se crea el método Add para añadir las Invitaciones a la ListaInvitaciones
+        /// ya existente. 
+        /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
+        /// todas las invitaciones que existen.
+        /// </summary>
+        /// <param name="Invitacion"></param>
         public void Add(string Invitacion)
         {
             this.Invitaciones.Add(Invitacion);

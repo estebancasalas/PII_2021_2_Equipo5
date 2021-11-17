@@ -25,9 +25,16 @@ namespace Library
         }
         public void LoadFromJson(string json)
         {
-            ListaAdminastradores listaEmprs = new ListaAdminastradores();
-            listaEmprs = JsonSerializer.Deserialize<ListaAdminastradores>(json);
+            ListaEmpresa listaEmprs = new ListaEmpresa();
+            listaEmprs = JsonSerializer.Deserialize<ListaEmpresa>(json);
+            this.Empresas = listaEmprs.Empresas;
         }
+        /// <summary>
+        /// Se crea el método Add para añadir una Empresa a la ListaEmpresa ya existente. 
+        /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
+        /// a todas las Empresas.
+        /// </summary>
+        /// <param name="empresa"></param>
         public void Add(Empresa empresa)
         {
             this.Empresas.Add(empresa);
