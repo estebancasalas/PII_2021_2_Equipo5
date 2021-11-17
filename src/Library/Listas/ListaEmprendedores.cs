@@ -15,8 +15,6 @@ namespace Library
         /// Lista que contiene todos los emprendedores registrados.
         /// </summary>
         /// <returns></returns>
-        public static List<Emprendedor> Emprendedores = Singleton<List<Emprendedor>>.Instance;
-
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(this);
@@ -25,6 +23,11 @@ namespace Library
         {
             ListaEmprendedores listaEmprs = new ListaEmprendedores();
             listaEmprs = JsonSerializer.Deserialize<ListaEmprendedores>(json);
+        }
+        public List<Emprendedor> Emprendedores = Singleton<List<Emprendedor>>.Instance;
+        public void Add(Emprendedor emprendedor)
+        {
+            this.Emprendedores.Add(emprendedor);
         }
     }
 }

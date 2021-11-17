@@ -49,11 +49,11 @@ namespace LibraryTests
             diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave" , "/categoria");
             diccionario.Add("Que desea buscar?", "Químicos");
             Mensaje mensaje = new Mensaje(1234,"/buscarpublicacion");
-            BuscarPublicacionHandler buscarcategoria = new BuscarPublicacionHandler();
+            BuscarPublicacionHandler buscarCategoria = new BuscarPublicacionHandler();
             EntaradaDeLaCadena Lector = new LectorTest(diccionario);
-            buscarcategoria.Input = Lector;
-            buscarcategoria.Handle(mensaje);
-            Assert.AreEqual(buscarcategoria.result.Contains(a), true); 
+            buscarCategoria.Input = Lector;
+            buscarCategoria.Handle(mensaje);
+            Assert.AreEqual(buscarCategoria.result.Contains(a), true); 
         }
 
         [Test]
@@ -63,11 +63,25 @@ namespace LibraryTests
             diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave" , "/ciudad");
             diccionario.Add("Que desea buscar?", "Salto");
             Mensaje mensaje = new Mensaje(1234,"/buscarpublicacion");
-            BuscarPublicacionHandler buscardepartamento = new BuscarPublicacionHandler();
+            BuscarPublicacionHandler buscarDepartamento = new BuscarPublicacionHandler();
             EntaradaDeLaCadena Lector = new LectorTest(diccionario);
-            buscardepartamento.Input = Lector;
-            buscardepartamento.Handle(mensaje);
-            Assert.AreEqual(buscardepartamento.result.Contains(b), true); 
+            buscarDepartamento.Input = Lector;
+            buscarDepartamento.Handle(mensaje);
+            Assert.AreEqual(buscarDepartamento.result.Contains(b), true); 
+        }
+
+        [Test]
+        public void BusquedaPorPalabrasClaveTest()
+        {
+            Dictionary<string, string> diccionario = new Dictionary<string, string>();
+            diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave" , "/palabrasclave");
+            diccionario.Add("Que desea buscar?", "electrico");
+            Mensaje mensaje = new Mensaje(1234,"/buscarpublicacion");
+            BuscarPublicacionHandler buscarPalabra = new BuscarPublicacionHandler();
+            EntaradaDeLaCadena Lector = new LectorTest(diccionario);
+            buscarPalabra.Input = Lector;
+            buscarPalabra.Handle(mensaje);
+            Assert.AreEqual(buscarPalabra.result.Contains(c), true); 
         }
     }
 }

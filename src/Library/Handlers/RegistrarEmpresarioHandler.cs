@@ -27,21 +27,10 @@ namespace Library
                 ListaInvitaciones verificador = new ListaInvitaciones(); //Qué pasa si no ingresa nada?
                 if (verificador.VerificarInvitacion(token))
                 {
-                    bool notfound = true;
-                    int i = 0;
-                    while (notfound)
-                    {
-                        if (ListaEmpresa.Empresas[i].Invitacion == token)
-                        {
-                            ListaEmpresa.Empresas[i].ListaIdEmpresarios.Add(mensaje.Id);
-                            ListaDeUsuario.IdUsuarios.Add(mensaje.Id); //Crear un metodo de agregar empresario?
-                            notfound = false;
-                        }
-                        else
-                        {
-                            i++;
-                        }
-                    }
+                    List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
+                    lista.Find(x => x.Invitacion == token);
+                    Empresa empresa = lista.Find(x => x.Invitacion == token);
+                    empresa.ListaIdEmpresarios.Add(mensaje.Id);
                 }
                 else
                 {

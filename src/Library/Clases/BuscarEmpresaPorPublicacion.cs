@@ -18,7 +18,8 @@ namespace Library
         /// <returns></returns>
         public Empresa Buscar(string nombrePublicacion)
         {
-            Publicacion publicacion = RegistroPublicaciones.Activas.Find(x => x.Titulo == nombrePublicacion);
+            List<Publicacion> lista = Singleton<RegistroPublicaciones>.Instance.Activas;
+            Publicacion publicacion = lista.Find(x => x.Titulo == nombrePublicacion);
             return publicacion.Vendedor;            
         }
     }

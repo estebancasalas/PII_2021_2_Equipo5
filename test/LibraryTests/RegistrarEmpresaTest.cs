@@ -8,7 +8,7 @@ namespace LibraryTests
     /// Casos de prueba para el handler RegistrarEmpresario.
     /// </summary>
     [TestFixture]
-    public class RegistrarEmpresaTests
+    public class RegistrarEmpresarioTests
     {
         Mensaje mensaje;
         RegistrarEmpresarioHandler registrarEmpresario;
@@ -37,7 +37,8 @@ namespace LibraryTests
             Mensaje mensaje = new Mensaje(1234,"/empresa");
             RegistrarEmpresarioHandler registrarEmpresario = new RegistrarEmpresarioHandler();
             Empresa empresa1 = new Empresa("ResgistrarEmpresaTest", "Montevideo", "textil", "ValidToken");
-            ListaInvitaciones.Invitaciones.Add("ValidToken");
+            List <string> lista = Singleton<ListaInvitaciones>.Instance.Invitaciones;
+            lista.Add("ValidToken");
             LectorTest lector = new LectorTest(diccionario);
             registrarEmpresario.Input = lector;
             registrarEmpresario.Handle(mensaje);

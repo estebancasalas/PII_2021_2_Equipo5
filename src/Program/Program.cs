@@ -23,7 +23,7 @@ namespace Library
             IHandler comprarHandler = new ComprarHandler();
             IHandler crearEmprendedorHandler = new CrearEmprendedorHandler();
             IHandler crearPublicacionHandler = new CrearPublicacionHandler();
-            IHandler crearUsuarioHandler = new CrearUsuarioHandler();
+            //IHandler crearUsuarioHandler = new CrearUsuarioHandler();
             IHandler empresaCantidadTrabajadores = new EmpresaCantidadTrabajadores();
             IHandler finalizarHandler = new FinalizarHandler();
             IHandler historialHandler = new HistorialHandler();

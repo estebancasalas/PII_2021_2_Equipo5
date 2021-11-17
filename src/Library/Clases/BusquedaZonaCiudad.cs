@@ -21,9 +21,10 @@ namespace Library
         public List<Publicacion> Buscar(string tipoZona ,string ubicacion)
         {
             List<Publicacion> result = new List<Publicacion>();
+            List<Publicacion> lista = Singleton<RegistroPublicaciones>.Instance.Activas;
             if (tipoZona.ToLower() == "/ciudad")
             {
-                foreach (Publicacion publicacion in RegistroPublicaciones.Activas)
+                foreach (Publicacion publicacion in lista)
                 {
                     if (publicacion.Ubicacion.Ciudad == ubicacion)
                     {

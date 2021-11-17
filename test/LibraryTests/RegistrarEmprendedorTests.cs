@@ -38,7 +38,8 @@ namespace LibraryTests
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             emprendedor.Input = lector;
             emprendedor.Handle(mensaje);
-            Assert.That(ListaEmprendedores.Emprendedores.Count>0,Is.True);
+             List <Emprendedor> listaEmprendedor = Singleton<ListaEmprendedores>.Instance.Emprendedores;
+            Assert.That(listaEmprendedor.Count>0,Is.True);
         }
     }
 }

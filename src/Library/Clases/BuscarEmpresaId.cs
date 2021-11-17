@@ -8,7 +8,8 @@ namespace Library
     {
         public Empresa Buscar(int id)
         {
-            Empresa empresa = ListaEmpresa.Empresas.Find(x => x.ListaIdEmpresarios.Contains(id));
+            List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
+            Empresa empresa = lista.Find(x => x.ListaIdEmpresarios.Contains(id));
             return empresa;
         }
     }
