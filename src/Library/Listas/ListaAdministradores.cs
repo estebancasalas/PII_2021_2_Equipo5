@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Library
 {
@@ -10,13 +11,24 @@ namespace Library
     /// Se cumple principio SRP ya que libra al administrador de tener que crearse a él mismo 
     /// y al mismo tiempo conocer todos los Administradores registrados. 
     /// </summary>
-    public class ListaAdminastradores
+    public class ListaAdminastradores: IJsonConvertible
     {
         
         /// <summary>
         /// Lista que contiene todos los administradores registrados.
         /// </summary>
         /// <returns></returns>
+    
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+        public void LoadFromJson(string json)
+        {
+            ListaAdminastradores listaAdms = new ListaAdminastradores();
+            listaAdms = JsonSerializer.Deserialize<ListaAdminastradores>(json);
+        }
+        
         public List<Administrador> Administradores = Singleton<List<Administrador>>.Instance;
         public void Add(Administrador administrador)
         {
