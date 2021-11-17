@@ -18,7 +18,8 @@ namespace Library
         public string EjecutarComando(string nombre)
         {  
             StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n ");
-            foreach (Transaccion transaccion in HistorialTransacciones.Transacciones)
+            List<Transaccion> lista = Singleton<HistorialTransacciones>.Instance.Transacciones;
+            foreach (Transaccion transaccion in lista)
             {
                 if (transaccion.Vendedor.Nombre == nombre || transaccion.Comprador.Nombre == nombre) 
                 {

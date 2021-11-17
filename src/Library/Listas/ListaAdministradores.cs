@@ -17,6 +17,10 @@ namespace Library
         /// Lista que contiene todos los administradores registrados.
         /// </summary>
         /// <returns></returns>
-        public static List<Administrador> Administradores = Singleton<List<Administrador>>.Instance;
+        public List<Administrador> Administradores = Singleton<List<Administrador>>.Instance;
+        public void Add(Administrador administrador)
+        {
+            this.Administradores.Add(administrador);
+        }
     }
 }

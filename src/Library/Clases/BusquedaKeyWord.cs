@@ -22,8 +22,9 @@ namespace Library
         public List<Publicacion> Buscar(string palabras)
         {
             List<Publicacion> result = new List<Publicacion>();
+            List<Publicacion> lista = Singleton<RegistroPublicaciones>.Instance.Activas;
 
-            foreach (Publicacion publicacion in RegistroPublicaciones.Activas) 
+            foreach (Publicacion publicacion in lista) 
             {
                 if (publicacion.PalabrasClave.Contains(palabras))  
                 {

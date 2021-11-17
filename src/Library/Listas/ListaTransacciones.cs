@@ -13,6 +13,10 @@ namespace Library
         /// Transacciones es quien tiene la lista con los objetos de la clase Transaccion. 
         /// </summary>
         /// <returns></returns>
-        public static List <Transaccion> Transacciones = Singleton<List<Transaccion>>.Instance;
+        public List <Transaccion> Transacciones = Singleton<List<Transaccion>>.Instance;
+        public void Add(Transaccion transaccion)
+        {
+            this.Transacciones.Add(transaccion);
+        }
     }
 }

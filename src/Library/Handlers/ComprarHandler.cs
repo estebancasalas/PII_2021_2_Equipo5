@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -26,7 +27,8 @@ namespace Library
                 Emprendedor emprendedor = emprendedorBuscar.Buscar(mensaje.Id);
                 double cantidad = Convert.ToDouble(Input.GetInput("Ingrese cantidad que desea comrpar: "));
                 Transaccion transaccion = new Transaccion(empresa, emprendedor, nombrePublicacion, cantidad); 
-                HistorialTransacciones.Transacciones.Add(transaccion);    
+                List<Transaccion> lista = Singleton<HistorialTransacciones>.Instance.Transacciones;
+                lista.Add(transaccion);    
             }
             else
             {

@@ -21,8 +21,9 @@ namespace Library
         public List<Publicacion> Buscar(string categoria)
         {
             List<Publicacion> result = new List<Publicacion>();
+            List<Publicacion> lista = Singleton<RegistroPublicaciones>.Instance.Activas;
 
-            foreach (Publicacion publicacion in RegistroPublicaciones.Activas) 
+            foreach (Publicacion publicacion in lista) 
             {
                 if (publicacion.Material.Categoria.Contains(categoria))  
                 {
