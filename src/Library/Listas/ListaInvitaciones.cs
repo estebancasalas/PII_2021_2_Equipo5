@@ -15,11 +15,15 @@ namespace Library
         /// Lista que contiene todas las invtiaciones.
         /// </summary>
         /// <returns></returns>
-        public static List <string> Invitaciones = Singleton<List<string>>.Instance; 
+        public List <string> Invitaciones = Singleton<List<string>>.Instance; 
 
         public bool VerificarInvitacion(string invitacion)
         {
             return Invitaciones.Contains(invitacion);
+        }
+        public void Add(string Invitacion)
+        {
+            this.Invitaciones.Add(Invitacion);
         }
     }
 }

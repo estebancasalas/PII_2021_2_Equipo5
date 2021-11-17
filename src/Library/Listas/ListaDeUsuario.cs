@@ -14,11 +14,15 @@ namespace Library
         /// Lista que contiene a todos los ususarios.
         /// </summary>
         /// <returns></returns>
-        public static List<int> IdUsuarios = Singleton<List<int>>.Instance; 
+        public List<int> IdUsuarios = Singleton<List<int>>.Instance; 
 
         public bool EstaRegistrado(int id)
         {
             return IdUsuarios.Contains(id);
+        }
+        public void Add(int Id)
+        {
+            this.IdUsuarios.Add(Id);
         }
     }
     // Checkear si cuando se registran se agregan idSSS.

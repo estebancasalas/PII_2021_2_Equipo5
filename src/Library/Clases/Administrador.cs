@@ -29,7 +29,7 @@ namespace Library
         {
             this.Id = Id;
             this.Nombre = Nombre;
-            ListaAdminastradores.Administradores.Add(this);
+            Singleton<ListaAdminastradores>.Instance.Add(this);
         }
         
         /// <summary>
@@ -42,7 +42,7 @@ namespace Library
         public void CrearInvitacion(string nombre, string ubicacion, string rubro, string token)
         {
             Empresa empresa = new Empresa(nombre, ubicacion, rubro, token);
-            ListaInvitaciones.Invitaciones.Add(token);
+            Singleton<ListaInvitaciones>.Instance.Add(token);
         } 
     }
 }

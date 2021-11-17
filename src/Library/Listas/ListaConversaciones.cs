@@ -15,6 +15,10 @@ namespace Library
         /// Lista que contiene las conversaciones entre todos los usuarios y el bot.
         /// </summary>
         /// <returns></returns>
-        public static List<Conversacion> Conversaciones = Singleton<List<Conversacion>>.Instance;
+        public List<Conversacion> Conversaciones = Singleton<List<Conversacion>>.Instance;
+        public void Add(Conversacion conversacion)
+        {
+            this.Conversaciones.Add(conversacion);
+        }
     }
 }

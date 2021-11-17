@@ -18,12 +18,13 @@ namespace Library
         /// <returns></returns>
         public Empresa Buscar(string nombre)
         {
+            List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
             int i = 0; 
-            while (i < ListaEmpresa.Empresas.Count)
+            while (i < lista.Count)
             {
-                if (ListaEmpresa.Empresas[i].Nombre == nombre) 
+                if (lista[i].Nombre == nombre) 
                 {
-                    return ListaEmpresa.Empresas[i]; 
+                    return lista[i]; 
                 }
                 else
                 {

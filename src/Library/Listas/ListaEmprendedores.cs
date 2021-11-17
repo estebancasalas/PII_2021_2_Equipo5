@@ -14,6 +14,10 @@ namespace Library
         /// Lista que contiene todos los emprendedores registrados.
         /// </summary>
         /// <returns></returns>
-        public static List<Emprendedor> Emprendedores = Singleton<List<Emprendedor>>.Instance;
+        public List<Emprendedor> Emprendedores = Singleton<List<Emprendedor>>.Instance;
+        public void Add(Emprendedor emprendedor)
+        {
+            this.Emprendedores.Add(emprendedor);
+        }
     }
 }

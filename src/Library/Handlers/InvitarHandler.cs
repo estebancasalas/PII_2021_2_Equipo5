@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -35,18 +36,19 @@ namespace Library
         {
             if (mensaje.Text == "/crearinvitacion")
             {
+                List<Administrador> lista = Singleton<ListaAdminastradores>.Instance.Administradores;
                 bool notfound = true;
                 int i = 0;
-                while (notfound && i<ListaAdminastradores.Administradores.Count)
+                while (notfound && i<lista.Count)
                 {
-                    if (ListaAdminastradores.Administradores[i].Id == mensaje.Id)
+                    if (lista[i].Id == mensaje.Id)
                     {
                         notfound = false;
                         nombre = Input.GetInput("nombre empresa");
                         ubicacion = Input.GetInput("ubicacion de la empresa");
                         rubro = Input.GetInput("rubro de la empresa");
                         token = Input.GetInput("Codigo de invitacion");
-                        ListaAdminastradores.Administradores[i].CrearInvitacion(nombre, ubicacion, rubro, token);
+                        lista[i].CrearInvitacion(nombre, ubicacion, rubro, token);
                     }
                     else
                     {
