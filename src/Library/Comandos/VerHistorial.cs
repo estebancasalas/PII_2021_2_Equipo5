@@ -17,16 +17,10 @@ namespace Library
         /// <returns></returns>
         public string EjecutarComando(int id)
         {  
-<<<<<<< HEAD
             StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n ");
-            List<Transaccion> lista = Singleton<HistorialTransacciones>.Instance.Transacciones;
-            foreach (Transaccion transaccion in lista)
-=======
-            StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n");
-            HistorialTransacciones historial = new HistorialTransacciones();
+            List<Transaccion> transacciones = Singleton<HistorialTransacciones>.Instance.Buscar(id);
             
-            foreach (Transaccion transaccion in historial.Buscar(id))
->>>>>>> 3b0ae8df6d682f92e30ab63ade51e2c9c0b52c06
+            foreach (Transaccion transaccion in transacciones)
             {
                     Resultado.Append($"{transaccion.Vendedor.Nombre} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador.Nombre}\n");
             }
