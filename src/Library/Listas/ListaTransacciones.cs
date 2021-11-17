@@ -14,5 +14,19 @@ namespace Library
         /// </summary>
         /// <returns></returns>
         public static List <Transaccion> Transacciones = Singleton<List<Transaccion>>.Instance;
+
+        public List<Transaccion> Buscar(int id)
+        {
+            List<Transaccion> resultado = new List<Transaccion>();
+            foreach (Transaccion transaccion in HistorialTransacciones.Transacciones)
+            {
+                if (transaccion.Vendedor.ListaIdEmpresarios.Contains(id) || transaccion.Comprador.Id == id) 
+                {
+                    resultado.Add(transaccion);
+                }
+            }
+            return resultado;
+        }
     }
+
 }

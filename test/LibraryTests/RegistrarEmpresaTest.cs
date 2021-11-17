@@ -8,7 +8,7 @@ namespace LibraryTests
     /// Casos de prueba para el handler RegistrarEmpresario.
     /// </summary>
     [TestFixture]
-    public class RegistrarEmpresaTests
+    public class RegistrarEmpresarioTests
     {
         Mensaje mensaje;
         RegistrarEmpresarioHandler registrarEmpresario;
