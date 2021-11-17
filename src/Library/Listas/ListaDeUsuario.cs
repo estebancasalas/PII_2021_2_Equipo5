@@ -30,7 +30,15 @@ namespace Library
         {
             ListaDeUsuario listaUsers = new ListaDeUsuario();
             listaUsers = JsonSerializer.Deserialize<ListaDeUsuario>(json);
+            this.IdUsuarios = listaUsers.IdUsuarios;
         }
+        /// <summary>
+        /// Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
+        /// ya existente. 
+        /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
+        /// los id de todos los usuarios.
+        /// </summary>
+        /// <param name="Id"></param>
         public void Add(int Id)
         {
             this.IdUsuarios.Add(Id);

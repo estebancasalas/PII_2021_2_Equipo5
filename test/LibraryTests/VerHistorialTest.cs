@@ -12,7 +12,7 @@ namespace LibraryTests
     public class VerHistorialTest
     {
         Mensaje mensaje;
-        HistorialTransacciones transacciones = new HistorialTransacciones();
+        ListaTransacciones transacciones = new ListaTransacciones();
 
         HistorialHandler historial = new HistorialHandler();
         Dictionary<string, string> diccionario = new Dictionary<string, string>();
@@ -21,12 +21,12 @@ namespace LibraryTests
         ComprarHandler comprar = new ComprarHandler();
         // Dictionary<string, string> comprarDicc = new Dictionary<string, string>(); 
 
-        
 
-        
-       /// <summary>
-       /// SetUp de los casos de prueba.
-       /// </summary>
+
+
+        /// <summary>
+        /// SetUp de los casos de prueba.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -40,8 +40,8 @@ namespace LibraryTests
         public void VerHistorialEmprendedorVacioTest()
         {
             Emprendedor emprendedor = new Emprendedor(4321, "Javier", "Mvd", "Constru", "ninguna", "construir");
-            Mensaje mensaje = new Mensaje(1234,"/historial");
-            HistorialHandler historial= new HistorialHandler();
+            Mensaje mensaje = new Mensaje(1234, "/historial");
+            HistorialHandler historial = new HistorialHandler();
             IFormatoSalida salida = new OutputTest();
             historial.Output = salida;
             historial.Handle(mensaje);
@@ -58,16 +58,16 @@ namespace LibraryTests
             Empresa empresa = new Empresa("Adidas", "Montevideo", "zapatos", "1df2frgfrfdvuhwdujn3eji3rf");
             Emprendedor emprendedor = new Emprendedor(567, "Colgatte", "Mvd", "Veterinario", "ninguna", "curar");
             HistorialHandler historial = new HistorialHandler();
-            Mensaje mensaje = new Mensaje(567,"/historial");
+            Mensaje mensaje = new Mensaje(567, "/historial");
             Transaccion transaccion = new Transaccion(empresa, emprendedor, "Championes de Messi", 1);
-            HistorialTransacciones transacciones = new HistorialTransacciones();
-            List <Transaccion> listaTransacciones = Singleton<HistorialTransacciones>.Instance.Transacciones;
+            ListaTransacciones transacciones = new ListaTransacciones();
+            List<Transaccion> listaTransacciones = Singleton<ListaTransacciones>.Instance.Transacciones;
             listaTransacciones.Add(transaccion);
             IFormatoSalida salida = new OutputTest();
             historial.Output = salida;
             historial.Handle(mensaje);
             string resultado = "Tus transacciones son: \nAdidas vendió 1 de Championes de Messi a Colgatte\n";
             Assert.AreEqual(resultado, historial.resultado);
-        } 
+        }
     }
 }
