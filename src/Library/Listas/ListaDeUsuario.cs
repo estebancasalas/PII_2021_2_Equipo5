@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Library
 {
@@ -8,7 +9,7 @@ namespace Library
     /// usuarios registrados, siendo los usuarios las empresas y emprendedores.  
     /// Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
     /// </summary>
-    public class ListaDeUsuario
+    public class ListaDeUsuario : IJsonConvertible
     {
         /// <summary>
         /// Lista que contiene a todos los ususarios.
@@ -19,6 +20,16 @@ namespace Library
         public bool EstaRegistrado(int id)
         {
             return IdUsuarios.Contains(id);
+        }
+
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+        public void LoadFromJson(string json)
+        {
+            ListaDeUsuario listaUsers = new ListaDeUsuario();
+            listaUsers = JsonSerializer.Deserialize<ListaDeUsuario>(json);
         }
     }
     // Checkear si cuando se registran se agregan idSSS.
