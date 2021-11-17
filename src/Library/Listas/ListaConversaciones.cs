@@ -12,10 +12,20 @@ namespace Library
     /// </summary>
     public class ListaConversaciones: IJsonConvertible 
     {
+        /// <summary>
+        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
+        /// json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(this);
         }
+        /// <summary>
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
+        /// a partir de el archivo json. 
+        /// </summary>
+        /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
             ListaConversaciones listaConvs = new ListaConversaciones();
@@ -24,6 +34,7 @@ namespace Library
         }
         /// <summary>
         /// Lista que contiene las conversaciones entre todos los usuarios y el bot.
+        /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         public List<Conversacion> Conversaciones = Singleton<List<Conversacion>>.Instance;
