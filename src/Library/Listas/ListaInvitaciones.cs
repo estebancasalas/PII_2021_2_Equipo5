@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Library
 {
@@ -9,7 +10,7 @@ namespace Library
     /// Se cumple principio SRP ya que libra al administrador de conocer todas las
     /// invitaciones.
     /// </summary>
-    public class ListaInvitaciones
+    public class ListaInvitaciones : IJsonConvertible
     {
         /// <summary>
         /// Lista que contiene todas las invtiaciones.
@@ -20,6 +21,15 @@ namespace Library
         public bool VerificarInvitacion(string invitacion)
         {
             return Invitaciones.Contains(invitacion);
+        }
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+        public void LoadFromJson(string json)
+        {
+            ListaAdminastradores listaInvs = new ListaAdminastradores();
+            listaInvs = JsonSerializer.Deserialize<ListaAdminastradores>(json);
         }
     }
 }

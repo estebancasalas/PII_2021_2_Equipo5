@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Library
 {
@@ -9,7 +10,7 @@ namespace Library
     /// sin tener que compartir la información de las listas, cumpliendo con el
     /// patrón Expert.
     /// </summary>
-    public class RegistroPublicaciones
+    public class RegistroPublicaciones: IJsonConvertible
     {
         /// <summary>
         /// Lista con las publicaciones activas.
@@ -79,5 +80,15 @@ namespace Library
                 }
             }
         }
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+        public void LoadFromJson(string json)
+        {
+            ListaAdminastradores listaPubl = new ListaAdminastradores();
+            listaPubl = JsonSerializer.Deserialize<ListaAdminastradores>(json);
+        }
+        // Solo una lista general a convertir o las 3 listas - Activas -Pausadas -¿¿Eliminadas???? Para que guardar algo eliminado no tiene sentido. 
     }
 }
