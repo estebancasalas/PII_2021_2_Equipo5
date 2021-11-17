@@ -20,6 +20,11 @@ namespace Library
         {
             return Empresas.Find(x => x.ListaIdEmpresarios.Contains(id)) != null;
         }
+        /// <summary>
+        /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada.
+        /// </summary>
+        /// <param name="id">id de la empresa deseada</param>
+        /// <returns></returns>
         public Empresa Buscar(int id)
         {
             Empresa empresa = this.Empresas.Find(x => x.ListaIdEmpresarios.Contains(id));
