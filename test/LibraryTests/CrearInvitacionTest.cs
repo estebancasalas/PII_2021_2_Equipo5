@@ -42,8 +42,10 @@ namespace LibraryTests
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             invitar.Input = lector;
             invitar.Handle(mensaje);
-            Assert.That(ListaInvitaciones.Invitaciones.Contains("invitacion1"),Is.True);
-            Assert.AreNotEqual(ListaEmpresa.Empresas.Find(x => x.Invitacion == "invitacion1"), null);
+            List <Empresa> listaEmpresa = Singleton<ListaEmpresa>.Instance.Empresas;
+            List <string> listaInvitaciones = Singleton<ListaInvitaciones>.Instance.Invitaciones;
+            Assert.That(listaInvitaciones.Contains("invitacion1"),Is.True);
+            Assert.AreNotEqual(listaEmpresa.Find(x => x.Invitacion == "invitacion1"), null);
         }
     }
 }
