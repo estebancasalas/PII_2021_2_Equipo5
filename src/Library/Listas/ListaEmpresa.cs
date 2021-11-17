@@ -19,7 +19,6 @@ namespace Library
         {
             return Empresas.Find(x => x.ListaIdEmpresarios.Contains(id)) != null;
         }
-<<<<<<< HEAD
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(this);
@@ -28,11 +27,10 @@ namespace Library
         {
             ListaAdminastradores listaEmprs = new ListaAdminastradores();
             listaEmprs = JsonSerializer.Deserialize<ListaAdminastradores>(json);
-=======
+        }
         public void Add(Empresa empresa)
         {
             this.Empresas.Add(empresa);
->>>>>>> e2afae5dc9bdaa4d1226ed589788ac2b4ddaf4d7
         }
     }
 }

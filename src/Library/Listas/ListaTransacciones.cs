@@ -14,17 +14,6 @@ namespace Library
         /// Transacciones es quien tiene la lista con los objetos de la clase Transaccion. 
         /// </summary>
         /// <returns></returns>
-<<<<<<< HEAD
-        public static List <Transaccion> Transacciones = Singleton<List<Transaccion>>.Instance;
-        public string ConvertToJson()
-        {
-            return JsonSerializer.Serialize(this);
-        }
-        public void LoadFromJson(string json)
-        {
-            ListaAdminastradores listaTrans = new ListaAdminastradores();
-            listaTrans = JsonSerializer.Deserialize<ListaAdminastradores>(json);
-=======
         public List <Transaccion> Transacciones = Singleton<List<Transaccion>>.Instance;
         public void Add(Transaccion transaccion)
         {
@@ -42,7 +31,16 @@ namespace Library
                 }
             }
             return resultado;
->>>>>>> e2afae5dc9bdaa4d1226ed589788ac2b4ddaf4d7
+        }
+
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+        public void LoadFromJson(string json)
+        {
+            ListaAdminastradores listaTrans = new ListaAdminastradores();
+            listaTrans = JsonSerializer.Deserialize<ListaAdminastradores>(json);
         }
     }
 

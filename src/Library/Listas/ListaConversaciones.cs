@@ -24,6 +24,7 @@ namespace Library
         {
             ListaConversaciones listaConvs = new ListaConversaciones();
             listaConvs = JsonSerializer.Deserialize<ListaConversaciones>(json);
+        }
          
         public List<Conversacion> Conversaciones = Singleton<List<Conversacion>>.Instance;
         

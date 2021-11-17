@@ -30,6 +30,7 @@ namespace Library
         {
             ListaDeUsuario listaUsers = new ListaDeUsuario();
             listaUsers = JsonSerializer.Deserialize<ListaDeUsuario>(json);
+        }
         public void Add(int Id)
         {
             this.IdUsuarios.Add(Id);
