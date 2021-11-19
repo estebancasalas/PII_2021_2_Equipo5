@@ -8,7 +8,7 @@ namespace Library
     /// Handler que muestra la cantidad de trabajadores que hay en una empresa. Implementa IHandler
     /// porque no interactúa con el usuario, solo muestra en pantalla.
     /// </summary>
-    public class EmpresaCantidadTrabajadores : IHandler //devuelve cantidad de trabajadores
+    public class EmpresaCantidadTrabajadores : AbstractHandler //devuelve cantidad de trabajadores
     {
         /// <summary>
         /// Siguiente Handler en la cadena.
@@ -21,15 +21,18 @@ namespace Library
         /// <param name="mensaje">Contiene el Id con el que se encuentra la empresa deseada.</param>
         public void Handle(Mensaje mensaje)
         {
-            List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
-            int i = 0;
-            while (i < lista.Count && lista[i].ListaIdEmpresarios.Contains(mensaje.Id))
+            if (mensaje.Text.ToLower() == "/cantidadtrabajadores")
             {
-                i = i + 1;
+                List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
+                int i = 0;
+                while (i < lista.Count && lista[i].ListaIdEmpresarios.Contains(mensaje.Id))
+                {
+                    i = i + 1;
+                }
+                Console.WriteLine($"La cantidad de trabajadores de la empresa es: {lista[i].ListaIdEmpresarios.Count}");
+                mensaje.Text = Console.ReadLine();
             }
-            Console.WriteLine($"La cantidad de trabajadores de la empresa es: {lista[i].ListaIdEmpresarios.Count}");
-            mensaje.Text = Console.ReadLine();
-            this.Next.Handle(mensaje);
+            this.GetNext().Handle(mensaje);
         }
     }
 }

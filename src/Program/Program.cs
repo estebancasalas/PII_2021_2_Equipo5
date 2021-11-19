@@ -3,7 +3,7 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-
+using System.IO;
 using System;
 
 namespace Library
@@ -18,24 +18,37 @@ namespace Library
         /// </summary>
         public static void Main()
         {
-            IHandler buscarPublicacionHandler = new BuscarPublicacionHandler();
             IHandler comienzoHandler = new ComienzoHandler();
-            IHandler comprarHandler = new ComprarHandler();
-            IHandler crearEmprendedorHandler = new CrearEmprendedorHandler();
-            IHandler crearPublicacionHandler = new CrearPublicacionHandler();
-            //IHandler crearUsuarioHandler = new CrearUsuarioHandler();
-            IHandler empresaCantidadTrabajadores = new EmpresaCantidadTrabajadores();
-            IHandler finalizarHandler = new FinalizarHandler();
-            IHandler historialHandler = new HistorialHandler();
-            IHandler invitarHandler = new InvitarHandler();
-            IHandler registrarEmpresarioHandler = new RegistrarEmpresarioHandler();
-
+            comienzoHandler.SetNext(new BuscarPublicacionHandler())
+                           .SetNext(new ComprarHandler())
+                           .SetNext(new CrearEmprendedorHandler())
+                           .SetNext(new CrearPublicacionHandler())
+                           .SetNext(new EmpresaCantidadTrabajadores())
+                           .SetNext(new HistorialHandler())
+                           .SetNext(new InvitarHandler())
+                           .SetNext(new RegistrarEmpresarioHandler())
             
-            IHandler comienzo = new ComienzoHandler();
-            Mensaje mensaje = new Mensaje(0 ,"/start");
-            comienzo.Handle(mensaje);
+            .SetNext(new NullHandler()); //bullying a este handler
+            Mensaje mensaje = new Mensaje(0 ,"");
 
+            ListaAdminastradores listaAdminastradores = Singleton<ListaAdminastradores>.Instance;
+            ListaConversaciones listaConversaciones = Singleton<ListaConversaciones>.Instance;
+            ListaDeUsuario listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
+            ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
+            ListaEmpresa listaEmpresa = Singleton<ListaEmpresa>.Instance;
+            ListaInvitaciones listaInvitaciones = Singleton<ListaInvitaciones>.Instance;
+            ListaTransacciones listaTransacciones = Singleton<ListaTransacciones>.Instance;
+            RegistroPublicaciones registroPublicaciones = Singleton<RegistroPublicaciones>.Instance;
 
+            //string administradores = File.ReadAllText()
+
+            //listaAdminastradores.LoadFromJson()
+            while (mensaje.Text != "/finalizar")
+            {
+                Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
+                mensaje.Text = Console.ReadLine();
+                comienzoHandler.Handle(mensaje);
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Library
         /// Las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
         /// </summary>
         /// <value></value>
-        public IHandler Next { get; set; }
+        private IHandler Next {get; set;} = null;
         /// <summary>
         /// Recibe una cadena, siempre en formato string.
         /// </summary>
@@ -29,8 +29,19 @@ namespace Library
         {
             if (this.Next != null)
             {
-                this.Next.Handle(mensaje);
+                this.GetNext().Handle(mensaje);
             }
+        }
+
+        public virtual IHandler SetNext(IHandler handler)
+        {
+            this.Next = handler;
+            return handler;
+        }
+
+        public virtual IHandler GetNext()
+        {
+            return this.Next;
         }
     }
 }
