@@ -29,7 +29,7 @@ namespace Library
         /// <returns></returns>
         public string ConvertToJson()
         {
-            return JsonSerializer.Serialize(this);
+            return JsonSerializer.Serialize(Singleton<List<int>>.Instance);
         }
         /// <summary>
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 

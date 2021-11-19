@@ -11,7 +11,7 @@ namespace Library
     /// Se cumple principio SRP ya que libra al administrador de tener que crearse a él mismo 
     /// y al mismo tiempo conocer todos los Administradores registrados. 
     /// </summary>
-    public class ListaAdminastradores: IJsonConvertible
+    public class ListaAdministradores: IJsonConvertible
     {
         /// <summary>
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
@@ -20,7 +20,7 @@ namespace Library
         /// <returns></returns>    
         public string ConvertToJson()
         {
-            return JsonSerializer.Serialize(this);
+            return JsonSerializer.Serialize(Singleton<List<Administrador>>.Instance);
         }
         /// <summary>
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
@@ -29,9 +29,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaAdminastradores listaAdms = new ListaAdminastradores();
-            listaAdms = JsonSerializer.Deserialize<ListaAdminastradores>(json);
-            this.Administradores = listaAdms.Administradores;
+            List<Administrador> listaAdms = new List<Administrador>();
+            listaAdms = JsonSerializer.Deserialize<List<Administrador>>(json);
+            this.Administradores = listaAdms;
         }
         /// <summary>
         /// Lista que contiene todos los administradores registrados.

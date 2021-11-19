@@ -31,7 +31,7 @@ namespace Library
             .SetNext(new NullHandler()); //bullying a este handler
             Mensaje mensaje = new Mensaje(0 ,"");
 
-            ListaAdminastradores listaAdminastradores = Singleton<ListaAdminastradores>.Instance;
+            ListaAdministradores ListaAdministradores = Singleton<ListaAdministradores>.Instance;
             ListaConversaciones listaConversaciones = Singleton<ListaConversaciones>.Instance;
             ListaDeUsuario listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
             ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
@@ -40,15 +40,19 @@ namespace Library
             ListaTransacciones listaTransacciones = Singleton<ListaTransacciones>.Instance;
             RegistroPublicaciones registroPublicaciones = Singleton<RegistroPublicaciones>.Instance;
 
-            //string administradores = File.ReadAllText()
+            string administradores = File.ReadAllText(@"..\..\Datos_json\listaAdministradores.txt");
 
-            //listaAdminastradores.LoadFromJson()
+            ListaAdministradores.LoadFromJson(administradores);
+            //Administrador esteban = new Administrador(13, "estebann");
             while (mensaje.Text != "/finalizar")
             {
                 Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
-                mensaje.Text = Console.ReadLine();
+                mensaje.Text = "/finalizar";
                 comienzoHandler.Handle(mensaje);
             }
+            ListaAdministradores = Singleton<ListaAdministradores>.Instance;
+            string a = ListaAdministradores.ConvertToJson();
+            File.WriteAllText(@"..\..\Datos_json\listaAdministradores.txt", a);
         }
     }
 }

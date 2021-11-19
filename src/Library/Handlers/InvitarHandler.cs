@@ -36,7 +36,7 @@ namespace Library
         {
             if (mensaje.Text.ToLower() == "/crearinvitacion")
             {
-                List<Administrador> lista = Singleton<ListaAdminastradores>.Instance.Administradores;
+                List<Administrador> lista = Singleton<ListaAdministradores>.Instance.Administradores;
                 bool notfound = true;
                 int i = 0;
                 while (notfound && i<lista.Count)
