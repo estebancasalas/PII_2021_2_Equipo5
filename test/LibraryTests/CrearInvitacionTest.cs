@@ -39,6 +39,7 @@ namespace LibraryTests
             diccionario.Add("rubro de la empresa","textil");
             diccionario.Add("Codigo de invitacion", "invitacion1");
             
+            
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             invitar.Input = lector;
             invitar.Handle(mensaje);
@@ -46,6 +47,7 @@ namespace LibraryTests
             List <string> listaInvitaciones = Singleton<ListaInvitaciones>.Instance.Invitaciones;
             Assert.That(listaInvitaciones.Contains("invitacion1"),Is.True);
             Assert.AreNotEqual(listaEmpresa.Find(x => x.Invitacion == "invitacion1"), null);
+
         }
     }
 }

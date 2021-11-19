@@ -17,8 +17,8 @@ namespace Library
         /// <returns></returns>
         public string EjecutarComando(int id)
         {  
-            StringBuilder Resultado = new StringBuilder ("Tus transacciones son: \n ");
-            List<Transaccion> transacciones = Singleton<HistorialTransacciones>.Instance.Buscar(id);
+            StringBuilder Resultado = new StringBuilder ("Tus transacciones son:\n");
+            List<Transaccion> transacciones = Singleton<ListaTransacciones>.Instance.Buscar(id);
             
             foreach (Transaccion transaccion in transacciones)
             {

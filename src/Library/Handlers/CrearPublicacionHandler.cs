@@ -36,8 +36,8 @@ namespace Library
                 string localizacion = Input.GetInput("Ingrese dónde se encuentra: ");
                 IUbicacionProvider ubicacionProvider = new UbicacionProvider();
                 IUbicacion ubi = ubicacionProvider.GetUbicacion(localizacion);
-                BuscarEmpresaId buscador = new BuscarEmpresaId();
-                Publicacion publicacion = new Publicacion (titulo, material, palabrasClave, frecuencia, ubi, buscador.Buscar(mensaje.Id));
+                Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
+                Publicacion publicacion = new Publicacion (titulo, material, palabrasClave, frecuencia, ubi, empresa);
             }
             else
             {

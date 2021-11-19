@@ -14,16 +14,19 @@ namespace Library
     {
         /// <summary>
         /// Lista con las publicaciones activas.
+        /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         public List<Publicacion> Activas {get; set;} = Singleton<List<Publicacion>>.Instance;
         /// <summary>
         /// Lista con las publicaciones que fueron eliminadas.
+        /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         public List<Publicacion> Eliminadas = Singleton<List<Publicacion>>.Instance;
         /// <summary>
         /// Lista con las publicaciones pausadas.
+        /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         public List<Publicacion> Pausadas = Singleton<List<Publicacion>>.Instance;
@@ -80,14 +83,25 @@ namespace Library
                 }
             }
         }
+        /// <summary>
+        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
+        /// json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(this);
         }
+        /// <summary>
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
+        /// a partir de el archivo json. 
+        /// </summary>
+        /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaAdminastradores listaPubl = new ListaAdminastradores();
-            listaPubl = JsonSerializer.Deserialize<ListaAdminastradores>(json);
+            RegistroPublicaciones listaPubl = new RegistroPublicaciones();
+            listaPubl = JsonSerializer.Deserialize<RegistroPublicaciones>(json);
+            this.Activas = listaPubl.Activas;
         }
         // Solo una lista general a convertir o las 3 listas - Activas -Pausadas -¿¿Eliminadas???? Para que guardar algo eliminado no tiene sentido. 
     }

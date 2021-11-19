@@ -27,7 +27,7 @@ namespace Library
                 Emprendedor emprendedor = emprendedorBuscar.Buscar(mensaje.Id);
                 double cantidad = Convert.ToDouble(Input.GetInput("Ingrese cantidad que desea comrpar: "));
                 Transaccion transaccion = new Transaccion(empresa, emprendedor, nombrePublicacion, cantidad); 
-                List<Transaccion> lista = Singleton<HistorialTransacciones>.Instance.Transacciones;
+                List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
                 lista.Add(transaccion);    
             }
             else

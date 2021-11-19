@@ -14,6 +14,7 @@ namespace Library
     {
         /// <summary>
         /// Lista que contiene todas las invtiaciones.
+        /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         public List <string> Invitaciones = Singleton<List<string>>.Instance; 
@@ -22,15 +23,33 @@ namespace Library
         {
             return Invitaciones.Contains(invitacion);
         }
+        /// <summary>
+        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
+        /// json.
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(this);
         }
+        /// <summary>
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
+        /// a partir de el archivo json. 
+        /// </summary>
+        /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaAdminastradores listaInvs = new ListaAdminastradores();
-            listaInvs = JsonSerializer.Deserialize<ListaAdminastradores>(json);
+            ListaInvitaciones listaInvs = new ListaInvitaciones();
+            listaInvs = JsonSerializer.Deserialize<ListaInvitaciones>(json);
+            this.Invitaciones = listaInvs.Invitaciones;
         }
+        /// <summary>
+        /// Se crea el método Add para añadir las Invitaciones a la ListaInvitaciones
+        /// ya existente. 
+        /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
+        /// todas las invitaciones que existen.
+        /// </summary>
+        /// <param name="Invitacion"></param>
         public void Add(string Invitacion)
         {
             this.Invitaciones.Add(Invitacion);

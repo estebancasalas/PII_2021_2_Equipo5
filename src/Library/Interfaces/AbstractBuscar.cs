@@ -5,6 +5,5 @@ namespace Library
     public abstract class AbstractBuscar
     {
         
-
     }
 }
