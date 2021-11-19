@@ -14,7 +14,7 @@ namespace Library
         /// <summary>
         /// Atributo del segundo Next.
         /// </summary>
-        public IHandler Next2; 
+        private IHandler Next2; 
         /// <summary>
         /// Constructor de la clase.
         /// </summary>
@@ -22,7 +22,7 @@ namespace Library
         /// <param name="next2">Handler siguiente en la cadena principal</param>
         public CrearUsuarioHandler(AbstractHandler next, IHandler next2) 
         {
-            this.Next = next;
+            this.SetNext(next);
             this.Next2 = next2;
         }
         /// <summary>
@@ -40,14 +40,15 @@ namespace Library
                 if (lista.EstaRegistrado(mensaje.Id))
                 {
                     mensaje.Text = Input.GetInput("Qué tipo de usuario desea crear? Ingrese /empresa o /emprendedor");
-                    this.Next.Handle(mensaje); //Este deberia ser el handler de crear empresa o emprendedor
+                    this.GetNext().Handle(mensaje); //Este deberia ser el handler de crear empresa o emprendedor
                 }
-            }
-            else
-            {
+                else
+                {
                 Output.PrintLine("Usted ya esta registrado");
                 this.Next2.Handle(mensaje);
+                }
+                // borrar este handler y verifiar en CrearEmprendedorHandler y CrearEmpresaHandler. Que sean parte de la cadena principal
             }
         }
-    }
+    } 
 }

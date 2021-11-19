@@ -18,7 +18,7 @@ namespace Library
         public override void Handle(Mensaje mensaje)
         {
             //En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
-            if (mensaje.Text == "/comprar")
+            if (mensaje.Text.ToLower() == "/comprar")
             {
                 string nombrePublicacion = Input.GetInput("Ingrese nombre de la publicación: "); 
                 BuscarEmpresaPorPublicacion empresaBuscar = new BuscarEmpresaPorPublicacion(); //BuscarEmpresaPorPublicacion devuelve empresa
@@ -30,10 +30,7 @@ namespace Library
                 List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
                 lista.Add(transaccion);    
             }
-            else
-            {
-                this.Next.Handle(mensaje);
-            }
+             this.GetNext().Handle(mensaje);
         }
     }
 }

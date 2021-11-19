@@ -26,12 +26,8 @@ namespace Library
                 string busqueda = Input.GetInput("Que desea buscar?");
                 BuscarPublicacion buscador = new BuscarPublicacion (tipobusqueda, busqueda);
                 this.result = buscador.EjecutarComando();
-
             }
-            else
-            {
-                this.Next.Handle(mensaje);
-            }
+            this.GetNext().Handle(mensaje);
         }
     }
 }

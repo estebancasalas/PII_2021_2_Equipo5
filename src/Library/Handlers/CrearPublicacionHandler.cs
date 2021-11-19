@@ -20,30 +20,32 @@ namespace Library
         {
             ListaEmpresa lista = new ListaEmpresa();
             
-            if (mensaje.Text == "/CrearPublicación" && lista.Verificar(mensaje.Id))
+            if (mensaje.Text == "/CrearPublicación")
             {
-                
-                string nombreDelMaterial = Input.GetInput("Ingrese el material:");
-                string categoria = Input.GetInput("Ingrese la categoria:");
-                string unidad = Input.GetInput("Ingrese la unidad con la que cuantifica el material:");
-                double costo = Convert.ToDouble(Input.GetInput("Ingrese el precio por unidad:"));
-                double cantidad = Convert.ToDouble(Input.GetInput("Ingrese la cantidad:"));
-                string habilitaciones = Input.GetInput("Ingrese habilitaciones necesarias para manipular el material:");
-                Material material = new Material(nombreDelMaterial, costo, cantidad, unidad, habilitaciones, categoria);  
-                string titulo = Input.GetInput("Ingrese el título:");
-                string palabrasClave = Input.GetInput("Ingrese palabras claves separadas con ',' : ");
-                string frecuencia = Input.GetInput("Ingrese frequencia de disponibilidad: ");
-                string localizacion = Input.GetInput("Ingrese dónde se encuentra: ");
-                IUbicacionProvider ubicacionProvider = new UbicacionProvider();
-                IUbicacion ubi = ubicacionProvider.GetUbicacion(localizacion);
-                Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
-                Publicacion publicacion = new Publicacion (titulo, material, palabrasClave, frecuencia, ubi, empresa);
+                if (lista.Verificar(mensaje.Id))
+                {
+                    string nombreDelMaterial = Input.GetInput("Ingrese el material:");
+                    string categoria = Input.GetInput("Ingrese la categoria:");
+                    string unidad = Input.GetInput("Ingrese la unidad con la que cuantifica el material:");
+                    double costo = Convert.ToDouble(Input.GetInput("Ingrese el precio por unidad:"));
+                    double cantidad = Convert.ToDouble(Input.GetInput("Ingrese la cantidad:"));
+                    string habilitaciones = Input.GetInput("Ingrese habilitaciones necesarias para manipular el material:");
+                    Material material = new Material(nombreDelMaterial, costo, cantidad, unidad, habilitaciones, categoria);  
+                    string titulo = Input.GetInput("Ingrese el título:");
+                    string palabrasClave = Input.GetInput("Ingrese palabras claves separadas con ',' : ");
+                    string frecuencia = Input.GetInput("Ingrese frequencia de disponibilidad: ");
+                    string localizacion = Input.GetInput("Ingrese dónde se encuentra: ");
+                    IUbicacionProvider ubicacionProvider = new UbicacionProvider();
+                    IUbicacion ubi = ubicacionProvider.GetUbicacion(localizacion);
+                    Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
+                    Publicacion publicacion = new Publicacion (titulo, material, palabrasClave, frecuencia, ubi, empresa);
+                }
+                else
+                {
+                    Output.PrintLine("Para crear publicaciones debe pertenecer a una empresa.");
+                }
             }
-            else
-            {
-                Output.PrintLine("Para crear publicaciones debe pertenecer a una empresa.");
-                this.Next.Handle(mensaje);
-            }
+            this.GetNext().Handle(mensaje);
         }
     }
 }
