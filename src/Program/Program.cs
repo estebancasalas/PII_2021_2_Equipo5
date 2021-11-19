@@ -40,9 +40,9 @@ namespace Library
             ListaTransacciones listaTransacciones = Singleton<ListaTransacciones>.Instance;
             RegistroPublicaciones registroPublicaciones = Singleton<RegistroPublicaciones>.Instance;
 
-            string administradores = File.ReadAllText()
+            //string administradores = File.ReadAllText()
 
-            listaAdminastradores.LoadFromJson()
+            //listaAdminastradores.LoadFromJson()
             while (mensaje.Text != "/finalizar")
             {
                 Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
