@@ -99,9 +99,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            RegistroPublicaciones listaPubl = new RegistroPublicaciones();
-            listaPubl = JsonSerializer.Deserialize<RegistroPublicaciones>(json);
-            this.Activas = listaPubl.Activas;
+            List<Publicacion> listaPubl = new List<Publicacion>();
+            listaPubl = JsonSerializer.Deserialize<List<Publicacion>>(json);
+            this.Activas = listaPubl;
         }
         // Solo una lista general a convertir o las 3 listas - Activas -Pausadas -¿¿Eliminadas???? Para que guardar algo eliminado no tiene sentido. 
     }

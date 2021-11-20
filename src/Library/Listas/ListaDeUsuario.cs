@@ -38,9 +38,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaDeUsuario listaUsers = new ListaDeUsuario();
-            listaUsers = JsonSerializer.Deserialize<ListaDeUsuario>(json);
-            this.IdUsuarios = listaUsers.IdUsuarios;
+            List<int> listaUsers = new List<int>();
+            listaUsers = JsonSerializer.Deserialize<List<int>>(json);
+            this.IdUsuarios = listaUsers;
         }
         /// <summary>
         /// Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario

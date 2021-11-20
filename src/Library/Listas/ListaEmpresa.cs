@@ -104,9 +104,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaEmpresa listaEmprs = new ListaEmpresa();
-            listaEmprs = JsonSerializer.Deserialize<ListaEmpresa>(json);
-            this.Empresas = listaEmprs.Empresas;
+            List<Empresa> listaEmprs = new List<Empresa>();
+            listaEmprs = JsonSerializer.Deserialize<List<Empresa>>(json);
+            this.Empresas = listaEmprs;
         }
     }
 }
