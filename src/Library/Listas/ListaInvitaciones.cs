@@ -39,9 +39,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaInvitaciones listaInvs = new ListaInvitaciones();
-            listaInvs = JsonSerializer.Deserialize<ListaInvitaciones>(json);
-            this.Invitaciones = listaInvs.Invitaciones;
+            List<string> listaInvs = new List<string>();
+            listaInvs = JsonSerializer.Deserialize<List<string>>(json);
+            this.Invitaciones = listaInvs;
         }
         /// <summary>
         /// Se crea el método Add para añadir las Invitaciones a la ListaInvitaciones

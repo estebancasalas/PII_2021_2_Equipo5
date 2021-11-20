@@ -58,9 +58,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaTransacciones listaTrans = new ListaTransacciones();
-            listaTrans = JsonSerializer.Deserialize<ListaTransacciones>(json);
-            this.Transacciones = listaTrans.Transacciones;
+            List<Transaccion> listaTrans = new List<Transaccion>();
+            listaTrans = JsonSerializer.Deserialize<List<Transaccion>>(json);
+            this.Transacciones = listaTrans;
         }
     }
 

@@ -31,7 +31,7 @@ namespace Library
             .SetNext(new NullHandler()); //bullying a este handler
             Mensaje mensaje = new Mensaje(0 ,"");
             // Se crean las listas
-            ListaAdministradores ListaAdministradores = Singleton<ListaAdministradores>.Instance;
+            ListaAdministradores listaAdministradores = Singleton<ListaAdministradores>.Instance;
             ListaConversaciones listaConversaciones = Singleton<ListaConversaciones>.Instance;
             ListaDeUsuario listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
             ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
@@ -49,7 +49,7 @@ namespace Library
             string transacciones = File.ReadAllText(@"..\..\Datos_json\listaTransacciones.txt");
             string publicaciones = File.ReadAllText(@"..\..\Datos_json\registroPublicaciones.txt");
             // Se cargan las listas con los datos guardados en los json
-            ListaAdministradores.LoadFromJson(administradores);
+            listaAdministradores.LoadFromJson(administradores);
             listaConversaciones.LoadFromJson(conversaciones);
             listaDeUsuario.LoadFromJson(usuarios);
             listaEmprendedores.LoadFromJson(emprendedores);
@@ -61,11 +61,11 @@ namespace Library
             while (mensaje.Text != "/finalizar")
             {
                 Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
-                mensaje.Text = "/finalizar";
+                mensaje.Text = Console.ReadLine();
                 comienzoHandler.Handle(mensaje);
             }
             // Se actualizan las listas
-            ListaAdministradores = Singleton<ListaAdministradores>.Instance;
+            listaAdministradores = Singleton<ListaAdministradores>.Instance;
             listaConversaciones = Singleton<ListaConversaciones>.Instance;
             listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
             listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
@@ -74,7 +74,7 @@ namespace Library
             listaTransacciones = Singleton<ListaTransacciones>.Instance;
             registroPublicaciones = Singleton<RegistroPublicaciones>.Instance;
             // Se guardan en los json
-            string guardarAdmin = ListaAdministradores.ConvertToJson();
+            string guardarAdmin = listaAdministradores.ConvertToJson();
             string guardarConv = listaConversaciones.ConvertToJson();
             string guardarUsuario = listaDeUsuario.ConvertToJson();
             string guardarEmprend = listaEmprendedores.ConvertToJson();
