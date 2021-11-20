@@ -30,7 +30,7 @@ namespace Library
             
             .SetNext(new NullHandler()); //bullying a este handler
             Mensaje mensaje = new Mensaje(0 ,"");
-
+            // Se crean las listas
             ListaAdministradores ListaAdministradores = Singleton<ListaAdministradores>.Instance;
             ListaConversaciones listaConversaciones = Singleton<ListaConversaciones>.Instance;
             ListaDeUsuario listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
@@ -39,10 +39,24 @@ namespace Library
             ListaInvitaciones listaInvitaciones = Singleton<ListaInvitaciones>.Instance;
             ListaTransacciones listaTransacciones = Singleton<ListaTransacciones>.Instance;
             RegistroPublicaciones registroPublicaciones = Singleton<RegistroPublicaciones>.Instance;
-
+            // Se guarda la direccion de las listas en las variables
             string administradores = File.ReadAllText(@"..\..\Datos_json\listaAdministradores.txt");
-
+            string conversaciones = File.ReadAllText(@"..\..\Datos_json\listaConversaciones.txt");
+            string usuarios = File.ReadAllText(@"..\..\Datos_json\listaUsuario.txt");
+            string emprendedores = File.ReadAllText(@"..\..\Datos_json\listaEmprendedores.txt");
+            string empresas = File.ReadAllText(@"..\..\Datos_json\listaEmpresas.txt");
+            string invitaciones = File.ReadAllText(@"..\..\Datos_json\listaInvitaciones.txt");
+            string transacciones = File.ReadAllText(@"..\..\Datos_json\listaTransacciones.txt");
+            string publicaciones = File.ReadAllText(@"..\..\Datos_json\registroPublicaciones.txt");
+            // Se cargan las listas con los datos guardados en los json
             ListaAdministradores.LoadFromJson(administradores);
+            listaConversaciones.LoadFromJson(conversaciones);
+            listaDeUsuario.LoadFromJson(usuarios);
+            listaEmprendedores.LoadFromJson(emprendedores);
+            listaEmpresa.LoadFromJson(empresas);
+            listaInvitaciones.LoadFromJson(invitaciones);
+            listaTransacciones.LoadFromJson(transacciones);
+            registroPublicaciones.LoadFromJson(publicaciones);
             //Administrador esteban = new Administrador(13, "estebann");
             while (mensaje.Text != "/finalizar")
             {
@@ -50,9 +64,33 @@ namespace Library
                 mensaje.Text = "/finalizar";
                 comienzoHandler.Handle(mensaje);
             }
+            // Se actualizan las listas
             ListaAdministradores = Singleton<ListaAdministradores>.Instance;
-            string a = ListaAdministradores.ConvertToJson();
-            File.WriteAllText(@"..\..\Datos_json\listaAdministradores.txt", a);
+            listaConversaciones = Singleton<ListaConversaciones>.Instance;
+            listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
+            listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
+            listaEmpresa = Singleton<ListaEmpresa>.Instance;
+            listaInvitaciones = Singleton<ListaInvitaciones>.Instance;
+            listaTransacciones = Singleton<ListaTransacciones>.Instance;
+            registroPublicaciones = Singleton<RegistroPublicaciones>.Instance;
+            // Se guardan en los json
+            string guardarAdmin = ListaAdministradores.ConvertToJson();
+            string guardarConv = listaConversaciones.ConvertToJson();
+            string guardarUsuario = listaDeUsuario.ConvertToJson();
+            string guardarEmprend = listaEmprendedores.ConvertToJson();
+            string guardarEmpresa = listaEmpresa.ConvertToJson();
+            string guardarInvit = listaInvitaciones.ConvertToJson();
+            string guardarTrans = listaTransacciones.ConvertToJson();
+            string guardarPubli = registroPublicaciones.ConvertToJson();
+            // Se guardan en los archivos de texto
+            File.WriteAllText(@"..\..\Datos_json\listaAdministradores.txt", guardarAdmin);
+            File.WriteAllText(@"..\..\Datos_json\listaConversaciones.txt", guardarConv);
+            File.WriteAllText(@"..\..\Datos_json\listaUsuario.txt", guardarUsuario);
+            File.WriteAllText(@"..\..\Datos_json\listaEmprendedores.txt", guardarEmprend);
+            File.WriteAllText(@"..\..\Datos_json\listaEmpresas.txt", guardarEmpresa);
+            File.WriteAllText(@"..\..\Datos_json\listaInvitaciones.txt", guardarInvit);
+            File.WriteAllText(@"..\..\Datos_json\listaTransacciones.txt", guardarTrans);
+            File.WriteAllText(@"..\..\Datos_json\registroPublicaciones.txt", guardarPubli);
         }
     }
 }

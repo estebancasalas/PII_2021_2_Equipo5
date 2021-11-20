@@ -200,7 +200,7 @@
             </summary>
             <value></value>
         </member>
-        <member name="F:Library.Empresa.ListaIdEmpresarios">
+        <member name="F:Library.Empresa.ListaEmpresarios">
             <summary>
             La listaIdEmpresarios se encarga de registrar todos los usuarios que 
             puede tener una misma empresa.

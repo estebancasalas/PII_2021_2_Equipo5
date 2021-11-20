@@ -31,9 +31,11 @@ namespace Library
         public List<Transaccion> Buscar(int id)
         {
             List<Transaccion> resultado = new List<Transaccion>();
+            ListaEmpresa lista = new ListaEmpresa();
+            Empresa empresa = lista.Buscar(id);
             foreach (Transaccion transaccion in this.Transacciones)
             {
-                if (transaccion.Vendedor.ListaIdEmpresarios.Contains(id) || transaccion.Comprador.Id == id) 
+                if (transaccion.Vendedor == empresa || transaccion.Comprador.Id == id) 
                 {
                     resultado.Add(transaccion);
                 }

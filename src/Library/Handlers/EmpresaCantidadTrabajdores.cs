@@ -25,11 +25,25 @@ namespace Library
             {
                 List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
                 int i = 0;
-                while (i < lista.Count && lista[i].ListaIdEmpresarios.Contains(mensaje.Id))
+                int j = 0;
+                bool notfound = false;
+                while (i < lista.Count && !notfound)
                 {
-                    i = i + 1;
+                    while (j<lista[i].ListaEmpresarios.Count && lista[i].ListaEmpresarios[j].Id != mensaje.Id)
+                    {
+                        j++;
+                    }
+                    if (j >= lista[i].ListaEmpresarios.Count)
+                    {
+                        i++;
+                        j = 0;
+                    }
+                    else
+                    {
+                        notfound = true;
+                    }
                 }
-                Console.WriteLine($"La cantidad de trabajadores de la empresa es: {lista[i].ListaIdEmpresarios.Count}");
+                Console.WriteLine($"La cantidad de trabajadores de la empresa es: {lista[i].ListaEmpresarios.Count}");
                 mensaje.Text = Console.ReadLine();
             }
             this.GetNext().Handle(mensaje);

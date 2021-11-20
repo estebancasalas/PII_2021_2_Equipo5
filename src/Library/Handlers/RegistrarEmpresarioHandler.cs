@@ -30,7 +30,10 @@ namespace Library
                     List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
                     lista.Find(x => x.Invitacion == token);
                     Empresa empresa = lista.Find(x => x.Invitacion == token);
-                    empresa.ListaIdEmpresarios.Add(mensaje.Id);
+                    Empresario empresario = new Empresario();
+                    empresario.Id = mensaje.Id;
+                    empresario.Estado = 0;
+                    empresa.ListaEmpresarios.Add(empresario);
                 }
                 else
                 {

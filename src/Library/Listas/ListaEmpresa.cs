@@ -18,7 +18,26 @@ namespace Library
 
         public bool Verificar(int id)
         {
-            return Empresas.Find(x => x.ListaIdEmpresarios.Contains(id)) != null;
+            int i = 0;
+            int j = 0;
+            bool notfound = false;
+            while (i < Empresas.Count && !notfound)
+            {
+                while (j<Empresas[i].ListaEmpresarios.Count && Empresas[i].ListaEmpresarios[j].Id != id)
+                {
+                    j++;
+                }
+                if (j >= Empresas[i].ListaEmpresarios.Count)
+                {
+                    i++;
+                    j = 0;
+                }
+                else
+                {
+                    notfound = true;
+                }
+            }
+            return notfound;
         }
         /// <summary>
         /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada.
@@ -27,8 +46,36 @@ namespace Library
         /// <returns></returns>
         public Empresa Buscar(int id)
         {
-            Empresa empresa = this.Empresas.Find(x => x.ListaIdEmpresarios.Contains(id));
-            return empresa;
+            Empresa empresa;
+            int i = 0;
+            int j = 0;
+            bool notfound = false;
+            while (i < Empresas.Count && !notfound)
+            {
+                while (j<Empresas[i].ListaEmpresarios.Count && Empresas[i].ListaEmpresarios[j].Id != id)
+                {
+                   j++;
+                }
+                if (j >= Empresas[i].ListaEmpresarios.Count)
+                {
+                    i++;
+                    j = 0;
+                }
+                else
+                {
+                    notfound = true;
+                }
+            }
+            if (notfound)
+            {
+                empresa = Empresas[i];
+                return empresa;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         /// <summary>
