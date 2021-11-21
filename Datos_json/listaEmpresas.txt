@@ -1,1 +1,1 @@
-[]
+[{"Invitacion":"12344321","Nombre":"Empresa1","Ubicacion":"Montevideo","Rubro":"Vet"},{"Invitacion":"12344321","Nombre":"Empresa1","Ubicacion":"Montevideo","Rubro":"Vet"}]
