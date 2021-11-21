@@ -28,9 +28,16 @@ namespace Library
         /// </summary>
         /// <param name="mensaje">Mensaje escrito por usuario</param>
         void Handle(Mensaje mensaje);
-
+        /// <summary>
+        /// Método set para indicar el siguiente handler en la cadena.
+        /// </summary>
+        /// <param name="handler"></param>
+        /// <returns></returns>
         IHandler SetNext(IHandler handler);
-
+        /// <summary>
+        /// Método get para obtener el siguiente handler en la cadena.
+        /// </summary>
+        /// <returns></returns>
         IHandler GetNext();
     }
 }

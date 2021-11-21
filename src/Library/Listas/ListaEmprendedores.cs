@@ -48,7 +48,12 @@ namespace Library
         {
             this.Emprendedores.Add(emprendedor);
         }
-        
+        /// <summary>
+        /// Método que sirve para buscar un emprendedor por su id. Se incluye en esta clase ya que es la
+        /// que conoce la información de todos los emprendedores (patrón Expert).
+        /// </summary>
+        /// <param name="id">Id del emprendedor a buscar</param>
+        /// <returns></returns>
         public Emprendedor Buscar(int id)
         {
             return this.Emprendedores.Find(x => x.Id == id);

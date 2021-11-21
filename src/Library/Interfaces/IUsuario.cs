@@ -12,7 +12,15 @@ namespace Library
 
     public interface IUsuario
     {
+        /// <summary>
+        /// Atributo que contiene el id del usuario.
+        /// </summary>
+        /// <value></value>
         int Id { get; set;}
+        /// <summary>
+        /// Atributo que contiene el estado del usuario, utilizado en los handlers.
+        /// </summary>
+        /// <value></value>
         EstadoUsuario Estado{ get; set;}
     }
 }

@@ -19,7 +19,12 @@ namespace Library
         /// <returns></returns>
         [JsonInclude]
         public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
-
+        /// <summary>
+        /// Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la 
+        /// que conoce a todas las empresas (patrón Expert).
+        /// </summary>
+        /// <param name="id">Id del empresario a verificar</param>
+        /// <returns></returns>
         public bool Verificar(int id)
         {
             int i = 0;
@@ -32,7 +37,8 @@ namespace Library
             return empresario != null;
         }
         /// <summary>
-        /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada.
+        /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada. Se incluye en esta 
+        /// clase ya que es la que conoce a todas las empresas (patrón Expert).
         /// </summary>
         /// <param name="id">id de la empresa deseada</param>
         /// <returns></returns>

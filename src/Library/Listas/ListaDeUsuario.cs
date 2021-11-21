@@ -17,7 +17,11 @@ namespace Library
         /// </summary>
         /// <returns></returns>
         public List<IUsuario> IdUsuarios = Singleton<List<IUsuario>>.Instance; 
-        //En vez de int IUsuario.
+        /// <summary>
+        /// Método que verifica si un id está registrado como usuario.
+        /// </summary>
+        /// <param name="id">Id que se verifica</param>
+        /// <returns></returns>
         public bool EstaRegistrado(int id)
         {
             IUsuario usuario = this.IdUsuarios.Find(x => x.Id == id);
@@ -49,7 +53,7 @@ namespace Library
         /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
         /// los id de todos los usuarios.
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="usuario">Usuario que se va a agregar a la lista</param>
         public void Add(IUsuario usuario)
         {
             this.IdUsuarios.Add(usuario);

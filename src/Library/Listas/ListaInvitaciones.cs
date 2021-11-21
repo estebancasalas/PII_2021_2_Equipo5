@@ -18,7 +18,12 @@ namespace Library
         /// </summary>
         /// <returns></returns>
         public List <string> Invitaciones = Singleton<List<string>>.Instance; 
-
+        /// <summary>
+        /// Método que verifica si una invitación es válida. Se incluye en esta clase porque es la que 
+        /// conoce todas las invitaciones (patrón Expert).
+        /// </summary>
+        /// <param name="invitacion">Invitación a verificar</param>
+        /// <returns></returns>
         public bool VerificarInvitacion(string invitacion)
         {
             return Invitaciones.Contains(invitacion);

@@ -11,11 +11,7 @@ namespace Library
     public class BuscarEmprendedorId : AbstractBuscar  
     {
         
-        /// <summary>
-        /// Método que busca un emprendedor por su Id.
-        /// </summary>
-        /// <param name="id">Id para buscar el emprendedor</param>
-        /// <returns></returns>
+        
         
     }
 }
