@@ -24,7 +24,7 @@ namespace Library
                 string especializaciones = Input.GetInput("¿En qué se especializa?");
                 Emprendedor emprendedor = new Emprendedor(mensaje.Id, nombre, rubro, ubicacion, habilitacion, especializaciones);
             }
-             this.GetNext().Handle(mensaje);
+            this.GetNext().Handle(mensaje);
         }
     }
 }

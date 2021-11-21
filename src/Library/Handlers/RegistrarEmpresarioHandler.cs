@@ -21,18 +21,16 @@ namespace Library
         /// <param name="mensaje">Indica que se quiere registrar un empresario</param>
         public override void Handle(Mensaje mensaje)
         {
-            if (mensaje.Text.ToLower() == "/empresa")
+            if (mensaje.Text.ToLower() == "/empresario")
             {
                 token = Input.GetInput("Ingrese su código de invitación: ");
                 ListaInvitaciones verificador = new ListaInvitaciones(); //Qué pasa si no ingresa nada?
                 if (verificador.VerificarInvitacion(token))
                 {
                     List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
-                    lista.Find(x => x.Invitacion == token);
                     Empresa empresa = lista.Find(x => x.Invitacion == token);
-                    Empresario empresario = new Empresario();
-                    empresario.Id = mensaje.Id;
-                    empresario.Estado = 0;
+                    string nombre = Input.GetInput("Ingrese nombre: ");
+                    Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), nombre);
                     empresa.ListaEmpresarios.Add(empresario);
                 }
                 else

@@ -950,24 +950,6 @@
              la interfaz y sustituyendo en el programa principal.
             </summary>
         </member>
-        <member name="P:Library.IUsuario.Nombre">
-            <summary>
-            Nombre de la empresa o emprendedor.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.IUsuario.Rubro">
-            <summary>
-            Rubro de la empresa o emprendedor.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.IUsuario.Ubicacion">
-            <summary>
-            Ubicación de la empresa o emprendedor.
-            </summary>
-            <value></value>
-        </member>
         <member name="T:Library.ListaAdministradores">
             <summary>
             ListaAdministradores es quien se encarga de tener la lista con todos los 
@@ -1073,7 +1055,7 @@
             </summary>
             <param name="json"></param>
         </member>
-        <member name="M:Library.ListaDeUsuario.Add(System.Int32)">
+        <member name="M:Library.ListaDeUsuario.Add(Library.IUsuario)">
             <summary>
             Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
             ya existente. 

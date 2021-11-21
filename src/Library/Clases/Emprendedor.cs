@@ -16,6 +16,7 @@ namespace Library
         /// </summary>
         /// <value></value>
         public int Id { get; set; }
+        public EstadoUsuario Estado { get; set;}
         
         /// <summary>
         /// Nombre del emprendedor.

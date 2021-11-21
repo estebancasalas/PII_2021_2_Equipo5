@@ -57,12 +57,14 @@ namespace Library
             listaInvitaciones.LoadFromJson(invitaciones);
             listaTransacciones.LoadFromJson(transacciones);
             registroPublicaciones.LoadFromJson(publicaciones);
-            //Administrador esteban = new Administrador(13, "estebann");
+            Administrador esteban = new Administrador(13, "estebann");
             while (mensaje.Text != "/finalizar")
             {
+                //Fijarse si estsa registrado y obtener el IUsuario.
                 Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
                 mensaje.Text = Console.ReadLine();
-                comienzoHandler.Handle(mensaje);
+                comienzoHandler.Handle(mensaje);//EstadoUsuario estado = esto
+                //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
             }
             // Se actualizan las listas
             listaAdministradores = Singleton<ListaAdministradores>.Instance;

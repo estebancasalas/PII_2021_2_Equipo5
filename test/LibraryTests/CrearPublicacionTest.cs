@@ -34,9 +34,7 @@ namespace LibraryTests
             diccionario2.Add("Ingrese nombre de la empresa: ", "Esteban telas");
             Mensaje mensaje = new Mensaje(1234,"/CrearPublicación");
             Empresa empresa = new Empresa("Esteban telas", "Av. 8 de Octubre 2738", "textil", "1");
-            Empresario empresario = new Empresario();
-            empresario.Id = mensaje.Id;
-            empresario.Estado = 0;
+            Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), "juan");
             empresa.ListaEmpresarios.Add(empresario);
             EntaradaDeLaCadena lector = new LectorTest(diccionario2);
             publi = new CrearPublicacionHandler();
