@@ -32,13 +32,20 @@ namespace Library
                 this.GetNext().Handle(mensaje);
             }
         }
-
+        /// <summary>
+        /// Setter para el siguiente handler en la cadena.
+        /// </summary>
+        /// <param name="handler">Se recibe por parámetro el siguiente handler</param>
+        /// <returns></returns>
         public virtual IHandler SetNext(IHandler handler)
         {
             this.Next = handler;
             return handler;
         }
-
+        /// <summary>
+        /// Getter para el siguiente handler en la cadena.
+        /// </summary>
+        /// <returns></returns>
         public virtual IHandler GetNext()
         {
             return this.Next;

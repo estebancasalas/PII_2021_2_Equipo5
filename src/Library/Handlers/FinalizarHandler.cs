@@ -26,7 +26,10 @@ namespace Library
                 this.GetNext().Handle(mensaje);  //Que vuelva al primer handler
             }
         }
-
+        /// <summary>
+        /// Constructor de la clase. 
+        /// </summary>
+        /// <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro</param>
         public FinalizarHandler(IHandler handler)
         {
             this.SetNext(handler);

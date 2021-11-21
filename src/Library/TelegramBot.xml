@@ -139,6 +139,12 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:Library.Emprendedor.Estado">
+            <summary>
+            Atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:Library.Emprendedor.Nombre">
             <summary>
             Nombre del emprendedor.
@@ -195,7 +201,7 @@
         </member>
         <member name="F:Library.Empresa.ListaEmpresarios">
             <summary>
-            La listaIdEmpresarios se encarga de registrar todos los usuarios que 
+            La ListaEmpresarios se encarga de registrar todos los usuarios que 
             puede tener una misma empresa.
             </summary>
             <value></value>
@@ -226,6 +232,58 @@
             <param name="ubicacion">Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.</param>
             <param name="rubro">Se encarga de guardar el rubro de la empresa dentro del objeto empresa.</param>
             <param name="invitacion">Se encarga de guardar la invitación de la empresa dentro del objeto empresa.</param>
+        </member>
+        <member name="T:Library.Empresario">
+            <summary>
+            Clase que modela un empresario perteneciente a una empresa.
+            </summary>
+        </member>
+        <member name="P:Library.Empresario.Id">
+            <summary>
+            Id del usuario del empresario.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Empresario.Estado">
+            <summary>
+            Estado en el que se encuentra este usuario para los handlers.
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Library.Empresario.Nombre">
+            <summary>
+            Nombre que tiene el empresario.
+            </summary>
+        </member>
+        <member name="M:Library.Empresario.#ctor(System.Int32,Library.EstadoUsuario,System.String)">
+            <summary>
+            Método constructor de la clase.
+            </summary>
+            <param name="num">Indica el Id del empresario</param>
+            <param name="estado">Indica el estado en el que se encuentra el empresario</param>
+            <param name="nombre">Indica el nombre que tiene el empresario</param>
+        </member>
+        <member name="T:Library.EstadoUsuario">
+            <summary>
+            Clase que modela el estado en el que se encuentra un usuario. El estado refiere dentro de los
+            handlers, ya que algunos handlers tienen varios pasos en su ejecución y es necesario ver en qué
+            paso se encuentra el usuario.
+            </summary>
+        </member>
+        <member name="F:Library.EstadoUsuario.handler">
+            <summary>
+            Handler que se está ejecutando.
+            </summary>
+        </member>
+        <member name="F:Library.EstadoUsuario.step">
+            <summary>
+            Paso en el que se encuentra. Se modela con un número entero.
+            </summary>
+        </member>
+        <member name="M:Library.EstadoUsuario.#ctor">
+            <summary>
+            Constructor de la clase.
+            </summary>
         </member>
         <member name="T:Library.Material">
             <summary>
@@ -489,7 +547,7 @@
             <summary>
             Método que recorre la lista de transacciones de el usuario y retorna su historial.
             </summary>
-            <param name="nombre">Nombre de quien quiere ver el historial</param>
+            <param name="id">Nombre de quien quiere ver el historial</param>
             <returns></returns>
         </member>
         <member name="T:Library.EntaradaDeLaCadena">
@@ -557,6 +615,18 @@
             como parámetro.
             </summary>
             <param name="line">Lo que se muestra en consola</param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.OutputTest">
+            <summary>
+            Clase utilizada en los tests, para poder mostrar texto en pantalla al usuario. 
+            </summary>
+        </member>
+        <member name="M:Library.OutputTest.PrintLine(System.String)">
+            <summary>
+            Método encargado de mostrar en pantalla.
+            </summary>
+            <param name="line">Lo que se va a mostrar</param>
             <returns></returns>
         </member>
         <member name="T:Library.Traductor">
@@ -703,6 +773,12 @@
             </summary>
             <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
         </member>
+        <member name="M:Library.FinalizarHandler.#ctor(Library.IHandler)">
+            <summary>
+            Constructor de la clase. 
+            </summary>
+            <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro</param>
+        </member>
         <member name="T:Library.HistorialHandler">
             <summary>
             Handler para verificar el historial de un usuario. Implementa AbstractHandler porque
@@ -755,6 +831,11 @@
             </summary>
             <param name="mensaje">Indica que se quiere crear una invitación</param>
         </member>
+        <member name="T:Library.NullHandler">
+            <summary>
+            Handler vacío, para ser utilizado al final de la cadena y en tests.
+            </summary>
+        </member>
         <member name="T:Library.RegistrarEmpresarioHandler">
             <summary>
             Handler para registrar un empresario en una empresa. Implementa AbstractHandler
@@ -803,6 +884,19 @@
             </summary>
             <param name="mensaje">El emensaje escrito por el usuario.</param>
         </member>
+        <member name="M:Library.AbstractHandler.SetNext(Library.IHandler)">
+            <summary>
+            Setter para el siguiente handler en la cadena.
+            </summary>
+            <param name="handler">Se recibe por parámetro el siguiente handler</param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.AbstractHandler.GetNext">
+            <summary>
+            Getter para el siguiente handler en la cadena.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Library.IHandler">
             <summary>
             Interfaz para la creación de los handlers.
@@ -820,6 +914,19 @@
             Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
             </summary>
             <param name="mensaje">Mensaje escrito por usuario</param>
+        </member>
+        <member name="M:Library.IHandler.SetNext(Library.IHandler)">
+            <summary>
+            Método set para indicar el siguiente handler en la cadena.
+            </summary>
+            <param name="handler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.IHandler.GetNext">
+            <summary>
+            Método get para obtener el siguiente handler en la cadena.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Library.Mensaje">
             <summary>
@@ -857,6 +964,12 @@
             Se crea una nueva instancia solo si no existe previamente.
             </summary>
             <value></value>
+        </member>
+        <member name="T:Library.AbstractBuscar">
+            <summary>
+            Clase abstracta buscar. Esta clase se creó para utilizar el Principio de Inversión de Dependencias,
+            para que los métodos de búsqueda dependan de una abstracción y no de clases concretas.
+            </summary>
         </member>
         <member name="T:Library.IJsonConvertible">
             <summary>
@@ -942,6 +1055,18 @@
              las capacidades del programa sin modificarlo. Se extienden al agregar otras clases que implementen
              la interfaz y sustituyendo en el programa principal.
             </summary>
+        </member>
+        <member name="P:Library.IUsuario.Id">
+            <summary>
+            Atributo que contiene el id del usuario.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.IUsuario.Estado">
+            <summary>
+            Atributo que contiene el estado del usuario, utilizado en los handlers.
+            </summary>
+            <value></value>
         </member>
         <member name="T:Library.ListaAdministradores">
             <summary>
@@ -1034,6 +1159,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Library.ListaDeUsuario.EstaRegistrado(System.Int32)">
+            <summary>
+            Método que verifica si un id está registrado como usuario.
+            </summary>
+            <param name="id">Id que se verifica</param>
+            <returns></returns>
+        </member>
         <member name="M:Library.ListaDeUsuario.ConvertToJson">
             <summary>
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
@@ -1055,7 +1187,7 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             los id de todos los usuarios.
             </summary>
-            <param name="Id"></param>
+            <param name="usuario">Usuario que se va a agregar a la lista</param>
         </member>
         <member name="T:Library.ListaEmprendedores">
             <summary>
@@ -1094,6 +1226,14 @@
             </summary>
             <param name="emprendedor"></param>
         </member>
+        <member name="M:Library.ListaEmprendedores.Buscar(System.Int32)">
+            <summary>
+            Método que sirve para buscar un emprendedor por su id. Se incluye en esta clase ya que es la
+            que conoce la información de todos los emprendedores (patrón Expert).
+            </summary>
+            <param name="id">Id del emprendedor a buscar</param>
+            <returns></returns>
+        </member>
         <member name="T:Library.ListaEmpresa">
             <summary>
             Clase que contiene una lista en la cual están todas las empresas. 
@@ -1107,9 +1247,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Library.ListaEmpresa.Verificar(System.Int32)">
+            <summary>
+            Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la 
+            que conoce a todas las empresas (patrón Expert).
+            </summary>
+            <param name="id">Id del empresario a verificar</param>
+            <returns></returns>
+        </member>
         <member name="M:Library.ListaEmpresa.Buscar(System.Int32)">
             <summary>
-            Método Buscar, recorre la lista de empresas y retorna la empresa deseada.
+            Método Buscar, recorre la lista de empresas y retorna la empresa deseada. Se incluye en esta 
+            clase ya que es la que conoce a todas las empresas (patrón Expert).
             </summary>
             <param name="id">id de la empresa deseada</param>
             <returns></returns>
@@ -1149,6 +1298,14 @@
             Lista que contiene todas las invtiaciones.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.ListaInvitaciones.VerificarInvitacion(System.String)">
+            <summary>
+            Método que verifica si una invitación es válida. Se incluye en esta clase porque es la que 
+            conoce todas las invitaciones (patrón Expert).
+            </summary>
+            <param name="invitacion">Invitación a verificar</param>
             <returns></returns>
         </member>
         <member name="M:Library.ListaInvitaciones.ConvertToJson">
@@ -1195,6 +1352,14 @@
             todas las transacciones que se realizan.
             </summary>
             <param name="transaccion"></param>
+        </member>
+        <member name="M:Library.ListaTransacciones.Buscar(System.Int32)">
+            <summary>
+            Método que devuelve una lista con todas las transacciones hechas con ese id. Se busca cumplir
+            con Expert, ya que esta clase es la que contiene toda la información de las transacciones.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="M:Library.ListaTransacciones.ConvertToJson">
             <summary>
