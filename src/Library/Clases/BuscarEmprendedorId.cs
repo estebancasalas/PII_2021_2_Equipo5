@@ -16,11 +16,6 @@ namespace Library
         /// </summary>
         /// <param name="id">Id para buscar el emprendedor</param>
         /// <returns></returns>
-        public Emprendedor Buscar(int id)
-        {
-            List<Emprendedor> lista = Singleton<ListaEmprendedores>.Instance.Emprendedores;
-            Emprendedor resultado = lista.Find(x => x.Id == id);
-            return resultado;
-        }
+        
     }
 }

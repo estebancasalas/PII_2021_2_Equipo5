@@ -66,7 +66,7 @@ namespace Library
             this.Rubro = rubro;
             this.Habilitaciones = habilitaciones;
             this.Especializaciones = especializaciones;
-            Singleton<ListaEmprendedores>.Instance.Add(this);
+            
         }
      }
 }

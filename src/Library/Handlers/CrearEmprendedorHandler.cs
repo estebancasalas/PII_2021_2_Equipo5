@@ -23,8 +23,11 @@ namespace Library
                 string habilitacion = Input.GetInput("¿Posee alguna habilitacion?");
                 string especializaciones = Input.GetInput("¿En qué se especializa?");
                 Emprendedor emprendedor = new Emprendedor(mensaje.Id, nombre, rubro, ubicacion, habilitacion, especializaciones);
+                ListaEmprendedores lista = new ListaEmprendedores();
+                lista.Add(emprendedor);
             }
             this.GetNext().Handle(mensaje);
+            
         }
     }
 }

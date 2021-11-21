@@ -32,7 +32,7 @@ namespace LibraryTests
             diccionario2.Add("Ingrese frequencia de disponibilidad: ", "mensual");
             diccionario2.Add("Ingrese dónde se encuentra: ", "Av. 8 de Octubre 2738");
             diccionario2.Add("Ingrese nombre de la empresa: ", "Esteban telas");
-            Mensaje mensaje = new Mensaje(1234,"/CrearPublicación");
+            Mensaje mensaje = new Mensaje(1234,"/CrearPublicacion");
             Empresa empresa = new Empresa("Esteban telas", "Av. 8 de Octubre 2738", "textil", "1");
             Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), "juan");
             empresa.ListaEmpresarios.Add(empresario);
