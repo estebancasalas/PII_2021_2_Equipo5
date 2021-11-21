@@ -16,6 +16,10 @@ namespace Library
         /// </summary>
         /// <value></value>
         public int Id { get; set; }
+        /// <summary>
+        /// Atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
+        /// </summary>
+        /// <value></value>
         public EstadoUsuario Estado { get; set;}
         
         /// <summary>

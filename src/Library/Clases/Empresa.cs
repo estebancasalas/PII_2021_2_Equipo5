@@ -16,7 +16,7 @@ namespace Library
         /// <value></value>
         public string Invitacion { get; set; }
         /// <summary>
-        /// La listaIdEmpresarios se encarga de registrar todos los usuarios que 
+        /// La ListaEmpresarios se encarga de registrar todos los usuarios que 
         /// puede tener una misma empresa.
         /// </summary>
         /// <value></value>

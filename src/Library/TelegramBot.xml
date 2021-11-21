@@ -146,6 +146,12 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:Library.Emprendedor.Estado">
+            <summary>
+            Atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:Library.Emprendedor.Nombre">
             <summary>
             Nombre del emprendedor.
@@ -202,7 +208,7 @@
         </member>
         <member name="F:Library.Empresa.ListaEmpresarios">
             <summary>
-            La listaIdEmpresarios se encarga de registrar todos los usuarios que 
+            La ListaEmpresarios se encarga de registrar todos los usuarios que 
             puede tener una misma empresa.
             </summary>
             <value></value>
@@ -233,6 +239,58 @@
             <param name="ubicacion">Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.</param>
             <param name="rubro">Se encarga de guardar el rubro de la empresa dentro del objeto empresa.</param>
             <param name="invitacion">Se encarga de guardar la invitación de la empresa dentro del objeto empresa.</param>
+        </member>
+        <member name="T:Library.Empresario">
+            <summary>
+            Clase que modela un empresario perteneciente a una empresa.
+            </summary>
+        </member>
+        <member name="P:Library.Empresario.Id">
+            <summary>
+            Id del usuario del empresario.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Empresario.Estado">
+            <summary>
+            Estado en el que se encuentra este usuario para los handlers.
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Library.Empresario.Nombre">
+            <summary>
+            Nombre que tiene el empresario.
+            </summary>
+        </member>
+        <member name="M:Library.Empresario.#ctor(System.Int32,Library.EstadoUsuario,System.String)">
+            <summary>
+            Método constructor de la clase.
+            </summary>
+            <param name="num">Indica el Id del empresario</param>
+            <param name="estado">Indica el estado en el que se encuentra el empresario</param>
+            <param name="nombre">Indica el nombre que tiene el empresario</param>
+        </member>
+        <member name="T:Library.EstadoUsuario">
+            <summary>
+            Clase que modela el estado en el que se encuentra un usuario. El estado refiere dentro de los
+            handlers, ya que algunos handlers tienen varios pasos en su ejecución y es necesario ver en qué
+            paso se encuentra el usuario.
+            </summary>
+        </member>
+        <member name="F:Library.EstadoUsuario.handler">
+            <summary>
+            Handler que se está ejecutando.
+            </summary>
+        </member>
+        <member name="F:Library.EstadoUsuario.step">
+            <summary>
+            Paso en el que se encuentra. Se modela con un número entero.
+            </summary>
+        </member>
+        <member name="M:Library.EstadoUsuario.#ctor">
+            <summary>
+            Constructor de la clase.
+            </summary>
         </member>
         <member name="T:Library.Material">
             <summary>
@@ -496,7 +554,7 @@
             <summary>
             Método que recorre la lista de transacciones de el usuario y retorna su historial.
             </summary>
-            <param name="nombre">Nombre de quien quiere ver el historial</param>
+            <param name="id">Nombre de quien quiere ver el historial</param>
             <returns></returns>
         </member>
         <member name="T:Library.EntaradaDeLaCadena">
@@ -564,6 +622,18 @@
             como parámetro.
             </summary>
             <param name="line">Lo que se muestra en consola</param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.OutputTest">
+            <summary>
+            Clase utilizada en los tests, para poder mostrar texto en pantalla al usuario. 
+            </summary>
+        </member>
+        <member name="M:Library.OutputTest.PrintLine(System.String)">
+            <summary>
+            Método encargado de mostrar en pantalla.
+            </summary>
+            <param name="line">Lo que se va a mostrar</param>
             <returns></returns>
         </member>
         <member name="T:Library.Traductor">

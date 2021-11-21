@@ -13,7 +13,7 @@ namespace Library
         /// <summary>
         /// Método que recorre la lista de transacciones de el usuario y retorna su historial.
         /// </summary>
-        /// <param name="nombre">Nombre de quien quiere ver el historial</param>
+        /// <param name="id">Nombre de quien quiere ver el historial</param>
         /// <returns></returns>
         public string EjecutarComando(int id)
         {  
