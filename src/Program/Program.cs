@@ -49,6 +49,7 @@ namespace Library
             string transacciones = File.ReadAllText(@"..\..\Datos_json\listaTransacciones.txt");
             string publicaciones = File.ReadAllText(@"..\..\Datos_json\registroPublicaciones.txt");
             //Se cargan las listas con los datos guardados en los json
+            
             listaAdministradores.LoadFromJson(administradores);
             listaConversaciones.LoadFromJson(conversaciones);
             listaDeUsuario.LoadFromJson(usuarios);
@@ -57,6 +58,7 @@ namespace Library
             listaInvitaciones.LoadFromJson(invitaciones);
             listaTransacciones.LoadFromJson(transacciones);
             registroPublicaciones.LoadFromJson(publicaciones);
+            
             Administrador admin = new Administrador(1000, "Admin");
             admin.CrearInvitacion("Empresa1", "Montevideo", "Vet", "12344321");
             while (mensaje.Text != "/finalizar")

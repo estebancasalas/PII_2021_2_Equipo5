@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -10,11 +11,13 @@ namespace Library
     public class 
     ListaEmpresa: IJsonConvertible
     {
+        
         /// <summary>
         /// Lista que contiene todas las empresas registradas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
+        [JsonInclude]
         public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
 
         public bool Verificar(int id)
