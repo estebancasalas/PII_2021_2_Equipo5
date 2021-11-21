@@ -34,9 +34,9 @@ namespace Library
         /// <param name="mensaje">Indica que se quiere crear una invitación</param>
         public override void Handle(Mensaje mensaje)
         {
-            if (mensaje.Text == "/crearinvitacion")
+            if (mensaje.Text.ToLower() == "/crearinvitacion")
             {
-                List<Administrador> lista = Singleton<ListaAdminastradores>.Instance.Administradores;
+                List<Administrador> lista = Singleton<ListaAdministradores>.Instance.Administradores;
                 bool notfound = true;
                 int i = 0;
                 while (notfound && i<lista.Count)
@@ -56,6 +56,7 @@ namespace Library
                     }
                 }
             }
+            this.GetNext().Handle(mensaje);
         }
     }
 }

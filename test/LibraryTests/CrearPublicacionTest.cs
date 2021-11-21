@@ -34,10 +34,12 @@ namespace LibraryTests
             diccionario2.Add("Ingrese nombre de la empresa: ", "Esteban telas");
             Mensaje mensaje = new Mensaje(1234,"/CrearPublicación");
             Empresa empresa = new Empresa("Esteban telas", "Av. 8 de Octubre 2738", "textil", "1");
-            empresa.ListaIdEmpresarios.Add(mensaje.Id);
+            Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), "juan");
+            empresa.ListaEmpresarios.Add(empresario);
             EntaradaDeLaCadena lector = new LectorTest(diccionario2);
             publi = new CrearPublicacionHandler();
             publi.Input = lector;
+            publi.SetNext(new NullHandler());
             publi.Handle(mensaje);
             List <Publicacion> listaPublicacion = Singleton<RegistroPublicaciones>.Instance.Activas;
             Publicacion expected = listaPublicacion.Find(x => x.Vendedor.Nombre == "Esteban telas");
@@ -62,9 +64,9 @@ namespace LibraryTests
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             publi = new CrearPublicacionHandler();
             publi.Input = lector;
-            publi.Next = new NullHandler();
+            publi.SetNext(new NullHandler());
             publi.Handle(mensaje);
-             List <Publicacion> listaPublicacion = Singleton<RegistroPublicaciones>.Instance.Activas;
+            List <Publicacion> listaPublicacion = Singleton<RegistroPublicaciones>.Instance.Activas;
             Publicacion expected = listaPublicacion.Find(x => x.Vendedor.Nombre == "jose");
             Assert.AreEqual(expected,null);
         }

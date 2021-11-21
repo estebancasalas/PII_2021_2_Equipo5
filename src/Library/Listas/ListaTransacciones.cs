@@ -31,9 +31,11 @@ namespace Library
         public List<Transaccion> Buscar(int id)
         {
             List<Transaccion> resultado = new List<Transaccion>();
+            ListaEmpresa lista = new ListaEmpresa();
+            Empresa empresa = lista.Buscar(id);
             foreach (Transaccion transaccion in this.Transacciones)
             {
-                if (transaccion.Vendedor.ListaIdEmpresarios.Contains(id) || transaccion.Comprador.Id == id) 
+                if (transaccion.Vendedor == empresa || transaccion.Comprador.Id == id) 
                 {
                     resultado.Add(transaccion);
                 }
@@ -47,7 +49,7 @@ namespace Library
         /// <returns></returns>
         public string ConvertToJson()
         {
-            return JsonSerializer.Serialize(this);
+            return JsonSerializer.Serialize(Singleton<List<Transaccion>>.Instance);
         }
         /// <summary>
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
@@ -56,9 +58,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaTransacciones listaTrans = new ListaTransacciones();
-            listaTrans = JsonSerializer.Deserialize<ListaTransacciones>(json);
-            this.Transacciones = listaTrans.Transacciones;
+            List<Transaccion> listaTrans = new List<Transaccion>();
+            listaTrans = JsonSerializer.Deserialize<List<Transaccion>>(json);
+            this.Transacciones = listaTrans;
         }
     }
 

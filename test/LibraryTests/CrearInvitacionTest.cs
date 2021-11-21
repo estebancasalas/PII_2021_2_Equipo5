@@ -42,6 +42,7 @@ namespace LibraryTests
             
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             invitar.Input = lector;
+            invitar.SetNext(new NullHandler());
             invitar.Handle(mensaje);
             List <Empresa> listaEmpresa = Singleton<ListaEmpresa>.Instance.Empresas;
             List <string> listaInvitaciones = Singleton<ListaInvitaciones>.Instance.Invitaciones;

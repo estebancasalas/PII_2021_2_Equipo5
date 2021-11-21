@@ -12,20 +12,7 @@ namespace Library
 
     public interface IUsuario
     {
-        /// <summary>
-        /// Nombre de la empresa o emprendedor.
-        /// </summary>
-        /// <value></value>
-        string Nombre { get; set; }
-        /// <summary>
-        /// Rubro de la empresa o emprendedor.
-        /// </summary>
-        /// <value></value>
-        string Rubro { get; set; } 
-        /// <summary>
-        /// Ubicación de la empresa o emprendedor.
-        /// </summary>
-        /// <value></value>
-        string Ubicacion { get; set ;}
+        int Id { get; set;}
+        EstadoUsuario Estado{ get; set;}
     }
 }

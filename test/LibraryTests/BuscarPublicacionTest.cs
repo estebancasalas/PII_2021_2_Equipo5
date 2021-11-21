@@ -52,6 +52,7 @@ namespace LibraryTests
             BuscarPublicacionHandler buscarCategoria = new BuscarPublicacionHandler();
             EntaradaDeLaCadena Lector = new LectorTest(diccionario);
             buscarCategoria.Input = Lector;
+            buscarCategoria.SetNext(new NullHandler());
             buscarCategoria.Handle(mensaje);
             Assert.AreEqual(buscarCategoria.result.Contains(a), true); 
         }
@@ -63,11 +64,12 @@ namespace LibraryTests
             diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave" , "/ciudad");
             diccionario.Add("Que desea buscar?", "Salto");
             Mensaje mensaje = new Mensaje(1234,"/buscarpublicacion");
-            BuscarPublicacionHandler buscarDepartamento = new BuscarPublicacionHandler();
+            BuscarPublicacionHandler buscarCiudad = new BuscarPublicacionHandler();
             EntaradaDeLaCadena Lector = new LectorTest(diccionario);
-            buscarDepartamento.Input = Lector;
-            buscarDepartamento.Handle(mensaje);
-            Assert.AreEqual(buscarDepartamento.result.Contains(b), true); 
+            buscarCiudad.Input = Lector;
+            buscarCiudad.SetNext(new NullHandler());
+            buscarCiudad.Handle(mensaje);
+            Assert.AreEqual(buscarCiudad.result.Contains(b), true); 
         }
 
         [Test]
@@ -79,6 +81,7 @@ namespace LibraryTests
             Mensaje mensaje = new Mensaje(1234,"/buscarpublicacion");
             BuscarPublicacionHandler buscarPalabra = new BuscarPublicacionHandler();
             EntaradaDeLaCadena Lector = new LectorTest(diccionario);
+            buscarPalabra.SetNext(new NullHandler());
             buscarPalabra.Input = Lector;
             buscarPalabra.Handle(mensaje);
             Assert.AreEqual(buscarPalabra.result.Contains(c), true); 

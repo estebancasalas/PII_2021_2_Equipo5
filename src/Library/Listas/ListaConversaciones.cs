@@ -19,7 +19,7 @@ namespace Library
         /// <returns></returns>
         public string ConvertToJson()
         {
-            return JsonSerializer.Serialize(this);
+            return JsonSerializer.Serialize(Singleton<List<Conversacion>>.Instance);
         }
         /// <summary>
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
@@ -28,9 +28,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaConversaciones listaConvs = new ListaConversaciones();
-            listaConvs = JsonSerializer.Deserialize<ListaConversaciones>(json);
-            this.Conversaciones = listaConvs.Conversaciones;
+            List<Conversacion> listaConvs = new List<Conversacion>();
+            listaConvs = JsonSerializer.Deserialize<List<Conversacion>>(json);
+            this.Conversaciones = listaConvs;
         }
         /// <summary>
         /// Lista que contiene las conversaciones entre todos los usuarios y el bot.

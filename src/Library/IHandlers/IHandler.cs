@@ -12,11 +12,25 @@ namespace Library
         /// Las clases que apliquen IHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
         /// </summary>
         /// <value></value>
-        IHandler Next { get; }
+        private IHandler Next
+        {
+            get 
+            {
+                return this.Next;
+            } 
+            set 
+            {
+                this.Next = value;
+            }
+        }  
         /// <summary>
         /// Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
         /// </summary>
         /// <param name="mensaje">Mensaje escrito por usuario</param>
         void Handle(Mensaje mensaje);
+
+        IHandler SetNext(IHandler handler);
+
+        IHandler GetNext();
     }
 }

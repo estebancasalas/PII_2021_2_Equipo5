@@ -16,11 +16,12 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
-        public List<int> IdUsuarios = Singleton<List<int>>.Instance; 
-
+        public List<IUsuario> IdUsuarios = Singleton<List<IUsuario>>.Instance; 
+        //En vez de int IUsuario.
         public bool EstaRegistrado(int id)
         {
-            return IdUsuarios.Contains(id);
+            IUsuario usuario = this.IdUsuarios.Find(x => x.Id == id);
+            return usuario != null;
         }
         /// <summary>
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
@@ -29,7 +30,7 @@ namespace Library
         /// <returns></returns>
         public string ConvertToJson()
         {
-            return JsonSerializer.Serialize(this);
+            return JsonSerializer.Serialize(Singleton<List<int>>.Instance);
         }
         /// <summary>
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
@@ -38,9 +39,9 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            ListaDeUsuario listaUsers = new ListaDeUsuario();
-            listaUsers = JsonSerializer.Deserialize<ListaDeUsuario>(json);
-            this.IdUsuarios = listaUsers.IdUsuarios;
+            List<IUsuario> listaUsers = new List<IUsuario>();
+            listaUsers = JsonSerializer.Deserialize<List<IUsuario>>(json);
+            this.IdUsuarios = listaUsers;
         }
         /// <summary>
         /// Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
@@ -49,9 +50,9 @@ namespace Library
         /// los id de todos los usuarios.
         /// </summary>
         /// <param name="Id"></param>
-        public void Add(int Id)
+        public void Add(IUsuario usuario)
         {
-            this.IdUsuarios.Add(Id);
+            this.IdUsuarios.Add(usuario);
         }
     }
     // Checkear si cuando se registran se agregan idSSS.

@@ -21,16 +21,13 @@ namespace Library
         /// <param name="mensaje">Indica que se quiere ver el historial</param>
         public override void Handle(Mensaje mensaje)
         { 
-            if (mensaje.Text == "/historial")
+            if (mensaje.Text.ToLower() == "/historial")
             {
                 VerHistorial historial = new VerHistorial();
                 resultado = historial.EjecutarComando(mensaje.Id);
                 Output.PrintLine(resultado);
             }
-            else
-            {
-                this.Next.Handle(mensaje);
-            }
+            this.GetNext().Handle(mensaje);
         }
     }
 }

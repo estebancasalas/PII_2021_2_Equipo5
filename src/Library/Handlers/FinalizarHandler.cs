@@ -9,20 +9,28 @@ namespace Library
     /// </summary>
     public class FinalizarHandler : AbstractHandler
     {
+        private NullHandler Next2;
         /// <summary>
         /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
         /// </summary>
         /// <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
         public override void Handle(Mensaje mensaje)
         {
-            if (mensaje.Text == "/Finalizar")
+            if (mensaje.Text.ToLower() == "/Finalizar")
             {
                 Output.PrintLine("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
+                this.Next2.Handle(mensaje); //Next2 = NullHandler
             }
             else
             {
-                this.Next.Handle(mensaje);
+                this.GetNext().Handle(mensaje);  //Que vuelva al primer handler
             }
+        }
+
+        public FinalizarHandler(IHandler handler)
+        {
+            this.SetNext(handler);
+            this.Next2 = new NullHandler();
         }
     }
 }

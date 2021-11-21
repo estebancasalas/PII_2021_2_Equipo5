@@ -28,8 +28,9 @@ namespace Library
         public Administrador(int Id, string Nombre)
         {
             this.Id = Id;
-            this.Nombre = Nombre;
-            Singleton<ListaAdminastradores>.Instance.Add(this);
+            this.Nombre = Nombre; 
+            ListaAdministradores lista = Singleton<ListaAdministradores>.Instance;
+            lista.Add(this);
         }
         
         /// <summary>

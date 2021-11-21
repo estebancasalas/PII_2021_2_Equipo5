@@ -8,7 +8,7 @@ namespace Library
     /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
     /// surjan nuevos tipos de usuario.
     /// </summary>
-    public class Empresa: IUsuario
+    public class Empresa
     {
         /// <summary>
         /// Guarda la invitación de la empresa.
@@ -20,7 +20,7 @@ namespace Library
         /// puede tener una misma empresa.
         /// </summary>
         /// <value></value>
-        public List<int> ListaIdEmpresarios = new List<int>();
+        public List<Empresario> ListaEmpresarios = new List<Empresario>();
         /// <summary>
         /// Guarda el nombre de la empresa.
         /// </summary>
@@ -53,7 +53,6 @@ namespace Library
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
             Singleton<ListaEmpresa>.Instance.Add(this);
-            
         }
     }
 }

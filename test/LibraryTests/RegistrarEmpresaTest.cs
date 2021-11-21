@@ -40,6 +40,7 @@ namespace LibraryTests
             lista.Add("ValidToken");
             LectorTest lector = new LectorTest(diccionario);
             registrarEmpresario.Input = lector;
+            registrarEmpresario.SetNext(new NullHandler());
             registrarEmpresario.Handle(mensaje);
 
             Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(1000);
@@ -60,6 +61,7 @@ namespace LibraryTests
             admin.CrearInvitacion("ResgistrarEmpresaTest", "Montevideo", "textil", "ValidToken");
             LectorTest lector = new LectorTest(diccionario);
             registrarEmpresario.Input = lector;
+            registrarEmpresario.SetNext(new NullHandler());
             registrarEmpresario.Handle(mensaje);
 
             Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(1000);
