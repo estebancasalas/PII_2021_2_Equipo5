@@ -34,7 +34,7 @@ namespace Library
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override void Handle(Mensaje mensaje)
         {
-            if (mensaje.Text == "/CrearUsuario")
+            if (mensaje.Text.ToLower() == "/crearusuario")
             {
                 ListaDeUsuario lista = new ListaDeUsuario();
                 if (lista.EstaRegistrado(mensaje.Id))

@@ -20,7 +20,7 @@ namespace Library
         {
             ListaEmpresa lista = new ListaEmpresa();
             
-            if (mensaje.Text == "/CrearPublicación")
+            if (mensaje.Text.ToLower() == "/crearpublicacion")
             {
                 if (lista.Verificar(mensaje.Id))
                 {

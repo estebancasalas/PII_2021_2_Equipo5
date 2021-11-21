@@ -7,7 +7,8 @@ namespace Library
     /// Clase que contiene una lista en la cual están todas las empresas. 
     /// Cumple con el principio SRP ya que su única responsabilidad es conocer los empresas.
     /// </summary>
-    public class ListaEmpresa: IJsonConvertible
+    public class 
+    ListaEmpresa: IJsonConvertible
     {
         /// <summary>
         /// Lista que contiene todas las empresas registradas.
@@ -19,25 +20,13 @@ namespace Library
         public bool Verificar(int id)
         {
             int i = 0;
-            int j = 0;
-            bool notfound = false;
-            while (i < Empresas.Count && !notfound)
+            Empresario empresario = null; 
+            while (i<this.Empresas.Count && empresario == null)
             {
-                while (j<Empresas[i].ListaEmpresarios.Count && Empresas[i].ListaEmpresarios[j].Id != id)
-                {
-                    j++;
-                }
-                if (j >= Empresas[i].ListaEmpresarios.Count)
-                {
-                    i++;
-                    j = 0;
-                }
-                else
-                {
-                    notfound = true;
-                }
+               empresario = this.Empresas[i].ListaEmpresarios.Find(x=> x.Id == id);
+               i++;
             }
-            return notfound;
+            return empresario != null;
         }
         /// <summary>
         /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada.
@@ -46,36 +35,14 @@ namespace Library
         /// <returns></returns>
         public Empresa Buscar(int id)
         {
-            Empresa empresa;
             int i = 0;
-            int j = 0;
-            bool notfound = false;
-            while (i < Empresas.Count && !notfound)
+            Empresario empresario = null; 
+            while (i<this.Empresas.Count && empresario == null)
             {
-                while (j<Empresas[i].ListaEmpresarios.Count && Empresas[i].ListaEmpresarios[j].Id != id)
-                {
-                   j++;
-                }
-                if (j >= Empresas[i].ListaEmpresarios.Count)
-                {
-                    i++;
-                    j = 0;
-                }
-                else
-                {
-                    notfound = true;
-                }
+               empresario = this.Empresas[i].ListaEmpresarios.Find(x=> x.Id == id);
+               i++;
             }
-            if (notfound)
-            {
-                empresa = Empresas[i];
-                return empresa;
-            }
-            else
-            {
-                return null;
-            }
-            
+            return this.Empresas[i-1];            
         }
 
         /// <summary>

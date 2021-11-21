@@ -48,5 +48,10 @@ namespace Library
         {
             this.Emprendedores.Add(emprendedor);
         }
+        
+        public Emprendedor Buscar(int id)
+        {
+            return this.Emprendedores.Find(x => x.Id == id);
+        }
     }
 }

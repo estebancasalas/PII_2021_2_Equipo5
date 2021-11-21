@@ -44,13 +44,6 @@
             todas las instancias de emprendedor pero no tiene la responsabilidad de buscar.
             </summary>
         </member>
-        <member name="M:Library.BuscarEmprendedorId.Buscar(System.Int32)">
-            <summary>
-            Método que busca un emprendedor por su Id.
-            </summary>
-            <param name="id">Id para buscar el emprendedor</param>
-            <returns></returns>
-        </member>
         <member name="T:Library.BuscarEmpresaPorPublicacion">
             <summary>
             Clase que sirve para buscar empresas. Cumple con SRP, ya que hay una clase encargada de
