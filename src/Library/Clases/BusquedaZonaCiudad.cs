@@ -11,7 +11,6 @@ namespace Library
     /// </summary>
     public class BusquedaZonaCiudad : AbstractBuscar
     {
-        
         /// <summary>
         /// Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
         /// </summary>
@@ -32,6 +31,7 @@ namespace Library
                     }
                 }
             }
+
             return result;
         }
     }

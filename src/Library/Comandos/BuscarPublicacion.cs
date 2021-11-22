@@ -49,11 +49,10 @@ namespace Library
         /// <returns></returns>
         public List<Publicacion> EjecutarComando()
         {
-                
             if (TipoBusqueda.ToLower() == "/categoria")
             {   
                 BusquedaCategoria buscador = new BusquedaCategoria();
-                result = buscador.Buscar(this.Busqueda);
+                result = BusquedaCategoria.Buscar(this.Busqueda);
             }
             else if (TipoBusqueda.ToLower() == "/ciudad")
             {

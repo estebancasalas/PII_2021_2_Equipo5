@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="EstadoUsuario.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 namespace Library
 {
     /// <summary>
@@ -11,11 +17,14 @@ namespace Library
         /// Handler que se está ejecutando.
         /// </summary>
         public IHandler handler;
+
         /// <summary>
         /// Paso en el que se encuentra. Se modela con un número entero.
         /// </summary>
         public int step;
+
         /// <summary>
+        /// Initializes a new instance of the <see cref="EstadoUsuario"/> class.
         /// Constructor de la clase.
         /// </summary>
         public EstadoUsuario()
@@ -23,5 +32,5 @@ namespace Library
             this.handler = new NullHandler();
             this.step = 0;
         }
-    }   
+    }
 }

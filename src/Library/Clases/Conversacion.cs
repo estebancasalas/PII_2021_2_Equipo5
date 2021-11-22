@@ -1,6 +1,11 @@
+// -----------------------------------------------------------------------
+// <copyright file="Conversacion.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
-
 
 namespace Library
 {
@@ -10,13 +15,12 @@ namespace Library
     /// </summary>
 public class Conversacion
     {
-        
         /// <summary>
         /// Guarda el id del usuario.
         /// </summary>
         /// <value></value>
         private int id { get; set; }
-        
+
         /// <summary>
         /// Lista donde se guardan los mensajes.
         /// </summary>

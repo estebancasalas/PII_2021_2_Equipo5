@@ -12,18 +12,19 @@
         </member>
         <member name="P:Library.Administrador.Id">
             <summary>
-            Guarda el id de el administrador al registrarse. 
+            Guarda el id de el administrador al registrarse.
             </summary>
             <value></value>
         </member>
         <member name="P:Library.Administrador.Nombre">
             <summary>
-            Guarda el nombre que pone el administrador al registrarse. 
+            Guarda el nombre que pone el administrador al registrarse.
             </summary>
             <value></value>
         </member>
         <member name="M:Library.Administrador.#ctor(System.Int32,System.String)">
             <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Administrador"/>.
             Constructor de la clase Administrador.
             </summary>
             <param name="Id"></param>
@@ -36,7 +37,7 @@
             <param name="nombre">Nombre de la empresa.</param>
             <param name="ubicacion">Ubicación de la empresa.</param>
             <param name="rubro">Rubro de la empresa.</param>
-            <param name="token">Token de invitación creada por el administrador.</param>   
+            <param name="token">Token de invitación creada por el administrador.</param>
         </member>
         <member name="T:Library.BuscarEmprendedorId">
             <summary>
@@ -827,9 +828,9 @@
         <member name="M:Library.InvitarHandler.Handle(Library.Mensaje)">
             <summary>
             Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación 
-            para el mismo?
+            para el mismo?.
             </summary>
-            <param name="mensaje">Indica que se quiere crear una invitación</param>
+            <param name="mensaje">Indica que se quiere crear una invitación.</param>
         </member>
         <member name="T:Library.NullHandler">
             <summary>
