@@ -24,6 +24,7 @@
         </member>
         <member name="M:Library.Administrador.#ctor(System.Int32,System.String)">
             <summary>
+            Initializes a new instance of the <see cref="T:Library.Administrador"/> class.
             Inicializa una nueva instancia de la clase <see cref="T:Library.Administrador"/>.
             Constructor de la clase Administrador.
             </summary>
@@ -38,12 +39,6 @@
             <param name="ubicacion">Ubicación de la empresa.</param>
             <param name="rubro">Rubro de la empresa.</param>
             <param name="token">Token de invitación creada por el administrador.</param>
-        </member>
-        <member name="T:Library.BuscarEmprendedorId">
-            <summary>
-            Clase para buscar un emprendedor por su id. Cumple con SRP, ya que existe una clase que conoce
-            todas las instancias de emprendedor pero no tiene la responsabilidad de buscar.
-            </summary>
         </member>
         <member name="T:Library.BuscarEmpresaPorPublicacion">
             <summary>
@@ -178,14 +173,15 @@
         </member>
         <member name="M:Library.Emprendedor.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String)">
             <summary>
+            Initializes a new instance of the <see cref="T:Library.Emprendedor"/> class.
             Constructor de la clase emprendedor.
             </summary>
-            <param name="id">Id del emprendedor</param>
-            <param name="nombre">Nombre del emprendedor</param>
-            <param name="ubicacion">Ubicación del emprendedor</param>
-            <param name="rubro">Rubro del emprendedor</param>
-            <param name="habilitaciones">Habilitaciones que tiene el emprendedor</param>
-            <param name="especializaciones">Especializaciones que tiene el emprendedor</param>
+            <param name="id">Id del emprendedor.</param>
+            <param name="nombre">Nombre del emprendedor.</param>
+            <param name="ubicacion">Ubicación del emprendedor.</param>
+            <param name="rubro">Rubro del emprendedor.</param>
+            <param name="habilitaciones">Habilitaciones que tiene el emprendedor.</param>
+            <param name="especializaciones">Especializaciones que tiene el emprendedor.</param>
         </member>
         <member name="T:Library.Empresa">
             <summary>
@@ -200,7 +196,7 @@
             </summary>
             <value></value>
         </member>
-        <member name="F:Library.Empresa.ListaEmpresarios">
+        <member name="F:Library.Empresa.listaEmpresarios">
             <summary>
             La ListaEmpresarios se encarga de registrar todos los usuarios que 
             puede tener una misma empresa.
@@ -215,7 +211,7 @@
         </member>
         <member name="P:Library.Empresa.Ubicacion">
             <summary>
-            Guarda la ubicación de la empresa. 
+            Guarda la ubicación de la empresa.
             </summary>
             <value></value>
         </member>
@@ -227,6 +223,7 @@
         </member>
         <member name="M:Library.Empresa.#ctor(System.String,System.String,System.String,System.String)">
             <summary>
+            Initializes a new instance of the <see cref="T:Library.Empresa"/> class.
             Es el constructor que se encarga de crear a la empresa en su totalidad.
             </summary>
             <param name="nombre">Se encarga de guardar el nombre de la empresa dentro del objeto empresa.</param>
@@ -258,11 +255,12 @@
         </member>
         <member name="M:Library.Empresario.#ctor(System.Int32,Library.EstadoUsuario,System.String)">
             <summary>
+            Initializes a new instance of the <see cref="T:Library.Empresario"/> class.
             Método constructor de la clase.
             </summary>
-            <param name="num">Indica el Id del empresario</param>
-            <param name="estado">Indica el estado en el que se encuentra el empresario</param>
-            <param name="nombre">Indica el nombre que tiene el empresario</param>
+            <param name="num">Indica el Id del empresario.</param>
+            <param name="estado">Indica el estado en el que se encuentra el empresario.</param>
+            <param name="nombre">Indica el nombre que tiene el empresario.</param>
         </member>
         <member name="T:Library.EstadoUsuario">
             <summary>
@@ -283,6 +281,7 @@
         </member>
         <member name="M:Library.EstadoUsuario.#ctor">
             <summary>
+            Initializes a new instance of the <see cref="T:Library.EstadoUsuario"/> class.
             Constructor de la clase.
             </summary>
         </member>
@@ -336,11 +335,10 @@
         </member>
         <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
             <summary>
-            
+            Initializes a new instance of the <see cref="T:Library.Material"/> class.
             </summary>
             <param name="Nombre">El nombre del material.</param>
             <param name="Costo">El costo del material.</param>
-            <param name="Cantiadad">La cantidad del material.</param>
             <param name="Unidad">La unidad en la cual se cuantifica el material.</param>
             <param name="Habilitaciones">Las habliitaciones que se necesitan para el material.</param>
             <param name="categoria">La categoría del material.</param>
@@ -356,7 +354,7 @@
             </summary>
         </member>
         <member name="F:Library.Publicacion.Titulo">
-            <summary> 
+            <summary>
             Se encarga de guardar el título de la publicación dentro del objeto publicación.
             </summary>
             <value></value>
@@ -378,47 +376,46 @@
             </summary>
             <value></value>
         </member>
-        <member name="P:Library.Publicacion.Ubicacion">
-            Atributo en dónde se guarda la ubicación del material.
-        </member>
         <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,Library.IUbicacion,Library.Empresa)">
             <summary>
+            Initializes a new instance of the <see cref="T:Library.Publicacion"/> class.
             Constructor de la clase Publicacion.
             </summary>
-            <param name="titulo">Título de la publicación</param>
-            <param name="material">Material que se va a publicar</param>
-            <param name="palabrasClave">Palabras clave para buscar la publicación</param>
-            <param name="frecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material</param>
-            <param name="ubicacion">Ubicación del vendedor</param>
-            <param name="empresa">Nombre de quien vende el material</param>
+            <param name="titulo">Título de la publicación.</param>
+            <param name="material">Material que se va a publicar.</param>
+            <param name="palabrasClave">Palabras clave para buscar la publicación.</param>
+            <param name="frecuenciaDeDisponibilidad">Frecuencia de disponibilidad del material.</param>
+            <param name="ubicacion">Ubicación del vendedor.</param>
+            <param name="empresa">Nombre de quien vende el material.</param>
         </member>
         <member name="T:Library.Transaccion">
             <summary>
             Clase que modela las transacciones entre emprendedores y empresas o viceversa. 
             </summary>
         </member>
-        <member name="F:Library.Transaccion.Vendedor">
+        <member name="F:Library.Transaccion.vendedor">
             <summary>
             El vendedor es un objeto del tipo Empresa.
             </summary>
         </member>
-        <member name="F:Library.Transaccion.Comprador">
+        <member name="F:Library.Transaccion.comprador">
             <summary>
             El Comprador es un objeto de tipo Emprendedor 
             </summary>
         </member>
-        <member name="F:Library.Transaccion.NombreDelMaterial">
+        <member name="F:Library.Transaccion.nombreDelMaterial">
             <summary>
             El NombreDelMaterial es el nombre del material que se vendió o se compró.
             </summary>
         </member>
-        <member name="F:Library.Transaccion.Cantidad">
+        <member name="F:Library.Transaccion.cantidad">
             <summary>
             La cantidad del material que se vendió o se compró.
             </summary>
         </member>
         <member name="M:Library.Transaccion.#ctor(Library.Empresa,Library.Emprendedor,System.String,System.Double)">
             <summary>
+            Initializes a new instance of the <see cref="T:Library.Transaccion"/> class.
             Constructor de la clase.
             </summary>
             <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>
@@ -453,7 +450,7 @@
         </member>
         <member name="P:Library.Ubicacion.CodigoPostal">
             <summary>
-            Propiedad que almacena el código postal. 
+            Propiedad que almacena el código postal.
             </summary>
             <value></value>
         </member>
@@ -471,8 +468,8 @@
         </member>
         <member name="M:Library.Ubicacion.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            Constructor de la clase.
-            </summary>
+            Initializes a new instance of the <see cref="T:Library.Ubicacion"/> class.
+            </summary>Constructor de la clase.
             <param name="pais"></param>
             <param name="ciudad"></param>
             <param name="direccion"></param>
@@ -489,26 +486,26 @@
         </member>
         <member name="M:Library.UbicacionProvider.GetUbicacion(System.String)">
             <summary>
-            GetUbicacion es el método que al pasarle una udirección la convierte en un objeto de tipo IUbicacion. 
+            GetUbicacion es el método que al pasarle una udirección la convierte en un objeto de tipo IUbicacion.
             </summary>
             <param name="ubicacion">Es la dirección que pasa el cliente.</param>
-            <returns></returns>
+            <returns>Retorna la ubicación.</returns>
         </member>
         <member name="T:Library.BuscarPublicacion">
             <summary>
             Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
             devuelve una lista con las coincidencias.
             Además, se deberá preguntar por los parámetros necesarios para la búsqueda.
-            En caso de una búsqueda por más de un tipo, se realizan todas las búsquedas y 
+            En caso de una búsqueda por más de un tipo, se realizan todas las búsquedas y,
             devuelve las coincidencias comunes a todas las búsquedas.
             Esta clase además cumple con el principio SRP, ya que tiene como responsabilidad
             devolver una lista de publicaciones que cumplen con lo buscado, pero delega
-            la responsabilidad de buscar a otras clases. 
+            la responsabilidad de buscar a otras clases.
             </summary>
         </member>
         <member name="F:Library.BuscarPublicacion.TipoBusqueda">
             <summary>
-            Contiene el tipo de búsqueda que se va a realizar
+            Contiene el tipo de búsqueda que se va a realizar.
             </summary>
         </member>
         <member name="F:Library.BuscarPublicacion.Busqueda">
@@ -516,7 +513,7 @@
             Lo que se desea buscar.
             </summary>
         </member>
-        <member name="F:Library.BuscarPublicacion.result">
+        <member name="F:Library.BuscarPublicacion.Result">
             <summary>
             Lista de coincidencias de la búsqueda.
             </summary>
@@ -524,6 +521,7 @@
         </member>
         <member name="M:Library.BuscarPublicacion.#ctor(System.String,System.String)">
             <summary>
+            Initializes a new instance of the <see cref="T:Library.BuscarPublicacion"/> class.
             Constructor de la clase.
             </summary>
             <param name="tipobusqueda"></param>
@@ -531,11 +529,11 @@
         </member>
         <member name="M:Library.BuscarPublicacion.EjecutarComando">
             <summary>
-            EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y 
-            palabras claves). Luego las delega a cada una de las clases que se encargan de 
-            búsqueda, para cumplir con SRP. 
+            EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y,
+            palabras claves). Luego las delega a cada una de las clases que se encargan de,
+            búsqueda, para cumplir con SRP.
             Finalmente, devuelve una lista con todas la publiaciones encontradas, de la búsqueda
-            que se realizó. 
+            que se realizó.
             </summary>
             <returns></returns>
         </member>
@@ -548,7 +546,7 @@
             <summary>
             Método que recorre la lista de transacciones de el usuario y retorna su historial.
             </summary>
-            <param name="id">Nombre de quien quiere ver el historial</param>
+            <param name="id">Nombre de quien quiere ver el historial.</param>
             <returns></returns>
         </member>
         <member name="T:Library.EntaradaDeLaCadena">
@@ -562,31 +560,32 @@
             El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
             </summary>
             <param name="message">Mensaje para mostrar en cosola.</param>
-            <returns></returns>
+            <returns>Debe de er una string.</returns>
         </member>
         <member name="T:Library.LectorTest">
             <summary>
-            LectorTest hereda la clase de EntradaDeLaCadena para simular la interacción con el 
+            LectorTest hereda la clase de EntradaDeLaCadena para simular la interacción con el,
             usuario en los tests.
             Cumple con DIP pues la comunicación es a través de clases de alto nivel y
             abstracciones (Interfaces).
             Cumple SRP pues su única razón de cambio es recibir una línea de la consola.
-            Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput 
-            usar en tiempo de ejecución, dependiendo del objeto que recibe el mensaje GetInput. 
+            Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput,
+            usar en tiempo de ejecución, dependiendo del objeto que recibe el mensaje GetInput.
             </summary>
         </member>
         <member name="M:Library.LectorTest.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
-            Constructor de la clase
+            Initializes a new instance of the <see cref="T:Library.LectorTest"/> class.
+            Constructor de la clase.
             </summary>
-            <param name="dic">diccionario del cual se leen las claves</param>
+            <param name="dic">diccionario del cual se leen las claves.</param>
         </member>
         <member name="M:Library.LectorTest.GetInput(System.String)">
             <summary>
             El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
             </summary>
-            <param name="message">Mensaje que se muestra en consola al usuario</param>
-            <returns></returns>
+            <param name="message">Mensaje que se muestra en consola al usuario.</param>
+            <returns>Debe de ser un string.</returns>
         </member>
         <member name="T:Library.LeerConsola">
             <summary>
@@ -599,14 +598,14 @@
             <summary>
             El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
             </summary>
-            <param name="message">Mensaje que se muestra en consola al usuario</param>
-            <returns></returns>
+            <param name="message">Mensaje que se muestra en consola al usuario.</param>
+            <returns>Debe de ser un string.</returns>
         </member>
         <member name="T:Library.IFormatoSalida">
             <summary>
             Interfaz para implementar una forma de mostrar un string en pantalla. Al ser una interfaz, se busca
             que se cumpla el principio OCP a través del principio LSP. Se pueden extender las capacidades del
-            programa sin modificarlo (por ejemplo agregando otras API), al agregar clases que implementen la 
+            programa sin modificarlo (por ejemplo agregando otras API), al agregar clases que implementen la,
             interfaz y sustituyendo en el programa principal.
             </summary>
         </member>
@@ -615,25 +614,25 @@
             Método para las clases que implementen esta interfaz. Muestra en pantalla el string pasado
             como parámetro.
             </summary>
-            <param name="line">Lo que se muestra en consola</param>
-            <returns></returns>
+            <param name="line">Lo que se muestra en consola.</param>
+            <returns>Debe de ser una string.</returns>
         </member>
         <member name="T:Library.OutputTest">
             <summary>
-            Clase utilizada en los tests, para poder mostrar texto en pantalla al usuario. 
+            Clase utilizada en los tests, para poder mostrar texto en pantalla al usuario.
             </summary>
         </member>
         <member name="M:Library.OutputTest.PrintLine(System.String)">
             <summary>
             Método encargado de mostrar en pantalla.
             </summary>
-            <param name="line">Lo que se va a mostrar</param>
-            <returns></returns>
+            <param name="line">Lo que se va a mostrar.</param>
+            <returns>Debe de ser un string.</returns>
         </member>
         <member name="T:Library.Traductor">
             <summary>
             Clase encargada de modelar un string para ser mostrado en pantalla. Implementa la interfaz
-            IFormatoSalida ya que es una de las clases que muestra información en pantalla. 
+            IFormatoSalida ya que es una de las clases que muestra información en pantalla.
             Al implementar una interfaz, es posible extender los usos sin modificar el programa principal ya que
             depende de una abstracción (patrón Polymorphism).
             </summary>
@@ -642,8 +641,8 @@
             <summary>
             Método encargado de modelar el string pasado como parámetro. Luego, lo muestra en pantalla.
             </summary>
-            <param name="line">Lo que se modela para mostrar en pantalla</param>
-            <returns></returns>
+            <param name="line">Lo que se modela para mostrar en pantalla.</param>
+            <returns>Debe de ser un string.</returns>
         </member>
         <member name="T:Library.BuscarPublicacionHandler">
             <summary>
@@ -651,7 +650,7 @@
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="F:Library.BuscarPublicacionHandler.result">
+        <member name="F:Library.BuscarPublicacionHandler.Result">
             <summary>
             Atributo donde se guarda el resultado.
             </summary>

@@ -15,31 +15,31 @@ namespace Library
     public class Administrador
     {
         /// <summary>
-        /// Guarda el id de el administrador al registrarse.
-        /// </summary>
-        /// <value></value>
-        public int Id { get; set; }
-
-        /// <summary>
-        /// Guarda el nombre que pone el administrador al registrarse.
-        /// </summary>
-        /// <value></value>
-        public string Nombre { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Administrador"/> class.
         /// Inicializa una nueva instancia de la clase <see cref="Administrador"/>.
         /// Constructor de la clase Administrador.
         /// </summary>
-        /// <param name="Id"></param>
-        /// <param name="Nombre"></param>
-        public Administrador(int Id, string Nombre)
+        /// <param name="id">El id con el cual se registra un administrador.</param>
+        /// <param name="nombre">El  con el cual se registra un administrador.</param>
+        public Administrador(int id, string nombre)
         {
-            this.Id = Id;
-            this.Nombre = Nombre;
+            this.Id = id;
+            this.Nombre = nombre;
             ListaAdministradores lista = Singleton<ListaAdministradores>.Instance;
             lista.Add(this);
         }
+
+        /// <summary>
+        /// Gets or sets se guarda el id de el administrador al registrarse.
+        /// </summary>
+        /// <value>Id del administrador.</value>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets guarda el nombre que pone el administrador al registrarse.
+        /// </summary>
+        /// <value>Nombre del administrador.</value>
+        public string Nombre { get; set; }
 
         /// <summary>
         /// Método que crea el objeto empresa y su token de invitación.

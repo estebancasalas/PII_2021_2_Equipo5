@@ -19,8 +19,8 @@ namespace Library
         /// Método para buscar una empresa a partir de una publicación.
         /// </summary>
         /// <param name="nombrePublicacion">Se pasa el nombre de la publicación para buscar la empresa.</param>
-        /// <returns></returns>
-        public Empresa Buscar(string nombrePublicacion)
+        /// <returns>Devuelve la empresa que hizo la publicacion.</returns>
+        public static Empresa Buscar(string nombrePublicacion)
         {
             List<Publicacion> lista = Singleton<RegistroPublicaciones>.Instance.Activas;
             Publicacion publicacion = lista.Find(x => x.Titulo == nombrePublicacion);

@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="ComienzoHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Text;
 
@@ -14,7 +20,7 @@ namespace Library
         /// al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle (Mensaje mensaje)
+        public override void Handle(Mensaje mensaje)
         {
             if (mensaje.Text.ToLower() == "/comandos")
             {

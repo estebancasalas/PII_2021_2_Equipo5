@@ -9,55 +9,13 @@ using System;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela un usario del tipo emprendedor. 
-    /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
+    /// Clase que modela un usario del tipo emprendedor.
+    /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
     /// surjan nuevos tipos de usuario.
     /// </summary>
     public class Emprendedor : IUsuario
     {
-        /// <summary>
-        /// Id del Emprendedor.
-        /// </summary>
-        /// <value></value>
-        public int Id { get; set; }
-
-        /// <summary>
-        /// Atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
-        /// </summary>
-        /// <value></value>
-        public EstadoUsuario Estado { get; set; }
-
-        /// <summary>
-        /// Nombre del emprendedor.
-        /// </summary>
-        /// <value></value>
-        public string Nombre { get; set; }
-
-        /// <summary>
-        /// Ubicación del emprendedor.
-        /// </summary>
-        /// <value></value>
-        public string Ubicacion { get; set; }
-
-        /// <summary>
-        /// Rubro del emprendedor.
-        /// </summary>
-        /// <value></value>
-        public string Rubro { get; set; }
-
-        /// <summary>
-        /// Habilitaciones del emprendedor(Link al documento).
-        /// </summary>
-        /// <value></value>
-        public string Habilitaciones{ get; }
-
-        /// <summary>
-        /// Especializaciones del emprendedor.
-        /// </summary>
-        /// <value></value>
-        public string Especializaciones { get; }
-
-        /// <summary>
+                /// <summary>
         /// Initializes a new instance of the <see cref="Emprendedor"/> class.
         /// Constructor de la clase emprendedor.
         /// </summary>
@@ -76,5 +34,47 @@ namespace Library
             this.Habilitaciones = habilitaciones;
             this.Especializaciones = especializaciones;
         }
-     }
+
+        /// <summary>
+        /// Gets or sets id del Emprendedor.
+        /// </summary>
+        /// <value>Se guarda el Id de el usuario.</value>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
+        /// </summary>
+        /// <value>Se guarda el Estado de la conversación del usuario.</value>
+        public EstadoUsuario Estado { get; set; }
+
+        /// <summary>
+        /// Gets or sets nombre del emprendedor.
+        /// </summary>
+        /// <value>Se guarda el nombre del emprendedor.</value>
+        public string Nombre { get; set; }
+
+        /// <summary>
+        /// Gets or sets ubicación del emprendedor.
+        /// </summary>
+        /// <value>Se guarda la dirección del emprendedor.</value>
+        public string Ubicacion { get; set; }
+
+        /// <summary>
+        /// Gets or sets rubro del emprendedor.
+        /// </summary>
+        /// <value>Se guarda el rubro del emprendedor.</value>
+        public string Rubro { get; set; }
+
+        /// <summary>
+        /// Gets habilitaciones del emprendedor(Link al documento).
+        /// </summary>
+        /// <value>Se guarda las habilitaciones que contiene el emprendedor.</value>
+        public string Habilitaciones { get; }
+
+        /// <summary>
+        /// Gets especializaciones del emprendedor.
+        /// </summary>
+        /// <value>Se guardan las especializaciones del emprendedor.</value>
+        public string Especializaciones { get; }
+    }
 }
