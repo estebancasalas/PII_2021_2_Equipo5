@@ -1,11 +1,16 @@
+// -----------------------------------------------------------------------
+// <copyright file="BusquedaCategoria.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 
 namespace Library
 {
-
     /// <summary>
-    /// Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias 
+    /// Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias
     /// en categoría.
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por categoría.
     /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
@@ -29,6 +34,7 @@ namespace Library
                     result.Add(publicacion);
                 }
             }
+
             return result;
         }
     }

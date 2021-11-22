@@ -44,8 +44,11 @@ namespace Library
                     }
                 }
                 Console.WriteLine($"La cantidad de trabajadores de la empresa es: {lista[i].ListaEmpresarios.Count}");
-                mensaje.Text = Console.ReadLine();
             }
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+            estado = new EstadoUsuario();
             this.GetNext().Handle(mensaje);
         }
     }

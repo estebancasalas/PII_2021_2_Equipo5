@@ -1,6 +1,12 @@
+// -----------------------------------------------------------------------
+// <copyright file="BuscarPublicacionHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Library
 {
@@ -13,23 +19,50 @@ namespace Library
         /// <summary>
         /// Atributo donde se guarda el resultado.
         /// </summary>
+
+        string tipobusqueda;
+
+        string busqueda;
         public List<Publicacion> result;
+
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override void Handle(Mensaje mensaje)
         {
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
             {
-                string tipobusqueda = Input.GetInput("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
 
-                string busqueda = Input.GetInput("Que desea buscar?");
-                
-                BuscarPublicacion buscador = new BuscarPublicacion (tipobusqueda, busqueda);
-                this.result = buscador.EjecutarComando();
-            }
-            this.GetNext().Handle(mensaje);
+                int indice = listaUsuario.Buscar(mensaje.Id);
+                EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+                estado.handler = this;
+                switch (estado.step)
+                {
+                    case 0 :
+                    Console.WriteLine("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
+                    estado.step = estado.step + 1;
+                    break;
+
+                    case 1 :
+                    this.tipobusqueda = mensaje.Text;
+                    Console.WriteLine("Que desea buscar?");
+                    estado.step = estado.step + 1;
+                    break;
+
+                    case 2:
+                    this.busqueda = mensaje.Text;
+                    BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
+                    // hacer metodo mostrar en pantalla y agregarlo aca.
+                    estado = new EstadoUsuario();
+                    break;
+                } 
+            }               
+            else
+            {
+                this.GetNext().Handle(mensaje);
+            }             
         }
     }
 }

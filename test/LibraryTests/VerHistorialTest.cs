@@ -1,7 +1,11 @@
-using NUnit.Framework;
-using Library;
-using System.Collections.Generic;
+// <copyright file="VerHistorialTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 using System;
+using System.Collections.Generic;
+using Library;
+using NUnit.Framework;
 
 namespace LibraryTests
 {
@@ -11,18 +15,7 @@ namespace LibraryTests
     [TestFixture]
     public class VerHistorialTest
     {
-        Mensaje mensaje;
-        ListaTransacciones transacciones = new ListaTransacciones();
-
-        HistorialHandler historial = new HistorialHandler();
-        Dictionary<string, string> diccionario = new Dictionary<string, string>();
-        Dictionary<string, string> diccionario2 = new Dictionary<string, string>();
-        CrearPublicacionHandler publi = new CrearPublicacionHandler();
-        ComprarHandler comprar = new ComprarHandler();
-        // Dictionary<string, string> comprarDicc = new Dictionary<string, string>(); 
-
-
-
+        // Dictionary<string, string> comprarDicc = new Dictionary<string, string>();
 
         /// <summary>
         /// SetUp de los casos de prueba.
@@ -30,10 +23,10 @@ namespace LibraryTests
         [SetUp]
         public void Setup()
         {
-
         }
+
         /// <summary>
-        /// En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de 
+        /// En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de
         /// ids de la empresa.
         /// </summary>
         [Test]

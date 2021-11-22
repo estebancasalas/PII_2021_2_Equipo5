@@ -14,23 +14,6 @@ namespace Library
     public class Empresario : IUsuario
     {
         /// <summary>
-        /// Id del usuario del empresario.
-        /// </summary>
-        /// <value></value>
-        public int Id { get; set; }
-
-        /// <summary>
-        /// Estado en el que se encuentra este usuario para los handlers.
-        /// </summary>
-        /// <value></value>
-        public EstadoUsuario Estado { get; set; }
-
-        /// <summary>
-        /// Nombre que tiene el empresario.
-        /// </summary>
-        public string Nombre { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Empresario"/> class.
         /// Método constructor de la clase.
         /// </summary>
@@ -43,5 +26,23 @@ namespace Library
             this.Estado = estado;
             this.Nombre = nombre;
         }
+
+        /// <summary>
+        /// Gets or sets id del usuario del empresario.
+        /// </summary>
+        /// <value>Guarda el id del empresario.</value>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets estado en el que se encuentra este usuario para los handlers.
+        /// </summary>
+        /// <value>Guarda el estado en el que se encuentra la conversasion con el usuario.</value>
+        public EstadoUsuario Estado { get; set; }
+
+        /// <summary>
+        /// Gets or sets nombre del empresario.
+        /// </summary>
+        /// <value>Guarda el nombre del empresario.</value>
+        public string Nombre { get; set; }
     }
 }
