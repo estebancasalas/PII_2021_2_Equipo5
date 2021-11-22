@@ -64,6 +64,7 @@ namespace Library
             while (mensaje.Text != "/finalizar")
             {
                 //Fijarse si estsa registrado y obtener el IUsuario.
+                
                 Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
                 mensaje.Text = Console.ReadLine();
                 comienzoHandler.Handle(mensaje);//EstadoUsuario estado = esto
