@@ -66,6 +66,6 @@ namespace Library
         /// <value>Guarda el rubro de la empresa.</value>
         public string Rubro { get; set; }
 
-        public List<Empresario> ListaEmpresarios { get => listaEmpresarios; set => listaEmpresarios = value; }
+        public List<Empresario> ListaEmpresarios { get; set; }
     }
 }
