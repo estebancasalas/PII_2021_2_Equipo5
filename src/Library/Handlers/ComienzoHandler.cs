@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="ComienzoHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Text;
 
@@ -14,14 +20,15 @@ namespace Library
         /// al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle (Mensaje mensaje)
+        public override void Handle(Mensaje mensaje)
         {
-            //En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
+            // En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
             if (mensaje.Text.ToLower() == "/start")
             {
-                Input.GetInput("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, para eso escribe /comandos y veras todas tus opciones");
+                this.Input.GetInput("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, para eso escribe /comandos y veras todas tus opciones");
             }
-             this.GetNext().Handle(mensaje);
+
+            this.GetNext().Handle(mensaje);
         }
     }
 }

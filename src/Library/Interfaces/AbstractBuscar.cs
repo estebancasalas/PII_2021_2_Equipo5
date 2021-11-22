@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="AbstractBuscar.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System.Collections.Generic;
 
 namespace Library
@@ -8,6 +14,5 @@ namespace Library
     /// </summary>
     public abstract class AbstractBuscar
     {
-        
     }
 }

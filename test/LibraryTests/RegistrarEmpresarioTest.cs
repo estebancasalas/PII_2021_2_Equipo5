@@ -1,4 +1,4 @@
-// <copyright file="RegistrarEmpresaTest.cs" company="PlaceholderCompany">
+// <copyright file="RegistrarEmpresarioTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -12,11 +12,8 @@ namespace LibraryTests
     /// Casos de prueba para el handler RegistrarEmpresario.
     /// </summary>
     [TestFixture]
-    public class RegistrarEmpresarioTests
+    public class RegistrarEmpresarioTest
     {
-        Mensaje mensaje;
-        RegistrarEmpresarioHandler registrarEmpresario;
-
        /// <summary>
        /// SetUp de los casos de prueba.
        /// </summary>
@@ -28,8 +25,8 @@ namespace LibraryTests
         }
 
         /// <summary>
-        /// En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de 
-        /// ids de la empresa.
+        /// En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a
+        ///  la lista de ids de la empresa.
         /// </summary>
         [Test]
         public void InvitacionValidaTest()

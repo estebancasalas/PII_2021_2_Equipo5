@@ -1,6 +1,12 @@
+// -----------------------------------------------------------------------
+// <copyright file="ComprarHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Library
 {
@@ -17,19 +23,19 @@ namespace Library
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override void Handle(Mensaje mensaje)
         {
-            //En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
+            // En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
             if (mensaje.Text.ToLower() == "/comprar")
             {
-                string nombrePublicacion = Input.GetInput("Ingrese nombre de la publicación: "); 
-                BuscarEmpresaPorPublicacion empresaBuscar = new BuscarEmpresaPorPublicacion(); //BuscarEmpresaPorPublicacion devuelve empresa
-                Empresa empresa = empresaBuscar.Buscar(nombrePublicacion);  //creo objeto tipo empresa y le asigno el BuscarEmpresaPorPublicacion. Lo mismo emprendedor
+                string nombrePublicacion = this.Input.GetInput("Ingrese nombre de la publicación: ");
+                Empresa empresa = BuscarEmpresaPorPublicacion.Buscar(nombrePublicacion);  // creo objeto tipo empresa y le asigno el BuscarEmpresaPorPublicacion. Lo mismo emprendedor
                 ListaEmprendedores listemp = new ListaEmprendedores();
                 Emprendedor emprendedor = listemp.Buscar(mensaje.Id);
                 double cantidad = Convert.ToDouble(Input.GetInput("Ingrese cantidad que desea comrpar: "));
-                Transaccion transaccion = new Transaccion(empresa, emprendedor, nombrePublicacion, cantidad); 
+                Transaccion transaccion = new Transaccion(empresa, emprendedor, nombrePublicacion, cantidad);
                 List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
-                lista.Add(transaccion);    
+                lista.Add(transaccion);
             }
+
              this.GetNext().Handle(mensaje);
         }
     }

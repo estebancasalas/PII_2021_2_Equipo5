@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="IJsonConvertible.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System.Text.Json;
 
 namespace Library
@@ -21,8 +27,5 @@ namespace Library
         /// </summary>
         /// <param name="json">El texto en formato Json a partir del cual asignas las propiedades del objeto.</param>
         public void LoadFromJson(string json);
-        
-    
-        
     }
 }

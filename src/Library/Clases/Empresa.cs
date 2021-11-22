@@ -11,45 +11,12 @@ using System.Text.Json.Serialization;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela un usario del tipo empresa. 
-    /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
+    /// Clase que modela un usario del tipo empresa.
+    /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
     /// surjan nuevos tipos de usuario.
     /// </summary>
     public class Empresa
     {
-        /// <summary>
-        /// Guarda la invitación de la empresa.
-        /// </summary>
-        /// <value></value>
-        public string Invitacion { get; set; }
-
-        /// <summary>
-        /// La ListaEmpresarios se encarga de registrar todos los usuarios que 
-        /// puede tener una misma empresa.
-        /// </summary>
-        /// <value></value>
-        [JsonInclude]
-        private List<Empresario> listaEmpresarios = new List<Empresario>();
-
-        /// <summary>
-        /// Guarda el nombre de la empresa.
-        /// </summary>
-        /// <value></value>
-        public string Nombre { get; set; }
-
-        /// <summary>
-        /// Guarda la ubicación de la empresa.
-        /// </summary>
-        /// <value></value>
-        public string Ubicacion { get; set; }
-
-        /// <summary>
-        /// Guarda el rubro de la empresa.
-        /// </summary>
-        /// <value></value>
-        public string Rubro { get; set; }
-        public List<Empresario> ListaEmpresarios { get => listaEmpresarios; set => listaEmpresarios = value; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Empresa"/> class.
         /// Es el constructor que se encarga de crear a la empresa en su totalidad.
@@ -66,5 +33,39 @@ namespace Library
             this.Rubro = rubro;
             Singleton<ListaEmpresa>.Instance.Add(this);
         }
+
+        /// <summary>
+        /// La ListaEmpresarios se encarga de registrar todos los usuarios que
+        /// puede tener una misma empresa.
+        /// </summary>
+        /// <value></value>
+        [JsonInclude]
+        private List<Empresario> listaEmpresarios = new List<Empresario>();
+
+        /// <summary>
+        /// Gets or sets guarda la invitación de la empresa.
+        /// </summary>
+        /// <value>Guarda la invitacion que la empresa le brinda a los empresarios para unirse.</value>
+        public string Invitacion { get; set; }
+
+        /// <summary>
+        /// Gets or sets guarda el nombre de la empresa.
+        /// </summary>
+        /// <value>Guarda el nombre de la empresa.</value>
+        public string Nombre { get; set; }
+
+        /// <summary>
+        /// Gets or sets guarda la ubicación de la empresa.
+        /// </summary>
+        /// <value>Guarda la ubicacion de la empresa.</value>
+        public string Ubicacion { get; set; }
+
+        /// <summary>
+        /// Gets or sets guarda el rubro de la empresa.
+        /// </summary>
+        /// <value>Guarda el rubro de la empresa.</value>
+        public string Rubro { get; set; }
+
+        public List<Empresario> ListaEmpresarios { get => listaEmpresarios; set => listaEmpresarios = value; }
     }
 }
