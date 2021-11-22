@@ -10,6 +10,17 @@ namespace Library
     /// </summary>
     public class CrearPublicacionHandler : AbstractHandler
     {
+        string nombreMaterial {get; set;}
+        string categoria {get; set;}
+        string unidad {get; set;}
+        double costo {get; set;}
+        double cantidad {get; set;}
+        string habilitaciones {get; set;}
+        string titulo {get; set;}
+        string palabrasClave {get; set;}
+        string frecuencia {get; set;}
+        string localizacion {get; set;}
+
         /// <summary>
         /// Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
         /// datos de materiales y llama a la clase CrearMaterial para cumplir con el SRP. Luego, se
@@ -19,33 +30,99 @@ namespace Library
         public override void Handle(Mensaje mensaje)
         {
             ListaEmpresa lista = new ListaEmpresa();
-            
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/crearpublicacion")
             {
                 if (lista.Verificar(mensaje.Id))
-                {
-                    string nombreDelMaterial = Input.GetInput("Ingrese el material:");
-                    string categoria = Input.GetInput("Ingrese la categoria:");
-                    string unidad = Input.GetInput("Ingrese la unidad con la que cuantifica el material:");
-                    double costo = Convert.ToDouble(Input.GetInput("Ingrese el precio por unidad:"));
-                    double cantidad = Convert.ToDouble(Input.GetInput("Ingrese la cantidad:"));
-                    string habilitaciones = Input.GetInput("Ingrese habilitaciones necesarias para manipular el material:");
-                    Material material = new Material(nombreDelMaterial, costo, cantidad, unidad, habilitaciones, categoria);  
-                    string titulo = Input.GetInput("Ingrese el título:");
-                    string palabrasClave = Input.GetInput("Ingrese palabras claves separadas con ',' : ");
-                    string frecuencia = Input.GetInput("Ingrese frequencia de disponibilidad: ");
-                    string localizacion = Input.GetInput("Ingrese dónde se encuentra: ");
-                    IUbicacionProvider ubicacionProvider = new UbicacionProvider();
-                    IUbicacion ubi = ubicacionProvider.GetUbicacion(localizacion);
-                    Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
-                    Publicacion publicacion = new Publicacion (titulo, material, palabrasClave, frecuencia, ubi, empresa);
+                { 
+                    int indice = listaUsuario.Buscar(mensaje.Id);
+                    EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+                    estado.handler = this;
+                    switch(estado.step)
+                    {
+                        case 0:
+                        Console.WriteLine("Ingrese el material:");
+                        estado.step = estado.step + 1;
+                        break;
+                        
+                        case 1: 
+                        this.nombreMaterial = mensaje.Text;
+                        Console.WriteLine("Ingrese la categoria:");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 2:
+                        this.categoria = mensaje.Text;
+                        Console.WriteLine("Ingrese la unidad con la que cuantifica el material:");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 3:
+                        this.unidad = mensaje.Text;
+                        Console.WriteLine("Ingrese el precio por unidad:");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 4:
+                        this.costo = Convert.ToDouble(mensaje.Text);
+                        Console.WriteLine("Ingrese la cantidad:");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 5:
+                        this.cantidad = Convert.ToDouble(mensaje.Text);
+                        Console.WriteLine("Ingrese habilitaciones necesarias para manipular el material:");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 6:
+                        this.habilitaciones = mensaje.Text;
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 7: 
+                        Console.WriteLine("Ingrese el título:");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 8:
+                        this.titulo = mensaje.Text;
+                        Console.WriteLine("Ingrese palabras claves separadas con ',' : ");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 9:
+                        this.palabrasClave = mensaje.Text;
+                        Console.WriteLine("Ingrese frequencia de disponibilidad: ");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 10:
+                        this.frecuencia = mensaje.Text;
+                        Console.WriteLine("Ingrese dónde se encuentra: ");
+                        estado.step = estado.step + 1;
+                        break;
+
+                        case 11:
+                        this.localizacion = mensaje.Text;
+                        IUbicacionProvider ubicacionProvider = new UbicacionProvider();
+                        IUbicacion ubi = ubicacionProvider.GetUbicacion(localizacion);
+                        Material material = new Material(nombreMaterial, costo, cantidad, unidad, habilitaciones, categoria); 
+                        Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
+                        Publicacion publicacion = new Publicacion (titulo, material, palabrasClave, frecuencia, ubi, empresa);
+                        estado = new EstadoUsuario();
+                        break;
+                    }
                 }
                 else
                 {
-                    Output.PrintLine("Para crear publicaciones debe pertenecer a una empresa.");
+                    Output.PrintLine("Para crear publicaciones debe pertenecer a una empresa. Ingrese un comando nuevo:\n");
                 }
             }
-            this.GetNext().Handle(mensaje);
+            else 
+            {
+                this.GetNext().Handle(mensaje);
+            }
         }
     }
 }
