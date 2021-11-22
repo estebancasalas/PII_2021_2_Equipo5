@@ -36,25 +36,12 @@ namespace Library
         /// </summary>
         private string token;
 
-        /// <summary>
-        /// Variable que guarda la ubicación
-        /// </summary>
-        /// <value></value>
         public string Ubicacion { get => this.ubicacion; set => this.ubicacion = value; }
-        /// <summary>
-        /// Variable que guarda el nombre
-        /// </summary>
-        /// <value></value>
+
         public string Nombre { get => this.nombre; set => this.nombre = value; }
-        /// <summary>
-        ///  Variable que guarda el token
-        /// </summary>
-        /// <value></value>
+
         public string Token { get => this.token; set => this.token = value; }
-        /// <summary>
-        ///  Variable que guarda el rubro
-        /// </summary>
-        /// <value></value>
+
         public string Rubro { get => this.rubro; set => this.rubro = value; }
 
         /// <summary>
