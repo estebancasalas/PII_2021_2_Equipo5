@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="EntradaDeLaCadena.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 
@@ -13,7 +19,7 @@ namespace Library
         /// El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
         /// </summary>
         /// <param name="message">Mensaje para mostrar en cosola.</param>
-        /// <returns></returns>
+        /// <returns>Debe de er una string.</returns>
         public abstract string GetInput(string message);
     }
 }

@@ -1,6 +1,12 @@
+// -----------------------------------------------------------------------
+// <copyright file="BuscarPublicacionHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Library
 {
@@ -13,7 +19,8 @@ namespace Library
         /// <summary>
         /// Atributo donde se guarda el resultado.
         /// </summary>
-        public List<Publicacion> result;
+        public List<Publicacion> Result;
+
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
@@ -22,13 +29,14 @@ namespace Library
         {
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
             {
-                string tipobusqueda = Input.GetInput("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
 
-                string busqueda = Input.GetInput("Que desea buscar?");
-                
-                BuscarPublicacion buscador = new BuscarPublicacion (tipobusqueda, busqueda);
-                this.result = buscador.EjecutarComando();
+                string tipobusqueda = this.Input.GetInput("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
+                string busqueda = this.Input.GetInput("Que desea buscar?");
+                BuscarPublicacion buscador = new BuscarPublicacion(tipobusqueda, busqueda);
+                this.Result = buscador.EjecutarComando();
+
             }
+
             this.GetNext().Handle(mensaje);
         }
     }

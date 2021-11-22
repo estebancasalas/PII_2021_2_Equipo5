@@ -1,4 +1,11 @@
+// -----------------------------------------------------------------------
+// <copyright file="LeerConsola.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
+
 namespace Library
 {
     /// <summary>
@@ -11,8 +18,8 @@ namespace Library
         /// <summary>
         /// El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
         /// </summary>
-        /// <param name="message">Mensaje que se muestra en consola al usuario</param>
-        /// <returns></returns>
+        /// <param name="message">Mensaje que se muestra en consola al usuario.</param>
+        /// <returns>Debe de ser un string.</returns>
         public override string GetInput(string message)
         {
             Console.WriteLine(message);
