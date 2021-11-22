@@ -21,8 +21,10 @@ namespace Library
         /// <param name="mensaje">Indica que se quiere registrar un empresario</param>
         public override void Handle(Mensaje mensaje)
         {
-            if (mensaje.Text.ToLower() == "/empresario")
+            ListaDeUsuario listaUsuarios = new ListaDeUsuario();
+            if (mensaje.Text.ToLower() == "/empresario" && listaUsuarios.EstaRegistrado(mensaje.Id))
             {
+
                 token = Input.GetInput("Ingrese su código de invitación: ");
                 ListaInvitaciones verificador = new ListaInvitaciones(); //Qué pasa si no ingresa nada?
                 if (verificador.VerificarInvitacion(token))

@@ -651,35 +651,6 @@
             </summary>
             <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         </member>
-        <member name="T:Library.CrearUsuarioHandler">
-            <summary>
-            Handler encargado de crear un usuario. Implementa AbstractHandler porque interactúa con
-            el usuario. Único Handler que tiene dos atributos Next, se envía el mensaje a uno de ellos
-            en base a si el usuario está previamente registrado. Esto es para que no se saltee la verificación
-            de usuario. De no ser por ambos Next, se podrían duplicar los usuarios.
-            </summary>
-        </member>
-        <member name="F:Library.CrearUsuarioHandler.Next2">
-            <summary>
-            Atributo del segundo Next.
-            </summary>
-        </member>
-        <member name="M:Library.CrearUsuarioHandler.#ctor(Library.AbstractHandler,Library.IHandler)">
-            <summary>
-            Constructor de la clase.
-            </summary>
-            <param name="next">Handler de la subcadena</param>
-            <param name="next2">Handler siguiente en la cadena principal</param>
-        </member>
-        <member name="M:Library.CrearUsuarioHandler.Handle(Library.Mensaje)">
-            <summary>
-            Método que interpreta el mensaje. Si el mensaje es "/CrearUsuario", el método se encarga de 
-            verificar que la Id no esté previamente registrada. En caso de que no lo esté, se envía el 
-            mensaje a uno de los siguientes Handlers. 
-            Si el mensaje es diferente a "/CrearUsuario", se manda el mensaje a otro Handler.
-            </summary>
-            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        </member>
         <member name="T:Library.EmpresaCantidadTrabajadores">
             <summary>
             Handler que muestra la cantidad de trabajadores que hay en una empresa. Implementa IHandler
@@ -1034,7 +1005,7 @@
             Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
             </summary>
         </member>
-        <member name="F:Library.ListaDeUsuario.IdUsuarios">
+        <member name="F:Library.ListaDeUsuario.ListaUsuarios">
             <summary>
             Lista que contiene a todos los ususarios.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.

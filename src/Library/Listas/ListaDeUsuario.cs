@@ -16,12 +16,17 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
-        public List<IUsuario> IdUsuarios = Singleton<List<IUsuario>>.Instance; 
+        public List<IUsuario> ListaUsuarios = Singleton<List<IUsuario>>.Instance; 
         //En vez de int IUsuario.
         public bool EstaRegistrado(int id)
         {
-            IUsuario usuario = this.IdUsuarios.Find(x => x.Id == id);
+            IUsuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
             return usuario != null;
+        }
+        public int Buscar(int id)
+        {
+            IUsuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
+            return this.ListaUsuarios.IndexOf(usuario);
         }
         /// <summary>
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
@@ -41,7 +46,7 @@ namespace Library
         {
             List<IUsuario> listaUsers = new List<IUsuario>();
             listaUsers = JsonSerializer.Deserialize<List<IUsuario>>(json);
-            this.IdUsuarios = listaUsers;
+            this.ListaUsuarios = listaUsers;
         }
         /// <summary>
         /// Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
@@ -52,7 +57,7 @@ namespace Library
         /// <param name="Id"></param>
         public void Add(IUsuario usuario)
         {
-            this.IdUsuarios.Add(usuario);
+            this.ListaUsuarios.Add(usuario);
         }
     }
     // Checkear si cuando se registran se agregan idSSS.
