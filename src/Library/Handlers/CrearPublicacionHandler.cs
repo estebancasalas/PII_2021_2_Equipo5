@@ -25,8 +25,11 @@ namespace Library
                 if (lista.Verificar(mensaje.Id))
                 {
                     string nombreDelMaterial = Input.GetInput("Ingrese el material:");
+
                     string categoria = Input.GetInput("Ingrese la categoria:");
+
                     string unidad = Input.GetInput("Ingrese la unidad con la que cuantifica el material:");
+                    
                     double costo = Convert.ToDouble(Input.GetInput("Ingrese el precio por unidad:"));
                     double cantidad = Convert.ToDouble(Input.GetInput("Ingrese la cantidad:"));
                     string habilitaciones = Input.GetInput("Ingrese habilitaciones necesarias para manipular el material:");

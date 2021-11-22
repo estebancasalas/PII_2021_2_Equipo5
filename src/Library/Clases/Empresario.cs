@@ -37,12 +37,11 @@ namespace Library
         /// <param name="num">Indica el Id del empresario.</param>
         /// <param name="estado">Indica el estado en el que se encuentra el empresario.</param>
         /// <param name="nombre">Indica el nombre que tiene el empresario.</param>
-        public Empresario(int num, EstadoUsuario estado, string nombre, int id)
+        public Empresario(int num, EstadoUsuario estado, string nombre)
         {
             this.Id = num;
             this.Estado = estado;
             this.Nombre = nombre;
-            this.Id = id;
         }
     }
 }
