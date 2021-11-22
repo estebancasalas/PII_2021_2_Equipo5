@@ -12,20 +12,19 @@ namespace Library
     /// </summary>
     public class BusquedaCategoria : AbstractBuscar
     {
-        
         /// <summary>
         /// Toma como parámetro una categoría y recorre la lista de publicaciones buscando coincidencias.
         /// </summary>
         /// <param name="categoria">Categoria del material que se quiere buscar.</param>
         /// <returns>Lista de coincidencias.</returns>
-        public List<Publicacion> Buscar(string categoria)
+        public static List<Publicacion> Buscar(string categoria)
         {
             List<Publicacion> result = new List<Publicacion>();
             List<Publicacion> lista = Singleton<RegistroPublicaciones>.Instance.Activas;
 
-            foreach (Publicacion publicacion in lista) 
+            foreach (Publicacion publicacion in lista)
             {
-                if (publicacion.Material.Categoria.Contains(categoria))  
+                if (publicacion.Material.Categoria.Contains(categoria))
                 {
                     result.Add(publicacion);
                 }

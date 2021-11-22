@@ -60,7 +60,7 @@ namespace Library
             registroPublicaciones.LoadFromJson(publicaciones);
             
             Administrador admin = new Administrador(1000, "Admin");
-            admin.CrearInvitacion("Empresa1", "Montevideo", "Vet", "12344321");
+            Administrador.CrearInvitacion("Empresa1", "Montevideo", "Vet", "12344321");
             while (mensaje.Text != "/finalizar")
             {
                 //Fijarse si estsa registrado y obtener el IUsuario.
