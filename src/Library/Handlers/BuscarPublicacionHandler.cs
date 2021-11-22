@@ -19,7 +19,11 @@ namespace Library
         /// <summary>
         /// Atributo donde se guarda el resultado.
         /// </summary>
-        public List<Publicacion> Result;
+
+        string tipobusqueda;
+
+        string busqueda;
+        public List<Publicacion> result;
 
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
@@ -27,17 +31,38 @@ namespace Library
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override void Handle(Mensaje mensaje)
         {
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
             {
 
-                string tipobusqueda = this.Input.GetInput("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
-                string busqueda = this.Input.GetInput("Que desea buscar?");
-                BuscarPublicacion buscador = new BuscarPublicacion(tipobusqueda, busqueda);
-                this.Result = buscador.EjecutarComando();
+                int indice = listaUsuario.Buscar(mensaje.Id);
+                EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+                estado.handler = this;
+                switch (estado.step)
+                {
+                    case 0 :
+                    Console.WriteLine("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
+                    estado.step = estado.step + 1;
+                    break;
 
-            }
+                    case 1 :
+                    this.tipobusqueda = mensaje.Text;
+                    Console.WriteLine("Que desea buscar?");
+                    estado.step = estado.step + 1;
+                    break;
 
-            this.GetNext().Handle(mensaje);
+                    case 2:
+                    this.busqueda = mensaje.Text;
+                    BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
+                    // hacer metodo mostrar en pantalla y agregarlo aca.
+                    estado = new EstadoUsuario();
+                    break;
+                } 
+            }               
+            else
+            {
+                this.GetNext().Handle(mensaje);
+            }             
         }
     }
 }

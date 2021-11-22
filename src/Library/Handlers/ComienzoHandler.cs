@@ -22,12 +22,25 @@ namespace Library
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override void Handle(Mensaje mensaje)
         {
-            // En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
-            if (mensaje.Text.ToLower() == "/start")
+            if (mensaje.Text.ToLower() == "/comandos")
             {
-                this.Input.GetInput("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, para eso escribe /comandos y veras todas tus opciones");
+                StringBuilder comandos = new StringBuilder();
+                comandos.Append("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, los comandos disponibles son: ")
+                        .Append("/Como empresa tus comandos son: \n")
+                        .Append("/empresario\n")
+                        .Append("/crearpublicacion\n")
+                        .Append("/cantidadtrabajadores\n")
+                        .Append("/crearinvitacion\n")
+                        .Append("/historial\n")
+                        .Append("/finalizar\n")
+                        .Append("/Como emprendedor tus comandos son: \n")
+                        .Append("/emprendedor\n")
+                        .Append("/buscarpublicacion\n")
+                        .Append("/historial\n")
+                        .Append("/comprar\n")
+                        .Append("/finalizar\n");
+            Console.WriteLine(comandos.ToString());        
             }
-
             this.GetNext().Handle(mensaje);
         }
     }
