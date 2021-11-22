@@ -1,6 +1,12 @@
+// -----------------------------------------------------------------------
+// <copyright file="InvitarHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Library
 {
@@ -8,30 +14,38 @@ namespace Library
     /// Handler para crear una invitacion. Implementa AbstractHandler porque la interacción es
     /// con el usuario.
     /// </summary>
-
     public class InvitarHandler : AbstractHandler
     {
         /// <summary>
         /// Nombre de la emrpesa.
         /// </summary>
-        public string nombre;
+        private string nombre;
+
         /// <summary>
         /// Ubicación de la empresa.
         /// </summary>
-        public string ubicacion;
+        private string ubicacion;
+
         /// <summary>
         /// Rubro de la empresa.
         /// </summary>
-        public string rubro;
+        private string rubro;
+
         /// <summary>
         /// Token de invitación.
         /// </summary>
-        public string token;
+        private string token;
+
+        public string Ubicacion { get => this.ubicacion; set => this.ubicacion = value; }
+        public string Nombre { get => this.nombre; set => this.nombre = value; }
+        public string Token { get => this.token; set => this.token = value; }
+        public string Rubro { get => this.rubro; set => this.rubro = value; }
+
         /// <summary>
         /// Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación 
-        /// para el mismo?
+        /// para el mismo?.
         /// </summary>
-        /// <param name="mensaje">Indica que se quiere crear una invitación</param>
+        /// <param name="mensaje">Indica que se quiere crear una invitación.</param>
         public override void Handle(Mensaje mensaje)
         {
             if (mensaje.Text.ToLower() == "/crearinvitacion")
@@ -39,16 +53,16 @@ namespace Library
                 List<Administrador> lista = Singleton<ListaAdministradores>.Instance.Administradores;
                 bool notfound = true;
                 int i = 0;
-                while (notfound && i<lista.Count)
+                while (notfound && i < lista.Count)
                 {
                     if (lista[i].Id == mensaje.Id)
                     {
                         notfound = false;
-                        nombre = Input.GetInput("nombre empresa");
-                        ubicacion = Input.GetInput("ubicacion de la empresa");
-                        rubro = Input.GetInput("rubro de la empresa");
-                        token = Input.GetInput("Codigo de invitacion");
-                        lista[i].CrearInvitacion(nombre, ubicacion, rubro, token);
+                        this.Nombre = this.Input.GetInput("nombre empresa");
+                        this.Ubicacion = this.Input.GetInput("ubicacion de la empresa");
+                        this.Rubro = this.Input.GetInput("rubro de la empresa");
+                        this.Token = this.Input.GetInput("Codigo de invitacion");
+                        Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token);
                     }
                     else
                     {
@@ -56,6 +70,7 @@ namespace Library
                     }
                 }
             }
+
             this.GetNext().Handle(mensaje);
         }
     }

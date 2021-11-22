@@ -34,13 +34,13 @@ namespace LibraryTests
         [Test]
         public void RegistrarEmprendedorTest()
         {
-            Mensaje mensaje = new Mensaje(1234,"mensaje");
+            Mensaje mensaje = new Mensaje(1234,"/emprendedor");
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             emprendedor.Input = lector;
             emprendedor.SetNext(new NullHandler());
             emprendedor.Handle(mensaje);
-             List <Emprendedor> listaEmprendedor = Singleton<ListaEmprendedores>.Instance.Emprendedores;
-            Assert.That(listaEmprendedor.Count>0,Is.True);
+            ListaEmprendedores listaEmprendedor = new ListaEmprendedores();
+            Assert.AreNotEqual(listaEmprendedor.Buscar(mensaje.Id), null);
         }
     }
 }

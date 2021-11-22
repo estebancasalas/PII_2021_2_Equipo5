@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="Ubicacion.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 namespace Library
 {
     /// <summary>
@@ -11,41 +17,41 @@ namespace Library
         /// Propiedad que almacena el País.
         /// </summary>
         /// <value></value>
-        public string Pais { get; set;} = "Uruguay";
+        public string Pais { get; set; } = "Uruguay";
 
         /// <summary>
         /// Propiedad que almacena la Ciudad.
         /// </summary>
         /// <value></value>
-        public string Ciudad { get; set;} = "Montevideo";
+        public string Ciudad { get; set; } = "Montevideo";
 
         /// <summary>
         /// Propiedad que almacena la dirección.
         /// </summary>
         /// <value></value>
-        public string Direccion { get; set;} = "";
+        public string Direccion { get; set; } = "";
 
         /// <summary>
-        /// Propiedad que almacena el código postal. 
+        /// Propiedad que almacena el código postal.
         /// </summary>
         /// <value></value>
-        public string CodigoPostal { get; set;} = "";
+        public string CodigoPostal { get; set; } = "";
 
         /// <summary>
         /// Propiedad que almacena la Latitud de las coordenadas.
         /// </summary>
         /// <value></value>
-        public string Latitud { get; set;} = "";
+        public string Latitud { get; set; } = "";
 
         /// <summary>
         /// Propiedad que almacena la Longitud de las coordenadas.
         /// </summary>
         /// <value></value>
-        public string Longitud { get; set;} = "";
+        public string Longitud { get; set; } = "";
 
         /// <summary>
-        /// Constructor de la clase.
-        /// </summary>
+        /// Initializes a new instance of the <see cref="Ubicacion"/> class.
+        /// </summary>Constructor de la clase.
         /// <param name="pais"></param>
         /// <param name="ciudad"></param>
         /// <param name="direccion"></param>
@@ -61,8 +67,5 @@ namespace Library
             this.Latitud = latitud;
             this.Longitud = longitud;
         }
-
-
-
     }
 }

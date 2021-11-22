@@ -16,7 +16,7 @@ namespace Library
         /// <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
         public override void Handle(Mensaje mensaje)
         {
-            if (mensaje.Text.ToLower() == "/Finalizar")
+            if (mensaje.Text.ToLower() == "/finalizar")
             {
                 Output.PrintLine("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
                 this.Next2.Handle(mensaje); //Next2 = NullHandler
@@ -26,7 +26,10 @@ namespace Library
                 this.GetNext().Handle(mensaje);  //Que vuelva al primer handler
             }
         }
-
+        /// <summary>
+        /// Constructor de la clase. 
+        /// </summary>
+        /// <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro</param>
         public FinalizarHandler(IHandler handler)
         {
             this.SetNext(handler);

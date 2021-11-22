@@ -19,7 +19,7 @@ namespace Library
         /// Método que evalúa el mensaje. Busca la empresa y muestra la cantidad de trabajadores que tiene.
         /// </summary>
         /// <param name="mensaje">Contiene el Id con el que se encuentra la empresa deseada.</param>
-        public void Handle(Mensaje mensaje)
+        public override void Handle(Mensaje mensaje)
         {
             if (mensaje.Text.ToLower() == "/cantidadtrabajadores")
             {

@@ -27,7 +27,12 @@ namespace Library
         {
             this.Transacciones.Add(transaccion);
         }
-
+        /// <summary>
+        /// Método que devuelve una lista con todas las transacciones hechas con ese id. Se busca cumplir
+        /// con Expert, ya que esta clase es la que contiene toda la información de las transacciones.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<Transaccion> Buscar(int id)
         {
             List<Transaccion> resultado = new List<Transaccion>();

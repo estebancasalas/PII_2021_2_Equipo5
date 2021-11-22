@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -7,75 +8,50 @@ namespace Library
     /// Clase que contiene una lista en la cual están todas las empresas. 
     /// Cumple con el principio SRP ya que su única responsabilidad es conocer los empresas.
     /// </summary>
-    public class ListaEmpresa: IJsonConvertible
+    public class 
+    ListaEmpresa: IJsonConvertible
     {
+        
         /// <summary>
         /// Lista que contiene todas las empresas registradas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
+        [JsonInclude]
         public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
-
+        /// <summary>
+        /// Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la 
+        /// que conoce a todas las empresas (patrón Expert).
+        /// </summary>
+        /// <param name="id">Id del empresario a verificar</param>
+        /// <returns></returns>
         public bool Verificar(int id)
         {
             int i = 0;
-            int j = 0;
-            bool notfound = false;
-            while (i < Empresas.Count && !notfound)
+            Empresario empresario = null; 
+            while (i<this.Empresas.Count && empresario == null)
             {
-                while (j<Empresas[i].ListaEmpresarios.Count && Empresas[i].ListaEmpresarios[j].Id != id)
-                {
-                    j++;
-                }
-                if (j >= Empresas[i].ListaEmpresarios.Count)
-                {
-                    i++;
-                    j = 0;
-                }
-                else
-                {
-                    notfound = true;
-                }
+               empresario = this.Empresas[i].ListaEmpresarios.Find(x=> x.Id == id);
+               i++;
             }
-            return notfound;
+            return empresario != null;
         }
         /// <summary>
-        /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada.
+        /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada. Se incluye en esta 
+        /// clase ya que es la que conoce a todas las empresas (patrón Expert).
         /// </summary>
         /// <param name="id">id de la empresa deseada</param>
         /// <returns></returns>
         public Empresa Buscar(int id)
         {
-            Empresa empresa;
             int i = 0;
-            int j = 0;
-            bool notfound = false;
-            while (i < Empresas.Count && !notfound)
+            Empresario empresario = null; 
+            while (i<this.Empresas.Count && empresario == null)
             {
-                while (j<Empresas[i].ListaEmpresarios.Count && Empresas[i].ListaEmpresarios[j].Id != id)
-                {
-                   j++;
-                }
-                if (j >= Empresas[i].ListaEmpresarios.Count)
-                {
-                    i++;
-                    j = 0;
-                }
-                else
-                {
-                    notfound = true;
-                }
+               empresario = this.Empresas[i].ListaEmpresarios.Find(x=> x.Id == id);
+               i++;
             }
-            if (notfound)
-            {
-                empresa = Empresas[i];
-                return empresa;
-            }
-            else
-            {
-                return null;
-            }
-            
+            return this.Empresas[i-1];            
         }
 
         /// <summary>

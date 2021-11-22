@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="Transaccion.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 
@@ -11,20 +17,30 @@ namespace Library
         /// <summary>
         /// El vendedor es un objeto del tipo Empresa.
         /// </summary>
-        public Empresa Vendedor; 
+        private Empresa vendedor;
+
         /// <summary>
         /// El Comprador es un objeto de tipo Emprendedor 
         /// </summary>
-        public Emprendedor Comprador; 
+        private Emprendedor comprador;
+
         /// <summary>
         /// El NombreDelMaterial es el nombre del material que se vendió o se compró.
         /// </summary>
-        public string NombreDelMaterial;
+        private string nombreDelMaterial;
+
         /// <summary>
         /// La cantidad del material que se vendió o se compró.
         /// </summary>
-        public double Cantidad; 
+        private double cantidad;
+
+        public Empresa Vendedor { get => vendedor; set => vendedor = value; }
+        public Emprendedor Comprador { get => comprador; set => comprador = value; }
+        public string NombreDelMaterial { get => nombreDelMaterial; set => nombreDelMaterial = value; }
+        public double Cantidad { get => cantidad; set => cantidad = value; }
+
         /// <summary>
+        /// Initializes a new instance of the <see cref="Transaccion"/> class.
         /// Constructor de la clase.
         /// </summary>
         /// <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>

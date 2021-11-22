@@ -23,8 +23,8 @@ namespace Library
                 string nombrePublicacion = Input.GetInput("Ingrese nombre de la publicación: "); 
                 BuscarEmpresaPorPublicacion empresaBuscar = new BuscarEmpresaPorPublicacion(); //BuscarEmpresaPorPublicacion devuelve empresa
                 Empresa empresa = empresaBuscar.Buscar(nombrePublicacion);  //creo objeto tipo empresa y le asigno el BuscarEmpresaPorPublicacion. Lo mismo emprendedor
-                BuscarEmprendedorId emprendedorBuscar = new BuscarEmprendedorId();
-                Emprendedor emprendedor = emprendedorBuscar.Buscar(mensaje.Id);
+                ListaEmprendedores listemp = new ListaEmprendedores();
+                Emprendedor emprendedor = listemp.Buscar(mensaje.Id);
                 double cantidad = Convert.ToDouble(Input.GetInput("Ingrese cantidad que desea comrpar: "));
                 Transaccion transaccion = new Transaccion(empresa, emprendedor, nombrePublicacion, cantidad); 
                 List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
