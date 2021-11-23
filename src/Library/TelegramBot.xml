@@ -98,24 +98,6 @@
             <param name="ubicacion">Nombre de la zona.</param>
             <returns></returns>
         </member>
-        <member name="T:Library.Conversacion">
-            <summary>
-            La clase conversación se encarga de llevar el conteo de mensajes de cada uno de los ususarios.
-            Esta clase está pensada para la proxima entrega, nos va ayudar a poder identificar el estado de la conversación.
-            </summary>
-        </member>
-        <member name="F:Library.Conversacion.mensajes">
-            <summary>
-            Lista donde se guardan los mensajes.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Library.Conversacion.AgregarMensaje(System.String)">
-            <summary>
-            Método encargado de agregar el mensaje enviado como parámetro a la lista de mensajes.
-            </summary>
-            <param name="mensaje">Mensaje a agregar en la conversación.</param>
-        </member>
         <member name="T:Library.Emprendedor">
             <summary>
             Clase que modela un usario del tipo emprendedor.
@@ -123,7 +105,6 @@
             surjan nuevos tipos de usuario.
             </summary>
         </member>
-
         <member name="M:Library.Emprendedor.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.Emprendedor"/> class.
@@ -264,42 +245,54 @@
             Esta clase se encarga del modelado del material.
             </summary>
         </member>
+        <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Material"/>.
+            Initializes a new instance of the <see cref="T:Library.Material"/> class.
+            </summary>
+            <param name="nombre">El nombre del material.</param>
+            <param name="costo">El costo del material.</param>
+            <param name="cantidad">LA cantidad de material.</param>
+            <param name="unidad">La unidad en la cual se cuantifica el material.</param>
+            <param name="habilitaciones">Las habliitaciones que se necesitan para el material.</param>
+            <param name="categoria">La categoría del material.</param>
+        </member>
         <member name="P:Library.Material.Nombre">
             <summary>
-            Se encarga de guardar el nombre del material dentro del objeto material.
+            Obtiene o establece el nombre de el material.
             </summary>
-            <value></value>
+            <value>Se guarda el nombre del material.</value>
         </member>
         <member name="P:Library.Material.Costo">
             <summary>
-            Se encarga de guardar el costo del material dentro del objeto material.
+            Obtiene gets se encarga de guardar el costo del material dentro del objeto material.
             </summary>
-            <value></value>
+            <value>Se guarda el valor del costo.</value>
         </member>
         <member name="P:Library.Material.Cantidad">
             <summary>
-            Se encarga de guardar la cantidad que existe del mismo dentro del objeto material.
+            Obtiene gets se encarga de guardar la cantidad que existe del mismo dentro del objeto material.
             </summary>
-            <value></value>
+            <value>Guarda la cantidad del material.</value>
         </member>
         <member name="P:Library.Material.Unidad">
             <summary>
-            Se encarga de guardar la unidad en la cual se pesa el material dentro del objeto material.
+            Obtiene la unidad que se encarga de guardar la unidad en la cual se pesa el material dentro del objeto material.
             </summary>
-            <value></value>
+            <value>Guarda la unidad de la cantidad del material.</value>
         </member>
         <member name="P:Library.Material.Habilitaciones">
             <summary>
-            Se encarga de guardar las habliitaciones, que se necesitan para obtener el material, dentro del objeto material.
+            Obtiene se encarga de guardar las habliitaciones, que se necesitan para obtener el material, dentro del objeto material.
             Link al documento.
             </summary>
-            <value></value>
+            <value>Guarda las habilitaciones para obtener el material.</value>
         </member>
         <member name="P:Library.Material.Categoria">
             <summary>
-            Se encarga de guardar la categoría del material dentro del objeto material.
+            Obtiene gets se encarga de guardar la categoría del material dentro del objeto material.
             </summary>
-            <value></value>
+            <value>Guarda la categoria del material.</value>
         </member>
         <member name="F:Library.Material.PosiblesCategorias">
             <summary>
@@ -307,48 +300,10 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Library.Material"/> class.
-            </summary>
-            <param name="Nombre">El nombre del material.</param>
-            <param name="Costo">El costo del material.</param>
-            <param name="Unidad">La unidad en la cual se cuantifica el material.</param>
-            <param name="Habilitaciones">Las habliitaciones que se necesitan para el material.</param>
-            <param name="categoria">La categoría del material.</param>
-        </member>
         <member name="T:Library.Publicacion">
             <summary>
-            Clase que modela un usario del tipo publicación. 
+            Clase que modela un usario del tipo publicación.
             </summary>
-        </member>
-        <member name="F:Library.Publicacion.Vendedor">
-            <summary>
-            Nombre de quien hace la publicación.
-            </summary>
-        </member>
-        <member name="F:Library.Publicacion.Titulo">
-            <summary>
-            Se encarga de guardar el título de la publicación dentro del objeto publicación.
-            </summary>
-            <value></value>
-        </member>
-        <member name="F:Library.Publicacion.Material">
-            <summary>
-            Se encarga de guardar el material de la publicación dentro del objeto publicación.
-            </summary>
-            <value></value>
-        </member>
-        <member name="F:Library.Publicacion.PalabrasClave">
-            <summary>
-            Se encarga de guardar las palabras claves para lograr una búsqueda efectiva dentro del objeto publicación.
-            </summary>
-        </member>
-        <member name="F:Library.Publicacion.FrecuenciaDeDisponibilidad">
-            <summary>
-            Permite conocer cada cuánto tiempo se genera el mismo y los guarda en el objeto material. 
-            </summary>
-            <value></value>
         </member>
         <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,Library.IUbicacion,Library.Empresa)">
             <summary>
@@ -362,9 +317,37 @@
             <param name="ubicacion">Ubicación del vendedor.</param>
             <param name="empresa">Nombre de quien vende el material.</param>
         </member>
+        <member name="P:Library.Publicacion.Vendedor">
+            <summary>
+            Gets or sets nombre de quien hace la publicación.
+            </summary>
+        </member>
+        <member name="P:Library.Publicacion.Titulo">
+            <summary>
+            Se encarga de guardar el título de la publicación dentro del objeto publicación.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Publicacion.Material">
+            <summary>
+            Se encarga de guardar el material de la publicación dentro del objeto publicación.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Publicacion.PalabrasClave">
+            <summary>
+            Se encarga de guardar las palabras claves para lograr una búsqueda efectiva dentro del objeto publicación.
+            </summary>
+        </member>
+        <member name="P:Library.Publicacion.FrecuenciaDeDisponibilidad">
+            <summary>
+            Permite conocer cada cuánto tiempo se genera el mismo y los guarda en el objeto material.
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Library.Transaccion">
             <summary>
-            Clase que modela las transacciones entre emprendedores y empresas o viceversa. 
+            Clase que modela las transacciones entre emprendedores y empresas o viceversa.
             </summary>
         </member>
         <member name="F:Library.Transaccion.vendedor">
@@ -372,24 +355,23 @@
             El vendedor es un objeto del tipo Empresa.
             </summary>
         </member>
-        <member name="F:Library.Transaccion.comprador">
+        <member name="F:Library.Transaccion.Comprador">
             <summary>
-            El Comprador es un objeto de tipo Emprendedor 
+            El Comprador es un objeto de tipo Emprendedor.
             </summary>
         </member>
-        <member name="F:Library.Transaccion.nombreDelMaterial">
+        <member name="F:Library.Transaccion.NombreDelMaterial">
             <summary>
             El NombreDelMaterial es el nombre del material que se vendió o se compró.
             </summary>
         </member>
-        <member name="F:Library.Transaccion.cantidad">
+        <member name="F:Library.Transaccion.Cantidad">
             <summary>
             La cantidad del material que se vendió o se compró.
             </summary>
         </member>
         <member name="M:Library.Transaccion.#ctor(Library.Empresa,Library.Emprendedor,System.String,System.Double)">
             <summary>
-            Initializes a new instance of the <see cref="T:Library.Transaccion"/> class.
             Constructor de la clase.
             </summary>
             <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>
@@ -620,7 +602,7 @@
         </member>
         <member name="T:Library.BuscarPublicacionHandler">
             <summary>
-            Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque 
+            Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque
             interactúa con el usuario.
             </summary>
         </member>
@@ -696,9 +678,9 @@
         </member>
         <member name="P:Library.EmpresaCantidadTrabajadores.Next">
             <summary>
-            Siguiente Handler en la cadena.
+            Gets or sets siguiente Handler en la cadena.
             </summary>
-            <value></value>
+            <value>Guarda el handler que sigue.</value>
         </member>
         <member name="M:Library.EmpresaCantidadTrabajadores.Handle(Library.Mensaje)">
             <summary>
@@ -720,9 +702,10 @@
         </member>
         <member name="M:Library.FinalizarHandler.#ctor(Library.IHandler)">
             <summary>
-            Constructor de la clase. 
+            Initializes a new instance of the <see cref="T:Library.FinalizarHandler"/> class.
+            Constructor de la clase.
             </summary>
-            <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro</param>
+            <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro.</param>
         </member>
         <member name="T:Library.HistorialHandler">
             <summary>
@@ -730,14 +713,14 @@
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="F:Library.HistorialHandler.resultado">
+        <member name="P:Library.HistorialHandler.Resultado">
             <summary>
-            Atributo donde se guarda el resultado.
+            Gets or sets atributo donde se guarda el resultado.
             </summary>
         </member>
         <member name="M:Library.HistorialHandler.Handle(Library.Mensaje)">
             <summary>
-            Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre 
+            Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre
             al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
             se envía al siguiente Handler.
             </summary>
@@ -771,7 +754,7 @@
         </member>
         <member name="M:Library.InvitarHandler.Handle(Library.Mensaje)">
             <summary>
-            Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación 
+            Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación
             para el mismo?.
             </summary>
             <param name="mensaje">Indica que se quiere crear una invitación.</param>
@@ -789,11 +772,10 @@
         </member>
         <member name="M:Library.RegistrarEmpresarioHandler.Handle(Library.Mensaje)">
             <summary>
-            Método encargado de verificar si la invitación es válida. En caso de que lo sea y el 
+            Método encargado de verificar si la invitación es válida. En caso de que lo sea y el
             empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
-            es una invitación válida.S
+            es una invitación válida.
             </summary>
-            <param name="mensaje">Indica que se quiere registrar un empresario</param>
         </member>
         <member name="T:Library.AbstractHandler">
             <summary>
@@ -804,9 +786,9 @@
         </member>
         <member name="P:Library.AbstractHandler.Next">
             <summary>
-            Las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
+            Gets or sets las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
             </summary>
-            <value></value>
+            <value>Se guarda el next handler.</value>
         </member>
         <member name="F:Library.AbstractHandler.Input">
             <summary>
@@ -828,26 +810,27 @@
             <summary>
             Setter para el siguiente handler en la cadena.
             </summary>
-            <param name="handler">Se recibe por parámetro el siguiente handler</param>
-            <returns></returns>
+            <param name="handler">Se recibe por parámetro el siguiente handler.</param>
+            <returns>retorna el handler.</returns>
         </member>
         <member name="M:Library.AbstractHandler.GetNext">
             <summary>
             Getter para el siguiente handler en la cadena.
             </summary>
-            <returns></returns>
+            <returns>retorna el handler que sigue.</returns>
         </member>
         <member name="T:Library.IHandler">
             <summary>
             Interfaz para la creación de los handlers.
-            Dada la naturaleza de los handlers se usa el patrón Chain of responsibility, asi se puede recorren todos los handlers hasta que se encuentre el que se necesita.
+            Dada la naturaleza de los handlers se usa el patrón Chain of responsibility, asi se puede recorren todos
+            los handlers hasta que se encuentre el que se necesita.
             </summary>
         </member>
         <member name="P:Library.IHandler.Next">
             <summary>
-            Las clases que apliquen IHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
+            Gets or sets las clases que apliquen IHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
             </summary>
-            <value></value>
+            <value>Se guardan el recorrido del resto de los handler.</value>
         </member>
         <member name="M:Library.IHandler.Handle(Library.Mensaje)">
             <summary>
@@ -859,14 +842,14 @@
             <summary>
             Método set para indicar el siguiente handler en la cadena.
             </summary>
-            <param name="handler"></param>
-            <returns></returns>
+            <param name="handler"> handler que esta indicado a continuacion en la cadena.</param>
+            <returns>Retorna cual es el siguiente handler.</returns>
         </member>
         <member name="M:Library.IHandler.GetNext">
             <summary>
             Método get para obtener el siguiente handler en la cadena.
             </summary>
-            <returns></returns>
+            <returns>Retorna el handler siguiente.</returns>
         </member>
         <member name="T:Library.Mensaje">
             <summary>
@@ -901,9 +884,9 @@
         </member>
         <member name="P:Library.Singleton`1.Instance">
             <summary>
-            Se crea una nueva instancia solo si no existe previamente.
+            Gets se crea una nueva instancia solo si no existe previamente.
             </summary>
-            <value></value>
+            <value>Se guarda una nueva instancia.</value>
         </member>
         <member name="T:Library.AbstractBuscar">
             <summary>
@@ -1010,10 +993,10 @@
         </member>
         <member name="T:Library.ListaAdministradores">
             <summary>
-            ListaAdministradores es quien se encarga de tener la lista con todos los 
-            Administradores registrados. 
-            Se cumple principio SRP ya que libra al administrador de tener que crearse a él mismo 
-            y al mismo tiempo conocer todos los Administradores registrados. 
+            ListaAdministradores es quien se encarga de tener la lista con todos los
+            Administradores registrados.
+            Se cumple principio SRP ya que libra al administrador de tener que crearse a él mismo
+            y al mismo tiempo conocer todos los Administradores registrados.
             </summary>
         </member>
         <member name="M:Library.ListaAdministradores.ConvertToJson">
@@ -1021,12 +1004,12 @@
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
             json.
             </summary>
-            <returns></returns>    
+            <returns></returns>
         </member>
         <member name="M:Library.ListaAdministradores.LoadFromJson(System.String)">
             <summary>
-            LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-            a partir de el archivo json. 
+            LoadFromJson se encarga de cargar los datos guardados creando los objetos
+            a partir de el archivo json.
             </summary>
             <param name="json"></param>
         </member>
@@ -1040,50 +1023,11 @@
         <member name="M:Library.ListaAdministradores.Add(Library.Administrador)">
             <summary>
             Se crea el método Add para añadir un Administrador a la ListaAdministradores
-            ya existente. 
+            ya existente.
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             a todos los Administradores.
             </summary>
             <param name="administrador"></param>
-        </member>
-        <member name="T:Library.ListaConversaciones">
-            <summary>
-            ListaConversaciones es quien se encarga de tener la lista con todos los 
-            mensajes enviados.
-            Cumple con el principio SRP ya que cada objeto de la lista tiene los mensajes
-            entre un usuario y el bot, y la lista contiene todas las conversaciones
-            los usuarios y el bot.
-            </summary>
-        </member>
-        <member name="M:Library.ListaConversaciones.ConvertToJson">
-            <summary>
-            El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
-            json.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Library.ListaConversaciones.LoadFromJson(System.String)">
-            <summary>
-            LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-            a partir de el archivo json. 
-            </summary>
-            <param name="json"></param>
-        </member>
-        <member name="F:Library.ListaConversaciones.Conversaciones">
-            <summary>
-            Lista que contiene las conversaciones entre todos los usuarios y el bot.
-            Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Library.ListaConversaciones.Add(Library.Conversacion)">
-            <summary>
-            Se crea el método Add para añadir una Conversación a la ListaConversaciones
-            ya existente. 
-            Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
-            todas las conversaciones.
-            </summary>
-            <param name="conversacion"></param>
         </member>
         <member name="T:Library.ListaDeUsuario">
             <summary>
