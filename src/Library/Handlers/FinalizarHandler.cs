@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="FinalizarHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Text;
 
@@ -10,6 +16,7 @@ namespace Library
     public class FinalizarHandler : AbstractHandler
     {
         private NullHandler Next2;
+
         /// <summary>
         /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
         /// </summary>
@@ -19,17 +26,19 @@ namespace Library
             if (mensaje.Text.ToLower() == "/finalizar")
             {
                 Output.PrintLine("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
-                this.Next2.Handle(mensaje); //Next2 = NullHandler
+                this.Next2.Handle(mensaje); // Next2 = NullHandler
             }
             else
             {
-                this.GetNext().Handle(mensaje);  //Que vuelva al primer handler
+                this.GetNext().Handle(mensaje);  // Que vuelva al primer handler
             }
         }
+
         /// <summary>
-        /// Constructor de la clase. 
+        /// Initializes a new instance of the <see cref="FinalizarHandler"/> class.
+        /// Constructor de la clase.
         /// </summary>
-        /// <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro</param>
+        /// <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro.</param>
         public FinalizarHandler(IHandler handler)
         {
             this.SetNext(handler);
