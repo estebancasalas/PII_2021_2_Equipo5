@@ -37,8 +37,11 @@ namespace Library
         private string token;
 
         public string Ubicacion { get => this.ubicacion; set => this.ubicacion = value; }
+
         public string Nombre { get => this.nombre; set => this.nombre = value; }
+
         public string Token { get => this.token; set => this.token = value; }
+
         public string Rubro { get => this.rubro; set => this.rubro = value; }
 
         /// <summary>
