@@ -25,9 +25,9 @@ namespace Library
         /// al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
         /// se envía al siguiente Handler.
         /// </summary>
-        /// <param name="mensaje">Indica que se quiere ver el historial.</param>
-        public override void Handle(Mensaje mensaje)
-        {
+        /// <param name="mensaje">Indica que se quiere ver el historial</param>
+        public override string Handle(Mensaje mensaje)
+        { 
             if (mensaje.Text.ToLower() == "/historial")
             {
                 VerHistorial historial = new VerHistorial();
@@ -36,6 +36,7 @@ namespace Library
             }
 
             this.GetNext().Handle(mensaje);
+            return this.TextResult.ToString();
         }
     }
 }

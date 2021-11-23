@@ -15,12 +15,21 @@ namespace Library
     public class Mensaje
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Mensaje"/> class.
+        /// Se guarda una Id en forma de un entero.
+        /// </summary>
+        /// <value></value>
+        public long Id{ get; set; }
+        /// <summary>
+        /// String que guarda un mensaje en forma de texto.
+        /// </summary>
+        /// <value></value>
+        public string Text { get; set; }
+        /// <summary>
         /// El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
         /// </summary>
-        /// <param name="id">Id del usuario que escribe el mensaje.</param>
-        /// <param name="text">Lo que escribe el usuario.</param>
-        public Mensaje(int id, string text)
+        /// <param name="id">Id del usuario que escribe el mensaje</param>
+        /// <param name="text">Lo que escribe el usuario</param>
+        public Mensaje(long id, string text)
         {
             this.Id = id;
             this.Text = text;

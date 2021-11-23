@@ -24,7 +24,7 @@ namespace Library
         /// al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             // En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
             ListaDeUsuario listaUsuario = new ();
@@ -58,8 +58,7 @@ namespace Library
                 // List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
                 // lista.Add(transaccion);
             }
-
-             this.GetNext().Handle(mensaje);
+            return this.TextResult.ToString();
         }
     }
 }

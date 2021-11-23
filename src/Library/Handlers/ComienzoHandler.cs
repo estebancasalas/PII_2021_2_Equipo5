@@ -20,7 +20,7 @@ namespace Library
         /// al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             if (mensaje.Text.ToLower() == "/comandos")
             {
@@ -40,9 +40,12 @@ namespace Library
                         .Append("/comprar\n")
                         .Append("/finalizar\n");
                 Console.WriteLine(comandos.ToString());
+                return this.TextResult.ToString();
             }
-
-            this.GetNext().Handle(mensaje);
+            else
+            {
+                return this.GetNext().Handle(mensaje);
+            }
         }
     }
 }

@@ -35,8 +35,8 @@ namespace Library
         /// <summary>
         /// Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
         /// </summary>
-        /// <param name="mensaje">Mensaje escrito por usuario.</param>
-        void Handle(Mensaje mensaje);
+        /// <param name="mensaje">Mensaje escrito por usuario</param>
+        string Handle(Mensaje mensaje);
 
         /// <summary>
         /// Método set para indicar el siguiente handler en la cadena.

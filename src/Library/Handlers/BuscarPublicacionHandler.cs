@@ -20,14 +20,17 @@ namespace Library
         /// Atributo donde se guarda el resultado.
         /// </summary>
         private string tipobusqueda;
+        
+        public List<Publicacion> result;
 
         private string busqueda;
+
 
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
@@ -61,6 +64,7 @@ namespace Library
             {
                 this.GetNext().Handle(mensaje);
             }
+            return this.TextResult.ToString();
         }
     }
 }

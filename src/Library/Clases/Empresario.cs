@@ -20,9 +20,9 @@ namespace Library
         /// <param name="num">Indica el Id del empresario.</param>
         /// <param name="estado">Indica el estado en el que se encuentra el empresario.</param>
         /// <param name="nombre">Indica el nombre que tiene el empresario.</param>
-        public Empresario(int num, EstadoUsuario estado, string nombre)
+        public Empresario(long id, EstadoUsuario estado, string nombre)
         {
-            this.Id = num;
+            this.Id = id;
             this.Estado = estado;
             this.Nombre = nombre;
         }
@@ -31,7 +31,7 @@ namespace Library
         /// Gets or sets id del usuario del empresario.
         /// </summary>
         /// <value>Guarda el id del empresario.</value>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or sets estado en el que se encuentra este usuario para los handlers.

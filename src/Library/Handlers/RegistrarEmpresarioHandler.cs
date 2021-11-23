@@ -27,8 +27,7 @@ namespace Library
         /// empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
         /// es una invitación válida.
         /// </summary>
-        /// <param name="mensaje">Indica que se quiere registrar un empresario.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuarios = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/empresario" && listaUsuarios.EstaRegistrado(mensaje.Id))
@@ -67,10 +66,11 @@ namespace Library
                     this.empresa.ListaEmpresarios.Add(empresario);
                     break;
                 }
+            return this.TextResult.ToString();
             }
             else
             {
-                this.GetNext().Handle(mensaje);
+                return this.GetNext().Handle(mensaje);
             }
         }
     }
