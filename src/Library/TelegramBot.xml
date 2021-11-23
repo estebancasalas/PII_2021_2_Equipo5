@@ -10,26 +10,26 @@
             Es el encargado de generar las invitaciones para las empresas.
             </summary>
         </member>
-        <member name="P:Library.Administrador.Id">
-            <summary>
-            Guarda el id de el administrador al registrarse.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Administrador.Nombre">
-            <summary>
-            Guarda el nombre que pone el administrador al registrarse.
-            </summary>
-            <value></value>
-        </member>
         <member name="M:Library.Administrador.#ctor(System.Int32,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.Administrador"/> class.
             Inicializa una nueva instancia de la clase <see cref="T:Library.Administrador"/>.
             Constructor de la clase Administrador.
             </summary>
-            <param name="Id"></param>
-            <param name="Nombre"></param>
+            <param name="id">El id con el cual se registra un administrador.</param>
+            <param name="nombre">El  con el cual se registra un administrador.</param>
+        </member>
+        <member name="P:Library.Administrador.Id">
+            <summary>
+            Gets or sets se guarda el id de el administrador al registrarse.
+            </summary>
+            <value>Id del administrador.</value>
+        </member>
+        <member name="P:Library.Administrador.Nombre">
+            <summary>
+            Gets or sets guarda el nombre que pone el administrador al registrarse.
+            </summary>
+            <value>Nombre del administrador.</value>
         </member>
         <member name="M:Library.Administrador.CrearInvitacion(System.String,System.String,System.String,System.String)">
             <summary>
@@ -51,11 +51,11 @@
             Método para buscar una empresa a partir de una publicación.
             </summary>
             <param name="nombrePublicacion">Se pasa el nombre de la publicación para buscar la empresa.</param>
-            <returns></returns>
+            <returns>Devuelve la empresa que hizo la publicacion.</returns>
         </member>
         <member name="T:Library.BusquedaCategoria">
             <summary>
-            Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias 
+            Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias
             en categoría.
             Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por categoría.
             Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
@@ -70,7 +70,7 @@
         </member>
         <member name="T:Library.BusquedaKeyWord">
             <summary>
-            Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias 
+            Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias
             en palabras clave.
             Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por Palabras clave.
             Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
@@ -101,14 +101,8 @@
         <member name="T:Library.Conversacion">
             <summary>
             La clase conversación se encarga de llevar el conteo de mensajes de cada uno de los ususarios.
-            Esta clase está pensada para la proxima entrega, nos va ayudar a poder identificar el estado de la conversación. 
+            Esta clase está pensada para la proxima entrega, nos va ayudar a poder identificar el estado de la conversación.
             </summary>
-        </member>
-        <member name="P:Library.Conversacion.id">
-            <summary>
-            Guarda el id del usuario.
-            </summary>
-            <value></value>
         </member>
         <member name="F:Library.Conversacion.mensajes">
             <summary>
@@ -124,54 +118,12 @@
         </member>
         <member name="T:Library.Emprendedor">
             <summary>
-            Clase que modela un usario del tipo emprendedor. 
-            Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
+            Clase que modela un usario del tipo emprendedor.
+            Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
             surjan nuevos tipos de usuario.
             </summary>
         </member>
-        <member name="P:Library.Emprendedor.Id">
-            <summary>
-            Id del Emprendedor.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Emprendedor.Estado">
-            <summary>
-            Atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Emprendedor.Nombre">
-            <summary>
-            Nombre del emprendedor.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Emprendedor.Ubicacion">
-            <summary>
-            Ubicación del emprendedor.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Emprendedor.Rubro">
-            <summary>
-            Rubro del emprendedor.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Emprendedor.Habilitaciones">
-            <summary>
-            Habilitaciones del emprendedor(Link al documento).
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Emprendedor.Especializaciones">
-            <summary>
-            Especializaciones del emprendedor.
-            </summary>
-            <value></value>
-        </member>
-        <member name="M:Library.Emprendedor.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:Library.Emprendedor.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.Emprendedor"/> class.
             Constructor de la clase emprendedor.
@@ -183,43 +135,54 @@
             <param name="habilitaciones">Habilitaciones que tiene el emprendedor.</param>
             <param name="especializaciones">Especializaciones que tiene el emprendedor.</param>
         </member>
+        <member name="P:Library.Emprendedor.Id">
+            <summary>
+            Gets or sets id del Emprendedor.
+            </summary>
+            <value>Se guarda el Id de el usuario.</value>
+        </member>
+        <member name="P:Library.Emprendedor.Estado">
+            <summary>
+            Gets or sets atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
+            </summary>
+            <value>Se guarda el Estado de la conversación del usuario.</value>
+        </member>
+        <member name="P:Library.Emprendedor.Nombre">
+            <summary>
+            Gets or sets nombre del emprendedor.
+            </summary>
+            <value>Se guarda el nombre del emprendedor.</value>
+        </member>
+        <member name="P:Library.Emprendedor.Ubicacion">
+            <summary>
+            Gets or sets ubicación del emprendedor.
+            </summary>
+            <value>Se guarda la dirección del emprendedor.</value>
+        </member>
+        <member name="P:Library.Emprendedor.Rubro">
+            <summary>
+            Gets or sets rubro del emprendedor.
+            </summary>
+            <value>Se guarda el rubro del emprendedor.</value>
+        </member>
+        <member name="P:Library.Emprendedor.Habilitaciones">
+            <summary>
+            Gets habilitaciones del emprendedor(Link al documento).
+            </summary>
+            <value>Se guarda las habilitaciones que contiene el emprendedor.</value>
+        </member>
+        <member name="P:Library.Emprendedor.Especializaciones">
+            <summary>
+            Gets especializaciones del emprendedor.
+            </summary>
+            <value>Se guardan las especializaciones del emprendedor.</value>
+        </member>
         <member name="T:Library.Empresa">
             <summary>
-            Clase que modela un usario del tipo empresa. 
-            Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que 
+            Clase que modela un usario del tipo empresa.
+            Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
             surjan nuevos tipos de usuario.
             </summary>
-        </member>
-        <member name="P:Library.Empresa.Invitacion">
-            <summary>
-            Guarda la invitación de la empresa.
-            </summary>
-            <value></value>
-        </member>
-        <member name="F:Library.Empresa.listaEmpresarios">
-            <summary>
-            La ListaEmpresarios se encarga de registrar todos los usuarios que 
-            puede tener una misma empresa.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Empresa.Nombre">
-            <summary>
-            Guarda el nombre de la empresa.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Empresa.Ubicacion">
-            <summary>
-            Guarda la ubicación de la empresa.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Empresa.Rubro">
-            <summary>
-            Guarda el rubro de la empresa.
-            </summary>
-            <value></value>
         </member>
         <member name="M:Library.Empresa.#ctor(System.String,System.String,System.String,System.String)">
             <summary>
@@ -231,29 +194,44 @@
             <param name="rubro">Se encarga de guardar el rubro de la empresa dentro del objeto empresa.</param>
             <param name="invitacion">Se encarga de guardar la invitación de la empresa dentro del objeto empresa.</param>
         </member>
+        <member name="F:Library.Empresa.listaEmpresarios">
+            <summary>
+            La ListaEmpresarios se encarga de registrar todos los usuarios que
+            puede tener una misma empresa.
+            </summary>
+            <value></value>
+            
+        </member>
+        <member name="P:Library.Empresa.Invitacion">
+            <summary>
+            Gets or sets guarda la invitación de la empresa.
+            </summary>
+            <value>Guarda la invitacion que la empresa le brinda a los empresarios para unirse.</value>
+        </member>
+        <member name="P:Library.Empresa.Nombre">
+            <summary>
+            Gets or sets guarda el nombre de la empresa.
+            </summary>
+            <value>Guarda el nombre de la empresa.</value>
+        </member>
+        <member name="P:Library.Empresa.Ubicacion">
+            <summary>
+            Gets or sets guarda la ubicación de la empresa.
+            </summary>
+            <value>Guarda la ubicacion de la empresa.</value>
+        </member>
+        <member name="P:Library.Empresa.Rubro">
+            <summary>
+            Gets or sets guarda el rubro de la empresa.
+            </summary>
+            <value>Guarda el rubro de la empresa.</value>
+        </member>
         <member name="T:Library.Empresario">
             <summary>
             Clase que modela un empresario perteneciente a una empresa.
             </summary>
         </member>
-        <member name="P:Library.Empresario.Id">
-            <summary>
-            Id del usuario del empresario.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Empresario.Estado">
-            <summary>
-            Estado en el que se encuentra este usuario para los handlers.
-            </summary>
-            <value></value>
-        </member>
-        <member name="F:Library.Empresario.Nombre">
-            <summary>
-            Nombre que tiene el empresario.
-            </summary>
-        </member>
-        <member name="M:Library.Empresario.#ctor(System.Int32,Library.EstadoUsuario,System.String)">
+        <member name="M:Library.Empresario.#ctor(System.Int64,Library.EstadoUsuario,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.Empresario"/> class.
             Método constructor de la clase.
@@ -262,28 +240,23 @@
             <param name="estado">Indica el estado en el que se encuentra el empresario.</param>
             <param name="nombre">Indica el nombre que tiene el empresario.</param>
         </member>
-        <member name="T:Library.EstadoUsuario">
+        <member name="P:Library.Empresario.Id">
             <summary>
-            Clase que modela el estado en el que se encuentra un usuario. El estado refiere dentro de los
-            handlers, ya que algunos handlers tienen varios pasos en su ejecución y es necesario ver en qué
-            paso se encuentra el usuario.
+            Gets or sets id del usuario del empresario.
             </summary>
+            <value>Guarda el id del empresario.</value>
         </member>
-        <member name="F:Library.EstadoUsuario.handler">
+        <member name="P:Library.Empresario.Estado">
             <summary>
-            Handler que se está ejecutando.
+            Gets or sets estado en el que se encuentra este usuario para los handlers.
             </summary>
+            <value>Guarda el estado en el que se encuentra la conversasion con el usuario.</value>
         </member>
-        <member name="F:Library.EstadoUsuario.step">
+        <member name="P:Library.Empresario.Nombre">
             <summary>
-            Paso en el que se encuentra. Se modela con un número entero.
+            Gets or sets nombre del empresario.
             </summary>
-        </member>
-        <member name="M:Library.EstadoUsuario.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Library.EstadoUsuario"/> class.
-            Constructor de la clase.
-            </summary>
+            <value>Guarda el nombre del empresario.</value>
         </member>
         <member name="T:Library.Material">
             <summary>
@@ -542,7 +515,7 @@
             Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta. 
             </summary>
         </member>
-        <member name="M:Library.VerHistorial.EjecutarComando(System.Int32)">
+        <member name="M:Library.VerHistorial.EjecutarComando(System.Int64)">
             <summary>
             Método que recorre la lista de transacciones de el usuario y retorna su historial.
             </summary>
@@ -650,7 +623,7 @@
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="F:Library.BuscarPublicacionHandler.Result">
+        <member name="F:Library.BuscarPublicacionHandler.tipobusqueda">
             <summary>
             Atributo donde se guarda el resultado.
             </summary>
@@ -813,11 +786,6 @@
             porque interactúa con el usuario.
             </summary>
         </member>
-        <member name="F:Library.RegistrarEmpresarioHandler.token">
-            <summary>
-            Token para verificar que es válida la invitación.
-            </summary>
-        </member>
         <member name="M:Library.RegistrarEmpresarioHandler.Handle(Library.Mensaje)">
             <summary>
             Método encargado de verificar si la invitación es válida. En caso de que lo sea y el 
@@ -917,7 +885,7 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Mensaje.#ctor(System.Int32,System.String)">
+        <member name="M:Library.Mensaje.#ctor(System.Int64,System.String)">
             <summary>
             El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
             </summary>
@@ -971,39 +939,39 @@
         </member>
         <member name="P:Library.IUbicacion.Pais">
             <summary>
-            Pais en el que se encuentra la ubicación.
+            Gets or sets pais en el que se encuentra la ubicación.
             </summary>
-            <value>string</value>
+            <value>guarda el pais en donde se encuentra.</value>
         </member>
         <member name="P:Library.IUbicacion.Ciudad">
             <summary>
-            Ciudad en la que se encuentra la ubicación.
+            Gets or sets ciudad en la que se encuentra la ubicación.
             </summary>
-            <value></value>
+            <value>Guarda la ciudad en la que se encuentra.</value>
         </member>
         <member name="P:Library.IUbicacion.Direccion">
             <summary>
-            Direccion de la ubicación.
+            Gets or sets direccion de la ubicación.
             </summary>
-            <value></value>
+            <value>Guarda la ubicacion en donde se encuentra.</value>
         </member>
         <member name="P:Library.IUbicacion.CodigoPostal">
             <summary>
-            Codigo postal de la ubicación.
+            Gets or sets codigo postal de la ubicación.
             </summary>
-            <value></value>
+            <value>Guarda el codigo postal de su ubicacion.</value>
         </member>
         <member name="P:Library.IUbicacion.Latitud">
             <summary>
-            Latitud de las coordenadas de la ubicación.
+            Gets or sets latitud de las coordenadas de la ubicación.
             </summary>
-            <value></value>
+            <value>Guarda la latitud de la ubicación.</value>
         </member>
         <member name="P:Library.IUbicacion.Longitud">
             <summary>
-            Longitud de las coordenadas de la ubicación
+            Gets or sets longitud de las coordenadas de la ubicación.
             </summary>
-            <value></value>
+            <value>Guarda la longitud de las coordenadas de la ubicacion en donde se encuentra.</value>
         </member>
         <member name="T:Library.IUbicacionProvider">
             <summary>
@@ -1130,7 +1098,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Library.ListaDeUsuario.EstaRegistrado(System.Int32)">
+        <member name="M:Library.ListaDeUsuario.EstaRegistrado(System.Int64)">
             <summary>
             Método que verifica si un id está registrado como usuario.
             </summary>
@@ -1197,7 +1165,7 @@
             </summary>
             <param name="emprendedor"></param>
         </member>
-        <member name="M:Library.ListaEmprendedores.Buscar(System.Int32)">
+        <member name="M:Library.ListaEmprendedores.Buscar(System.Int64)">
             <summary>
             Método que sirve para buscar un emprendedor por su id. Se incluye en esta clase ya que es la
             que conoce la información de todos los emprendedores (patrón Expert).
@@ -1218,7 +1186,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Library.ListaEmpresa.Verificar(System.Int32)">
+        <member name="M:Library.ListaEmpresa.Verificar(System.Int64)">
             <summary>
             Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la 
             que conoce a todas las empresas (patrón Expert).
@@ -1226,7 +1194,7 @@
             <param name="id">Id del empresario a verificar</param>
             <returns></returns>
         </member>
-        <member name="M:Library.ListaEmpresa.Buscar(System.Int32)">
+        <member name="M:Library.ListaEmpresa.Buscar(System.Int64)">
             <summary>
             Método Buscar, recorre la lista de empresas y retorna la empresa deseada. Se incluye en esta 
             clase ya que es la que conoce a todas las empresas (patrón Expert).
@@ -1324,7 +1292,7 @@
             </summary>
             <param name="transaccion"></param>
         </member>
-        <member name="M:Library.ListaTransacciones.Buscar(System.Int32)">
+        <member name="M:Library.ListaTransacciones.Buscar(System.Int64)">
             <summary>
             Método que devuelve una lista con todas las transacciones hechas con ese id. Se busca cumplir
             con Expert, ya que esta clase es la que contiene toda la información de las transacciones.

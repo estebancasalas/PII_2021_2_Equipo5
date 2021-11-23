@@ -14,7 +14,7 @@ namespace Library
         /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
         /// </summary>
         /// <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             if (mensaje.Text.ToLower() == "/finalizar")
             {
@@ -25,6 +25,7 @@ namespace Library
             {
                 this.GetNext().Handle(mensaje);  //Que vuelva al primer handler
             }
+            return this.TextResult.ToString();
         }
         /// <summary>
         /// Constructor de la clase. 

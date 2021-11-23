@@ -1,3 +1,5 @@
+using System;
+using System.Text;
 namespace Library
 {
     /// <summary>
@@ -7,6 +9,7 @@ namespace Library
     /// </summary>
     public abstract class AbstractHandler : IHandler
     {
+        public StringBuilder TextResult;
         /// <summary>
         /// Las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
         /// </summary>
@@ -27,12 +30,13 @@ namespace Library
         /// El metodo se fija si no hay ningun comando apuntando al handler. si no hay se pasa al siguiente.
         /// </summary>
         /// <param name="mensaje">El emensaje escrito por el usuario.</param>
-        public virtual void Handle(Mensaje mensaje)
+        public virtual string Handle(Mensaje mensaje)
         {
             if (this.Next != null)
             {
-                this.GetNext().Handle(mensaje);
+                return this.GetNext().Handle(mensaje);
             }
+            return null;
         }
 
         /// <summary>

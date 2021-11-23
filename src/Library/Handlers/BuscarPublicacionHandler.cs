@@ -20,6 +20,7 @@ namespace Library
         /// Atributo donde se guarda el resultado.
         /// </summary>
 
+        
         string tipobusqueda;
 
         string busqueda;
@@ -29,7 +30,7 @@ namespace Library
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
@@ -38,31 +39,36 @@ namespace Library
                 int indice = listaUsuario.Buscar(mensaje.Id);
                 EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
                 estado.handler = this;
+
                 switch (estado.step)
                 {
-                    case 0 :
-                    Console.WriteLine("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
-                    estado.step = estado.step + 1;
-                    break;
+                    case 0:
+                        this.TextResult.Clear();
+                        this.TextResult.Append("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
+                        estado.step++;
+                        break;
 
-                    case 1 :
-                    this.tipobusqueda = mensaje.Text;
-                    Console.WriteLine("Que desea buscar?");
-                    estado.step = estado.step + 1;
-                    break;
+                    case 1:
+                        this.TextResult.Clear();
+                        this.tipobusqueda = mensaje.Text;
+                        this.TextResult.Append("Que desea buscar?");
+                        estado.step++;
+                        break;
 
                     case 2:
-                    this.busqueda = mensaje.Text;
-                    BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
-                    // hacer metodo mostrar en pantalla y agregarlo aca.
-                    estado = new EstadoUsuario();
-                    break;
-                } 
-            }               
+                        this.TextResult.Clear();
+                        this.busqueda = mensaje.Text;
+                        BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
+                        // hacer metodo mostrar en pantalla y agregarlo aca.
+                        estado = new EstadoUsuario();
+                        break;
+                }
+                return this.TextResult.ToString();
+            }
             else
             {
-                this.GetNext().Handle(mensaje);
-            }             
+                return this.GetNext().Handle(mensaje);
+            }
         }
     }
 }

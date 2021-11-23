@@ -33,7 +33,7 @@ namespace Library
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<Transaccion> Buscar(int id)
+        public List<Transaccion> Buscar(long id)
         {
             List<Transaccion> resultado = new List<Transaccion>();
             ListaEmpresa lista = new ListaEmpresa();

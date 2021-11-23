@@ -19,7 +19,7 @@ namespace Library
         /// se envía al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Indica que se quiere ver el historial</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         { 
             if (mensaje.Text.ToLower() == "/historial")
             {
@@ -28,6 +28,7 @@ namespace Library
                 Output.PrintLine(resultado);
             }
             this.GetNext().Handle(mensaje);
+            return this.TextResult.ToString();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Library
         /// Se guarda una Id en forma de un entero.
         /// </summary>
         /// <value></value>
-        public int Id{ get; set; }
+        public long Id{ get; set; }
         /// <summary>
         /// String que guarda un mensaje en forma de texto.
         /// </summary>
@@ -23,7 +23,7 @@ namespace Library
         /// </summary>
         /// <param name="id">Id del usuario que escribe el mensaje</param>
         /// <param name="text">Lo que escribe el usuario</param>
-        public Mensaje(int id, string text)
+        public Mensaje(long id, string text)
         {
             this.Id = id;
             this.Text = text;

@@ -20,7 +20,7 @@ namespace Library
         /// es una invitación válida.S
         /// </summary>
         /// <param name="mensaje">Indica que se quiere registrar un empresario</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuarios = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/empresario" && listaUsuarios.EstaRegistrado(mensaje.Id))
@@ -33,6 +33,7 @@ namespace Library
                     case 0 :
                     Console.WriteLine("Ingrese su código de invitación: ");
                     estado.step = estado.step + 1;
+                    
                     break;
 
                     case 1 :
@@ -63,6 +64,7 @@ namespace Library
             {
                 this.GetNext().Handle(mensaje);
             }
+            return this.TextResult.ToString();
             
         }
     }

@@ -39,8 +39,9 @@ namespace Library
         /// puede tener una misma empresa.
         /// </summary>
         /// <value></value>
+        /// 
         [JsonInclude]
-        private List<Empresario> listaEmpresarios = new List<Empresario>();
+        public List<Empresario> listaEmpresarios = new List<Empresario>();
 
         /// <summary>
         /// Gets or sets guarda la invitación de la empresa.

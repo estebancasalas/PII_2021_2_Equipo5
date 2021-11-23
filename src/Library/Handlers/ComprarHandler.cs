@@ -21,7 +21,7 @@ namespace Library
         /// al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             // En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
             if (mensaje.Text.ToLower() == "/comprar")
@@ -34,9 +34,12 @@ namespace Library
                 Transaccion transaccion = new Transaccion(empresa, emprendedor, nombrePublicacion, cantidad);
                 List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
                 lista.Add(transaccion);
+                return this.TextResult.ToString();
             }
-
-             this.GetNext().Handle(mensaje);
+            else
+            {
+                return this.GetNext().Handle(mensaje);
+            }
         }
     }
 }

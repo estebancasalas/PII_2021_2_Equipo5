@@ -27,7 +27,7 @@ namespace Library
         /// llama a la clase CrearPublicacion por la misma razón.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             ListaEmpresa lista = new ListaEmpresa();
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
@@ -113,15 +113,17 @@ namespace Library
                         estado = new EstadoUsuario();
                         break;
                     }
+                    return this.TextResult.ToString();
                 }
                 else
                 {
                     Output.PrintLine("Para crear publicaciones debe pertenecer a una empresa. Ingrese un comando nuevo:\n");
+                    return this.TextResult.ToString();
                 }
             }
             else 
             {
-                this.GetNext().Handle(mensaje);
+                return this.GetNext().Handle(mensaje);
             }
         }
     }
