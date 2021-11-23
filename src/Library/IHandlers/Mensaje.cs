@@ -34,17 +34,5 @@ namespace Library
             this.Id = id;
             this.Text = text;
         }
-
-        /// <summary>
-        /// Gets or sets se guarda una Id en forma de un entero.
-        /// </summary>
-        /// <value>Guarda Id en un entero.</value>
-        public int Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets string que guarda un mensaje en forma de texto.
-        /// </summary>
-        /// <value>Guarda mensaje en texto.</value>
-        public string Text { get; set; }
     }
 }

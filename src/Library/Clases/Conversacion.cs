@@ -1,4 +1,4 @@
-// -----------------------------------------------------------------------
+/*/ -----------------------------------------------------------------------
 // <copyright file="Conversacion.cs" company="Universidad Católica del Uruguay">
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
@@ -30,4 +30,4 @@ public class Conversacion
             this.mensajes.Add(mensaje);
         }
     }
-}
+}*/
