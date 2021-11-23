@@ -24,8 +24,8 @@ namespace Library
         /// Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
         /// dé los datos para crear un emprendedor. Colabora con la clase Emprendedor.
         /// </summary>
-        /// <param name="mensaje">Indica que se quiere crear un emprendedor.</param>
-        public override void Handle(Mensaje mensaje)
+        /// <param name="mensaje">Indica que se quiere crear un emprendedor</param>
+        public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/emprendedor" && !listaUsuario.EstaRegistrado(mensaje.Id))
@@ -70,10 +70,11 @@ namespace Library
                     estado = new EstadoUsuario();
                     break;
                 }
+                return this.TextResult.ToString();
             }
             else
             {
-                this.GetNext().Handle(mensaje);
+                return this.GetNext().Handle(mensaje);
             }
         }
     }

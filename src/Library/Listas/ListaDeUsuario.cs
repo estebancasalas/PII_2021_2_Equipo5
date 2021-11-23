@@ -22,12 +22,12 @@ namespace Library
         /// </summary>
         /// <param name="id">Id que se verifica</param>
         /// <returns></returns>
-        public bool EstaRegistrado(int id)
+        public bool EstaRegistrado(long id)
         {
             IUsuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
             return usuario != null;
         }
-        public int Buscar(int id)
+        public int Buscar(long id)
         {
             IUsuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
             return this.ListaUsuarios.IndexOf(usuario);

@@ -25,7 +25,7 @@ namespace Library
         /// <param name="rubro">Rubro del emprendedor.</param>
         /// <param name="habilitaciones">Habilitaciones que tiene el emprendedor.</param>
         /// <param name="especializaciones">Especializaciones que tiene el emprendedor.</param>
-        public Emprendedor(int id, string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
+        public Emprendedor(long id, string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
         {
             this.Id = id;
             this.Nombre = nombre;
@@ -39,7 +39,7 @@ namespace Library
         /// Gets or sets id del Emprendedor.
         /// </summary>
         /// <value>Se guarda el Id de el usuario.</value>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or sets atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.

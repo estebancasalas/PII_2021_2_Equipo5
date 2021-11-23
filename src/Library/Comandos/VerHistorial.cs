@@ -20,7 +20,7 @@ namespace Library
         /// </summary>
         /// <param name="id">Nombre de quien quiere ver el historial.</param>
         /// <returns></returns>
-        public string EjecutarComando(int id)
+        public string EjecutarComando(long id)
         {
             StringBuilder resultado = new StringBuilder("Tus transacciones son:\n");
             List<Transaccion> transacciones = Singleton<ListaTransacciones>.Instance.Buscar(id);

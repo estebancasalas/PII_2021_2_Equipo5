@@ -123,7 +123,8 @@
             surjan nuevos tipos de usuario.
             </summary>
         </member>
-        <member name="M:Library.Emprendedor.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String)">
+
+        <member name="M:Library.Emprendedor.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.Emprendedor"/> class.
             Constructor de la clase emprendedor.
@@ -200,6 +201,7 @@
             puede tener una misma empresa.
             </summary>
             <value></value>
+            
         </member>
         <member name="P:Library.Empresa.Invitacion">
             <summary>
@@ -230,7 +232,7 @@
             Clase que modela un empresario perteneciente a una empresa.
             </summary>
         </member>
-        <member name="M:Library.Empresario.#ctor(System.Int32,Library.EstadoUsuario,System.String)">
+        <member name="M:Library.Empresario.#ctor(System.Int64,Library.EstadoUsuario,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.Empresario"/> class.
             Método constructor de la clase.
@@ -514,7 +516,7 @@
             Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta. 
             </summary>
         </member>
-        <member name="M:Library.VerHistorial.EjecutarComando(System.Int32)">
+        <member name="M:Library.VerHistorial.EjecutarComando(System.Int64)">
             <summary>
             Método que recorre la lista de transacciones de el usuario y retorna su historial.
             </summary>
@@ -884,7 +886,7 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Mensaje.#ctor(System.Int32,System.String)">
+        <member name="M:Library.Mensaje.#ctor(System.Int64,System.String)">
             <summary>
             El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
             </summary>
@@ -1097,7 +1099,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Library.ListaDeUsuario.EstaRegistrado(System.Int32)">
+        <member name="M:Library.ListaDeUsuario.EstaRegistrado(System.Int64)">
             <summary>
             Método que verifica si un id está registrado como usuario.
             </summary>
@@ -1164,7 +1166,7 @@
             </summary>
             <param name="emprendedor"></param>
         </member>
-        <member name="M:Library.ListaEmprendedores.Buscar(System.Int32)">
+        <member name="M:Library.ListaEmprendedores.Buscar(System.Int64)">
             <summary>
             Método que sirve para buscar un emprendedor por su id. Se incluye en esta clase ya que es la
             que conoce la información de todos los emprendedores (patrón Expert).
@@ -1185,7 +1187,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Library.ListaEmpresa.Verificar(System.Int32)">
+        <member name="M:Library.ListaEmpresa.Verificar(System.Int64)">
             <summary>
             Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la 
             que conoce a todas las empresas (patrón Expert).
@@ -1193,7 +1195,7 @@
             <param name="id">Id del empresario a verificar</param>
             <returns></returns>
         </member>
-        <member name="M:Library.ListaEmpresa.Buscar(System.Int32)">
+        <member name="M:Library.ListaEmpresa.Buscar(System.Int64)">
             <summary>
             Método Buscar, recorre la lista de empresas y retorna la empresa deseada. Se incluye en esta 
             clase ya que es la que conoce a todas las empresas (patrón Expert).
@@ -1291,7 +1293,7 @@
             </summary>
             <param name="transaccion"></param>
         </member>
-        <member name="M:Library.ListaTransacciones.Buscar(System.Int32)">
+        <member name="M:Library.ListaTransacciones.Buscar(System.Int64)">
             <summary>
             Método que devuelve una lista con todas las transacciones hechas con ese id. Se busca cumplir
             con Expert, ya que esta clase es la que contiene toda la información de las transacciones.

@@ -49,7 +49,7 @@ namespace Library
         /// para el mismo?.
         /// </summary>
         /// <param name="mensaje">Indica que se quiere crear una invitación.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             if (mensaje.Text.ToLower() == "/crearinvitacion")
             {
@@ -75,6 +75,7 @@ namespace Library
             }
 
             this.GetNext().Handle(mensaje);
+            return this.TextResult.ToString();
         }
     }
 }
