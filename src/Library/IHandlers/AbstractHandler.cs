@@ -1,5 +1,12 @@
 using System;
 using System.Text;
+
+// -----------------------------------------------------------------------
+// <copyright file="AbstractHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 namespace Library
 {
     /// <summary>
@@ -11,9 +18,9 @@ namespace Library
     {
         public StringBuilder TextResult;
         /// <summary>
-        /// Las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
+        /// Gets or sets las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
         /// </summary>
-        /// <value></value>
+        /// <value>Se guarda el next handler.</value>
         private IHandler Next { get; set; }
 
         /// <summary>
@@ -42,17 +49,18 @@ namespace Library
         /// <summary>
         /// Setter para el siguiente handler en la cadena.
         /// </summary>
-        /// <param name="handler">Se recibe por parámetro el siguiente handler</param>
-        /// <returns></returns>
+        /// <param name="handler">Se recibe por parámetro el siguiente handler.</param>
+        /// <returns>retorna el handler.</returns>
         public virtual IHandler SetNext(IHandler handler)
         {
             this.Next = handler;
             return handler;
         }
+
         /// <summary>
         /// Getter para el siguiente handler en la cadena.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>retorna el handler que sigue.</returns>
         public virtual IHandler GetNext()
         {
             return this.Next;

@@ -123,6 +123,7 @@
             surjan nuevos tipos de usuario.
             </summary>
         </member>
+
         <member name="M:Library.Emprendedor.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.Emprendedor"/> class.

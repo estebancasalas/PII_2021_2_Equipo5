@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="Singleton.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 
 namespace Library
@@ -6,21 +12,24 @@ namespace Library
     /// Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Singleton<T> where T : new ()
+    public static class Singleton<T>
+        where T : new()
     {
-        private static T instance; 
+        private static T instance;
+
         /// <summary>
-        /// Se crea una nueva instancia solo si no existe previamente.
+        /// Gets se crea una nueva instancia solo si no existe previamente.
         /// </summary>
-        /// <value></value>
+        /// <value>Se guarda una nueva instancia.</value>
         public static T Instance
         {
-            get 
+            get
             {
                 if (instance == null)
                 {
-                    instance = new T(); 
+                    instance = new T();
                 }
+
                 return instance;
             }
         }

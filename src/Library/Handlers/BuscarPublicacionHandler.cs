@@ -11,7 +11,7 @@ using System.Text;
 namespace Library
 {
     /// <summary>
-    /// Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque 
+    /// Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque
     /// interactúa con el usuario.
     /// </summary>
     public class BuscarPublicacionHandler : AbstractHandler
@@ -19,12 +19,12 @@ namespace Library
         /// <summary>
         /// Atributo donde se guarda el resultado.
         /// </summary>
-
+        private string tipobusqueda;
         
-        string tipobusqueda;
-
-        string busqueda;
         public List<Publicacion> result;
+
+        private string busqueda;
+
 
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
@@ -35,40 +35,36 @@ namespace Library
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
             {
-
                 int indice = listaUsuario.Buscar(mensaje.Id);
                 EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-                estado.handler = this;
-
-                switch (estado.step)
+                estado.Handler = this;
+                switch (estado.Step)
                 {
                     case 0:
-                        this.TextResult.Clear();
-                        this.TextResult.Append("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
-                        estado.step++;
-                        break;
+                    Console.WriteLine("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave");
+                    estado.Step++;
+                    break;
 
                     case 1:
-                        this.TextResult.Clear();
-                        this.tipobusqueda = mensaje.Text;
-                        this.TextResult.Append("Que desea buscar?");
-                        estado.step++;
-                        break;
+                    this.tipobusqueda = mensaje.Text;
+                    Console.WriteLine("Que desea buscar?");
+                    estado.Step++;
+                    break;
 
                     case 2:
-                        this.TextResult.Clear();
-                        this.busqueda = mensaje.Text;
-                        BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
-                        // hacer metodo mostrar en pantalla y agregarlo aca.
-                        estado = new EstadoUsuario();
-                        break;
+                    this.busqueda = mensaje.Text;
+                    BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
+
+                    // hacer metodo mostrar en pantalla y agregarlo aca.
+                    estado = new EstadoUsuario();
+                    break;
                 }
-                return this.TextResult.ToString();
             }
             else
             {
-                return this.GetNext().Handle(mensaje);
+                this.GetNext().Handle(mensaje);
             }
+            return this.TextResult.ToString();
         }
     }
 }

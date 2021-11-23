@@ -8,37 +8,33 @@
 namespace Library
 {
     /// <summary>
-    /// Clase que modela las transacciones entre emprendedores y empresas o viceversa. 
+    /// Clase que modela las transacciones entre emprendedores y empresas o viceversa.
     /// </summary>
     public class Transaccion
     {
         /// <summary>
         /// El vendedor es un objeto del tipo Empresa.
         /// </summary>
-        private Empresa vendedor;
+        public Empresa vendedor;
 
         /// <summary>
-        /// El Comprador es un objeto de tipo Emprendedor 
+        /// El Comprador es un objeto de tipo Emprendedor.
         /// </summary>
-        private Emprendedor comprador;
+        public Emprendedor Comprador;
 
         /// <summary>
         /// El NombreDelMaterial es el nombre del material que se vendió o se compró.
         /// </summary>
-        private string nombreDelMaterial;
+        public string NombreDelMaterial;
 
         /// <summary>
         /// La cantidad del material que se vendió o se compró.
         /// </summary>
-        private double cantidad;
+        public double Cantidad;
 
         public Empresa Vendedor { get => vendedor; set => vendedor = value; }
-        public Emprendedor Comprador { get => comprador; set => comprador = value; }
-        public string NombreDelMaterial { get => nombreDelMaterial; set => nombreDelMaterial = value; }
-        public double Cantidad { get => cantidad; set => cantidad = value; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Transaccion"/> class.
         /// Constructor de la clase.
         /// </summary>
         /// <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>

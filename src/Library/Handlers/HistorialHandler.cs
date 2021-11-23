@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="HistorialHandler.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Text;
 
@@ -10,11 +16,12 @@ namespace Library
     public class HistorialHandler : AbstractHandler
     {
         /// <summary>
-        /// Atributo donde se guarda el resultado.
+        /// Gets or sets atributo donde se guarda el resultado.
         /// </summary>
-        public string resultado;
+        private string Resultado { get; set; }
+
         /// <summary>
-        /// Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre 
+        /// Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre
         /// al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
         /// se envía al siguiente Handler.
         /// </summary>
@@ -24,9 +31,10 @@ namespace Library
             if (mensaje.Text.ToLower() == "/historial")
             {
                 VerHistorial historial = new VerHistorial();
-                resultado = historial.EjecutarComando(mensaje.Id);
-                Output.PrintLine(resultado);
+                this.Resultado = historial.EjecutarComando(mensaje.Id);
+                Output.PrintLine(this.Resultado);
             }
+
             this.GetNext().Handle(mensaje);
             return this.TextResult.ToString();
         }

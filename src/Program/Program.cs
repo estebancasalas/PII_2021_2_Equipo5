@@ -3,8 +3,8 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-using System.IO;
 using System;
+using System.IO;
 
 using Telegram.Bot;
 using Telegram.Bot.Args;
@@ -32,10 +32,7 @@ namespace Library
                            .SetNext(new HistorialHandler())
                            .SetNext(new InvitarHandler())
                            .SetNext(new RegistrarEmpresarioHandler())
-            
             .SetNext(new NullHandler()); //bullying a este handler
-
-
             Mensaje mensaje = new Mensaje(0 ,"");
             // Se crean las listas
             ListaAdministradores listaAdministradores = new ListaAdministradores();
@@ -45,6 +42,7 @@ namespace Library
             ListaInvitaciones listaInvitaciones = new ListaInvitaciones();
             ListaTransacciones listaTransacciones = new ListaTransacciones();
             RegistroPublicaciones registroPublicaciones = new RegistroPublicaciones();
+
             // Se guarda la direccion de las listas en las variables
             string administradores = File.ReadAllText(@"..\..\Datos_json\listaAdministradores.txt");
             string usuarios = File.ReadAllText(@"..\..\Datos_json\listaUsuario.txt");
@@ -53,8 +51,8 @@ namespace Library
             string invitaciones = File.ReadAllText(@"..\..\Datos_json\listaInvitaciones.txt");
             string transacciones = File.ReadAllText(@"..\..\Datos_json\listaTransacciones.txt");
             string publicaciones = File.ReadAllText(@"..\..\Datos_json\registroPublicaciones.txt");
-            //Se cargan las listas con los datos guardados en los json
-            
+
+            // Se cargan las listas con los datos guardados en los json.
             listaAdministradores.LoadFromJson(administradores);
             listaDeUsuario.LoadFromJson(usuarios);
             listaEmprendedores.LoadFromJson(emprendedores);
@@ -84,7 +82,6 @@ namespace Library
             //Detengo la escucha de mensajes 
             bot.StopReceiving();
 
-
             // Se actualizan las listas
             listaAdministradores = new ListaAdministradores();
             listaDeUsuario = new ListaDeUsuario();
@@ -93,6 +90,7 @@ namespace Library
             listaInvitaciones = new ListaInvitaciones();
             listaTransacciones = new ListaTransacciones();
             registroPublicaciones = new RegistroPublicaciones();
+
             // Se guardan en los json
             string guardarAdmin = listaAdministradores.ConvertToJson();
             string guardarUsuario = listaDeUsuario.ConvertToJson();
@@ -101,6 +99,7 @@ namespace Library
             string guardarInvit = listaInvitaciones.ConvertToJson();
             string guardarTrans = listaTransacciones.ConvertToJson();
             string guardarPubli = registroPublicaciones.ConvertToJson();
+            
             // Se guardan en los archivos de texto
             File.WriteAllText(@"..\..\Datos_json\listaAdministradores.txt", guardarAdmin);
             File.WriteAllText(@"..\..\Datos_json\listaUsuario.txt", guardarUsuario);
@@ -110,6 +109,7 @@ namespace Library
             File.WriteAllText(@"..\..\Datos_json\listaTransacciones.txt", guardarTrans);
             File.WriteAllText(@"..\..\Datos_json\registroPublicaciones.txt", guardarPubli);
         }
+      
          private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
          {
              Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
@@ -135,7 +135,5 @@ namespace Library
                 //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
             }
             */
-            
-        
     }
 }
