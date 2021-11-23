@@ -39,8 +39,9 @@ namespace Library
                         .Append("/historial\n")
                         .Append("/comprar\n")
                         .Append("/finalizar\n");
-            Console.WriteLine(comandos.ToString());        
+                Console.WriteLine(comandos.ToString());
             }
+
             this.GetNext().Handle(mensaje);
         }
     }

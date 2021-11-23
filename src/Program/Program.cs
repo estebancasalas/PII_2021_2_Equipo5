@@ -3,8 +3,8 @@
 //     Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //--------------------------------------------------------------------------------
-using System.IO;
 using System;
+using System.IO;
 
 namespace Library
 {
@@ -27,9 +27,10 @@ namespace Library
                            .SetNext(new HistorialHandler())
                            .SetNext(new InvitarHandler())
                            .SetNext(new RegistrarEmpresarioHandler())
-            
-            .SetNext(new NullHandler()); //bullying a este handler
-            Mensaje mensaje = new Mensaje(0 ,"");
+
+            .SetNext(new NullHandler()); // bullying a este handler
+            Mensaje mensaje = new Mensaje(0, "");
+
             // Se crean las listas
             ListaAdministradores listaAdministradores = new ListaAdministradores();
             ListaConversaciones listaConversaciones = new ListaConversaciones();
@@ -39,6 +40,7 @@ namespace Library
             ListaInvitaciones listaInvitaciones = new ListaInvitaciones();
             ListaTransacciones listaTransacciones = new ListaTransacciones();
             RegistroPublicaciones registroPublicaciones = new RegistroPublicaciones();
+
             // Se guarda la direccion de las listas en las variables
             string administradores = File.ReadAllText(@"..\..\Datos_json\listaAdministradores.txt");
             string conversaciones = File.ReadAllText(@"..\..\Datos_json\listaConversaciones.txt");
@@ -48,8 +50,8 @@ namespace Library
             string invitaciones = File.ReadAllText(@"..\..\Datos_json\listaInvitaciones.txt");
             string transacciones = File.ReadAllText(@"..\..\Datos_json\listaTransacciones.txt");
             string publicaciones = File.ReadAllText(@"..\..\Datos_json\registroPublicaciones.txt");
-            //Se cargan las listas con los datos guardados en los json
-            
+
+            // Se cargan las listas con los datos guardados en los json.
             listaAdministradores.LoadFromJson(administradores);
             listaConversaciones.LoadFromJson(conversaciones);
             listaDeUsuario.LoadFromJson(usuarios);
@@ -58,18 +60,18 @@ namespace Library
             listaInvitaciones.LoadFromJson(invitaciones);
             listaTransacciones.LoadFromJson(transacciones);
             registroPublicaciones.LoadFromJson(publicaciones);
-            
             Administrador admin = new Administrador(1000, "Admin");
             Administrador.CrearInvitacion("Empresa1", "Montevideo", "Vet", "12344321");
             while (mensaje.Text != "/finalizar")
             {
-                //Fijarse si estsa registrado y obtener el IUsuario.
-                
+                // Fijarse si estsa registrado y obtener el IUsuario.
                 Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
                 mensaje.Text = Console.ReadLine();
-                comienzoHandler.Handle(mensaje);//EstadoUsuario estado = esto
-                //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
+                comienzoHandler.Handle(mensaje); // EstadoUsuario estado = esto
+
+                // Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
             }
+
             // Se actualizan las listas
             listaAdministradores = new ListaAdministradores();
             listaConversaciones = new ListaConversaciones();
@@ -79,6 +81,7 @@ namespace Library
             listaInvitaciones = new ListaInvitaciones();
             listaTransacciones = new ListaTransacciones();
             registroPublicaciones = new RegistroPublicaciones();
+
             // Se guardan en los json
             string guardarAdmin = listaAdministradores.ConvertToJson();
             string guardarConv = listaConversaciones.ConvertToJson();
@@ -88,6 +91,7 @@ namespace Library
             string guardarInvit = listaInvitaciones.ConvertToJson();
             string guardarTrans = listaTransacciones.ConvertToJson();
             string guardarPubli = registroPublicaciones.ConvertToJson();
+            
             // Se guardan en los archivos de texto
             File.WriteAllText(@"..\..\Datos_json\listaAdministradores.txt", guardarAdmin);
             File.WriteAllText(@"..\..\Datos_json\listaConversaciones.txt", guardarConv);
@@ -97,8 +101,6 @@ namespace Library
             File.WriteAllText(@"..\..\Datos_json\listaInvitaciones.txt", guardarInvit);
             File.WriteAllText(@"..\..\Datos_json\listaTransacciones.txt", guardarTrans);
             File.WriteAllText(@"..\..\Datos_json\registroPublicaciones.txt", guardarPubli);
-
-            
         }
     }
 }

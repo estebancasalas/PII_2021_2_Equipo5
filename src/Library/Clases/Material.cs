@@ -12,67 +12,26 @@ namespace Library
     /// <summary>
     /// Esta clase se encarga del modelado del material.
     /// </summary>
-        public class Material
-        {
-            /// <summary>
-            /// Se encarga de guardar el nombre del material dentro del objeto material.
-            /// </summary>
-            /// <value></value>
-            public string Nombre { get; }
-
-            /// <summary>
-            /// Se encarga de guardar el costo del material dentro del objeto material.
-            /// </summary>
-            /// <value></value>
-            public double Costo { get; }
-
-            /// <summary>
-            /// Se encarga de guardar la cantidad que existe del mismo dentro del objeto material.
-            /// </summary>
-            /// <value></value>
-            public double Cantidad { get; }
-
-            /// <summary>
-            /// Se encarga de guardar la unidad en la cual se pesa el material dentro del objeto material.
-            /// </summary>
-            /// <value></value>
-            public string Unidad { get; }
-
-            /// <summary>
-            /// Se encarga de guardar las habliitaciones, que se necesitan para obtener el material, dentro del objeto material.
-            /// Link al documento.
-            /// </summary>
-            /// <value></value>
-            public string Habilitaciones { get; }
-
-            /// <summary>
-            /// Se encarga de guardar la categoría del material dentro del objeto material.
-            /// </summary>
-            /// <value></value>
-            public string Categoria { get; }
-
-            /// <summary>
-            /// Lista que contiene las categorías del material.
-            /// </summary>
-            /// <returns></returns>
-            public List<string> PosiblesCategorias = new List<string>() { "Químicos", "Plásticos", "Celulósicos", "Eléctricos", "Textiles", "Metálicos", "Metálicos ferrosos", "Solventes", "Vidrio", "Residuos orgánicos", "Otros" };
+    public class Material
+    {
 
         /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Material"/>.
         /// Initializes a new instance of the <see cref="Material"/> class.
         /// </summary>
-
-        /// <param name="Nombre">El nombre del material.</param>
-        /// <param name="Costo">El costo del material.</param>
-        /// <param name="Unidad">La unidad en la cual se cuantifica el material.</param>
-        /// <param name="Habilitaciones">Las habliitaciones que se necesitan para el material.</param>
+        /// <param name="nombre">El nombre del material.</param>
+        /// <param name="costo">El costo del material.</param>
+        /// <param name="cantidad">LA cantidad de material.</param>
+        /// <param name="unidad">La unidad en la cual se cuantifica el material.</param>
+        /// <param name="habilitaciones">Las habliitaciones que se necesitan para el material.</param>
         /// <param name="categoria">La categoría del material.</param>
-        public Material(string Nombre, double Costo, double Cantidad, string Unidad, string Habilitaciones, string categoria)
-            {
-            this.Nombre = Nombre;
-            this.Costo = Costo;
-            this.Cantidad = Cantidad;
-            this.Unidad = Unidad;
-            this.Habilitaciones = Habilitaciones;
+        public Material(string nombre, double costo, double cantidad, string unidad, string habilitaciones, string categoria)
+        {
+            this.Nombre = nombre;
+            this.Costo = costo;
+            this.Cantidad = cantidad;
+            this.Unidad = unidad;
+            this.Habilitaciones = habilitaciones;
             if (this.PosiblesCategorias.Contains(categoria))
             {
                 this.Categoria = categoria;
@@ -82,5 +41,48 @@ namespace Library
                 Console.WriteLine("Categoría no válida.");
             }
         }
+
+        /// <summary>
+        /// Obtiene o establece el nombre de el material.
+        /// </summary>
+        /// <value>Se guarda el nombre del material.</value>
+        public string Nombre { get; set; }
+
+        /// <summary>
+        /// Obtiene gets se encarga de guardar el costo del material dentro del objeto material.
+        /// </summary>
+        /// <value>Se guarda el valor del costo.</value>
+        public double Costo { get; }
+
+        /// <summary>
+        /// Obtiene gets se encarga de guardar la cantidad que existe del mismo dentro del objeto material.
+        /// </summary>
+        /// <value>Guarda la cantidad del material.</value>
+        public double Cantidad { get; }
+
+        /// <summary>
+        /// Obtiene la unidad que se encarga de guardar la unidad en la cual se pesa el material dentro del objeto material.
+        /// </summary>
+        /// <value>Guarda la unidad de la cantidad del material.</value>
+        public string Unidad { get; }
+
+        /// <summary>
+        /// Obtiene se encarga de guardar las habliitaciones, que se necesitan para obtener el material, dentro del objeto material.
+        /// Link al documento.
+        /// </summary>
+        /// <value>Guarda las habilitaciones para obtener el material.</value>
+        public string Habilitaciones { get; }
+
+        /// <summary>
+        /// Obtiene gets se encarga de guardar la categoría del material dentro del objeto material.
+        /// </summary>
+        /// <value>Guarda la categoria del material.</value>
+        public string Categoria { get; }
+
+        /// <summary>
+        /// Lista que contiene las categorías del material.
+        /// </summary>
+        /// <returns></returns>
+        public List<string> PosiblesCategorias = new List<string>() { "Químicos", "Plásticos", "Celulósicos", "Eléctricos", "Textiles", "Metálicos", "Metálicos ferrosos", "Solventes", "Vidrio", "Residuos orgánicos", "Otros" };
     }
 }
