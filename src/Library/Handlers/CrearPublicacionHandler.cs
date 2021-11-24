@@ -129,6 +129,7 @@ namespace Library
                         Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
                         estado = new EstadoUsuario();
                         break;
+                    }
                 }
                 else
                 {
