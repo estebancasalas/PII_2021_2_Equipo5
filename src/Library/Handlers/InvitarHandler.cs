@@ -56,7 +56,7 @@ namespace Library
                 List<Administrador> lista = Singleton<ListaAdministradores>.Instance.Administradores;
                 bool notfound = true;
                 int i = 0;
-                while (notfound && i < lista.Count)
+                /*while (notfound && i < lista.Count)
                 {
                     if (lista[i].Id == mensaje.Id)
                     {
@@ -71,11 +71,62 @@ namespace Library
                     {
                         i++;
                     }
+                }*/
+                ListaAdministradores listaAdministradores = new ListaAdministradores();
+                ListaDeUsuario listaUsuario = new ListaDeUsuario();
+                if  (listaAdministradores.Verificar(mensaje.Id))
+                {
+                    int indice = listaUsuario.Buscar(mensaje.Id);
+                    EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+                    estado.handler = this;
+                    switch(estado.step)
+                    {
+                        case 0 :
+                        
+                        Console.WriteLine("¿Cuál es su nombre?");
+                        estado.step++;
+                        break;
+
+                        case 1 :
+                        this.Nombre = mensaje.Text;
+                        Console.WriteLine("¿Cuál es su ubicación?");
+                        estado.step++;
+                        break;
+
+                        case 2 :
+                        this.Ubicacion = mensaje.Text;
+                        Console.WriteLine("¿Cuál es su rubro?");
+                        estado.step++;
+                        break;
+
+                        case 3 :
+                        this.Rubro = mensaje.Text;
+                        Console.WriteLine("¿Cuál es su Token?");
+                        estado.step++;
+                        break;
+
+                        case 4 :
+                        this.Token = mensaje.Text;
+                        Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token);
+                        estado = new EstadoUsuario();
+                        break;     
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Usted no es un administrador.");
                 }
             }
+            else
+            {
+                this.GetNext().Handle(mensaje);
+            }
+
 
             this.GetNext().Handle(mensaje);
             return this.TextResult.ToString();
+
         }
     }
 }
