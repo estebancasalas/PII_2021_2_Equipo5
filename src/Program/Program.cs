@@ -112,10 +112,14 @@ namespace Library
       
          private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
          {
-             Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
-             while (mensaje.Text != "/finalizar")
+            Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            
+            IUsuario newusuario = new Empresario(1128028626, new EstadoUsuario(), "Esteban");
+            while (mensaje.Text != "/finalizar")
             {
-                
+                ComienzoHandler.Handle(mensaje);
             }
          }
 

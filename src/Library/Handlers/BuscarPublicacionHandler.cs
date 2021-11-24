@@ -102,7 +102,6 @@ namespace Library
                         break;
                 }
             return this.TextResult.ToString();
-
             }
             else
             {
