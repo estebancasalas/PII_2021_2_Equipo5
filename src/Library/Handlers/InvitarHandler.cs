@@ -78,31 +78,31 @@ namespace Library
                 {
                     int indice = listaUsuario.Buscar(mensaje.Id);
                     EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-                    estado.handler = this;
-                    switch(estado.step)
+                    estado.Handler = this;
+                    switch(estado.Step)
                     {
                         case 0 :
                         
                         Console.WriteLine("¿Cuál es su nombre?");
-                        estado.step++;
+                        estado.Step++;
                         break;
 
                         case 1 :
                         this.Nombre = mensaje.Text;
                         Console.WriteLine("¿Cuál es su ubicación?");
-                        estado.step++;
+                        estado.Step++;
                         break;
 
                         case 2 :
                         this.Ubicacion = mensaje.Text;
                         Console.WriteLine("¿Cuál es su rubro?");
-                        estado.step++;
+                        estado.Step++;
                         break;
 
                         case 3 :
                         this.Rubro = mensaje.Text;
                         Console.WriteLine("¿Cuál es su Token?");
-                        estado.step++;
+                        estado.Step++;
                         break;
 
                         case 4 :
