@@ -15,26 +15,8 @@ namespace Library
     /// </summary>
     public class FinalizarHandler : AbstractHandler
     {
-        private NullHandler Next2;
-
-        /// <summary>
-        /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
-        /// </summary>
-        /// <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
-        public override string Handle(Mensaje mensaje)
-        {
-            if (mensaje.Text.ToLower() == "/finalizar")
-            {
-                Output.PrintLine("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
-                this.Next2.Handle(mensaje); // Next2 = NullHandler
-            }
-            else
-            {
-                this.GetNext().Handle(mensaje);  // Que vuelva al primer handler
-            }
-            return this.TextResult.ToString();
-        }
-
+        private NullHandler next2;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="FinalizarHandler"/> class.
         /// Constructor de la clase.
@@ -43,7 +25,27 @@ namespace Library
         public FinalizarHandler(IHandler handler)
         {
             this.SetNext(handler);
-            this.Next2 = new NullHandler();
+            this.next2 = new NullHandler();
+        }
+
+        /// <summary>
+        /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
+        /// </summary>
+        /// <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
+        /// <returns>Retorna la respuesta a la petición del usuario.</returns>
+        public override string Handle(Mensaje mensaje)
+        {
+            if (mensaje.Text.ToLower() == "/finalizar")
+            {
+                Output.PrintLine("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
+                this.next2.Handle(mensaje); // Next2 = NullHandler
+            }
+            else
+            {
+                this.GetNext().Handle(mensaje);  // Que vuelva al primer handler
+            }
+            
+            return this.TextResult.ToString();
         }
     }
 }

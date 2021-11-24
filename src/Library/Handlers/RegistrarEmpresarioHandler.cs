@@ -21,12 +21,14 @@ namespace Library
 
         private string nombre;
         private Empresa empresa;
-
+        
         /// <summary>
         /// Método encargado de verificar si la invitación es válida. En caso de que lo sea y el
         /// empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
         /// es una invitación válida.
         /// </summary>
+        /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        /// <returns>Returna respuesta a la peticion del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuarios = new ListaDeUsuario();
@@ -50,7 +52,7 @@ namespace Library
                     {
                         List<Empresa> lista = Singleton<List<Empresa>>.Instance;
                         this.empresa = lista.Find(x => x.Invitacion == this.invitacion);
-                        Console.WriteLine("Ingrese nombre: ");
+                        Console.WriteLine("Ingrese su nombre: ");
                     }
                     else
                     {
@@ -66,7 +68,8 @@ namespace Library
                     this.empresa.ListaEmpresarios.Add(empresario);
                     break;
                 }
-            return this.TextResult.ToString();
+
+                return this.TextResult.ToString();
             }
             else
             {

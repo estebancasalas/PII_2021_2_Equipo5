@@ -36,19 +36,36 @@ namespace Library
         /// </summary>
         private string token;
 
+        /// <summary>
+        /// Obtiene o establece la ubicacion.
+        /// </summary>
+        /// <value>Ubicacion.</value>
         public string Ubicacion { get => this.ubicacion; set => this.ubicacion = value; }
-
+        
+        /// <summary>
+        /// Obtiene o establece el nombre.
+        /// </summary>
+        /// <value>Nombre.</value>
         public string Nombre { get => this.nombre; set => this.nombre = value; }
-
+        
+        /// <summary>
+        /// Obtiene o establece el token para la invitacion.
+        /// </summary>
+        /// <value>Token.</value>
         public string Token { get => this.token; set => this.token = value; }
-
+        
+        /// <summary>
+        /// Obtiene o establece el rubro.
+        /// </summary>
+        /// <value>Rubro.</value>
         public string Rubro { get => this.rubro; set => this.rubro = value; }
-
+        
         /// <summary>
         /// Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación
         /// para el mismo?.
         /// </summary>
         /// <param name="mensaje">Indica que se quiere crear una invitación.</param>
+        /// <returns>Retorna la espuesta a la peticion del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
             if (mensaje.Text.ToLower() == "/crearinvitacion")
@@ -61,8 +78,8 @@ namespace Library
                     if (lista[i].Id == mensaje.Id)
                     {
                         notfound = false;
-                        this.nombre = this.Input.GetInput("nombre empresa");
-                        this.ubicacion = this.Input.GetInput("ubicacion de la empresa");
+                        this.nombre = this.Input.GetInput("Ingrese nombre empresa que desea invitar");
+                        this.ubicacion = this.Input.GetInput("Ingrese su ubicacion");
                         this.rubro = this.Input.GetInput("rubro de la empresa");
                         this.token = this.Input.GetInput("Codigo de invitacion");
                         Administrador.CrearInvitacion(this.nombre, this.ubicacion, this.rubro, this.token);

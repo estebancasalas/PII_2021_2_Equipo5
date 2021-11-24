@@ -17,15 +17,16 @@ namespace Library
     public class EmpresaCantidadTrabajadores : AbstractHandler // devuelve cantidad de trabajadores.
     {
         /// <summary>
-        /// Gets or sets siguiente Handler en la cadena.
+        /// Gets or sets siguiente Handler en la cadena. Obtiene o establece.
         /// </summary>
         /// <value>Guarda el handler que sigue.</value>
-        public IHandler Next { get; set; }
-
+        public IHandler HandlerNext { get; set; }
+        
         /// <summary>
         /// Método que evalúa el mensaje. Busca la empresa y muestra la cantidad de trabajadores que tiene.
         /// </summary>
         /// <param name="mensaje">Contiene el Id con el que se encuentra la empresa deseada.</param>
+        /// <returns>Retorna la respuesta a la petición del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
             if (mensaje.Text.ToLower() == "/cantidadtrabajadores")

@@ -16,14 +16,18 @@ namespace Library
     /// </summary>
     public class ComprarHandler : AbstractHandler
     {
+        /// <summary>
+        /// Nombre de la publicación que desea comprar.
+        /// </summary>
         private string nombreDeLaPublicacion;
-        private string cantidadComprada;
+        private string cantidadComprada;   
 
         /// <summary>
         /// Método que verifica el mensaje. Actúa si el mensaje es "/start" y sino lo envía
         /// al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        /// <returns>Retorna la respuesta a la petición del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
             // En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
@@ -58,6 +62,7 @@ namespace Library
                 // List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
                 // lista.Add(transaccion);
             }
+
             return this.TextResult.ToString();
         }
     }

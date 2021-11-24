@@ -12,7 +12,6 @@
         </member>
         <member name="M:Library.Administrador.#ctor(System.Int32,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Library.Administrador"/> class.
             Inicializa una nueva instancia de la clase <see cref="T:Library.Administrador"/>.
             Constructor de la clase Administrador.
             </summary>
@@ -21,13 +20,13 @@
         </member>
         <member name="P:Library.Administrador.Id">
             <summary>
-            Gets or sets se guarda el id de el administrador al registrarse.
+            Obtiene o establece se guarda el id de el administrador al registrarse.
             </summary>
             <value>Id del administrador.</value>
         </member>
         <member name="P:Library.Administrador.Nombre">
             <summary>
-            Gets or sets guarda el nombre que pone el administrador al registrarse.
+            Obtiene o establece guarda el nombre que pone el administrador al registrarse.
             </summary>
             <value>Nombre del administrador.</value>
         </member>
@@ -107,7 +106,7 @@
         </member>
         <member name="M:Library.Emprendedor.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Library.Emprendedor"/> class.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Emprendedor"/>.
             Constructor de la clase emprendedor.
             </summary>
             <param name="id">Id del emprendedor.</param>
@@ -119,43 +118,43 @@
         </member>
         <member name="P:Library.Emprendedor.Id">
             <summary>
-            Gets or sets id del Emprendedor.
+            Obtiene o establece id del Emprendedor.
             </summary>
             <value>Se guarda el Id de el usuario.</value>
         </member>
         <member name="P:Library.Emprendedor.Estado">
             <summary>
-            Gets or sets atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
+            Obtiene o establece atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
             </summary>
             <value>Se guarda el Estado de la conversación del usuario.</value>
         </member>
         <member name="P:Library.Emprendedor.Nombre">
             <summary>
-            Gets or sets nombre del emprendedor.
+            Obtiene o establece nombre del emprendedor.
             </summary>
             <value>Se guarda el nombre del emprendedor.</value>
         </member>
         <member name="P:Library.Emprendedor.Ubicacion">
             <summary>
-            Gets or sets ubicación del emprendedor.
+            Obtiene o establece ubicación del emprendedor.
             </summary>
             <value>Se guarda la dirección del emprendedor.</value>
         </member>
         <member name="P:Library.Emprendedor.Rubro">
             <summary>
-            Gets or sets rubro del emprendedor.
+            Obtiene o establece rubro del emprendedor.
             </summary>
             <value>Se guarda el rubro del emprendedor.</value>
         </member>
         <member name="P:Library.Emprendedor.Habilitaciones">
             <summary>
-            Gets habilitaciones del emprendedor(Link al documento).
+            Obtiene habilitaciones del emprendedor(Link al documento).
             </summary>
             <value>Se guarda las habilitaciones que contiene el emprendedor.</value>
         </member>
         <member name="P:Library.Emprendedor.Especializaciones">
             <summary>
-            Gets especializaciones del emprendedor.
+            Obtiene especializaciones del emprendedor.
             </summary>
             <value>Se guardan las especializaciones del emprendedor.</value>
         </member>
@@ -168,7 +167,7 @@
         </member>
         <member name="M:Library.Empresa.#ctor(System.String,System.String,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Library.Empresa"/> class.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Empresa"/>.
             Es el constructor que se encarga de crear a la empresa en su totalidad.
             </summary>
             <param name="nombre">Se encarga de guardar el nombre de la empresa dentro del objeto empresa.</param>
@@ -186,25 +185,25 @@
         </member>
         <member name="P:Library.Empresa.Invitacion">
             <summary>
-            Gets or sets guarda la invitación de la empresa.
+            Obtiene o establece guarda la invitación de la empresa.
             </summary>
             <value>Guarda la invitacion que la empresa le brinda a los empresarios para unirse.</value>
         </member>
         <member name="P:Library.Empresa.Nombre">
             <summary>
-            Gets or sets guarda el nombre de la empresa.
+            Obtiene o establece guarda el nombre de la empresa.
             </summary>
             <value>Guarda el nombre de la empresa.</value>
         </member>
         <member name="P:Library.Empresa.Ubicacion">
             <summary>
-            Gets or sets guarda la ubicación de la empresa.
+            Obtiene o establece guarda la ubicación de la empresa.
             </summary>
             <value>Guarda la ubicacion de la empresa.</value>
         </member>
         <member name="P:Library.Empresa.Rubro">
             <summary>
-            Gets or sets guarda el rubro de la empresa.
+            Obtiene o establece guarda el rubro de la empresa.
             </summary>
             <value>Guarda el rubro de la empresa.</value>
         </member>
@@ -215,7 +214,7 @@
         </member>
         <member name="M:Library.Empresario.#ctor(System.Int64,Library.EstadoUsuario,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Library.Empresario"/> class.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Empresario"/>.
             Método constructor de la clase.
             </summary>
             <param name="num">Indica el Id del empresario.</param>
@@ -224,19 +223,19 @@
         </member>
         <member name="P:Library.Empresario.Id">
             <summary>
-            Gets or sets id del usuario del empresario.
+            Obtiene o establece id del usuario del empresario.
             </summary>
             <value>Guarda el id del empresario.</value>
         </member>
         <member name="P:Library.Empresario.Estado">
             <summary>
-            Gets or sets estado en el que se encuentra este usuario para los handlers.
+            Obtiene o establece el estado en el que se encuentra este usuario para los handlers.
             </summary>
             <value>Guarda el estado en el que se encuentra la conversasion con el usuario.</value>
         </member>
         <member name="P:Library.Empresario.Nombre">
             <summary>
-            Gets or sets nombre del empresario.
+            Obtiene o establece el nombre del empresario.
             </summary>
             <value>Guarda el nombre del empresario.</value>
         </member>
@@ -248,7 +247,6 @@
         <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Material"/>.
-            Initializes a new instance of the <see cref="T:Library.Material"/> class.
             </summary>
             <param name="nombre">El nombre del material.</param>
             <param name="costo">El costo del material.</param>
@@ -608,7 +606,12 @@
         </member>
         <member name="F:Library.BuscarPublicacionHandler.tipobusqueda">
             <summary>
-            Atributo donde se guarda el resultado.
+            Almacena la manera que el usuario desea buscar una publicación.
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacionHandler.busqueda">
+            <summary>
+            Lo que desea buscar.
             </summary>
         </member>
         <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
@@ -629,11 +632,17 @@
             al siguiente Handler.
             </summary>
             <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.ComprarHandler">
             <summary>
             Primer Handler de la Chain of Responsibility. Implementa AbstractHandler porque interactúa
             con el usuario.
+            </summary>
+        </member>
+        <member name="F:Library.ComprarHandler.nombreDeLaPublicacion">
+            <summary>
+            Nombre de la publicación que desea comprar.
             </summary>
         </member>
         <member name="M:Library.ComprarHandler.Handle(Library.Mensaje)">
@@ -642,6 +651,7 @@
             al siguiente Handler.
             </summary>
             <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.CrearEmprendedorHandler">
             <summary>
@@ -654,7 +664,8 @@
             Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
             dé los datos para crear un emprendedor. Colabora con la clase Emprendedor.
             </summary>
-            <param name="mensaje">Indica que se quiere crear un emprendedor</param>
+            <param name="mensaje">Indica que se quiere crear un emprendedor.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.CrearPublicacionHandler">
             <summary>
@@ -669,6 +680,7 @@
             llama a la clase CrearPublicacion por la misma razón.
             </summary>
             <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.EmpresaCantidadTrabajadores">
             <summary>
@@ -676,9 +688,9 @@
             porque no interactúa con el usuario, solo muestra en pantalla.
             </summary>
         </member>
-        <member name="P:Library.EmpresaCantidadTrabajadores.Next">
+        <member name="P:Library.EmpresaCantidadTrabajadores.HandlerNext">
             <summary>
-            Gets or sets siguiente Handler en la cadena.
+            Gets or sets siguiente Handler en la cadena. Obtiene o establece.
             </summary>
             <value>Guarda el handler que sigue.</value>
         </member>
@@ -687,6 +699,7 @@
             Método que evalúa el mensaje. Busca la empresa y muestra la cantidad de trabajadores que tiene.
             </summary>
             <param name="mensaje">Contiene el Id con el que se encuentra la empresa deseada.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.FinalizarHandler">
             <summary>
@@ -694,18 +707,19 @@
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
-            <summary>
-            Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
-            </summary>
-            <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
-        </member>
         <member name="M:Library.FinalizarHandler.#ctor(Library.IHandler)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.FinalizarHandler"/> class.
             Constructor de la clase.
             </summary>
             <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro.</param>
+        </member>
+        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
+            </summary>
+            <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.HistorialHandler">
             <summary>
@@ -715,7 +729,7 @@
         </member>
         <member name="P:Library.HistorialHandler.Resultado">
             <summary>
-            Gets or sets atributo donde se guarda el resultado.
+            Obtiene o establece atributo donde se guarda el resultado.
             </summary>
         </member>
         <member name="M:Library.HistorialHandler.Handle(Library.Mensaje)">
@@ -724,7 +738,7 @@
             al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
             se envía al siguiente Handler.
             </summary>
-            <param name="mensaje">Indica que se quiere ver el historial</param>
+            <param name="mensaje">Indica que se quiere ver el historial.</param>
         </member>
         <member name="T:Library.InvitarHandler">
             <summary>
@@ -752,12 +766,37 @@
             Token de invitación.
             </summary>
         </member>
+        <member name="P:Library.InvitarHandler.Ubicacion">
+            <summary>
+            Obtiene o establece la ubicacion.
+            </summary>
+            <value>Ubicacion.</value>
+        </member>
+        <member name="P:Library.InvitarHandler.Nombre">
+            <summary>
+            Obtiene o establece el nombre.
+            </summary>
+            <value>Nombre.</value>
+        </member>
+        <member name="P:Library.InvitarHandler.Token">
+            <summary>
+            Obtiene o establece el token para la invitacion.
+            </summary>
+            <value>Token.</value>
+        </member>
+        <member name="P:Library.InvitarHandler.Rubro">
+            <summary>
+            Obtiene o establece el rubro.
+            </summary>
+            <value>Rubro.</value>
+        </member>
         <member name="M:Library.InvitarHandler.Handle(Library.Mensaje)">
             <summary>
             Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación
             para el mismo?.
             </summary>
             <param name="mensaje">Indica que se quiere crear una invitación.</param>
+            <returns>Retorna la espuesta a la peticion del usuario.</returns>
         </member>
         <member name="T:Library.NullHandler">
             <summary>
@@ -776,6 +815,8 @@
             empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
             es una invitación válida.
             </summary>
+            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+            <returns>Returna respuesta a la peticion del usuario.</returns>
         </member>
         <member name="T:Library.AbstractHandler">
             <summary>
