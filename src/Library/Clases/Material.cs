@@ -5,14 +5,15 @@
 // -----------------------------------------------------------------------
 
 using System;
+using System.Text;
 using System.Collections.Generic;
 
-namespace Library
+namespace Library 
 {
     /// <summary>
     /// Esta clase se encarga del modelado del material.
     /// </summary>
-    public class Material
+    public class Material : IStringbuilder
     {
 
         /// <summary>
@@ -84,5 +85,16 @@ namespace Library
         /// </summary>
         /// <returns></returns>
         public List<string> PosiblesCategorias = new List<string>() { "Químicos", "Plásticos", "Celulósicos", "Eléctricos", "Textiles", "Metálicos", "Metálicos ferrosos", "Solventes", "Vidrio", "Residuos orgánicos", "Otros" };
+
+        public string ConvertToString()
+        {
+            StringBuilder resultado = new StringBuilder();
+            resultado.Append($"Nombre: {this.Nombre}\n");
+            resultado.Append($"Costo: {this.Costo}\n");
+            resultado.Append($"Cantidad: {this.Cantidad}\n");
+            resultado.Append($"Unidad: {this.Unidad}\n");
+            resultado.Append($"Habilitaciones: {this.Habilitaciones}\n");
+            return resultado.ToString();
+        }
     }
 }

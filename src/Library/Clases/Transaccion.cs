@@ -3,14 +3,14 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 // -----------------------------------------------------------------------
-
+using System.Text;
 
 namespace Library
 {
     /// <summary>
     /// Clase que modela las transacciones entre emprendedores y empresas o viceversa.
     /// </summary>
-    public class Transaccion
+    public class Transaccion : IStringbuilder
     {
         /// <summary>
         /// El vendedor es un objeto del tipo Empresa.
@@ -47,6 +47,16 @@ namespace Library
             this.Comprador = comprador;
             this.NombreDelMaterial = nombre;
             this.Cantidad = cantidad;
+        }
+
+        public string ConvertToString()
+        {
+            StringBuilder resultado = new StringBuilder();
+            resultado.Append($"Material: {this.NombreDelMaterial}\n");
+            resultado.Append($"Cantidad: {this.Cantidad}\n");
+            resultado.Append($"Vendedor: {this.Vendedor.Nombre}\n");
+            resultado.Append($"Comprador: {this.Comprador.Nombre}\n");
+            return resultado.ToString();
         }
     }
 }
