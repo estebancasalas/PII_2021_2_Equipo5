@@ -50,5 +50,15 @@ namespace Library
         {
             this.Administradores.Add(administrador);
         }
+
+        public bool Verificar(long id)
+        {
+            
+            Administrador administrador = null; 
+            
+            administrador = this.Administradores.Find(x=> x.Id == id);
+
+            return administrador != null;
+        }
     }
 }
