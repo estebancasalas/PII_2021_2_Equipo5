@@ -106,8 +106,7 @@ namespace Library
                         estado = new EstadoUsuario();
                         break;
                 }
-
-                return this.TextResult.ToString();
+            return this.TextResult.ToString();
             }
             else
             {

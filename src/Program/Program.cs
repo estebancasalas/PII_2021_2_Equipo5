@@ -4,10 +4,13 @@
 // </copyright>
 //--------------------------------------------------------------------------------
 using System;
-using System.IO;
-
 using Telegram.Bot;
 using Telegram.Bot.Args;
+
+using Library;
+using Telegram.Bot.Types.Enums;
+using System.IO;
+using System.Text;
 
 namespace Library
 {
@@ -99,7 +102,7 @@ namespace Library
             string guardarInvit = listaInvitaciones.ConvertToJson();
             string guardarTrans = listaTransacciones.ConvertToJson();
             string guardarPubli = registroPublicaciones.ConvertToJson();
-            
+
             // Se guardan en los archivos de texto
             File.WriteAllText(@"..\..\Datos_json\listaAdministradores.txt", guardarAdmin);
             File.WriteAllText(@"..\..\Datos_json\listaUsuario.txt", guardarUsuario);
@@ -109,13 +112,18 @@ namespace Library
             File.WriteAllText(@"..\..\Datos_json\listaTransacciones.txt", guardarTrans);
             File.WriteAllText(@"..\..\Datos_json\registroPublicaciones.txt", guardarPubli);
         }
-      
-         private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
-         {
-             Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
-             while (mensaje.Text != "/finalizar")
+
+        private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
+        {
+            Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            ITelegramBotClient client = TelegramBot.Instance.Client;
+
+            IUsuario newusuario = new Empresario(1128028626, new EstadoUsuario(), "Esteban");
+            while (mensaje.Text != "/finalizar")
             {
-                
+                await client.SendTextMessageAsync(chatId: mensaje.Id, text: ComienzoHandler.Handle(mensaje));
             }
          }
 

@@ -36,35 +36,36 @@ namespace Library
             {
                 if (!listaUsuario.EstaRegistrado(mensaje.Id))
                 {
+                    this.TextResult.Clear();
                     estado.Handler = "/emprendedor";
                     switch (estado.Step)
                     {
                         case 0:
-                        Console.WriteLine("¿Cuál es su nombre?");
+                        this.TextResult.Append("¿Cuál es su nombre?");
                         estado.Step++;
                         break;
 
                         case 1:
                         this.nombre = mensaje.Text;
-                        Console.WriteLine("¿Cuál es su rubro?");
+                        this.TextResult.Append("¿Cuál es su rubro?");
                         estado.Step++;
                         break;
 
                         case 2:
                         this.rubro = mensaje.Text;
-                        Console.WriteLine("¿Cuál es la direccion de su domicilio?");
+                        this.TextResult.Append("¿Cuál es la direccion de su domicilio?");
                         estado.Step++;
                         break;
 
                         case 3:
                         this.ubicacion = mensaje.Text;
-                        Console.WriteLine("¿Posee alguna habilitacion?");
+                        this.TextResult.Append("¿Posee alguna habilitacion?");
                         estado.Step++;
                         break;
 
                         case 4:
                         this.habilitacion = mensaje.Text;
-                        string especializaciones = Input.GetInput("¿En qué se especializa?");
+                        this.TextResult.Append("¿En qué se especializa?");
                         estado.Step++;
                         break;
 
@@ -77,7 +78,7 @@ namespace Library
                 }
                 else
                 {
-                    Console.WriteLine("Usted ya esta registrado.");
+                    this.TextResult.Append("Usted ya esta registrado.");
                 }
                 
                 return this.TextResult.ToString();
