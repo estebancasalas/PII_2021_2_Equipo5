@@ -29,14 +29,14 @@ namespace Library
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override string Handle(Mensaje mensaje)
         {
-
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            if (mensaje.Text.ToLower() == "/buscarpublicacion")
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+            
+            if (mensaje.Text.ToLower() == "/buscarpublicacion" || estado.Handler == "/buscarpublicacion")
             {
                 List<Publicacion> resultadoBusqueda = new List<Publicacion>();
-                int indice = listaUsuario.Buscar(mensaje.Id);
-                EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-                estado.Handler = this;
+                estado.Handler = "/buscarpublicacion";
                 switch (estado.Step)
                 {
                     case 0:
@@ -97,6 +97,8 @@ namespace Library
                         int indicePublicacion = Int32.Parse(mensaje.Text);
                         Publicacion publicacion = resultadoBusqueda[indicePublicacion];
                         // ComprarHandler compra = new ComprarHandler(); Cambiar ComprarHandler.
+
+                        estado = new EstadoUsuario();
                         break;
                 }
 

@@ -109,18 +109,12 @@ namespace Library
             File.WriteAllText(@"..\..\Datos_json\registroPublicaciones.txt", guardarPubli);
         }
 
-         private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
-         {
+        private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
+        {
              Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
              while (mensaje.Text != "/finalizar")
             {
-                // Fijarse si estsa registrado y obtener el IUsuario.
-                Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
-                mensaje.Text = Console.ReadLine();
-                ComienzoHandler.Handle(mensaje);
-
-                //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
             }
-         }
+        }        //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
     }
 }
