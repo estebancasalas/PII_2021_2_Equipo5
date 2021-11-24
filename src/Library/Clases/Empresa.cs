@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -15,10 +16,10 @@ namespace Library
     /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
     /// surjan nuevos tipos de usuario.
     /// </summary>
-    public class Empresa
+    public class Empresa : IStringbuilder
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Empresa"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="Empresa"/>.
         /// Es el constructor que se encarga de crear a la empresa en su totalidad.
         /// </summary>
         /// <param name="nombre">Se encarga de guardar el nombre de la empresa dentro del objeto empresa.</param>
@@ -39,33 +40,43 @@ namespace Library
         /// puede tener una misma empresa.
         /// </summary>
         /// <value></value>
+        /// 
         [JsonInclude]
-        private List<Empresario> listaEmpresarios = new List<Empresario>();
+        public List<Empresario> listaEmpresarios = new List<Empresario>();
 
         /// <summary>
-        /// Gets or sets guarda la invitación de la empresa.
+        /// Obtiene o establece guarda la invitación de la empresa.
         /// </summary>
         /// <value>Guarda la invitacion que la empresa le brinda a los empresarios para unirse.</value>
         public string Invitacion { get; set; }
 
         /// <summary>
-        /// Gets or sets guarda el nombre de la empresa.
+        /// Obtiene o establece guarda el nombre de la empresa.
         /// </summary>
         /// <value>Guarda el nombre de la empresa.</value>
         public string Nombre { get; set; }
 
         /// <summary>
-        /// Gets or sets guarda la ubicación de la empresa.
+        /// Obtiene o establece guarda la ubicación de la empresa.
         /// </summary>
         /// <value>Guarda la ubicacion de la empresa.</value>
         public string Ubicacion { get; set; }
 
         /// <summary>
-        /// Gets or sets guarda el rubro de la empresa.
+        /// Obtiene o establece guarda el rubro de la empresa.
         /// </summary>
         /// <value>Guarda el rubro de la empresa.</value>
         public string Rubro { get; set; }
 
         public List<Empresario> ListaEmpresarios { get; set; }
+
+        public string ConvertToString()
+        {
+            StringBuilder resultado = new StringBuilder();
+            resultado.Append($"Nombre: {this.Nombre}\n");
+            resultado.Append($"Ubicación: {this.Ubicacion}\n");
+            resultado.Append($"Rubro: {this.Rubro}\n");
+            return resultado.ToString();
+        }
     }
 }

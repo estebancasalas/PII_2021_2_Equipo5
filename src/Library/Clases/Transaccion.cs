@@ -3,44 +3,38 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 // -----------------------------------------------------------------------
-
-using System;
-using System.Collections.Generic;
+using System.Text;
 
 namespace Library
 {
     /// <summary>
-    /// Clase que modela las transacciones entre emprendedores y empresas o viceversa. 
+    /// Clase que modela las transacciones entre emprendedores y empresas o viceversa.
     /// </summary>
-    public class Transaccion
+    public class Transaccion : IStringbuilder
     {
         /// <summary>
         /// El vendedor es un objeto del tipo Empresa.
         /// </summary>
-        private Empresa vendedor;
+        public Empresa vendedor;
 
         /// <summary>
-        /// El Comprador es un objeto de tipo Emprendedor 
+        /// El Comprador es un objeto de tipo Emprendedor.
         /// </summary>
-        private Emprendedor comprador;
+        public Emprendedor Comprador;
 
         /// <summary>
         /// El NombreDelMaterial es el nombre del material que se vendió o se compró.
         /// </summary>
-        private string nombreDelMaterial;
+        public string NombreDelMaterial;
 
         /// <summary>
         /// La cantidad del material que se vendió o se compró.
         /// </summary>
-        private double cantidad;
+        public double Cantidad;
 
         public Empresa Vendedor { get => vendedor; set => vendedor = value; }
-        public Emprendedor Comprador { get => comprador; set => comprador = value; }
-        public string NombreDelMaterial { get => nombreDelMaterial; set => nombreDelMaterial = value; }
-        public double Cantidad { get => cantidad; set => cantidad = value; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Transaccion"/> class.
         /// Constructor de la clase.
         /// </summary>
         /// <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>
@@ -53,6 +47,16 @@ namespace Library
             this.Comprador = comprador;
             this.NombreDelMaterial = nombre;
             this.Cantidad = cantidad;
+        }
+
+        public string ConvertToString()
+        {
+            StringBuilder resultado = new StringBuilder();
+            resultado.Append($"Material: {this.NombreDelMaterial}\n");
+            resultado.Append($"Cantidad: {this.Cantidad}\n");
+            resultado.Append($"Vendedor: {this.Vendedor.Nombre}\n");
+            resultado.Append($"Comprador: {this.Comprador.Nombre}\n");
+            return resultado.ToString();
         }
     }
 }

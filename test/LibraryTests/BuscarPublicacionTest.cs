@@ -1,7 +1,7 @@
 // <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-
+/*
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -89,3 +89,4 @@ namespace LibraryTests
         }
     }
 }
+*/

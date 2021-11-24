@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System;
+using System.Text;
 
 namespace Library
 {
@@ -13,10 +14,10 @@ namespace Library
     /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
     /// surjan nuevos tipos de usuario.
     /// </summary>
-    public class Emprendedor : IUsuario
+    public class Emprendedor : IUsuario, IStringbuilder
     {
-                /// <summary>
-        /// Initializes a new instance of the <see cref="Emprendedor"/> class.
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Emprendedor"/>.
         /// Constructor de la clase emprendedor.
         /// </summary>
         /// <param name="id">Id del emprendedor.</param>
@@ -25,7 +26,7 @@ namespace Library
         /// <param name="rubro">Rubro del emprendedor.</param>
         /// <param name="habilitaciones">Habilitaciones que tiene el emprendedor.</param>
         /// <param name="especializaciones">Especializaciones que tiene el emprendedor.</param>
-        public Emprendedor(int id, string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
+        public Emprendedor(long id, string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
         {
             this.Id = id;
             this.Nombre = nombre;
@@ -36,45 +37,56 @@ namespace Library
         }
 
         /// <summary>
-        /// Gets or sets id del Emprendedor.
+        /// Obtiene o establece id del Emprendedor.
         /// </summary>
         /// <value>Se guarda el Id de el usuario.</value>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
-        /// Gets or sets atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
+        /// Obtiene o establece atributo para ver el estado en el que se encuentra este usuario dentro de los handlers.
         /// </summary>
         /// <value>Se guarda el Estado de la conversación del usuario.</value>
         public EstadoUsuario Estado { get; set; }
 
         /// <summary>
-        /// Gets or sets nombre del emprendedor.
+        /// Obtiene o establece nombre del emprendedor.
         /// </summary>
         /// <value>Se guarda el nombre del emprendedor.</value>
         public string Nombre { get; set; }
 
         /// <summary>
-        /// Gets or sets ubicación del emprendedor.
+        /// Obtiene o establece ubicación del emprendedor.
         /// </summary>
         /// <value>Se guarda la dirección del emprendedor.</value>
         public string Ubicacion { get; set; }
 
         /// <summary>
-        /// Gets or sets rubro del emprendedor.
+        /// Obtiene o establece rubro del emprendedor.
         /// </summary>
         /// <value>Se guarda el rubro del emprendedor.</value>
         public string Rubro { get; set; }
 
         /// <summary>
-        /// Gets habilitaciones del emprendedor(Link al documento).
+        /// Obtiene habilitaciones del emprendedor(Link al documento).
         /// </summary>
         /// <value>Se guarda las habilitaciones que contiene el emprendedor.</value>
         public string Habilitaciones { get; }
 
         /// <summary>
-        /// Gets especializaciones del emprendedor.
+        /// Obtiene especializaciones del emprendedor.
         /// </summary>
         /// <value>Se guardan las especializaciones del emprendedor.</value>
         public string Especializaciones { get; }
+
+        public string ConvertToString()
+        {
+            StringBuilder resultado = new StringBuilder();
+            resultado.Append($"Nombre: {this.Nombre}\n");
+            resultado.Append($"Ubicación: {this.Ubicacion}\n");
+            resultado.Append($"Rubro: {this.Rubro}\n");
+            resultado.Append($"Habilitaciones: {this.Habilitaciones}\n");
+            resultado.Append($"Especializaciones: {this.Especializaciones}\n");
+            return resultado.ToString();
+        }
     }
 }
