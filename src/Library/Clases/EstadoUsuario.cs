@@ -8,8 +8,8 @@ namespace Library
 {
     public class EstadoUsuario
     {
-        private IHandler handler;
-        public IHandler Handler
+        private string handler;
+        public string Handler
         {
             get { return this.handler; }
             set { this.handler = value; }
@@ -23,7 +23,7 @@ namespace Library
 
         public EstadoUsuario()
         {
-            this.Handler = new NullHandler();
+            this.handler = null;
             this.step = 0;
         }
     }

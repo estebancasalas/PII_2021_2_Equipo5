@@ -32,12 +32,11 @@ namespace Library
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuarios = new ListaDeUsuario();
-            if (mensaje.Text.ToLower() == "/empresario" && listaUsuarios.EstaRegistrado(mensaje.Id))
+            int indice = listaUsuarios.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuarios.ListaUsuarios[indice].Estado;
+            if (mensaje.Text.ToLower() == "/empresario" || estado.Handler == "/empresario")
             {
-                int indice = listaUsuarios.Buscar(mensaje.Id);
-                EstadoUsuario estado = listaUsuarios.ListaUsuarios[indice].Estado;
-                estado.Handler = this;
-                switch (estado.Step)
+                if (listaUsuarios.EstaRegistrado(mensaje.Id))
                 {
                     case 0:
                     Console.WriteLine("Ingrese su código de invitación: ");
@@ -56,17 +55,39 @@ namespace Library
                     }
                     else
                     {
-                        Console.WriteLine("Lo siento, su invitacion no es valida. El proceso se ha finalizado.");
+                    estado.Handler = "/empresario";
+                    switch (estado.Step)
+                    {
+                        case 0:
+                        Console.WriteLine("Ingrese su código de invitación: ");
+                        estado.Step++;
+                        break;
+
+                        case 1:
+                        this.invitacion = mensaje.Text;
+                        ListaInvitaciones verificador = new ListaInvitaciones();
+                        this.invitacionValida = verificador.VerificarInvitacion(this.invitacion);
+                        if (this.invitacionValida)
+                        {
+                            List<Empresa> lista = Singleton<List<Empresa>>.Instance;
+                            this.empresa = lista.Find(x => x.Invitacion == this.invitacion);
+                            Console.WriteLine("Ingrese nombre: ");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Lo siento, su invitacion no es valida. El proceso se ha finalizado.");
+                        }
+
+                        estado.Step++;
+                        break;
+
+                        case 2:
+                        this.nombre = mensaje.Text;
+                        Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), this.nombre);
+                        this.empresa.ListaEmpresarios.Add(empresario);
+                        estado = new EstadoUsuario();
+                        break;
                     }
-
-                    estado.Step++;
-                    break;
-
-                    case 2:
-                    this.nombre = mensaje.Text;
-                    Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), this.nombre);
-                    this.empresa.ListaEmpresarios.Add(empresario);
-                    break;
                 }
 
                 return this.TextResult.ToString();

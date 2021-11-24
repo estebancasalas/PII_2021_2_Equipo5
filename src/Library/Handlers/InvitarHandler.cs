@@ -68,31 +68,62 @@ namespace Library
         /// <returns>Retorna la espuesta a la peticion del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
-            if (mensaje.Text.ToLower() == "/crearinvitacion")
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+
+            if (mensaje.Text.ToLower() == "/crearinvitacion" || estado.Handler == "/crearinvitacion")
             {
-                List<Administrador> lista = Singleton<ListaAdministradores>.Instance.Administradores;
-                bool notfound = true;
-                int i = 0;
-                while (notfound && i < lista.Count)
+                ListaAdministradores listaAdministradores = new ListaAdministradores();
+                if  (listaAdministradores.Verificar(mensaje.Id))
                 {
-                    if (lista[i].Id == mensaje.Id)
+                    estado.Handler = "/crearinvitacion";
+                    switch(estado.Step)
                     {
-                        notfound = false;
-                        this.nombre = this.Input.GetInput("Ingrese nombre empresa que desea invitar");
-                        this.ubicacion = this.Input.GetInput("Ingrese su ubicacion");
-                        this.rubro = this.Input.GetInput("rubro de la empresa");
-                        this.token = this.Input.GetInput("Codigo de invitacion");
-                        Administrador.CrearInvitacion(this.nombre, this.ubicacion, this.rubro, this.token);
-                    }
-                    else
-                    {
-                        i++;
+                        case 0 :
+                        Console.WriteLine("¿Cuál es su nombre?");
+                        estado.Step++;
+                        break;
+
+                        case 1 :
+                        this.Nombre = mensaje.Text;
+                        Console.WriteLine("¿Cuál es su ubicación?");
+                        estado.Step++;
+                        break;
+
+                        case 2 :
+                        this.Ubicacion = mensaje.Text;
+                        Console.WriteLine("¿Cuál es su rubro?");
+                        estado.Step++;
+                        break;
+
+                        case 3 :
+                        this.Rubro = mensaje.Text;
+                        Console.WriteLine("¿Cuál es su Token?");
+                        estado.Step++;
+                        break;
+
+                        case 4 :
+                        this.Token = mensaje.Text;
+                        Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token);
+                        estado = new EstadoUsuario();
+                        break;
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Usted no es un administrador.");
+                }
             }
+            else
+            {
+                this.GetNext().Handle(mensaje);
+            }
+
 
             this.GetNext().Handle(mensaje);
             return this.TextResult.ToString();
+
         }
     }
 }

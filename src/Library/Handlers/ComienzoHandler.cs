@@ -23,7 +23,11 @@ namespace Library
         /// <returns>Retorna la respuesta a la petición del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
-            if (mensaje.Text.ToLower() == "/comandos")
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+
+            if (mensaje.Text.ToLower() == "/comandos" || estado.Handler == "/comandos")
             {
                 StringBuilder comandos = new StringBuilder();
                 comandos.Append("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, los comandos disponibles son: ")

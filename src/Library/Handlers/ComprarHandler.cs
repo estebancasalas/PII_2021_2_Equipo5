@@ -32,11 +32,13 @@ namespace Library
         {
             // En vez de start, que se fije si no tiene / y si es la primera vez que escribe el usuario
             ListaDeUsuario listaUsuario = new ();
-            if (mensaje.Text.ToLower() == "/comprar")
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+
+            if (mensaje.Text.ToLower() == "/comprar" || estado.Handler == "/comprar")
             {
-                int indice = listaUsuario.Buscar(mensaje.Id);
-                EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-                estado.Handler = this;
+                
+                estado.Handler = "/comprar";
                 switch (estado.Step)
                 {
                     case 0:

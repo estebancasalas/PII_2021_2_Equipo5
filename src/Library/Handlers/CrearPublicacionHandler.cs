@@ -46,13 +46,15 @@ namespace Library
         {
             ListaEmpresa lista = new ListaEmpresa();
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            if (mensaje.Text.ToLower() == "/crearpublicacion")
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+
+            if (mensaje.Text.ToLower() == "/crearpublicacion" || estado.Handler == "/crearpublicacion")
             {
                 if (lista.Verificar(mensaje.Id))
                 {
-                    int indice = listaUsuario.Buscar(mensaje.Id);
-                    EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-                    estado.Handler = this;
+                    
+                    estado.Handler = "/crearpublicacion";
                     switch (estado.Step)
                     {
                         case 0:
@@ -127,15 +129,12 @@ namespace Library
                         Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
                         estado = new EstadoUsuario();
                         break;
-                    } 
-
-                    return this.TextResult.ToString();
                 }
                 else
                 {
-                    Output.PrintLine("Para crear publicaciones debe pertenecer a una empresa. Ingrese un comando nuevo:\n");
-                    return this.TextResult.ToString();
+                    Console.WriteLine("Para crear publicaciones debe pertenecer a una empresa. Ingrese un comando nuevo:\n");
                 }
+                return this.TextResult.ToString();
             }
             else
             {
