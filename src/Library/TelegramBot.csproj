@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\PII_LocationApiClient\src\Library\Library.csproj" />
+    <PackageReference Include="Telegram.Bot" Version="15.7.1" />
   </ItemGroup>
 
 </Project>
