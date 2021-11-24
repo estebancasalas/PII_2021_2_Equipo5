@@ -4,13 +4,13 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-
+using System.Text;
 namespace Library
 {
     /// <summary>
     /// Clase que modela un usario del tipo publicación.
     /// </summary>
-    public class Publicacion
+    public class Publicacion : IStringbuilder
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Publicacion"/> class.
@@ -63,5 +63,17 @@ namespace Library
 
         // Atributo en dónde se guarda la ubicación del material.
         public IUbicacion Ubicacion { get; set; }
+
+        public string ConvertToString()
+        {
+            StringBuilder resultado = new StringBuilder();
+            resultado.Append($"Título: {this.Titulo}\n");
+            resultado.Append($"Material: {this.Material.ConvertToString()}\n");
+            resultado.Append($"Palabras clave: {this.PalabrasClave}\n");
+            resultado.Append($"Frecuencia de disponibilidad: {this.FrecuenciaDeDisponibilidad}\n");
+            resultado.Append($"Ubicación: {this.Ubicacion}\n");
+            resultado.Append($"Vendedor: {this.Vendedor.Nombre}\n");
+            return resultado.ToString();
+        }
     }
 }

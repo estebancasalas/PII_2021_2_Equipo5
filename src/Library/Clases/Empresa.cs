@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -15,7 +16,7 @@ namespace Library
     /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
     /// surjan nuevos tipos de usuario.
     /// </summary>
-    public class Empresa
+    public class Empresa : IStringbuilder
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Empresa"/> class.
@@ -68,5 +69,14 @@ namespace Library
         public string Rubro { get; set; }
 
         public List<Empresario> ListaEmpresarios { get; set; }
+
+        public string ConvertToString()
+        {
+            StringBuilder resultado = new StringBuilder();
+            resultado.Append($"Nombre: {this.Nombre}\n");
+            resultado.Append($"Ubicación: {this.Ubicacion}\n");
+            resultado.Append($"Rubro: {this.Rubro}\n");
+            return resultado.ToString();
+        }
     }
 }

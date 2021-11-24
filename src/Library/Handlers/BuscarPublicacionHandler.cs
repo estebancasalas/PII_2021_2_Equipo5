@@ -59,12 +59,12 @@ namespace Library
                     estado = new EstadoUsuario();
                     break;
                 }
+            return this.TextResult.ToString();    
             }
             else
             {
-                this.GetNext().Handle(mensaje);
+                return this.GetNext().Handle(mensaje);
             }
-            return this.TextResult.ToString();
         }
     }
 }
