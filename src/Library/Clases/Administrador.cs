@@ -15,7 +15,6 @@ namespace Library
     public class Administrador
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Administrador"/> class.
         /// Inicializa una nueva instancia de la clase <see cref="Administrador"/>.
         /// Constructor de la clase Administrador.
         /// </summary>
@@ -31,7 +30,7 @@ namespace Library
 
         private int id;
         /// <summary>
-        /// Gets or sets se guarda el id de el administrador al registrarse.
+        /// Obtiene o establece se guarda el id de el administrador al registrarse.
         /// </summary>
         /// <value>Id del administrador.</value>
         public int Id { get { return this.id; } set { this.id = value; } }
@@ -39,7 +38,7 @@ namespace Library
 
         private string nombre;
         /// <summary>
-        /// Gets or sets guarda el nombre que pone el administrador al registrarse.
+        /// Obtiene o establece guarda el nombre que pone el administrador al registrarse.
         /// </summary>
         /// <value>Nombre del administrador.</value>
         public string Nombre { get { return this.nombre; } set { this.nombre = value; } }
