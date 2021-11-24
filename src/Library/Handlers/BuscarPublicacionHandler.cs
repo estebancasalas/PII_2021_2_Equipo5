@@ -11,7 +11,7 @@ using System.Text;
 namespace Library
 {
     /// <summary>
-    /// Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque 
+    /// Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque
     /// interactúa con el usuario.
     /// </summary>
     public class BuscarPublicacionHandler : AbstractHandler
@@ -19,27 +19,25 @@ namespace Library
         /// <summary>
         /// Atributo donde se guarda el resultado.
         /// </summary>
-
-        string tipobusqueda;
-
-        string busqueda;
-        List<Publicacion> resultadoBusqueda;
+        private string tipobusqueda;
+        
         public List<Publicacion> result;
+
+        private string busqueda;
 
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        public override void Handle(Mensaje mensaje)
+        public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
             {
-
                 int indice = listaUsuario.Buscar(mensaje.Id);
                 EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-                estado.handler = this;
-                switch (estado.step)
+                estado.Handler = this;
+                switch (estado.Step)
                 {
                     case 0:
                         Console.WriteLine("¿De que manera desea de buscar la publicación?\n Si desea buscar por categoria --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");

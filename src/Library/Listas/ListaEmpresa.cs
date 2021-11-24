@@ -25,7 +25,7 @@ namespace Library
         /// </summary>
         /// <param name="id">Id del empresario a verificar</param>
         /// <returns></returns>
-        public bool Verificar(int id)
+        public bool Verificar(long id)
         {
             int i = 0;
             Empresario empresario = null; 
@@ -42,7 +42,7 @@ namespace Library
         /// </summary>
         /// <param name="id">id de la empresa deseada</param>
         /// <returns></returns>
-        public Empresa Buscar(int id)
+        public Empresa Buscar(long id)
         {
             int i = 0;
             Empresario empresario = null; 

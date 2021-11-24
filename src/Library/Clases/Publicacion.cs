@@ -4,47 +4,14 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System;
-using Ucu.Poo.Locations.Client;
-
+using System.Text;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela un usario del tipo publicación. 
+    /// Clase que modela un usario del tipo publicación.
     /// </summary>
-    public class Publicacion
+    public class Publicacion : IStringbuilder
     {
-        /// <summary>
-        /// Nombre de quien hace la publicación.
-        /// </summary>
-        public Empresa Vendedor;
-
-        /// <summary>
-        /// Se encarga de guardar el título de la publicación dentro del objeto publicación.
-        /// </summary>
-        /// <value></value>
-        public string Titulo;
-
-        /// <summary>
-        /// Se encarga de guardar el material de la publicación dentro del objeto publicación.
-        /// </summary>
-        /// <value></value>
-        public Material Material;
-
-        /// <summary>
-        /// Se encarga de guardar las palabras claves para lograr una búsqueda efectiva dentro del objeto publicación.
-        /// </summary>
-        public string PalabrasClave;
-
-        /// <summary>
-        /// Permite conocer cada cuánto tiempo se genera el mismo y los guarda en el objeto material. 
-        /// </summary>
-        /// <value></value>
-        public string FrecuenciaDeDisponibilidad;
-
-        // Atributo en dónde se guarda la ubicación del material.
-        public IUbicacion Ubicacion { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Publicacion"/> class.
         /// Constructor de la clase Publicacion.
@@ -64,6 +31,49 @@ namespace Library
             this.Ubicacion = ubicacion;
             this.Vendedor = empresa;
             Singleton<RegistroPublicaciones>.Instance.Add(this);
+        }
+
+        /// <summary>
+        /// Gets or sets nombre de quien hace la publicación.
+        /// </summary>
+        public Empresa Vendedor { get; set; }
+
+        /// <summary>
+        /// Se encarga de guardar el título de la publicación dentro del objeto publicación.
+        /// </summary>
+        /// <value></value>
+        public string Titulo { get; set; }
+
+        /// <summary>
+        /// Se encarga de guardar el material de la publicación dentro del objeto publicación.
+        /// </summary>
+        /// <value></value>
+        public Material Material { get; set; }
+
+        /// <summary>
+        /// Se encarga de guardar las palabras claves para lograr una búsqueda efectiva dentro del objeto publicación.
+        /// </summary>
+        public string PalabrasClave { get; set; }
+
+        /// <summary>
+        /// Permite conocer cada cuánto tiempo se genera el mismo y los guarda en el objeto material.
+        /// </summary>
+        /// <value></value>
+        public string FrecuenciaDeDisponibilidad { get; set; }
+
+        // Atributo en dónde se guarda la ubicación del material.
+        public IUbicacion Ubicacion { get; set; }
+
+        public string ConvertToString()
+        {
+            StringBuilder resultado = new StringBuilder();
+            resultado.Append($"Título: {this.Titulo}\n");
+            resultado.Append($"Material: {this.Material.ConvertToString()}\n");
+            resultado.Append($"Palabras clave: {this.PalabrasClave}\n");
+            resultado.Append($"Frecuencia de disponibilidad: {this.FrecuenciaDeDisponibilidad}\n");
+            resultado.Append($"Ubicación: {this.Ubicacion}\n");
+            resultado.Append($"Vendedor: {this.Vendedor.Nombre}\n");
+            return resultado.ToString();
         }
     }
 }
