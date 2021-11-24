@@ -17,14 +17,15 @@ namespace Library
     public class BuscarPublicacionHandler : AbstractHandler
     {
         /// <summary>
-        /// Atributo donde se guarda el resultado.
+        /// Almacena la manera que el usuario desea buscar una publicación.
         /// </summary>
-        private string tipobusqueda;
+        private string tipobusqueda;      
         
-        public List<Publicacion> result;
-
+        /// <summary>
+        /// Lo que desea buscar.
+        /// </summary>
         private string busqueda;
-
+        
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
@@ -64,6 +65,7 @@ namespace Library
                         {
                             Console.WriteLine("Usted ingreso una opción invalida. Intente nuevamente.");
                         }
+
                         estado.Step++;
                         break;
 
@@ -83,14 +85,17 @@ namespace Library
                             Console.WriteLine("Ingrese el numero de la publicación que desea comprar.");
                             estado.Step++;
                         }
+
                         else if (mensaje.Text.ToLower() == "2")
                         {
                             estado.Step = 0;
                         }
+
                         else
                         {
                             Console.WriteLine("Usted ingreso una opción invalida. Intente nuevamente.");
                         }
+
                         break;
 
                     case 4:
