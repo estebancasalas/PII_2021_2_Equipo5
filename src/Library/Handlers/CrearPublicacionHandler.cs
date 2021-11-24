@@ -53,7 +53,6 @@ namespace Library
             {
                 if (lista.Verificar(mensaje.Id))
                 {
-                    
                     estado.Handler = "/crearpublicacion";
                     switch (estado.Step)
                     {
@@ -129,11 +128,13 @@ namespace Library
                         Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
                         estado = new EstadoUsuario();
                         break;
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Para crear publicaciones debe pertenecer a una empresa. Ingrese un comando nuevo:\n");
                 }
+
                 return this.TextResult.ToString();
             }
             else
