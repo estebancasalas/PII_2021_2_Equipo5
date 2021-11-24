@@ -16,7 +16,7 @@ namespace Library
     /// </summary>
     public abstract class AbstractHandler : IHandler
     {
-        public StringBuilder TextResult;
+        public StringBuilder TextResult = new StringBuilder();
         /// <summary>
         /// Gets or sets las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
         /// </summary>

@@ -33,6 +33,7 @@ namespace Library
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
             Singleton<ListaEmpresa>.Instance.Add(this);
+            
         }
 
         /// <summary>

@@ -4,10 +4,13 @@
 // </copyright>
 //--------------------------------------------------------------------------------
 using System;
-using System.IO;
-
 using Telegram.Bot;
 using Telegram.Bot.Args;
+
+using Library;
+using Telegram.Bot.Types.Enums;
+using System.IO;
+using System.Text;
 
 namespace Library
 {
@@ -115,11 +118,16 @@ namespace Library
             Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             int indice = listaUsuario.Buscar(mensaje.Id);
+            ITelegramBotClient client = TelegramBot.Instance.Client;
             
             IUsuario newusuario = new Empresario(1128028626, new EstadoUsuario(), "Esteban");
             while (mensaje.Text != "/finalizar")
             {
-                ComienzoHandler.Handle(mensaje);
+                
+                await client
+                .SendTextMessageAsync(
+                                                  chatId: mensaje.Id,
+                                                   text: ComienzoHandler.Handle(mensaje));
             }
          }
 

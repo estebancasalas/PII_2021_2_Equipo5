@@ -28,8 +28,8 @@ namespace Library
 
             if (mensaje.Text.ToLower() == "/comandos" || estado.Handler == "/comandos")
             {
-                StringBuilder comandos = new StringBuilder();
-                comandos.Append("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, los comandos disponibles son: ")
+                this.TextResult.Clear();
+                this.TextResult.Append("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, los comandos disponibles son: ")
                         .Append("/Como empresa tus comandos son: \n")
                         .Append("/empresario\n")
                         .Append("/crearpublicacion\n")
@@ -43,7 +43,6 @@ namespace Library
                         .Append("/historial\n")
                         .Append("/comprar\n")
                         .Append("/finalizar\n");
-                Console.WriteLine(comandos.ToString());
                 return this.TextResult.ToString();
             }
             else
