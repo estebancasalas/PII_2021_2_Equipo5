@@ -18,7 +18,7 @@ namespace Library
     public class Empresa
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Empresa"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="Empresa"/>.
         /// Es el constructor que se encarga de crear a la empresa en su totalidad.
         /// </summary>
         /// <param name="nombre">Se encarga de guardar el nombre de la empresa dentro del objeto empresa.</param>
@@ -43,25 +43,25 @@ namespace Library
         private List<Empresario> listaEmpresarios = new List<Empresario>();
 
         /// <summary>
-        /// Gets or sets guarda la invitación de la empresa.
+        /// Obtiene o establece guarda la invitación de la empresa.
         /// </summary>
         /// <value>Guarda la invitacion que la empresa le brinda a los empresarios para unirse.</value>
         public string Invitacion { get; set; }
 
         /// <summary>
-        /// Gets or sets guarda el nombre de la empresa.
+        /// Obtiene o establece guarda el nombre de la empresa.
         /// </summary>
         /// <value>Guarda el nombre de la empresa.</value>
         public string Nombre { get; set; }
 
         /// <summary>
-        /// Gets or sets guarda la ubicación de la empresa.
+        /// Obtiene o establece guarda la ubicación de la empresa.
         /// </summary>
         /// <value>Guarda la ubicacion de la empresa.</value>
         public string Ubicacion { get; set; }
 
         /// <summary>
-        /// Gets or sets guarda el rubro de la empresa.
+        /// Obtiene o establece guarda el rubro de la empresa.
         /// </summary>
         /// <value>Guarda el rubro de la empresa.</value>
         public string Rubro { get; set; }

@@ -14,10 +14,8 @@ namespace Library
     /// </summary>
     public class Material
     {
-
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Material"/>.
-        /// Initializes a new instance of the <see cref="Material"/> class.
         /// </summary>
         /// <param name="nombre">El nombre del material.</param>
         /// <param name="costo">El costo del material.</param>
