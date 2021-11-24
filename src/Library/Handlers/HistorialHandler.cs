@@ -16,7 +16,7 @@ namespace Library
     public class HistorialHandler : AbstractHandler
     {
         /// <summary>
-        /// Gets or sets atributo donde se guarda el resultado.
+        /// Obtiene o establece atributo donde se guarda el resultado.
         /// </summary>
         private string Resultado { get; set; }
 
@@ -25,7 +25,7 @@ namespace Library
         /// al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
         /// se envía al siguiente Handler.
         /// </summary>
-        /// <param name="mensaje">Indica que se quiere ver el historial</param>
+        /// <param name="mensaje">Indica que se quiere ver el historial.</param>
         public override string Handle(Mensaje mensaje)
         { 
             if (mensaje.Text.ToLower() == "/historial")

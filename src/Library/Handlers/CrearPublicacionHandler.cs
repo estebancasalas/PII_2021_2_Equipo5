@@ -34,13 +34,14 @@ namespace Library
         private string frecuencia;
 
         private string localizacion;
-
+        
         /// <summary>
         /// Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
         /// datos de materiales y llama a la clase CrearMaterial para cumplir con el SRP. Luego, se
         /// llama a la clase CrearPublicacion por la misma razón.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        /// <returns>Retorna la respuesta a la petición del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
             ListaEmpresa lista = new ListaEmpresa();
@@ -128,12 +129,10 @@ namespace Library
                         Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
                         estado = new EstadoUsuario();
                         break;
-                    }
                 }
                 else
                 {
                     Console.WriteLine("Para crear publicaciones debe pertenecer a una empresa. Ingrese un comando nuevo:\n");
-                    return this.TextResult.ToString();
                 }
                 return this.TextResult.ToString();
             }

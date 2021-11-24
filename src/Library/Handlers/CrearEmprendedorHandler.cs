@@ -19,12 +19,13 @@ namespace Library
         private string ubicacion;
         private string habilitacion;
         private string especializaciones;
-
+        
         /// <summary>
         /// Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
         /// dé los datos para crear un emprendedor. Colabora con la clase Emprendedor.
         /// </summary>
-        /// <param name="mensaje">Indica que se quiere crear un emprendedor</param>
+        /// <param name="mensaje">Indica que se quiere crear un emprendedor.</param>
+        /// <returns>Retorna la respuesta a la petición del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
@@ -78,6 +79,7 @@ namespace Library
                 {
                     Console.WriteLine("Usted ya esta registrado.");
                 }
+                
                 return this.TextResult.ToString();
             }
             else
