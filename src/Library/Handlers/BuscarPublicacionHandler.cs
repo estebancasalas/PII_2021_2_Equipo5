@@ -31,9 +31,11 @@ namespace Library
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         public override string Handle(Mensaje mensaje)
         {
+
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             if (mensaje.Text.ToLower() == "/buscarpublicacion")
             {
+                List<Publicacion> resultadoBusqueda = new List<Publicacion>();
                 int indice = listaUsuario.Buscar(mensaje.Id);
                 EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
                 estado.Handler = this;
@@ -41,7 +43,7 @@ namespace Library
                 {
                     case 0:
                         Console.WriteLine("¿De que manera desea de buscar la publicación?\n Si desea buscar por categoria --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");
-                        estado.step++;
+                        estado.Step++;
                         break;
 
                     case 1:
@@ -62,13 +64,13 @@ namespace Library
                         {
                             Console.WriteLine("Usted ingreso una opción invalida. Intente nuevamente.");
                         }
-                        estado.step++;
+                        estado.Step++;
                         break;
 
                     case 2:
                         this.busqueda = mensaje.Text;
                         BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
-                        this.resultadoBusqueda = buscarPublicacion.EjecutarComando();
+                        resultadoBusqueda = buscarPublicacion.EjecutarComando();
                         Console.WriteLine("¿Desea realizar una compra?\n 1-Si \n 2-No");
 
                         // hacer metodo mostrar en pantalla y agregarlo aca.
@@ -79,11 +81,11 @@ namespace Library
                         if (mensaje.Text.ToLower() == "1")
                         {
                             Console.WriteLine("Ingrese el numero de la publicación que desea comprar.");
-                            estado.step++;
+                            estado.Step++;
                         }
                         else if (mensaje.Text.ToLower() == "2")
                         {
-                            estado.step = 0;
+                            estado.Step = 0;
                         }
                         else
                         {
@@ -97,11 +99,12 @@ namespace Library
                         // ComprarHandler compra = new ComprarHandler(); Cambiar ComprarHandler.
                         break;
                 }
+            return this.TextResult.ToString();
 
             }
             else
             {
-                this.GetNext().Handle(mensaje);
+                return this.GetNext().Handle(mensaje);
             }
         }
     }
