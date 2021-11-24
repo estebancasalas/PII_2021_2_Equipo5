@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="RegistroPublicaciones.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -10,20 +16,22 @@ namespace Library
     /// sin tener que compartir la información de las listas, cumpliendo con el
     /// patrón Expert.
     /// </summary>
-    public class RegistroPublicaciones: IJsonConvertible
+    public class RegistroPublicaciones : IJsonConvertible
     {
         /// <summary>
         /// Lista con las publicaciones activas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
-        public List<Publicacion> Activas {get; set;} = Singleton<List<Publicacion>>.Instance;
+        public List<Publicacion> Activas { get; set; } = Singleton<List<Publicacion>>.Instance;
+
         /// <summary>
         /// Lista con las publicaciones que fueron eliminadas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         public List<Publicacion> Eliminadas = Singleton<List<Publicacion>>.Instance;
+
         /// <summary>
         /// Lista con las publicaciones pausadas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
@@ -32,20 +40,21 @@ namespace Library
         public List<Publicacion> Pausadas = Singleton<List<Publicacion>>.Instance;
 
         /// <summary>
-        /// Método para agregar una nueva publicación a la lista de 
+        /// Método para agregar una nueva publicación a la lista de
         /// publicaciones activas.
         /// </summary>
-        /// <param name="publi">Publicación a añadir</param>
+        /// <param name="publi">Publicación a añadir.</param>
         public void Add(Publicacion publi)
         {
             this.Activas.Add(publi);
         }
+
         /// <summary>
         /// Método para pausar una publicación. Agrega dicha publicación a
-        /// la lista de publicaciones pausadas y la remueve de la lista de 
+        /// la lista de publicaciones pausadas y la remueve de la lista de
         /// publicaciones activas.
         /// </summary>
-        /// <param name="publi">Publicación a pausar</param>
+        /// <param name="publi">Publicación a pausar.</param>
         public void PausarPublicacion(Publicacion publi)
         {
             foreach (Publicacion publicaciones in Activas)
@@ -57,12 +66,13 @@ namespace Library
                 }
             }
         }
+
         /// <summary>
         /// Método para eliminar una publicación. Se agrega la misma a la lista de
         /// publicaciones eliminadas y se remueve de la lista de publicaciones activas
         /// y publicaciones pausadas.
         /// </summary>
-        /// <param name="publi">Publicación a eliminar</param>
+        /// <param name="publi">Publicación a eliminar.</param>
         public void EliminarPublicacion(Publicacion publi)
         {
             foreach (Publicacion publicaciones in Activas)
@@ -83,6 +93,7 @@ namespace Library
                 }
             }
         }
+
         /// <summary>
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
         /// json.
@@ -92,9 +103,10 @@ namespace Library
         {
             return JsonSerializer.Serialize(Singleton<List<Publicacion>>.Instance);
         }
+
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-        /// a partir de el archivo json. 
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
+        /// a partir de el archivo json.
         /// </summary>
         /// <param name="json"></param>
         public void LoadFromJson(string json)
@@ -103,6 +115,7 @@ namespace Library
             listaPubl = JsonSerializer.Deserialize<List<Publicacion>>(json);
             this.Activas = listaPubl;
         }
-        // Solo una lista general a convertir o las 3 listas - Activas -Pausadas -¿¿Eliminadas???? Para que guardar algo eliminado no tiene sentido. 
+
+        // Solo una lista general a convertir o las 3 listas - Activas -Pausadas -¿¿Eliminadas???? Para que guardar algo eliminado no tiene sentido.
     }
 }

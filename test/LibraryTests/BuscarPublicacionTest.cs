@@ -1,7 +1,7 @@
 // <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-/*
+
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -18,10 +18,16 @@ namespace LibraryTests
         private Publicacion a;
         private Publicacion b;
         private Publicacion c;
+        Mensaje mensaje;
 
         [SetUp]
         public void Setup()
         {
+            EstadoUsuario estado = new EstadoUsuario();
+            Empresario empresario = new Empresario(1234, estado, "Juan");
+            List<IUsuario> lista = Singleton<List<IUsuario>>.Instance;
+            lista.Add(empresario);
+
             Material madera = new Material("PMadera", 1, 2, "Cantidad", "Habilitación1", "Químicos");
             Material dos = new Material("Material2", 3, 4, "Cantidad", "Habilitación1", "Plásticos");
             Material tres = new Material("Material3", 5, 6, "Cantidad", "Habilitación1", "Eléctricos");
@@ -49,13 +55,13 @@ namespace LibraryTests
             Dictionary<string, string> diccionario = new Dictionary<string, string>();
             diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave", "/categoria");
             diccionario.Add("Que desea buscar?", "Químicos");
-            Mensaje mensaje = new Mensaje(1234, "/buscarpublicacion");
             BuscarPublicacionHandler buscarCategoria = new BuscarPublicacionHandler();
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             buscarCategoria.Input = lector;
             buscarCategoria.SetNext(new NullHandler());
+            mensaje = new Mensaje(1234, "/buscarpublicacion");
             buscarCategoria.Handle(mensaje);
-            Assert.AreEqual(buscarCategoria.Result.Contains(this.a), true);
+            Assert.AreEqual(buscarCategoria.result.Contains(this.a), true);
         }
 
         [Test]
@@ -70,7 +76,7 @@ namespace LibraryTests
             buscarCiudad.Input = lector;
             buscarCiudad.SetNext(new NullHandler());
             buscarCiudad.Handle(mensaje);
-            Assert.AreEqual(buscarCiudad.Result.Contains(this.b), true);
+            Assert.AreEqual(buscarCiudad.result.Contains(this.b), true);
         }
 
         [Test]
@@ -85,8 +91,7 @@ namespace LibraryTests
             buscarPalabra.SetNext(new NullHandler());
             buscarPalabra.Input = lector;
             buscarPalabra.Handle(mensaje);
-            Assert.AreEqual(buscarPalabra.Result.Contains(this.c), true);
+            Assert.AreEqual(buscarPalabra.result.Contains(this.c), true);
         }
     }
 }
-*/

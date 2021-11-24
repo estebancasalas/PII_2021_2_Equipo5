@@ -20,9 +20,7 @@ namespace Library
         /// Atributo donde se guarda el resultado.
         /// </summary>
         private string tipobusqueda;
-        
         public List<Publicacion> result;
-
         private string busqueda;
 
         /// <summary>
@@ -64,6 +62,7 @@ namespace Library
                         {
                             Console.WriteLine("Usted ingreso una opción invalida. Intente nuevamente.");
                         }
+
                         estado.Step++;
                         break;
 
@@ -91,6 +90,7 @@ namespace Library
                         {
                             Console.WriteLine("Usted ingreso una opción invalida. Intente nuevamente.");
                         }
+
                         break;
 
                     case 4:
@@ -99,6 +99,7 @@ namespace Library
                         // ComprarHandler compra = new ComprarHandler(); Cambiar ComprarHandler.
                         break;
                 }
+
             return this.TextResult.ToString();
 
             }

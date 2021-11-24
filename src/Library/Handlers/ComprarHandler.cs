@@ -44,7 +44,7 @@ namespace Library
                     case 2:
                     this.cantidadComprada = mensaje.Text;
                     // buscar publicacion.
-                    // crear transaccion.
+                    // cre
                     estado = new EstadoUsuario();
                     break;
                 }
@@ -58,6 +58,7 @@ namespace Library
                 // List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
                 // lista.Add(transaccion);
             }
+
             return this.TextResult.ToString();
         }
     }
