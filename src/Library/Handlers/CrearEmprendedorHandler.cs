@@ -28,52 +28,61 @@ namespace Library
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            if (mensaje.Text.ToLower() == "/emprendedor" && !listaUsuario.EstaRegistrado(mensaje.Id))
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+
+            if (mensaje.Text.ToLower() == "/emprendedor" || estado.Handler == "/emprendedor" )
             {
-                int indice = listaUsuario.Buscar(mensaje.Id);
-                EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-                estado.Handler = this;
-                switch (estado.Step)
+                if (!listaUsuario.EstaRegistrado(mensaje.Id))
                 {
-                    case 0:
-                    Console.WriteLine("¿Cuál es su nombre?");
-                    estado.Step++;
-                    break;
+                    estado.Handler = "/emprendedor";
+                    switch (estado.Step)
+                    {
+                        case 0:
+                        Console.WriteLine("¿Cuál es su nombre?");
+                        estado.Step++;
+                        break;
 
-                    case 1:
-                    this.nombre = mensaje.Text;
-                    Console.WriteLine("¿Cuál es su rubro?");
-                    estado.Step++;
-                    break;
+                        case 1:
+                        this.nombre = mensaje.Text;
+                        Console.WriteLine("¿Cuál es su rubro?");
+                        estado.Step++;
+                        break;
 
-                    case 2:
-                    this.rubro = mensaje.Text;
-                    Console.WriteLine("¿Cuál es la direccion de su domicilio?");
-                    estado.Step++;
-                    break;
+                        case 2:
+                        this.rubro = mensaje.Text;
+                        Console.WriteLine("¿Cuál es la direccion de su domicilio?");
+                        estado.Step++;
+                        break;
 
-                    case 3:
-                    this.ubicacion = mensaje.Text;
-                    Console.WriteLine("¿Posee alguna habilitacion?");
-                    estado.Step++;
-                    break;
+                        case 3:
+                        this.ubicacion = mensaje.Text;
+                        Console.WriteLine("¿Posee alguna habilitacion?");
+                        estado.Step++;
+                        break;
 
-                    case 4:
-                    this.habilitacion = mensaje.Text;
-                    string especializaciones = Input.GetInput("¿En qué se especializa?");
-                    estado.Step++;
-                    break;
+                        case 4:
+                        this.habilitacion = mensaje.Text;
+                        string especializaciones = Input.GetInput("¿En qué se especializa?");
+                        estado.Step++;
+                        break;
 
-                    case 5:
-                    this.especializaciones = mensaje.Text;
-                    Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.nombre, this.rubro, this.ubicacion, this.habilitacion, this.especializaciones);
-                    estado = new EstadoUsuario();
-                    break;
+                        case 5:
+                        this.especializaciones = mensaje.Text;
+                        Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.nombre, this.rubro, this.ubicacion, this.habilitacion, this.especializaciones);
+                        estado = new EstadoUsuario();
+                        break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Usted ya esta registrado.");
                 }
                 return this.TextResult.ToString();
             }
             else
-            {
+            {   
+
                 return this.GetNext().Handle(mensaje);
             }
         }

@@ -28,7 +28,10 @@ namespace Library
         /// <param name="mensaje">Contiene el Id con el que se encuentra la empresa deseada.</param>
         public override string Handle(Mensaje mensaje)
         {
-            if (mensaje.Text.ToLower() == "/cantidadtrabajadores")
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+            if (mensaje.Text.ToLower() == "/cantidadtrabajadores" || estado.Handler == "/cantidadtrabajadores")
             {
                 List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
                 int i = 0;
@@ -55,9 +58,7 @@ namespace Library
                 Console.WriteLine($"La cantidad de trabajadores de la empresa es: {lista[i].ListaEmpresarios.Count}");
             }
 
-            ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(mensaje.Id);
-            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+            
             estado = new EstadoUsuario();
             this.GetNext().Handle(mensaje);
 
