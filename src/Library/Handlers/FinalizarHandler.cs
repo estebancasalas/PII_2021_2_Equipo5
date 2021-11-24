@@ -37,7 +37,8 @@ namespace Library
         {
             if (mensaje.Text.ToLower() == "/finalizar")
             {
-                Output.PrintLine("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
+                this.TextResult = new StringBuilder();
+                this.TextResult.Append("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
                 this.next2.Handle(mensaje); // Next2 = NullHandler
             }
             else

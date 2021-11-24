@@ -8,17 +8,17 @@ namespace Library
     /// Clase que contiene una lista en la cual están todas las empresas. 
     /// Cumple con el principio SRP ya que su única responsabilidad es conocer los empresas.
     /// </summary>
-    public class 
-    ListaEmpresa: IJsonConvertible
+    public class
+    ListaEmpresa : IJsonConvertible
     {
-        
+
         /// <summary>
         /// Lista que contiene todas las empresas registradas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         [JsonInclude]
-        public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance; 
+        public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance;
         /// <summary>
         /// Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la 
         /// que conoce a todas las empresas (patrón Expert).
@@ -28,14 +28,20 @@ namespace Library
         public bool Verificar(long id)
         {
             int i = 0;
-            Empresario empresario = null; 
-            while (i<this.Empresas.Count && empresario == null)
+            Empresario empresario = null;
+            while (i < this.Empresas.Count && empresario == null)
             {
-               empresario = this.Empresas[i].ListaEmpresarios.Find(x=> x.Id == id);
-               i++;
+                if (this.Empresas[i].ListaEmpresarios != null)
+                {
+                    empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
+                }
+
+                i++;
             }
+
             return empresario != null;
         }
+
         /// <summary>
         /// Método Buscar, recorre la lista de empresas y retorna la empresa deseada. Se incluye en esta 
         /// clase ya que es la que conoce a todas las empresas (patrón Expert).
@@ -45,13 +51,13 @@ namespace Library
         public Empresa Buscar(long id)
         {
             int i = 0;
-            Empresario empresario = null; 
-            while (i<this.Empresas.Count && empresario == null)
+            Empresario empresario = null;
+            while (i < this.Empresas.Count && empresario == null)
             {
-               empresario = this.Empresas[i].ListaEmpresarios.Find(x=> x.Id == id);
-               i++;
+                empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
+                i++;
             }
-            return this.Empresas[i-1];            
+            return this.Empresas[i - 1];
         }
 
         /// <summary>

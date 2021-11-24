@@ -11,5 +11,9 @@ namespace Library
     /// </summary>
     public class NullHandler : AbstractHandler
     {
+        public override string Handle(Mensaje mensaje)
+        {
+            return "Lo siento, no puedo procesar ese mensaje.\nPara ver la lista de comandos ingrese /comandos.";
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace Library
         /// </summary>
         /// <value>Guarda el handler que sigue.</value>
         public IHandler HandlerNext { get; set; }
-        
+
         /// <summary>
         /// Método que evalúa el mensaje. Busca la empresa y muestra la cantidad de trabajadores que tiene.
         /// </summary>
@@ -29,41 +29,41 @@ namespace Library
         /// <returns>Retorna la respuesta a la petición del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
-            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            ListaEmpresa listaEmpresa = Singleton<ListaEmpresa>.Instance;
+            ListaDeUsuario listaUsuario = Singleton<ListaDeUsuario>.Instance;
             int indice = listaUsuario.Buscar(mensaje.Id);
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
             if (mensaje.Text.ToLower() == "/cantidadtrabajadores" || estado.Handler == "/cantidadtrabajadores")
             {
-                List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
-                int i = 0;
-                int j = 0;
-                bool notfound = false;
-                while (i < lista.Count && !notfound)
+                if (listaEmpresa.Verificar(mensaje.Id))
                 {
-                    while (j < lista[i].ListaEmpresarios.Count && lista[i].ListaEmpresarios[j].Id != mensaje.Id)
+                    this.TextResult = new StringBuilder();
+                    List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
+                    int i = 0;
+                    int j = 0;
+                    bool notfound = true;
+                    while (i < lista.Count && notfound)
                     {
-                        j++;
+                        Empresario empresario = lista[i].listaEmpresarios.Find(x => x.Id == mensaje.Id);
+                        if (empresario != null)
+                        {
+                            notfound = false;
+                        }
                     }
 
-                    if (j >= lista[i].ListaEmpresarios.Count)
-                    {
-                        i++;
-                        j = 0;
-                    }
-                    else
-                    {
-                        notfound = true;
-                    }
+                    this.TextResult.Append($"La cantidad de trabajadores de la empresa es: {lista[i].ListaEmpresarios.Count}");
+                    estado = new EstadoUsuario();
                 }
-
-                Console.WriteLine($"La cantidad de trabajadores de la empresa es: {lista[i].ListaEmpresarios.Count}");
+                else
+                {
+                    this.TextResult.Append("Lo siento, para utilizar este comando debe pertenecer a una empresa.");
+                }
+                return this.TextResult.ToString();
             }
-
-            
-            estado = new EstadoUsuario();
-            this.GetNext().Handle(mensaje);
-
-            return this.TextResult.ToString();
+            else
+            {
+                return this.GetNext().Handle(mensaje);
+            }
         }
     }
 }
