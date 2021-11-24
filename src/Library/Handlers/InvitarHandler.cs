@@ -51,38 +51,19 @@ namespace Library
         /// <param name="mensaje">Indica que se quiere crear una invitación.</param>
         public override string Handle(Mensaje mensaje)
         {
-            if (mensaje.Text.ToLower() == "/crearinvitacion")
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            int indice = listaUsuario.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+
+            if (mensaje.Text.ToLower() == "/crearinvitacion" || estado.Handler == "/crearinvitacion")
             {
-                List<Administrador> lista = Singleton<ListaAdministradores>.Instance.Administradores;
-                bool notfound = true;
-                int i = 0;
-                /*while (notfound && i < lista.Count)
-                {
-                    if (lista[i].Id == mensaje.Id)
-                    {
-                        notfound = false;
-                        this.nombre = this.Input.GetInput("nombre empresa");
-                        this.ubicacion = this.Input.GetInput("ubicacion de la empresa");
-                        this.rubro = this.Input.GetInput("rubro de la empresa");
-                        this.token = this.Input.GetInput("Codigo de invitacion");
-                        Administrador.CrearInvitacion(this.nombre, this.ubicacion, this.rubro, this.token);
-                    }
-                    else
-                    {
-                        i++;
-                    }
-                }*/
                 ListaAdministradores listaAdministradores = new ListaAdministradores();
-                ListaDeUsuario listaUsuario = new ListaDeUsuario();
                 if  (listaAdministradores.Verificar(mensaje.Id))
                 {
-                    int indice = listaUsuario.Buscar(mensaje.Id);
-                    EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-                    estado.Handler = this;
+                    estado.Handler = "/crearinvitacion";
                     switch(estado.Step)
                     {
                         case 0 :
-                        
                         Console.WriteLine("¿Cuál es su nombre?");
                         estado.Step++;
                         break;
@@ -109,9 +90,8 @@ namespace Library
                         this.Token = mensaje.Text;
                         Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token);
                         estado = new EstadoUsuario();
-                        break;     
+                        break;
                     }
-                    
                 }
                 else
                 {

@@ -115,12 +115,7 @@ namespace Library
              Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
              while (mensaje.Text != "/finalizar")
             {
-                //Fijarse si estsa registrado y obtener el IUsuario.
                 
-                Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
-                mensaje.Text = Console.ReadLine();
-                ComienzoHandler.Handle(mensaje);//EstadoUsuario estado = esto
-                //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
             }
          }
 
