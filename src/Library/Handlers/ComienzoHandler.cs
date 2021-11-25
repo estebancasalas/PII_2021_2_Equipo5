@@ -29,9 +29,9 @@ namespace Library
 
             if (mensaje.Text.ToLower() == "/comandos" || estado.Handler == "/comandos")
             {
-                this.TextResult.Clear();
-                this.TextResult.Append("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, los comandos disponibles son: ")
-                        .Append("/Como empresa tus comandos son: \n")
+                this.TextResult = new StringBuilder();
+                this.TextResult.Append("Bienvenido al Bot de materiales reciclables, te ayudaré a encontrar el material que quieras para tu emprendimiento, los comandos disponibles son: \n")
+                        .Append("Como empresa tus comandos son: \n")
                         .Append("/empresario\n")
                         .Append("/crearpublicacion\n")
                         .Append("/cantidadtrabajadores\n")

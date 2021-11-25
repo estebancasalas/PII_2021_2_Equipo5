@@ -22,12 +22,12 @@ namespace Library
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        
-        public static IHandler ComienzoHandler = new ComienzoHandler();
-        
+
+        private static IHandler comienzoHandler = new ComienzoHandler();
+
         public static void Main()
         {
-            ComienzoHandler.SetNext(new BuscarPublicacionHandler())
+            comienzoHandler.SetNext(new BuscarPublicacionHandler())
                            .SetNext(new ComprarHandler())
                            .SetNext(new CrearEmprendedorHandler())
                            .SetNext(new CrearPublicacionHandler())
@@ -35,8 +35,7 @@ namespace Library
                            .SetNext(new HistorialHandler())
                            .SetNext(new InvitarHandler())
                            .SetNext(new RegistrarEmpresarioHandler())
-            .SetNext(new NullHandler()); //bullying a este handler
-            Mensaje mensaje = new Mensaje(0 ,"");
+            .SetNext(new NullHandler()); // bullying a este handler
             // Se crean las listas
             ListaAdministradores listaAdministradores = new ListaAdministradores();
             ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
@@ -65,24 +64,24 @@ namespace Library
             registroPublicaciones.LoadFromJson(publicaciones);
 
 
-            //Obtengo una instancia de TelegramBot
+            // Obtengo una instancia de TelegramBot
             TelegramBot telegramBot = TelegramBot.Instance;
             Console.WriteLine($"Hola soy el Bot de P2, mi nombre es {telegramBot.BotName} y tengo el Identificador {telegramBot.BotId}");
 
-            //Obtengo el cliente de Telegram
+            // Obtengo el cliente de Telegram
             ITelegramBotClient bot = telegramBot.Client;
 
-            //Asigno un gestor de mensajes
+            // Asigno un gestor de mensajes
             bot.OnMessage += OnMessage;
 
-            //Inicio la escucha de mensajes
+            // Inicio la escucha de mensajes
             bot.StartReceiving();
 
 
             Console.WriteLine("Presiona una tecla para terminar");
             Console.ReadKey();
 
-            //Detengo la escucha de mensajes 
+            // Detengo la escucha de mensajes.
             bot.StopReceiving();
 
             // Se actualizan las listas
@@ -119,24 +118,23 @@ namespace Library
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             int indice = listaUsuario.Buscar(mensaje.Id);
             ITelegramBotClient client = TelegramBot.Instance.Client;
-
             IUsuario newusuario = new Empresario(1128028626, new EstadoUsuario(), "Esteban");
-            while (mensaje.Text != "/finalizar")
+            if (mensaje.Text != "/salir")
             {
-                await client.SendTextMessageAsync(chatId: mensaje.Id, text: ComienzoHandler.Handle(mensaje));
+                await client.SendTextMessageAsync(chatId: mensaje.Id, text: comienzoHandler.Handle(mensaje));
             }
-         }
+        }
 
-            /*
-            while (mensaje.Text != "/finalizar")
-            {
-                //Fijarse si estsa registrado y obtener el IUsuario.
-                
-                Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
-                mensaje.Text = Console.ReadLine();
-                comienzoHandler.Handle(mensaje);//EstadoUsuario estado = esto
-                //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
-            }
-            */
+        /*
+        while (mensaje.Text != "/finalizar")
+        {
+            //Fijarse si estsa registrado y obtener el IUsuario.
+
+            Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
+            mensaje.Text = Console.ReadLine();
+            comienzoHandler.Handle(mensaje);//EstadoUsuario estado = esto
+            //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
+        }
+        */
     }
 }

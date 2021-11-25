@@ -9,7 +9,7 @@
             Programa de consola de demostración.
             </summary>
         </member>
-        <member name="F:Library.Program.ComienzoHandler">
+        <member name="F:Library.Program.comienzoHandler">
             <summary>
             Punto de entrada al programa principal.
             </summary>

@@ -33,10 +33,10 @@ namespace Library
                 VerHistorial historial = new VerHistorial();
                 this.Resultado = historial.EjecutarComando(mensaje.Id);
                 Output.PrintLine(this.Resultado);
+                return this.TextResult.ToString();
             }
 
-            this.GetNext().Handle(mensaje);
-            return this.TextResult.ToString();
+            return this.GetNext().Handle(mensaje);
         }
     }
 }

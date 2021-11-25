@@ -42,12 +42,14 @@ namespace Library
                 switch (estado.Step)
                 {
                     case 0:
+                    this.TextResult = new StringBuilder();
                     this.nombreDeLaPublicacion = mensaje.Text;
-                    Console.WriteLine("Ingrese la cantidad que desee comprar: ");
+                    this.TextResult.Append("Ingrese la cantidad que desee comprar: ");
                     estado.Step++;
                     break;
 
                     case 2:
+                    this.TextResult = new StringBuilder();
                     this.cantidadComprada = mensaje.Text;
                     // buscar publicacion.
                     // crear transaccion.
@@ -65,7 +67,7 @@ namespace Library
                 // lista.Add(transaccion);
             }
 
-            return this.TextResult.ToString();
+            return this.GetNext().Handle(mensaje);
         }
     }
 }

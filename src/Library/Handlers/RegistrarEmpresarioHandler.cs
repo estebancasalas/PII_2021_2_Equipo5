@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Library
 {
@@ -36,41 +37,48 @@ namespace Library
             EstadoUsuario estado = listaUsuarios.ListaUsuarios[indice].Estado;
             if (mensaje.Text.ToLower() == "/empresario" || estado.Handler == "/empresario")
             {
-                if (listaUsuarios.EstaRegistrado(mensaje.Id))
+                if (!listaUsuarios.EstaRegistrado(mensaje.Id))
                 {
                     estado.Handler = "/empresario";
                     switch (estado.Step)
                     {
                         case 0:
-                        Console.WriteLine("Ingrese su código de invitación: ");
+                        this.TextResult = new StringBuilder();
+                        this.TextResult.Append("Ingrese su código de invitación: ");
                         estado.Step++;
                         break;
 
                         case 1:
+                        this.TextResult = new StringBuilder();
                         this.invitacion = mensaje.Text;
-                        ListaInvitaciones verificador = new ListaInvitaciones();
+                        ListaInvitaciones verificador = Singleton<ListaInvitaciones>.Instance;
                         this.invitacionValida = verificador.VerificarInvitacion(this.invitacion);
                         if (this.invitacionValida)
                         {
-                            List<Empresa> lista = Singleton<List<Empresa>>.Instance;
+                            List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
                             this.empresa = lista.Find(x => x.Invitacion == this.invitacion);
-                            Console.WriteLine("Ingrese nombre: ");
+                            this.TextResult.Append("Ingrese nombre: ");
                         }
                         else
                         {
-                            Console.WriteLine("Lo siento, su invitacion no es valida. El proceso se ha finalizado.");
+                            this.TextResult.Append("Lo siento, su invitacion no es valida. El proceso se ha finalizado.");
                         }
 
                         estado.Step++;
                         break;
 
                         case 2:
+                        this.TextResult = new StringBuilder();
                         this.nombre = mensaje.Text;
                         Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), this.nombre);
                         this.empresa.ListaEmpresarios.Add(empresario);
                         estado = new EstadoUsuario();
                         break;
                     }
+                }
+                else
+                {
+                    this.TextResult.Append("Usted ya esta registrado.");
                 }
 
                 return this.TextResult.ToString();
