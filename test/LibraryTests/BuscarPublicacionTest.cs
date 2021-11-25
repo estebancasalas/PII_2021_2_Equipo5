@@ -59,9 +59,9 @@ namespace LibraryTests
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             buscarCategoria.Input = lector;
             buscarCategoria.SetNext(new NullHandler());
-            mensaje = new Mensaje(1234, "/buscarpublicacion");
-            buscarCategoria.Handle(mensaje);
-            Assert.AreEqual(buscarCategoria.result.Contains(this.a), true);
+            this.mensaje = new Mensaje(1234, "/buscarpublicacion");
+            buscarCategoria.Handle(this.mensaje);
+            Assert.AreEqual(buscarCategoria.Result.Contains(this.a), true);
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace LibraryTests
             buscarCiudad.Input = lector;
             buscarCiudad.SetNext(new NullHandler());
             buscarCiudad.Handle(mensaje);
-            Assert.AreEqual(buscarCiudad.result.Contains(this.b), true);
+            Assert.AreEqual(buscarCiudad.Result.Contains(this.b), true);
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace LibraryTests
             buscarPalabra.SetNext(new NullHandler());
             buscarPalabra.Input = lector;
             buscarPalabra.Handle(mensaje);
-            Assert.AreEqual(buscarPalabra.result.Contains(this.c), true);
+            Assert.AreEqual(buscarPalabra.Result.Contains(this.c), true);
         }
     }
 }

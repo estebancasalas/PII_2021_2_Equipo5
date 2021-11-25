@@ -627,19 +627,6 @@
             </summary>
             <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
         </member>
-        <member name="T:Library.ComprarHandler">
-            <summary>
-            Primer Handler de la Chain of Responsibility. Implementa AbstractHandler porque interactúa
-            con el usuario.
-            </summary>
-        </member>
-        <member name="M:Library.ComprarHandler.Handle(Library.Mensaje)">
-            <summary>
-            Método que verifica el mensaje. Actúa si el mensaje es "/start" y sino lo envía
-            al siguiente Handler.
-            </summary>
-            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        </member>
         <member name="T:Library.CrearEmprendedorHandler">
             <summary>
             Handler encargado de crear un emprendedor. Implementa AbstractHandler porque interactúa con el
@@ -833,7 +820,7 @@
             <summary>
             Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
             </summary>
-            <param name="mensaje">Mensaje escrito por usuario</param>
+            <param name="mensaje">Mensaje escrito por usuario.</param>
         </member>
         <member name="M:Library.IHandler.SetNext(Library.IHandler)">
             <summary>
@@ -877,11 +864,11 @@
             <summary>
             Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">tipo generico.</typeparam>
         </member>
         <member name="P:Library.Singleton`1.Instance">
             <summary>
-            Gets se crea una nueva instancia solo si no existe previamente.
+            Obtiene gets se crea una nueva instancia solo si no existe previamente.
             </summary>
             <value>Se guarda una nueva instancia.</value>
         </member>
@@ -1028,8 +1015,8 @@
         </member>
         <member name="T:Library.ListaDeUsuario">
             <summary>
-            ListaDeUsuario es quien se encarga de tener la lista con todos los 
-            usuarios registrados, siendo los usuarios las empresas y emprendedores.  
+            ListaDeUsuario es quien se encarga de tener la lista con todos los
+            usuarios registrados, siendo los usuarios las empresas y emprendedores.
             Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
             </summary>
         </member>
@@ -1044,7 +1031,7 @@
             <summary>
             Método que verifica si un id está registrado como usuario.
             </summary>
-            <param name="id">Id que se verifica</param>
+            <param name="id">Id que se verifica.</param>
             <returns></returns>
         </member>
         <member name="M:Library.ListaDeUsuario.ConvertToJson">
@@ -1064,16 +1051,16 @@
         <member name="M:Library.ListaDeUsuario.Add(Library.IUsuario)">
             <summary>
             Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
-            ya existente. 
+            ya existente.
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             los id de todos los usuarios.
             </summary>
-            <param name="usuario">Usuario que se va a agregar a la lista</param>
+            <param name="usuario">Usuario que se va a agregar a la lista.</param>
         </member>
         <member name="T:Library.ListaEmprendedores">
             <summary>
-            Clase la cual contiene una lista en la cual estaran todos los emprendedores. 
-            Cumple con el principio SRP ya que su única responsabilidad es conocer los 
+            Clase la cual contiene una lista en la cual estaran todos los emprendedores.
+            Cumple con el principio SRP ya que su única responsabilidad es conocer los
             emprendedores.
             </summary>
         </member>
@@ -1086,8 +1073,8 @@
         </member>
         <member name="M:Library.ListaEmprendedores.LoadFromJson(System.String)">
             <summary>
-            LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-            a partir de el archivo json. 
+            LoadFromJson se encarga de cargar los datos guardados creando los objetos
+            a partir de el archivo json.
             </summary>
             <param name="json"></param>
         </member>
@@ -1101,7 +1088,7 @@
         <member name="M:Library.ListaEmprendedores.Add(Library.Emprendedor)">
             <summary>
             Se crea el método Add para añadir un Emprendedor a la ListaEmprendedores
-            ya existente. 
+            ya existente.
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             a todos los Emprendedores.
             </summary>
@@ -1112,12 +1099,12 @@
             Método que sirve para buscar un emprendedor por su id. Se incluye en esta clase ya que es la
             que conoce la información de todos los emprendedores (patrón Expert).
             </summary>
-            <param name="id">Id del emprendedor a buscar</param>
+            <param name="id">Id del emprendedor a buscar.</param>
             <returns></returns>
         </member>
         <member name="T:Library.ListaEmpresa">
             <summary>
-            Clase que contiene una lista en la cual están todas las empresas. 
+            Clase que contiene una lista en la cual están todas las empresas.
             Cumple con el principio SRP ya que su única responsabilidad es conocer los empresas.
             </summary>
         </member>
@@ -1130,23 +1117,23 @@
         </member>
         <member name="M:Library.ListaEmpresa.Verificar(System.Int64)">
             <summary>
-            Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la 
+            Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la
             que conoce a todas las empresas (patrón Expert).
             </summary>
-            <param name="id">Id del empresario a verificar</param>
+            <param name="id">Id del empresario a verificar.</param>
             <returns></returns>
         </member>
         <member name="M:Library.ListaEmpresa.Buscar(System.Int64)">
             <summary>
-            Método Buscar, recorre la lista de empresas y retorna la empresa deseada. Se incluye en esta 
+            Método Buscar, recorre la lista de empresas y retorna la empresa deseada. Se incluye en esta
             clase ya que es la que conoce a todas las empresas (patrón Expert).
             </summary>
-            <param name="id">id de la empresa deseada</param>
+            <param name="id">id de la empresa deseada.</param>
             <returns></returns>
         </member>
         <member name="M:Library.ListaEmpresa.Add(Library.Empresa)">
             <summary>
-            Se crea el método Add para añadir una Empresa a la ListaEmpresa ya existente. 
+            Se crea el método Add para añadir una Empresa a la ListaEmpresa ya existente.
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             a todas las Empresas.
             </summary>
@@ -1161,15 +1148,15 @@
         </member>
         <member name="M:Library.ListaEmpresa.LoadFromJson(System.String)">
             <summary>
-            LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-            a partir de el archivo json. 
+            LoadFromJson se encarga de cargar los datos guardados creando los objetos
+            a partir de el archivo json.
             </summary>
             <param name="json"></param>
         </member>
         <member name="T:Library.ListaInvitaciones">
             <summary>
-            ListaInvitaciones es quien se encarga de tener la lista con todas las 
-            invitaciones que fueron hechas. 
+            ListaInvitaciones es quien se encarga de tener la lista con todas las
+            invitaciones que fueron hechas.
             Se cumple principio SRP ya que libra al administrador de conocer todas las
             invitaciones.
             </summary>
@@ -1186,7 +1173,7 @@
             Método que verifica si una invitación es válida. Se incluye en esta clase porque es la que 
             conoce todas las invitaciones (patrón Expert).
             </summary>
-            <param name="invitacion">Invitación a verificar</param>
+            <param name="invitacion">Invitación a verificar.</param>
             <returns></returns>
         </member>
         <member name="M:Library.ListaInvitaciones.ConvertToJson">
@@ -1198,15 +1185,15 @@
         </member>
         <member name="M:Library.ListaInvitaciones.LoadFromJson(System.String)">
             <summary>
-            LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-            a partir de el archivo json. 
+            LoadFromJson se encarga de cargar los datos guardados creando los objetos
+            a partir de el archivo json.
             </summary>
             <param name="json"></param>
         </member>
         <member name="M:Library.ListaInvitaciones.Add(System.String)">
             <summary>
             Se crea el método Add para añadir las Invitaciones a la ListaInvitaciones
-            ya existente. 
+            ya existente.
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             todas las invitaciones que existen.
             </summary>
@@ -1214,8 +1201,8 @@
         </member>
         <member name="T:Library.ListaTransacciones">
             <summary>
-            Clase que se encarga de conocer todas las transacciones que se realizan 
-            de una empresa a un emprendedor o viceversa. 
+            Clase que se encarga de conocer todas las transacciones que se realizan
+            de una empresa a un emprendedor o viceversa.
             </summary>
         </member>
         <member name="F:Library.ListaTransacciones.Transacciones">
@@ -1228,7 +1215,7 @@
         <member name="M:Library.ListaTransacciones.Add(Library.Transaccion)">
             <summary>
             Se crea el método Add para añadir una Transaccion a la ListaTransacciones
-            ya existente. 
+            ya existente.
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             todas las transacciones que se realizan.
             </summary>
@@ -1251,8 +1238,8 @@
         </member>
         <member name="M:Library.ListaTransacciones.LoadFromJson(System.String)">
             <summary>
-            LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-            a partir de el archivo json. 
+            LoadFromJson se encarga de cargar los datos guardados creando los objetos
+            a partir de el archivo json.
             </summary>
             <param name="json"></param>
         </member>
@@ -1287,18 +1274,18 @@
         </member>
         <member name="M:Library.RegistroPublicaciones.Add(Library.Publicacion)">
             <summary>
-            Método para agregar una nueva publicación a la lista de 
+            Método para agregar una nueva publicación a la lista de
             publicaciones activas.
             </summary>
-            <param name="publi">Publicación a añadir</param>
+            <param name="publi">Publicación a añadir.</param>
         </member>
         <member name="M:Library.RegistroPublicaciones.PausarPublicacion(Library.Publicacion)">
             <summary>
             Método para pausar una publicación. Agrega dicha publicación a
-            la lista de publicaciones pausadas y la remueve de la lista de 
+            la lista de publicaciones pausadas y la remueve de la lista de
             publicaciones activas.
             </summary>
-            <param name="publi">Publicación a pausar</param>
+            <param name="publi">Publicación a pausar.</param>
         </member>
         <member name="M:Library.RegistroPublicaciones.EliminarPublicacion(Library.Publicacion)">
             <summary>
@@ -1306,7 +1293,7 @@
             publicaciones eliminadas y se remueve de la lista de publicaciones activas
             y publicaciones pausadas.
             </summary>
-            <param name="publi">Publicación a eliminar</param>
+            <param name="publi">Publicación a eliminar.</param>
         </member>
         <member name="M:Library.RegistroPublicaciones.ConvertToJson">
             <summary>
@@ -1317,8 +1304,8 @@
         </member>
         <member name="M:Library.RegistroPublicaciones.LoadFromJson(System.String)">
             <summary>
-            LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-            a partir de el archivo json. 
+            LoadFromJson se encarga de cargar los datos guardados creando los objetos
+            a partir de el archivo json.
             </summary>
             <param name="json"></param>
         </member>

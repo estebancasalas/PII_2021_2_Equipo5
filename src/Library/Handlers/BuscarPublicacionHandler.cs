@@ -20,8 +20,10 @@ namespace Library
         /// Atributo donde se guarda el resultado.
         /// </summary>
         private string tipobusqueda;
-        public List<Publicacion> result;
+        public List<Publicacion> Result;
         private string busqueda;
+        private string cantidadComprada;
+        private Publicacion publicacion;
 
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
@@ -30,9 +32,9 @@ namespace Library
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(mensaje.Id);
+            int indice = listaUsuario.Buscar(id: mensaje.Id);
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-            
+
             if (mensaje.Text.ToLower() == "/buscarpublicacion" || estado.Handler == "/buscarpublicacion")
             {
                 List<Publicacion> resultadoBusqueda = new List<Publicacion>();
@@ -95,15 +97,24 @@ namespace Library
 
                     case 4:
                         int indicePublicacion = Int32.Parse(mensaje.Text);
-                        Publicacion publicacion = resultadoBusqueda[indicePublicacion];
+                        this.publicacion = resultadoBusqueda[indicePublicacion];
                         // ComprarHandler compra = new ComprarHandler(); Cambiar ComprarHandler.
+                        Console.WriteLine("Ingrese la cantidad que desee comprar: ");
+                        estado.Step++;
+                        break;
 
-                        estado = new EstadoUsuario();
+                    case 5:
+                        this.cantidadComprada = mensaje.Text;
+                        double cantidad = Convert.ToDouble(mensaje.Text);
+                        ListaEmprendedores listaEmprendedores = new ListaEmprendedores();
+                        Emprendedor emprendedor = listaEmprendedores.Buscar(mensaje.Id);
+                        Transaccion transaccion = new Transaccion(this.publicacion.Vendedor, emprendedor, this.publicacion.Titulo, cantidad);
+                        List<Transaccion> lista = Singleton<ListaTransacciones>.Instance.Transacciones;
+                        lista.Add(transaccion);
                         break;
                 }
 
-            return this.TextResult.ToString();
-
+                return this.TextResult.ToString();
             }
             else
             {
