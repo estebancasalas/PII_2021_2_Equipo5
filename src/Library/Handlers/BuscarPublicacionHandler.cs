@@ -17,10 +17,17 @@ namespace Library
     public class BuscarPublicacionHandler : AbstractHandler
     {
         /// <summary>
-        /// Atributo donde se guarda el resultado.
+        /// Almacena la manera que el usuario desea buscar una publicación.
         /// </summary>
         private string tipobusqueda;
+<<<<<<< HEAD
         public List<Publicacion> Result;
+=======
+
+        /// <summary>
+        /// Lo que desea buscar.
+        /// </summary>
+>>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
         private string busqueda;
         private string cantidadComprada;
         private Publicacion publicacion;
@@ -39,63 +46,71 @@ namespace Library
             {
                 List<Publicacion> resultadoBusqueda = new List<Publicacion>();
                 estado.Handler = "/buscarpublicacion";
+
                 switch (estado.Step)
                 {
                     case 0:
-                        Console.WriteLine("¿De que manera desea de buscar la publicación?\n Si desea buscar por categoria --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");
+                        this.TextResult = new StringBuilder();
+                        this.TextResult.Append("¿De que manera desea de buscar la publicación?\n Si desea buscar por categoria --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");
                         estado.Step++;
                         break;
 
                     case 1:
+                        this.TextResult = new StringBuilder();
                         this.tipobusqueda = mensaje.Text;
                         if (mensaje.Text.ToLower() == "/categoria")
                         {
-                            Console.WriteLine("Ingrese la categoria");
+                            this.TextResult.Append("Ingrese la categoria:\n     Químicos, Plásticos, Celulósicos, Eléctricos, Textiles");
                         }
                         else if (mensaje.Text.ToLower() == "/ciudad")
                         {
-                            Console.WriteLine("Ingrese la ciudad");
+                            this.TextResult.Append("Ingrese la ciudad");
                         }
                         else if (mensaje.Text.ToLower() == "/palabrasclave")
                         {
-                            Console.WriteLine("Ingrese palabras clave");
+                            this.TextResult.Append("Ingrese palabras clave");
                         }
                         else
                         {
-                            Console.WriteLine("Usted ingreso una opción invalida. Intente nuevamente.");
+                            this.TextResult.Append("Usted ingreso una opción invalida. Intente nuevamente.");
                         }
 
                         estado.Step++;
                         break;
 
                     case 2:
+                        this.TextResult = new StringBuilder();
                         this.busqueda = mensaje.Text;
                         BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
                         resultadoBusqueda = buscarPublicacion.EjecutarComando();
-                        Console.WriteLine("¿Desea realizar una compra?\n 1-Si \n 2-No");
+                        this.TextResult.Append("¿Desea realizar una compra?\n 1-Si \n 2-No");
 
                         // hacer metodo mostrar en pantalla y agregarlo aca.
                         estado = new EstadoUsuario();
                         break;
 
                     case 3:
+                        this.TextResult = new StringBuilder();
                         if (mensaje.Text.ToLower() == "1")
                         {
-                            Console.WriteLine("Ingrese el numero de la publicación que desea comprar.");
+                            this.TextResult.Append("Ingrese el numero de la publicación que desea comprar.");
                             estado.Step++;
                         }
+
                         else if (mensaje.Text.ToLower() == "2")
                         {
                             estado.Step = 0;
                         }
+
                         else
                         {
-                            Console.WriteLine("Usted ingreso una opción invalida. Intente nuevamente.");
+                            this.TextResult.Append("Usted ingreso una opción invalida. Intente nuevamente.");
                         }
 
                         break;
 
                     case 4:
+                        this.TextResult = new StringBuilder();
                         int indicePublicacion = Int32.Parse(mensaje.Text);
                         this.publicacion = resultadoBusqueda[indicePublicacion];
                         // ComprarHandler compra = new ComprarHandler(); Cambiar ComprarHandler.
@@ -113,7 +128,10 @@ namespace Library
                         lista.Add(transaccion);
                         break;
                 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
                 return this.TextResult.ToString();
             }
             else

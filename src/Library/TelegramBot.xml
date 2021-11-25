@@ -605,7 +605,12 @@
         </member>
         <member name="F:Library.BuscarPublicacionHandler.tipobusqueda">
             <summary>
-            Atributo donde se guarda el resultado.
+            Almacena la manera que el usuario desea buscar una publicación.
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacionHandler.busqueda">
+            <summary>
+            Lo que desea buscar.
             </summary>
         </member>
         <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
@@ -626,6 +631,26 @@
             al siguiente Handler.
             </summary>
             <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
+        </member>
+        <member name="T:Library.ComprarHandler">
+            <summary>
+            Primer Handler de la Chain of Responsibility. Implementa AbstractHandler porque interactúa
+            con el usuario.
+            </summary>
+        </member>
+        <member name="F:Library.ComprarHandler.nombreDeLaPublicacion">
+            <summary>
+            Nombre de la publicación que desea comprar.
+            </summary>
+        </member>
+        <member name="M:Library.ComprarHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que verifica el mensaje. Actúa si el mensaje es "/start" y sino lo envía
+            al siguiente Handler.
+            </summary>
+            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.CrearEmprendedorHandler">
             <summary>
@@ -638,7 +663,8 @@
             Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
             dé los datos para crear un emprendedor. Colabora con la clase Emprendedor.
             </summary>
-            <param name="mensaje">Indica que se quiere crear un emprendedor</param>
+            <param name="mensaje">Indica que se quiere crear un emprendedor.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.CrearPublicacionHandler">
             <summary>
@@ -653,6 +679,7 @@
             llama a la clase CrearPublicacion por la misma razón.
             </summary>
             <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.EmpresaCantidadTrabajadores">
             <summary>
@@ -660,9 +687,9 @@
             porque no interactúa con el usuario, solo muestra en pantalla.
             </summary>
         </member>
-        <member name="P:Library.EmpresaCantidadTrabajadores.Next">
+        <member name="P:Library.EmpresaCantidadTrabajadores.HandlerNext">
             <summary>
-            Gets or sets siguiente Handler en la cadena.
+            Gets or sets siguiente Handler en la cadena. Obtiene o establece.
             </summary>
             <value>Guarda el handler que sigue.</value>
         </member>
@@ -671,6 +698,7 @@
             Método que evalúa el mensaje. Busca la empresa y muestra la cantidad de trabajadores que tiene.
             </summary>
             <param name="mensaje">Contiene el Id con el que se encuentra la empresa deseada.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.FinalizarHandler">
             <summary>
@@ -678,18 +706,19 @@
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
-            <summary>
-            Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
-            </summary>
-            <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
-        </member>
         <member name="M:Library.FinalizarHandler.#ctor(Library.IHandler)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.FinalizarHandler"/> class.
             Constructor de la clase.
             </summary>
             <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro.</param>
+        </member>
+        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
+            </summary>
+            <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
+            <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
         <member name="T:Library.HistorialHandler">
             <summary>
@@ -699,7 +728,7 @@
         </member>
         <member name="P:Library.HistorialHandler.Resultado">
             <summary>
-            Gets or sets atributo donde se guarda el resultado.
+            Obtiene o establece atributo donde se guarda el resultado.
             </summary>
         </member>
         <member name="M:Library.HistorialHandler.Handle(Library.Mensaje)">
@@ -708,7 +737,7 @@
             al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
             se envía al siguiente Handler.
             </summary>
-            <param name="mensaje">Indica que se quiere ver el historial</param>
+            <param name="mensaje">Indica que se quiere ver el historial.</param>
         </member>
         <member name="T:Library.InvitarHandler">
             <summary>
@@ -736,12 +765,37 @@
             Token de invitación.
             </summary>
         </member>
+        <member name="P:Library.InvitarHandler.Ubicacion">
+            <summary>
+            Obtiene o establece la ubicacion.
+            </summary>
+            <value>Ubicacion.</value>
+        </member>
+        <member name="P:Library.InvitarHandler.Nombre">
+            <summary>
+            Obtiene o establece el nombre.
+            </summary>
+            <value>Nombre.</value>
+        </member>
+        <member name="P:Library.InvitarHandler.Token">
+            <summary>
+            Obtiene o establece el token para la invitacion.
+            </summary>
+            <value>Token.</value>
+        </member>
+        <member name="P:Library.InvitarHandler.Rubro">
+            <summary>
+            Obtiene o establece el rubro.
+            </summary>
+            <value>Rubro.</value>
+        </member>
         <member name="M:Library.InvitarHandler.Handle(Library.Mensaje)">
             <summary>
             Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación
             para el mismo?.
             </summary>
             <param name="mensaje">Indica que se quiere crear una invitación.</param>
+            <returns>Retorna la espuesta a la peticion del usuario.</returns>
         </member>
         <member name="T:Library.NullHandler">
             <summary>
@@ -760,6 +814,8 @@
             empresario no esté registrado, lo registra. En caso contrario, le avisa al usuario que no
             es una invitación válida.
             </summary>
+            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+            <returns>Returna respuesta a la peticion del usuario.</returns>
         </member>
         <member name="T:Library.AbstractHandler">
             <summary>

@@ -34,13 +34,14 @@ namespace Library
         private string frecuencia;
 
         private string localizacion;
-
+        
         /// <summary>
         /// Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
         /// datos de materiales y llama a la clase CrearMaterial para cumplir con el SRP. Luego, se
         /// llama a la clase CrearPublicacion por la misma razón.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        /// <returns>Retorna la respuesta a la petición del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
             ListaEmpresa lista = new ListaEmpresa();
@@ -50,76 +51,89 @@ namespace Library
 
             if (mensaje.Text.ToLower() == "/crearpublicacion" || estado.Handler == "/crearpublicacion")
             {
+                this.TextResult = new StringBuilder();
                 if (lista.Verificar(mensaje.Id))
                 {
-                    
+                    this.TextResult = new StringBuilder();
                     estado.Handler = "/crearpublicacion";
                     switch (estado.Step)
                     {
                         case 0:
-                        Console.WriteLine("Ingrese el material:");
+                        this.TextResult = new StringBuilder();
+                        this.TextResult.Append("Ingrese el material:");
                         estado.Step++;
                         break;
 
                         case 1:
+                        this.TextResult = new StringBuilder();
                         this.nombreMaterial = mensaje.Text;
-                        Console.WriteLine("Ingrese la categoria:");
+                        this.TextResult.Append("Ingrese la categoria:");
                         estado.Step++;
                         break;
 
                         case 2:
+                        this.TextResult = new StringBuilder();
                         this.categoria = mensaje.Text;
-                        Console.WriteLine("Ingrese la unidad con la que cuantifica el material:");
+                        this.TextResult.Append("Ingrese la unidad con la que cuantifica el material:");
                         estado.Step++;
                         break;
 
                         case 3:
+                        this.TextResult = new StringBuilder();
                         this.unidad = mensaje.Text;
-                        Console.WriteLine("Ingrese el precio por unidad:");
+                        this.TextResult.Append("Ingrese el precio por unidad:");
                         estado.Step++;
                         break;
 
                         case 4:
+                        this.TextResult = new StringBuilder();
                         this.costo = Convert.ToDouble(mensaje.Text);
-                        Console.WriteLine("Ingrese la cantidad:");
+                        this.TextResult.Append("Ingrese la cantidad:");
                         estado.Step++;
                         break;
 
                         case 5:
+                        this.TextResult = new StringBuilder();
                         this.cantidad = Convert.ToDouble(mensaje.Text);
-                        Console.WriteLine("Ingrese habilitaciones necesarias para manipular el material:");
+                        this.TextResult.Append("Ingrese habilitaciones necesarias para manipular el material:");
                         estado.Step++;
                         break;
 
                         case 6:
+                        this.TextResult = new StringBuilder();
                         this.habilitaciones = mensaje.Text;
                         estado.Step++;
                         break;
 
                         case 7:
-                        Console.WriteLine("Ingrese el título:");
+                        this.TextResult = new StringBuilder();
+                        this.TextResult.Append("Ingrese el título:");
                         estado.Step++;
                         break;
 
                         case 8:
+                        this.TextResult = new StringBuilder();
                         this.titulo = mensaje.Text;
-                        Console.WriteLine("Ingrese palabras claves separadas con ',' : ");
+                        this.TextResult.Append("Ingrese palabras claves separadas con ',' : ");
                         estado.Step++;
                         break;
 
                         case 9:
+                        this.TextResult = new StringBuilder();
                         this.palabrasClave = mensaje.Text;
-                        Console.WriteLine("Ingrese frequencia de disponibilidad: ");
+                        this.TextResult.Append("Ingrese frequencia de disponibilidad: ");
                         estado.Step++;
                         break;
 
                         case 10:
+                        this.TextResult = new StringBuilder();
                         this.frecuencia = mensaje.Text;
-                        Console.WriteLine("Ingrese dónde se encuentra: ");
+                        this.TextResult.Append("Ingrese dónde se encuentra: ");
                         estado.Step++;
                         break;
 
                         case 11:
+                        this.TextResult = new StringBuilder();
                         this.localizacion = mensaje.Text;
                         IUbicacionProvider ubicacionProvider = new UbicacionProvider();
                         IUbicacion ubi = ubicacionProvider.GetUbicacion(this.localizacion);
@@ -132,9 +146,9 @@ namespace Library
                 }
                 else
                 {
-                    Console.WriteLine("Para crear publicaciones debe pertenecer a una empresa. Ingrese un comando nuevo:\n");
-                    return this.TextResult.ToString();
+                    this.TextResult.Append("Para crear publicaciones debe pertenecer a una empresa.");
                 }
+
                 return this.TextResult.ToString();
             }
             else

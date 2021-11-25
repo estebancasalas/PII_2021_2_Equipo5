@@ -25,6 +25,7 @@ namespace Library
             this.Id = id;
             this.Estado = estado;
             this.Nombre = nombre;
+            Singleton<ListaDeUsuario>.Instance.Add(this);
         }
 
         /// <summary>
