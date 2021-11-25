@@ -115,26 +115,18 @@ namespace Library
         private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
         {
             Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
-            ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(mensaje.Id);
+            ListaDeUsuario listaUsuario = Singleton<ListaDeUsuario>.Instance;
             ITelegramBotClient client = TelegramBot.Instance.Client;
-            IUsuario newusuario = new Empresario(1128028626, new EstadoUsuario(), "Esteban");
+            if (!listaUsuario.EstaRegistrado(mensaje.Id))
+            {
+                Usuario usuario = new Usuario(mensaje.Id, new EstadoUsuario());
+                listaUsuario.Add(usuario);
+            }
+
             if (mensaje.Text != "/salir")
             {
                 await client.SendTextMessageAsync(chatId: mensaje.Id, text: comienzoHandler.Handle(mensaje));
             }
         }
-
-        /*
-        while (mensaje.Text != "/finalizar")
-        {
-            //Fijarse si estsa registrado y obtener el IUsuario.
-
-            Console.WriteLine("ingrese un mensaje: \n Ingrese /finalizar para salir");
-            mensaje.Text = Console.ReadLine();
-            comienzoHandler.Handle(mensaje);//EstadoUsuario estado = esto
-            //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
-        }
-        */
     }
 }

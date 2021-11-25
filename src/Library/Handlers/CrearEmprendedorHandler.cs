@@ -29,13 +29,14 @@ namespace Library
         /// <returns>Retorna la respuesta a la petición del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
-            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            ListaDeUsuario listaUsuario = Singleton<ListaDeUsuario>.Instance;
             int indice = listaUsuario.Buscar(mensaje.Id);
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+            ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
 
             if (mensaje.Text.ToLower() == "/emprendedor" || estado.Handler == "/emprendedor")
             {
-                if (!listaUsuario.EstaRegistrado(mensaje.Id))
+                if (listaEmprendedores.Buscar(mensaje.Id) == null)
                 {
                     estado.Handler = "/emprendedor";
                     switch (estado.Step)
@@ -78,6 +79,7 @@ namespace Library
                             this.TextResult = new StringBuilder();
                             this.especializaciones = mensaje.Text;
                             Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.nombre, this.rubro, this.ubicacion, this.habilitacion, this.especializaciones);
+                            this.TextResult.Append($"Usted ha sido registrado con los siguientes datos:\n{this.nombre}\n{this.rubro}\n{this.ubicacion}\n{this.habilitacion}\n{this.especializaciones}");
                             estado = new EstadoUsuario();
                             break;
                     }

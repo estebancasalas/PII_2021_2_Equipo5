@@ -55,9 +55,13 @@ namespace Library
         /// todas las invitaciones que existen.
         /// </summary>
         /// <param name="Invitacion"></param>
-        public void Add(string Invitacion)
+        public void Add(string invitacion)
         {
-            this.Invitaciones.Add(Invitacion);
+            if (!this.Invitaciones.Contains(invitacion))
+            {
+                this.Invitaciones.Add(invitacion);
+            }
+            
         }
     }
 }

@@ -56,15 +56,16 @@ namespace Library
         /// <param name="administrador"></param>
         public void Add(Administrador administrador)
         {
-            this.Administradores.Add(administrador);
+            if (!this.Administradores.Contains(administrador))
+            {
+                this.Administradores.Add(administrador);
+            }
         }
 
         public bool Verificar(long id)
         {
-            
-            Administrador administrador = null; 
-            
-            administrador = this.Administradores.Find(x=> x.Id == id);
+            Administrador administrador = null;
+            administrador = this.Administradores.Find(x => x.Id == id);
 
             return administrador != null;
         }
