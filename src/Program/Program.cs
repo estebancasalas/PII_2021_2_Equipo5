@@ -23,11 +23,7 @@ namespace Library
         /// Punto de entrada al programa principal.
         /// </summary>
 
-<<<<<<< HEAD
-        public static IHandler ComienzoHandler = new ComienzoHandler();
-=======
         private static IHandler comienzoHandler = new ComienzoHandler();
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
 
         public static void Main()
         {
@@ -39,13 +35,7 @@ namespace Library
                            .SetNext(new HistorialHandler())
                            .SetNext(new InvitarHandler())
                            .SetNext(new RegistrarEmpresarioHandler())
-<<<<<<< HEAD
-            .SetNext(new NullHandler()); //bullying a este handler
-            Mensaje mensaje = new Mensaje(0 ,"");
-
-=======
             .SetNext(new NullHandler()); // bullying a este handler
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
             // Se crean las listas
             ListaAdministradores listaAdministradores = new ListaAdministradores();
             ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
@@ -73,10 +63,6 @@ namespace Library
             listaTransacciones.LoadFromJson(transacciones);
             registroPublicaciones.LoadFromJson(publicaciones);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
             // Obtengo una instancia de TelegramBot
             TelegramBot telegramBot = TelegramBot.Instance;
             Console.WriteLine($"Hola soy el Bot de P2, mi nombre es {telegramBot.BotName} y tengo el Identificador {telegramBot.BotId}");
@@ -93,11 +79,7 @@ namespace Library
             Console.WriteLine("Presiona una tecla para terminar");
             Console.ReadKey();
 
-<<<<<<< HEAD
-            // Detengo la escucha de mensajes
-=======
             // Detengo la escucha de mensajes.
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
             bot.StopReceiving();
 
             // Se actualizan las listas
@@ -130,13 +112,6 @@ namespace Library
 
         private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
         {
-<<<<<<< HEAD
-             Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
-             while (mensaje.Text != "/finalizar")
-            {
-            }
-        }        //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
-=======
             Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             int indice = listaUsuario.Buscar(mensaje.Id);
@@ -159,6 +134,5 @@ namespace Library
             //Como ya tenemos el objeto IUsuario, cambiamos su estado por que el nos devolvio el metodo Handle.
         }
         */
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
     }
 }

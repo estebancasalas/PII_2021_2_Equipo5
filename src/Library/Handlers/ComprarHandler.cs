@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // -----------------------------------------------------------------------
 // <copyright file="ComprarHandler.cs" company="Universidad Católica del Uruguay">
 // Copyright (c) Programación II. Derechos reservados.
@@ -73,4 +71,3 @@ namespace Library
         }
     }
 }
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621

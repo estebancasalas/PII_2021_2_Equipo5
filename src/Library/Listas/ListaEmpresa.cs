@@ -14,15 +14,9 @@ namespace Library
     /// Clase que contiene una lista en la cual están todas las empresas.
     /// Cumple con el principio SRP ya que su única responsabilidad es conocer los empresas.
     /// </summary>
-<<<<<<< HEAD
     public class ListaEmpresa : IJsonConvertible
     {
-=======
-    public class
-    ListaEmpresa : IJsonConvertible
-    {
 
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
         /// <summary>
         /// Lista que contiene todas las empresas registradas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
@@ -30,10 +24,6 @@ namespace Library
         /// <returns></returns>
         [JsonInclude]
         public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance;
-<<<<<<< HEAD
-
-=======
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
         /// <summary>
         /// Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la
         /// que conoce a todas las empresas (patrón Expert).
@@ -46,17 +36,12 @@ namespace Library
             Empresario empresario = null;
             while (i < this.Empresas.Count && empresario == null)
             {
-<<<<<<< HEAD
-               empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
-               i++;
-=======
                 if (this.Empresas[i].ListaEmpresarios != null)
                 {
                     empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
                 }
 
                 i++;
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
             }
 
             return empresario != null;
@@ -74,16 +59,9 @@ namespace Library
             Empresario empresario = null;
             while (i < this.Empresas.Count && empresario == null)
             {
-<<<<<<< HEAD
-               empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
-               i++;
-            }
-
-=======
                 empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
                 i++;
             }
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
             return this.Empresas[i - 1];
         }
 

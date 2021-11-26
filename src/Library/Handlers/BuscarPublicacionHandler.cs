@@ -20,14 +20,10 @@ namespace Library
         /// Almacena la manera que el usuario desea buscar una publicación.
         /// </summary>
         private string tipobusqueda;
-<<<<<<< HEAD
-        public List<Publicacion> Result;
-=======
 
         /// <summary>
         /// Lo que desea buscar.
         /// </summary>
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
         private string busqueda;
         private string cantidadComprada;
         private Publicacion publicacion;
@@ -128,10 +124,6 @@ namespace Library
                         lista.Add(transaccion);
                         break;
                 }
-<<<<<<< HEAD
-
-=======
->>>>>>> c0a91c3e23b0195b833453bf8bef99a55f9e7621
                 return this.TextResult.ToString();
             }
             else
