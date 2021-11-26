@@ -30,22 +30,21 @@ namespace Library
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        
+        public List<Publicacion> resultadoBusqueda = new List<Publicacion>();
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
             int indice = listaUsuario.Buscar(mensaje.Id);
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
-
             if (mensaje.Text.ToLower() == "/buscarpublicacion" || estado.Handler == "/buscarpublicacion")
             {
-                List<Publicacion> resultadoBusqueda = new List<Publicacion>();
                 estado.Handler = "/buscarpublicacion";
-
                 switch (estado.Step)
                 {
                     case 0:
                         this.TextResult = new StringBuilder();
-                        this.TextResult.Append("¿De que manera desea de buscar la publicación?\n Si desea buscar por categoria --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");
+                        this.TextResult.Append("¿De qué manera desea de buscar la publicación?\n Si desea buscar por categoria --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");
                         estado.Step++;
                         break;
 
