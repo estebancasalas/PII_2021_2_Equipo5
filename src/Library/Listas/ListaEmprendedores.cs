@@ -46,7 +46,10 @@ namespace Library
         /// <param name="emprendedor"></param>
         public void Add(Emprendedor emprendedor)
         {
-            this.Emprendedores.Add(emprendedor);
+            if (!this.Emprendedores.Contains(emprendedor))
+            {
+                this.Emprendedores.Add(emprendedor);
+            }
         }
         /// <summary>
         /// Método que sirve para buscar un emprendedor por su id. Se incluye en esta clase ya que es la

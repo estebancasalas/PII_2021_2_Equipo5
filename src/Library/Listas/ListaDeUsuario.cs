@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
@@ -16,7 +17,9 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
-        public List<IUsuario> ListaUsuarios = Singleton<List<IUsuario>>.Instance; 
+        [JsonInclude]
+        public List<Usuario> ListaUsuarios = Singleton<List<Usuario>>.Instance; 
+
         /// <summary>
         /// Método que verifica si un id está registrado como usuario.
         /// </summary>
@@ -27,11 +30,13 @@ namespace Library
             IUsuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
             return usuario != null;
         }
+
         public int Buscar(long id)
         {
-            IUsuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
+            Usuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
             return this.ListaUsuarios.IndexOf(usuario);
         }
+
         /// <summary>
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
         /// json.
@@ -39,19 +44,21 @@ namespace Library
         /// <returns></returns>
         public string ConvertToJson()
         {
-            return JsonSerializer.Serialize(Singleton<List<int>>.Instance);
+            return JsonSerializer.Serialize(Singleton<List<Usuario>>.Instance);
         }
+
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-        /// a partir de el archivo json. 
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
+        /// a partir de el archivo json.
         /// </summary>
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            List<IUsuario> listaUsers = new List<IUsuario>();
-            listaUsers = JsonSerializer.Deserialize<List<IUsuario>>(json);
+            List<Usuario> listaUsers = new List<Usuario>();
+            listaUsers = JsonSerializer.Deserialize<List<Usuario>>(json);
             this.ListaUsuarios = listaUsers;
         }
+
         /// <summary>
         /// Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
         /// ya existente. 
@@ -59,10 +66,14 @@ namespace Library
         /// los id de todos los usuarios.
         /// </summary>
         /// <param name="usuario">Usuario que se va a agregar a la lista</param>
-        public void Add(IUsuario usuario)
+        public void Add(Usuario usuario)
         {
-            this.ListaUsuarios.Add(usuario);
+            if (!this.ListaUsuarios.Contains(usuario))
+            {
+                this.ListaUsuarios.Add(usuario);
+            }
         }
     }
+
     // Checkear si cuando se registran se agregan idSSS.
 }

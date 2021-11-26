@@ -1,1 +1,1 @@
-[{"Invitacion":"12344321","Nombre":"Empresa1","Ubicacion":"Montevideo","Rubro":"Vet","ListaEmpresarios":null,"listaEmpresarios":[]},{"Invitacion":"12344321","Nombre":"Empresa1","Ubicacion":"Montevideo","Rubro":"Vet","ListaEmpresarios":null,"listaEmpresarios":[]}]
+[]
