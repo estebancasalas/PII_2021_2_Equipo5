@@ -6,14 +6,16 @@ using System.Text.Json.Serialization;
 namespace Library
 {
     /// <summary>
-    /// ListaDeUsuario es quien se encarga de tener la lista con todos los 
-    /// usuarios registrados, siendo los usuarios las empresas y emprendedores.  
+    /// ListaDeUsuario es quien se encarga de tener la lista con todos los usuarios registrados, siendo los usuarios las empresas y
+    /// emprendedores.
+    /// Depende de las Clases concretas List y Usuario porque necesita ser deserializada desde formato json.
     /// Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
     /// </summary>
     public class ListaDeUsuario : IJsonConvertible
     {
         /// <summary>
         /// Lista que contiene a todos los ususarios.
+        /// Depende de List y Usuario debido a que debe ser deserializada.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
