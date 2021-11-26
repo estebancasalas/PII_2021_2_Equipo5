@@ -239,6 +239,26 @@
             </summary>
             <value>Guarda el nombre del empresario.</value>
         </member>
+        <member name="T:Library.EstadoUsuario">
+            <summary>
+            Clase para conocer el estado del usuario. 
+            </summary>
+        </member>
+        <member name="F:Library.EstadoUsuario.Handler">
+            <summary>
+            Atributo para saber en qué handler está el usuario.
+            </summary>
+        </member>
+        <member name="F:Library.EstadoUsuario.Step">
+            <summary>
+            Cuenta los pasos del usuario.
+            </summary>
+        </member>
+        <member name="M:Library.EstadoUsuario.#ctor">
+            <summary>
+            Constructor del estado del usuario.
+            </summary>
+        </member>
         <member name="T:Library.Material">
             <summary>
             Esta clase se encarga del modelado del material.
@@ -643,7 +663,7 @@
             Lo que desea buscar.
             </summary>
         </member>
-        <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
+        <member name="F:Library.BuscarPublicacionHandler.resultadoBusqueda">
             <summary>
             Método para buscar en la lista de publicaciones.
             </summary>
