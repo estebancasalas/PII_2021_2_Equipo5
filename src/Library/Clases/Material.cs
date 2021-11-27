@@ -82,7 +82,7 @@ namespace Library
         /// Lista que contiene las categorías del material.
         /// </summary>
         /// <returns></returns>
-        public List<string> PosiblesCategorias = new List<string>() { "Químicos", "Plásticos", "Celulósicos", "Eléctricos", "Textiles", "Metálicos", "Metálicos ferrosos", "Solventes", "Vidrio", "Residuos orgánicos", "Otros" };
+        public List<string> PosiblesCategorias = new List<string>() { "/químicos", "/plásticos", "/celulósicos", "/eléctricos", "/textiles", "/metálicos", "/metálicos ferrosos", "/solventes", "/vidrio", "/residuos orgánicos", "/otros" };
 
         public string ConvertToString()
         {

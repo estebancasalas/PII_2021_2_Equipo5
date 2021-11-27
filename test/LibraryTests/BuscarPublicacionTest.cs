@@ -1,6 +1,10 @@
+
 /*/ <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+
+
+/*
 
 using System.Collections.Generic;
 using Library;
@@ -95,5 +99,6 @@ namespace LibraryTests
             Assert.AreEqual(buscarPalabra.resultadoBusqueda.Contains(this.c), true);
         }
     }
-}*/
+}
+*/
 
