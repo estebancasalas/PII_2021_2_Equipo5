@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="ListaDeUsuario.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -25,7 +31,7 @@ namespace Library
         /// <summary>
         /// Método que verifica si un id está registrado como usuario.
         /// </summary>
-        /// <param name="id">Id que se verifica</param>
+        /// <param name="id">Id que se verifica.</param>
         /// <returns></returns>
         public bool EstaRegistrado(long id)
         {
@@ -63,7 +69,7 @@ namespace Library
 
         /// <summary>
         /// Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
-        /// ya existente. 
+        /// ya existente.
         /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
         /// los id de todos los usuarios.
         /// </summary>

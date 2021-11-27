@@ -34,6 +34,8 @@ namespace Library
         /// Lo que desea buscar.
         /// </summary>
         private string busqueda;
+        private string cantidadComprada;
+        private Publicacion publicacion;
 
         /// <summary>
         /// Método para buscar en la lista de publicaciones.
@@ -46,7 +48,7 @@ namespace Library
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(mensaje.Id);
+            int indice = listaUsuario.Buscar(id: mensaje.Id);
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
             if (mensaje.Text.ToLower() == "/buscarpublicacion" || estado.Handler == "/buscarpublicacion")
             {

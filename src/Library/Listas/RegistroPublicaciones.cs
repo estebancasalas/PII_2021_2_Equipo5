@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="RegistroPublicaciones.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -10,20 +16,22 @@ namespace Library
     /// sin tener que compartir la información de las listas, cumpliendo con el
     /// patrón Expert.
     /// </summary>
-    public class RegistroPublicaciones: IJsonConvertible
+    public class RegistroPublicaciones : IJsonConvertible
     {
         /// <summary>
         /// Lista con las publicaciones activas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
-        public List<Publicacion> Activas {get; set;} = Singleton<List<Publicacion>>.Instance;
+        public List<Publicacion> Activas { get; set; } = Singleton<List<Publicacion>>.Instance;
+
         /// <summary>
         /// Lista con las publicaciones que fueron eliminadas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
         public List<Publicacion> Eliminadas = Singleton<List<Publicacion>>.Instance;
+
         /// <summary>
         /// Lista con las publicaciones pausadas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
@@ -47,7 +55,7 @@ namespace Library
         /// Método para pausar una publicación. Agrega dicha publicación a
         /// la lista de publicaciones pausadas y la remueve de la lista de publicaciones activas.
         /// </summary>
-        /// <param name="publi">Publicación a pausar</param>
+        /// <param name="publi">Publicación a pausar.</param>
         public void PausarPublicacion(Publicacion publi)
         {
             foreach (Publicacion publicaciones in Activas)
@@ -64,7 +72,7 @@ namespace Library
         /// Método para eliminar una publicación. Se agrega la misma a la lista de publicaciones eliminadas y se remueve de la
         /// lista de publicaciones activas y publicaciones pausadas.
         /// </summary>
-        /// <param name="publi">Publicación a eliminar</param>
+        /// <param name="publi">Publicación a eliminar.</param>
         public void EliminarPublicacion(Publicacion publi)
         {
             foreach (Publicacion publicaciones in Activas)

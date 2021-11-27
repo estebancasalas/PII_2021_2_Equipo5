@@ -17,7 +17,7 @@ namespace Library
         /// Inicializa una nueva instancia de la clase <see cref="Empresario"/>.
         /// Método constructor de la clase.
         /// </summary>
-        /// <param name="num">Indica el Id del empresario.</param>
+        /// <param name="id">Indica el Id del empresario.</param>
         /// <param name="estado">Indica el estado en el que se encuentra el empresario.</param>
         /// <param name="nombre">Indica el nombre que tiene el empresario.</param>
         public Empresario(long id, EstadoUsuario estado, string nombre)

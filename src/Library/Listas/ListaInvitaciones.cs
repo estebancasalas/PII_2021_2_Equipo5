@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="ListaInvitaciones.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -5,8 +11,8 @@ using System.Text.Json;
 namespace Library
 {
     /// <summary>
-    /// ListaInvitaciones es quien se encarga de tener la lista con todas las 
-    /// invitaciones que fueron hechas. 
+    /// ListaInvitaciones es quien se encarga de tener la lista con todas las
+    /// invitaciones que fueron hechas.
     /// Se cumple principio SRP ya que libra al administrador de conocer todas las
     /// invitaciones.
     /// </summary>
@@ -17,17 +23,19 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
-        public List <string> Invitaciones = Singleton<List<string>>.Instance; 
+        public List<string> Invitaciones = Singleton<List<string>>.Instance;
+
         /// <summary>
         /// Método que verifica si una invitación es válida. Se incluye en esta clase porque es la que 
         /// conoce todas las invitaciones (patrón Expert).
         /// </summary>
-        /// <param name="invitacion">Invitación a verificar</param>
+        /// <param name="invitacion">Invitación a verificar.</param>
         /// <returns></returns>
         public bool VerificarInvitacion(string invitacion)
         {
             return Invitaciones.Contains(invitacion);
         }
+
         /// <summary>
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
         /// json.
@@ -37,9 +45,10 @@ namespace Library
         {
             return JsonSerializer.Serialize(Singleton<List<string>>.Instance);
         }
+
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos 
-        /// a partir de el archivo json. 
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
+        /// a partir de el archivo json.
         /// </summary>
         /// <param name="json"></param>
         public void LoadFromJson(string json)
@@ -48,9 +57,10 @@ namespace Library
             listaInvs = JsonSerializer.Deserialize<List<string>>(json);
             this.Invitaciones = listaInvs;
         }
+
         /// <summary>
         /// Se crea el método Add para añadir las Invitaciones a la ListaInvitaciones
-        /// ya existente. 
+        /// ya existente.
         /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
         /// todas las invitaciones que existen.
         /// </summary>

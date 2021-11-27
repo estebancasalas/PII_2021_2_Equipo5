@@ -5,8 +5,8 @@
 // -----------------------------------------------------------------------
 
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace Library
@@ -41,7 +41,6 @@ namespace Library
         /// puede tener una misma empresa.
         /// </summary>
         /// <value></value>
-        /// 
         [JsonInclude]
         public List<Empresario> listaEmpresarios = new List<Empresario>();
 
@@ -69,8 +68,7 @@ namespace Library
         /// <value>Guarda el rubro de la empresa.</value>
         public string Rubro { get; set; }
 
-        public List<Empresario> ListaEmpresarios { get; set; }
-
+        public List<Empresario> ListaEmpresarios { get; set; } = new List<Empresario>();
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();

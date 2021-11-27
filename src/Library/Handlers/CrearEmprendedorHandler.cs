@@ -15,11 +15,40 @@ namespace Library
     /// </summary>
     public class CrearEmprendedorHandler : AbstractHandler
     {
-        private string nombre;
-        private string rubro;
-        private string ubicacion;
-        private string habilitacion;
-        private string especializaciones;
+        /// <summary>
+        /// Obtiene o establece la propiedad en donde se guarda el nombre.
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Nombre que ingresa el usuario al interactuar con el bot.</value>
+        public string Nombre { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece la propiedad en donde se guarda el rubro.
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Rubro que ingresa el usuario al interactuar con el bot.</value>
+        public string Rubro { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece la propiedad en donde se guarda la ubicacion.
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Ubicacion que ingresa el usuario al interactuar con el bot.</value>
+        public string Ubicacion { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece la propiedad en donde se guardan las habilitaciones.
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Habilitaciones que ingresa el usuario al interactuar con el bot.</value>
+        public string Habilitacion { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece la propiedad en donde se guardan las especializaciones.
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Especializaciones que ingresa el usuario al interactuar con el bot.</value>
+        public string Especializaciones { get; set; }
 
         /// <summary>
         /// Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
@@ -49,51 +78,52 @@ namespace Library
 
                         case 1:
                             this.TextResult = new StringBuilder();
-                            this.nombre = mensaje.Text;
+                            this.Nombre = mensaje.Text;
                             this.TextResult.Append("¿Cuál es su rubro?");
                             estado.Step++;
                             break;
 
                         case 2:
                             this.TextResult = new StringBuilder();
-                            this.rubro = mensaje.Text;
-                            this.TextResult.Append("¿Cuál es la direccion de su domicilio?");
+                            this.Rubro = mensaje.Text;
+                            this.TextResult.Append("¿Cuál es la direccion de su domicilio/emprendimiento?");
                             estado.Step++;
                             break;
 
                         case 3:
                             this.TextResult = new StringBuilder();
-                            this.ubicacion = mensaje.Text;
+                            this.Ubicacion = mensaje.Text;
                             this.TextResult.Append("¿Posee alguna habilitacion?");
                             estado.Step++;
                             break;
 
                         case 4:
                             this.TextResult = new StringBuilder();
-                            this.habilitacion = mensaje.Text;
+                            this.Habilitacion = mensaje.Text;
                             this.TextResult.Append("¿En qué se especializa?");
                             estado.Step++;
                             break;
 
                         case 5:
                             this.TextResult = new StringBuilder();
-                            this.especializaciones = mensaje.Text;
-                            Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.nombre, this.rubro, this.ubicacion, this.habilitacion, this.especializaciones);
-                            this.TextResult.Append($"Usted ha sido registrado con los siguientes datos:\n{this.nombre}\n{this.rubro}\n{this.ubicacion}\n{this.habilitacion}\n{this.especializaciones}");
-                            estado = new EstadoUsuario();
+                            this.Especializaciones = mensaje.Text;
+                            Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.Nombre, this.Rubro, this.Ubicacion, this.Habilitacion, this.Especializaciones);
+                            this.TextResult.Append($"Usted ha sido registrado con los siguientes datos:\n{this.Nombre}\n{this.Rubro}\n{this.Ubicacion}\n{this.Habilitacion}\n{this.Especializaciones}");
+                            estado.Step = 0;
+                            estado.Handler = null;
                             break;
                     }
                 }
                 else
                 {
-                    this.TextResult.Append("Usted ya esta registrado.");
+                    this.TextResult = new StringBuilder();
+                    this.TextResult.Append("Usted ya está registrado.");
                 }
 
                 return this.TextResult.ToString();
             }
             else
             {
-
                 return this.GetNext().Handle(mensaje);
             }
         }
