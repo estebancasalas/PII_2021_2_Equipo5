@@ -14,6 +14,26 @@ namespace Library
     public class Ubicacion : IUbicacion
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="Ubicacion"/> class.
+        /// Constructor de la clase.
+        /// </summary>
+        /// <param name="pais">País donde se ubica.</param>
+        /// <param name="ciudad">Ciudad donde se ubica.</param>
+        /// <param name="direccion">Dirección donde se ubica.</param>
+        /// <param name="codigoPostal">Código postal de donde se ubica.</param>
+        /// <param name="latitud">Latitud de la ubicación.</param>
+        /// <param name="longitud">Longitud de la ubicación.</param>
+        public Ubicacion(string pais, string ciudad, string direccion, string codigoPostal, string latitud, string longitud)
+        {
+            this.Pais = pais;
+            this.Ciudad = ciudad;
+            this.Direccion = direccion;
+            this.CodigoPostal = codigoPostal;
+            this.Latitud = latitud;
+            this.Longitud = longitud;
+        }
+
+        /// <summary>
         /// Propiedad que almacena el País.
         /// </summary>
         /// <value></value>
@@ -29,43 +49,24 @@ namespace Library
         /// Propiedad que almacena la dirección.
         /// </summary>
         /// <value></value>
-        public string Direccion { get; set; } = "";
+        public string Direccion { get; set; } = string.Empty;
 
         /// <summary>
         /// Propiedad que almacena el código postal.
         /// </summary>
         /// <value></value>
-        public string CodigoPostal { get; set; } = "";
+        public string CodigoPostal { get; set; } = string.Empty;
 
         /// <summary>
         /// Propiedad que almacena la Latitud de las coordenadas.
         /// </summary>
         /// <value></value>
-        public string Latitud { get; set; } = "";
+        public string Latitud { get; set; } = string.Empty;
 
         /// <summary>
         /// Propiedad que almacena la Longitud de las coordenadas.
         /// </summary>
         /// <value></value>
-        public string Longitud { get; set; } = "";
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Ubicacion"/> class.
-        /// </summary>Constructor de la clase.
-        /// <param name="pais"></param>
-        /// <param name="ciudad"></param>
-        /// <param name="direccion"></param>
-        /// <param name="codigoPostal"></param>
-        /// <param name="latitud"></param>
-        /// <param name="longitud"></param>
-        public Ubicacion(string pais, string ciudad, string direccion, string codigoPostal, string latitud, string longitud)
-        {
-            this.Pais = pais;
-            this.Ciudad = ciudad;
-            this.Direccion = direccion;
-            this.CodigoPostal = codigoPostal;
-            this.Latitud = latitud;
-            this.Longitud = longitud;
-        }
+        public string Longitud { get; set; } = string.Empty;
     }
 }

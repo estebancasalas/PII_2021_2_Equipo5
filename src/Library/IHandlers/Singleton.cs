@@ -11,7 +11,7 @@ namespace Library
     /// <summary>
     /// Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Tipo genérico que se establece cuando se crea una instancia.</typeparam>
     public static class Singleton<T>
         where T : new()
     {

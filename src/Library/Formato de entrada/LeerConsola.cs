@@ -13,7 +13,7 @@ namespace Library
     /// consola. Cumple con DIP pues la comunicación es a través de clases de alto nivel y abstracciones (Interfaces).
     /// Cumple SRP pues su unica razon de cambio es recibir una linea de la consola.
     /// </summary>
-    public class LeerConsola : EntaradaDeLaCadena
+    public class LeerConsola : EntradaDeLaCadena
     {
         /// <summary>
         /// El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.

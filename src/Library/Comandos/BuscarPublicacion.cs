@@ -34,7 +34,6 @@ namespace Library
         /// <summary>
         /// Lista de coincidencias de la búsqueda.
         /// </summary>
-        /// <returns></returns>
         public List<Publicacion> Result;
 
         /// <summary>
@@ -53,10 +52,10 @@ namespace Library
         /// EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y,
         /// palabras claves). Luego las delega a cada una de las clases que se encargan de,
         /// búsqueda, para cumplir con SRP.
-        /// Finalmente, devuelve una lista con todas la publiaciones encontradas, de la búsqueda
+        /// Finalmente, devuelve una lista con todas la publicaciones encontradas, de la búsqueda
         /// que se realizó.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista con las publicaciones encontradas.</returns>
         public List<Publicacion> EjecutarComando()
         {
             if (this.TipoBusqueda.ToLower() == "/categoria")
@@ -69,7 +68,7 @@ namespace Library
                 BusquedaZonaCiudad buscador = new BusquedaZonaCiudad();
                 this.Result = buscador.Buscar(this.TipoBusqueda, this.Busqueda);
             }
-            else if (TipoBusqueda == "/palabrasclave")
+            else if (this.TipoBusqueda == "/palabrasclave")
             {
                 BusquedaKeyWord buscador = new BusquedaKeyWord();
                 this.Result = buscador.Buscar(this.Busqueda);

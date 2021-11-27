@@ -19,7 +19,7 @@ namespace Library
         /// Método que recorre la lista de transacciones de el usuario y retorna su historial.
         /// </summary>
         /// <param name="id">Nombre de quien quiere ver el historial.</param>
-        /// <returns></returns>
+        /// <returns>String con todas las transacciones hechas por el usuario con ese id.</returns>
         public string EjecutarComando(long id)
         {
             StringBuilder resultado = new StringBuilder("Tus transacciones son:\n");

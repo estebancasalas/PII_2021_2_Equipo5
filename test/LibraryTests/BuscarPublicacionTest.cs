@@ -17,11 +17,11 @@ namespace LibraryTests
         private Publicacion a;
         private Publicacion b;
         private Publicacion c;
-        Mensaje mensaje = new Mensaje(1234, string.Empty);
-        EstadoUsuario estado = new EstadoUsuario();
-        BuscarPublicacionHandler handler = new BuscarPublicacionHandler();
-        IHandler nullHandler = new NullHandler();
-        Usuario user;
+        private Mensaje mensaje = new Mensaje(1234, string.Empty);
+        private EstadoUsuario estado = new EstadoUsuario();
+        private BuscarPublicacionHandler handler = new BuscarPublicacionHandler();
+        private IHandler nullHandler = new NullHandler();
+        private Usuario user;
 
         /// <summary>
         /// Setup del test.
@@ -45,11 +45,11 @@ namespace LibraryTests
             this.b = new Publicacion("2", dos, "plastico", "todos los dias", beta, empresa2);
             this.c = new Publicacion("3", tres, "electrico", "todos los dias", gamma, empresa3);
 
-            user = new Usuario(1234, this.estado);
+            this.user = new Usuario(1234, this.estado);
             ListaDeUsuario lista = new ListaDeUsuario();
-            lista.Add(user);
+            lista.Add(this.user);
 
-            this.handler.SetNext(nullHandler);
+            this.handler.SetNext(this.nullHandler);
             this.handler.resultadoBusqueda.Add(this.a);
             this.handler.resultadoBusqueda.Add(this.b);
             this.handler.resultadoBusqueda.Add(this.c);
@@ -92,136 +92,144 @@ namespace LibraryTests
         [Test]
         public void Case1CiudadTest()
         {
-            estado.Step = 1;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "/ciudad";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 1;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/ciudad";
+            this.handler.Handle(this.mensaje);
             string expected = "Ingrese la ciudad";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 2); 
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 2);
         }
+
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por palabras clave.
         /// </summary>
         [Test]
         public void Case1PalabrasClaveTest()
         {
-            this.estado.Step = 1;
-            this.estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "/palabrasclave";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 1;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/palabrasclave";
+            this.handler.Handle(this.mensaje);
             string expected = "Ingrese palabras clave";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 2);
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 2);
         }
+
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
         /// </summary>
         [Test]
         public void Case1VacioTest()
         {
-            estado.Step = 1;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 1;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = string.Empty;
+            this.handler.Handle(this.mensaje);
             string expected = "La opción que ingresó no es válida, por favor vuelva a intentarlo.";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 2); 
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 2);
         }
+
         /// <summary>
         /// Prueba el tercer paso del handler.
         /// </summary>
         [Test]
         public void Case2Test()
         {
-            estado.Step = 2;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "/Químicos";
-            handler.TipoBusqueda = "/categoria";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 2;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/Químicos";
+            this.handler.TipoBusqueda = "/categoria";
+            this.handler.Handle(this.mensaje);
             string expected = "¿Desea realizar una compra?\n 1-Si \n 2-No";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 3); 
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 3);
         }
+
         /// <summary>
         /// Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.
         /// </summary>
         [Test]
         public void Case3ComprarTest()
         {
-            estado.Step = 3;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "1";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 3;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "1";
+            this.handler.Handle(this.mensaje);
             string expected = "Ingrese el número de la publicación que desea comprar.";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 4); 
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 4);
         }
+
         /// <summary>
         /// Prueba el cuarto paso del handler, el caso en que el usuario desee realizar una compra.
         /// </summary>
         [Test]
         public void Case3NoComprarTest()
         {
-            estado.Step = 3;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "2";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 3;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "2";
+            this.handler.Handle(this.mensaje);
             string expected = "Gracias por buscar en nuestro bot. Si desea realizar otra busqueda vuelva a escribir /buscarpublicacion.";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 0);
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 0);
         }
+
         /// <summary>
         /// Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
         /// </summary>
         [Test]
         public void Case3NoValidoTest()
         {
-            estado.Step = 3;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 3;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = string.Empty;
+            this.handler.Handle(this.mensaje);
             string expected = "Usted ingresó una opción no válida. Intente nuevamente.";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 3); 
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 3);
         }
+
         /// <summary>
         /// Prueba el quinto paso del handler.
         /// </summary>
         [Test]
         public void Case4Test()
         {
-            estado.Step = 4;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "0";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 4;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "0";
+            this.handler.Handle(this.mensaje);
             string expected = "Ingrese la cantidad que desea compar\n(En la unidad especificada en la publicación.)";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 5);
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 5);
         }
+
         /// <summary>
         /// Prueba el sexto paso del handler.
         /// </summary>
         [Test]
         public void Case5Test()
         {
-            estado.Step = 5;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "0";
-            handler.publicacionComprar = handler.resultadoBusqueda[0];
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 5;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "0";
+            this.handler.publicacionComprar = this.handler.resultadoBusqueda[0];
+            this.handler.Handle(this.mensaje);
             string expected = "La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: {empresa.telefono}";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 5);
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 5);
         }
     }
 }

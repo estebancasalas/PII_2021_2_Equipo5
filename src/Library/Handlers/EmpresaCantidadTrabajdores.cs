@@ -40,7 +40,6 @@ namespace Library
                     this.TextResult = new StringBuilder();
                     List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
                     int i = 0;
-                    int j = 0;
                     bool notfound = true;
                     while (i < lista.Count && notfound)
                     {
@@ -58,6 +57,7 @@ namespace Library
                 {
                     this.TextResult.Append("Lo siento, para utilizar este comando debe pertenecer a una empresa.");
                 }
+
                 return this.TextResult.ToString();
             }
             else

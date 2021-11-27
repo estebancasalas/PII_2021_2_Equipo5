@@ -14,6 +14,9 @@ namespace Library
     /// </summary>
     public class Administrador
     {
+        private int id;
+        private string nombre;
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Administrador"/>.
         /// Constructor de la clase Administrador.
@@ -28,20 +31,23 @@ namespace Library
             lista.Add(this);
         }
 
-        private int id;
         /// <summary>
         /// Obtiene o establece se guarda el id de el administrador al registrarse.
         /// </summary>
         /// <value>Id del administrador.</value>
-        public int Id { get { return this.id; } set { this.id = value; } }
+        public int Id
+        {
+            get { return this.id; } set { this.id = value; }
+        }
 
-
-        private string nombre;
         /// <summary>
         /// Obtiene o establece guarda el nombre que pone el administrador al registrarse.
         /// </summary>
         /// <value>Nombre del administrador.</value>
-        public string Nombre { get { return this.nombre; } set { this.nombre = value; } }
+        public string Nombre
+        {
+            get { return this.nombre; } set { this.nombre = value; }
+        }
 
         /// <summary>
         /// Método que crea el objeto empresa y su token de invitación.

@@ -5,10 +5,10 @@
 // -----------------------------------------------------------------------
 
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 
-namespace Library 
+namespace Library
 {
     /// <summary>
     /// Esta clase se encarga del modelado del material.
@@ -81,9 +81,12 @@ namespace Library
         /// <summary>
         /// Lista que contiene las categorías del material.
         /// </summary>
-        /// <returns></returns>
         public List<string> PosiblesCategorias = new List<string>() { "/químicos", "/plásticos", "/celulósicos", "/eléctricos", "/textiles", "/metálicos", "/metálicos ferrosos", "/solventes", "/vidrio", "/residuos orgánicos", "/otros" };
 
+        /// <summary>
+        /// Método para crear un string con la información del material.
+        /// </summary>
+        /// <returns>String con la información del material.</returns>
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();
