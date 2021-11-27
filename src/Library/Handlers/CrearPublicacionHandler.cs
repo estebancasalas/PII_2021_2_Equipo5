@@ -34,7 +34,7 @@ namespace Library
         private string frecuencia;
 
         private string localizacion;
-        
+
         /// <summary>
         /// Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
         /// datos de materiales y llama a la clase CrearMaterial para cumplir con el SRP. Luego, se

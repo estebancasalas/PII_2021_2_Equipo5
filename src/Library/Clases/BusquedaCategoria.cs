@@ -15,7 +15,7 @@ namespace Library
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por categoría.
     /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
     /// </summary>
-    public class BusquedaCategoria : AbstractBuscar
+    public class BusquedaCategoria
     {
         /// <summary>
         /// Toma como parámetro una categoría y recorre la lista de publicaciones buscando coincidencias.
