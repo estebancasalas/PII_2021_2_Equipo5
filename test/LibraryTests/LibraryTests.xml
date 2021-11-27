@@ -4,5 +4,10 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="T:LibraryTests.CrearPublicacionTest">
+            <summary>
+            Test del handler crear publicacion.
+            </summary>
+        </member>
     </members>
 </doc>

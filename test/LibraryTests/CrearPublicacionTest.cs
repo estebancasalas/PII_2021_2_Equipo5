@@ -1,7 +1,3 @@
-/*/ <copyright file="CrearPublicacionTest.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -17,10 +13,44 @@ namespace LibraryTests
         private CrearPublicacionHandler publi;
         private Dictionary<string, string> diccionario = new Dictionary<string, string>();
         private Dictionary<string, string> diccionario2 = new Dictionary<string, string>();
+        CrearPublicacionHandler handler = new CrearPublicacionHandler();
+        EstadoUsuario estado = new EstadoUsuario();
+        
+        
+        
 
-        /// <summary>
-        /// Test que verifica que los empresarios pueden crear publicaciones.
-        /// </summary>
+
+        [SetUp]
+        public void Setup()
+        {
+            ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
+            Usuario usuario = new Usuario(9999, estado);
+            listaDeUsuario.Add(usuario);
+            Empresario user = new Empresario(9999, estado, "Pablo");
+            ListaEmpresa listaEmpresa = new ListaEmpresa();
+            Empresa empresa = new Empresa("Niike", "Montevieo", "Ropa", "1234567890");
+            empresa.ListaEmpresarios.Add(user);
+            listaEmpresa.Add(empresa);
+            
+        }
+        
+        
+        
+        [Test]
+        public void Case0Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 0;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese el material:"; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
+
+
+
+
+        /*
         [Test]
         public void PublicacionValidaTest()
         {
@@ -77,6 +107,6 @@ namespace LibraryTests
             Publicacion expected = listaPublicacion.Find(x => x.Vendedor.Nombre == "jose");
             Assert.AreEqual(expected, null);
         }
+        */
     }
 }
-*/

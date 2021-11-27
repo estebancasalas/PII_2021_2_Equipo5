@@ -69,7 +69,7 @@ namespace Library
         /// <value>Guarda el rubro de la empresa.</value>
         public string Rubro { get; set; }
 
-        public List<Empresario> ListaEmpresarios { get; set; }
+        public List<Empresario> ListaEmpresarios { get; set; } = Singleton<List<Empresario>>.Instance;
 
         public string ConvertToString()
         {
