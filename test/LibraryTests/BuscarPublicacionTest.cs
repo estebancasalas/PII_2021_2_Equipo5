@@ -21,6 +21,7 @@ namespace LibraryTests
         EstadoUsuario estado = new EstadoUsuario();
         BuscarPublicacionHandler handler = new BuscarPublicacionHandler();
         IHandler nullHandler = new NullHandler();
+        Usuario user;
 
         /// <summary>
         /// Setup del test.
@@ -44,44 +45,47 @@ namespace LibraryTests
             this.b = new Publicacion("2", dos, "plastico", "todos los dias", beta, empresa2);
             this.c = new Publicacion("3", tres, "electrico", "todos los dias", gamma, empresa3);
 
-            Usuario user = new Usuario(1234, estado);
+            user = new Usuario(1234, this.estado);
             ListaDeUsuario lista = new ListaDeUsuario();
-            lista.Add(user); 
+            lista.Add(user);
 
-            handler.SetNext(nullHandler); 
-            handler.resultadoBusqueda.Add(this.a);
-            handler.resultadoBusqueda.Add(this.b);
-            handler.resultadoBusqueda.Add(this.c);
+            this.handler.SetNext(nullHandler);
+            this.handler.resultadoBusqueda.Add(this.a);
+            this.handler.resultadoBusqueda.Add(this.b);
+            this.handler.resultadoBusqueda.Add(this.c);
         }
+
         /// <summary>
-        /// Prueba el primer paso
+        /// Prueba el primer paso.
         /// </summary>
         [Test]
         public void Case0Test()
         {
-            estado.Step = 0;
-            mensaje.Id = 1234;
-            mensaje.Text = "/buscarpublicacion";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 0;
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/buscarpublicacion";
+            this.handler.Handle(this.mensaje);
             string expected = "¿De qué manera desea de buscar la publicación?\n Si desea buscar por categoría --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 1); 
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 1);
         }
+
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por categoría.
         /// </summary>
         [Test]
         public void Case1CategoriaTest()
         {
-            estado.Step = 1;
-            estado.Handler = "/buscarpublicacion";
-            mensaje.Id = 1234;
-            mensaje.Text = "/categoria";
-            handler.Handle(mensaje);
+            this.user.Estado.Step = 1;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/categoria";
+            this.handler.Handle(this.mensaje);
             string expected = "Ingrese la categoría:\n     /Químicos, /Plásticos, /Celulósicos, /Eléctricos, /Textiles";
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 2); 
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 2);
         }
+
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por ciudad.
         /// </summary>
@@ -103,14 +107,14 @@ namespace LibraryTests
         [Test]
         public void Case1PalabrasClaveTest()
         {
-            estado.Step = 1;
-            estado.Handler = "/buscarpublicacion";
+            this.estado.Step = 1;
+            this.estado.Handler = "/buscarpublicacion";
             mensaje.Id = 1234;
             mensaje.Text = "/palabrasclave";
             handler.Handle(mensaje);
             string expected = "Ingrese palabras clave";
             Assert.AreEqual(expected, handler.TextResult.ToString());
-            Assert.AreEqual(estado.Step, 2); 
+            Assert.AreEqual(estado.Step, 2);
         }
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.

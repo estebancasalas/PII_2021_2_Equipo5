@@ -9,5 +9,80 @@
             Casos de prueba para buscar la publicacion.
             </summary>
         </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Setup">
+            <summary>
+            Setup del test.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case0Test">
+            <summary>
+            Prueba el primer paso.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case1CategoriaTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario desee buscar por categoría.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case1CiudadTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario desee buscar por ciudad.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case1PalabrasClaveTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario desee buscar por palabras clave.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case1VacioTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case2Test">
+            <summary>
+            Prueba el tercer paso del handler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case3ComprarTest">
+            <summary>
+            Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case3NoComprarTest">
+            <summary>
+            Prueba el cuarto paso del handler, el caso en que el usuario desee realizar una compra.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case3NoValidoTest">
+            <summary>
+            Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case4Test">
+            <summary>
+            Prueba el quinto paso del handler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case5Test">
+            <summary>
+            Prueba el sexto paso del handler.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.RegistrarEmprendedorTests">
+            <summary>
+            Casos de prueba para el handler de CrearEmprendedor.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Setup">
+            <summary>
+            SetUp de los casos de prueba.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Caso0">
+            <summary>
+            Verifica que el emprendedor se registra correctamente.
+            </summary>
+        </member>
     </members>
 </doc>
