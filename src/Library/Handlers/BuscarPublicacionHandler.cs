@@ -20,6 +20,15 @@ namespace Library
         /// Almacena la manera que el usuario desea buscar una publicación.
         /// </summary>
         private string tipoBusqueda;
+        /// <summary>
+        /// Se define la property para los tests.
+        /// </summary>
+        /// <value></value>
+        public string TipoBusqueda
+        {
+            get { return this.tipoBusqueda; }
+            set { this.tipoBusqueda = value; }
+        }
 
         /// <summary>
         /// Lo que desea buscar.
@@ -30,9 +39,9 @@ namespace Library
         /// Método para buscar en la lista de publicaciones.
         /// </summary>
         /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        private List<Publicacion> resultadoBusqueda = new List<Publicacion>();
-
-        private Publicacion publicacionComprar;
+        public List<Publicacion> resultadoBusqueda = new List<Publicacion>();
+        
+        public Publicacion publicacionComprar;  //public para test
 
         public override string Handle(Mensaje mensaje)
         {
@@ -95,7 +104,7 @@ namespace Library
                         else if (mensaje.Text.ToLower() == "2")
                         {
                             this.TextResult.Append("Gracias por buscar en nuestro bot. Si desea realizar otra busqueda vuelva a escribir /buscarpublicacion.");
-                            estado = new EstadoUsuario();
+                            estado.Step = 0;
                         }
 
                         else

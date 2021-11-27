@@ -378,7 +378,7 @@
             El Comprador es un objeto de tipo Emprendedor.
             </summary>
         </member>
-        <member name="F:Library.Transaccion.NombreDelMaterial">
+        <member name="F:Library.Transaccion.Material">
             <summary>
             El NombreDelMaterial es el nombre del material que se vendió o se compró.
             </summary>
@@ -388,7 +388,7 @@
             La cantidad del material que se vendió o se compró.
             </summary>
         </member>
-        <member name="M:Library.Transaccion.#ctor(Library.Empresa,Library.Emprendedor,System.String,System.Double)">
+        <member name="M:Library.Transaccion.#ctor(Library.Empresa,Library.Emprendedor,Library.Material,System.Double)">
             <summary>
             Constructor de la clase.
             </summary>
@@ -653,10 +653,16 @@
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="F:Library.BuscarPublicacionHandler.tipobusqueda">
+        <member name="F:Library.BuscarPublicacionHandler.tipoBusqueda">
             <summary>
             Almacena la manera que el usuario desea buscar una publicación.
             </summary>
+        </member>
+        <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
+            <summary>
+            Se define la property para los tests.
+            </summary>
+            <value></value>
         </member>
         <member name="F:Library.BuscarPublicacionHandler.busqueda">
             <summary>
