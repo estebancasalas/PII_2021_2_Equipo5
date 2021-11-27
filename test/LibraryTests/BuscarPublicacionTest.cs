@@ -1,4 +1,4 @@
-// <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
+/*/ <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -95,5 +95,5 @@ namespace LibraryTests
             Assert.AreEqual(buscarPalabra.resultadoBusqueda.Contains(this.c), true);
         }
     }
-}
+}*/
 
