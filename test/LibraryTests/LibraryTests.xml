@@ -4,5 +4,16 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="T:LibraryTests.BuscarPublicacionTest">
+            <summary>
+            Casos de prueba para buscar la publicacion.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.BusquedaCategoriaTest">
+            <summary>
+            En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de,
+            ids de la empresa.
+            </summary>
+        </member>
     </members>
 </doc>

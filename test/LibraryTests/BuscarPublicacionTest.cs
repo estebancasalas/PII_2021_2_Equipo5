@@ -1,4 +1,11 @@
+
+/*/ <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+
 /*
+
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -6,7 +13,9 @@ using Ucu.Poo.Locations.Client;
 
 namespace LibraryTests
 {
-   
+    /// <summary>
+    /// Casos de prueba para buscar la publicacion.
+    /// </summary>
     [TestFixture]
     public class BuscarPublicacionTest
     {
@@ -33,13 +42,16 @@ namespace LibraryTests
             this.b = new Publicacion("2", dos, "plastico", "todos los dias", beta, empresa2);
             this.c = new Publicacion("3", tres, "electrico", "todos los dias", gamma, empresa3);
 
-            ListaDeUsuario listaUsers = new ListaDeUsuario();
             EstadoUsuario estado = new EstadoUsuario();
-            Usuario fernando = new Usuario(1234, estado);
-            listaUsers.Add(fernando);
+            Usuario user = new Usuario(1234, estado);
+            ListaDeUsuario lista = new ListaDeUsuario();
+            lista.Add(user);
         }
 
-     
+        /// <summary>
+        /// En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de,
+        /// ids de la empresa.
+        /// </summary>
         [Test]
         public void BusquedaCategoriaTest()
         {
@@ -51,7 +63,9 @@ namespace LibraryTests
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             buscarCategoria.Input = lector;
             buscarCategoria.SetNext(new NullHandler());
-            buscarCategoria.Handle(mensaje);
+            HandlerTest tester = new HandlerTest(4, mensaje);
+            tester.SetNext(buscarCategoria);
+            tester.Handle();
             Assert.AreEqual(buscarCategoria.resultadoBusqueda.Contains(this.a), true);
         }
 
@@ -87,3 +101,4 @@ namespace LibraryTests
     }
 }
 */
+
