@@ -24,6 +24,7 @@ namespace Library
         /// <returns></returns>
         [JsonInclude]
         public List<Empresa> Empresas = Singleton<List<Empresa>>.Instance;
+
         /// <summary>
         /// Verifica que existe un empresario con ese id. Se incluye en esta clase ya que es la
         /// que conoce a todas las empresas (patrón Expert).
@@ -62,6 +63,7 @@ namespace Library
                 empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
                 i++;
             }
+
             return this.Empresas[i - 1];
         }
 

@@ -713,6 +713,41 @@
             usuario.
             </summary>
         </member>
+        <member name="P:Library.CrearEmprendedorHandler.Nombre">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda el nombre.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Nombre que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.CrearEmprendedorHandler.Rubro">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda el rubro.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Rubro que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.CrearEmprendedorHandler.Ubicacion">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda la ubicacion.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Ubicacion que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.CrearEmprendedorHandler.Habilitacion">
+            <summary>
+            Obtiene o establece la propiedad en donde se guardan las habilitaciones.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Habilitaciones que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.CrearEmprendedorHandler.Especializaciones">
+            <summary>
+            Obtiene o establece la propiedad en donde se guardan las especializaciones.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Especializaciones que ingresa el usuario al interactuar con el bot.</value>
+        </member>
         <member name="M:Library.CrearEmprendedorHandler.Handle(Library.Mensaje)">
             <summary>
             Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
@@ -862,6 +897,34 @@
             Handler para registrar un empresario en una empresa. Implementa AbstractHandler
             porque interactúa con el usuario.
             </summary>
+        </member>
+        <member name="P:Library.RegistrarEmpresarioHandler.InvitacionValida">
+            <summary>
+            Obtiene o establece un valor que indica si la invitación es válida.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Booleano que es resultado de la verificación de la invitación.</value>
+        </member>
+        <member name="P:Library.RegistrarEmpresarioHandler.Invitacion">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda la invitación.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Código de invitación que introduce el usuario.</value>
+        </member>
+        <member name="P:Library.RegistrarEmpresarioHandler.Nombre">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda el nombre.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Nombre que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.RegistrarEmpresarioHandler.Empresa">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda o establece la empresa en donde se registro el empresario..
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Empresa donde se registra el empresario.</value>
         </member>
         <member name="M:Library.RegistrarEmpresarioHandler.Handle(Library.Mensaje)">
             <summary>
@@ -1168,7 +1231,7 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             los id de todos los usuarios.
             </summary>
-            <param name="usuario">Usuario que se va a agregar a la lista.</param>
+            <param name="usuario">Usuario que se va a agregar a la lista</param>
         </member>
         <member name="T:Library.ListaEmprendedores">
             <summary>
