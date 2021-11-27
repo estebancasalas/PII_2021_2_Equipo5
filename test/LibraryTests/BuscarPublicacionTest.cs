@@ -1,7 +1,10 @@
-/*
-// <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
+
+/*/ <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+
+
+/*
 
 using System.Collections.Generic;
 using Library;
@@ -44,6 +47,11 @@ namespace LibraryTests
             this.a = new Publicacion("1", madera, "madera", "todos los dias", alfa, empresa1);
             this.b = new Publicacion("2", dos, "plastico", "todos los dias", beta, empresa2);
             this.c = new Publicacion("3", tres, "electrico", "todos los dias", gamma, empresa3);
+
+            EstadoUsuario estado = new EstadoUsuario();
+            Usuario user = new Usuario(1234, estado);
+            ListaDeUsuario lista = new ListaDeUsuario();
+            lista.Add(user);
         }
 
         /// <summary>
@@ -60,9 +68,10 @@ namespace LibraryTests
             EntaradaDeLaCadena lector = new LectorTest(diccionario);
             buscarCategoria.Input = lector;
             buscarCategoria.SetNext(new NullHandler());
-            this.mensaje = new Mensaje(1234, "/buscarpublicacion");
-            buscarCategoria.Handle(this.mensaje);
-            Assert.AreEqual(buscarCategoria.Result.Contains(this.a), true);
+            HandlerTest tester = new HandlerTest(4, mensaje);
+            tester.SetNext(buscarCategoria);
+            tester.Handle();
+            Assert.AreEqual(buscarCategoria.resultadoBusqueda.Contains(this.a), true);
         }
 
         [Test]
@@ -77,7 +86,7 @@ namespace LibraryTests
             buscarCiudad.Input = lector;
             buscarCiudad.SetNext(new NullHandler());
             buscarCiudad.Handle(mensaje);
-            Assert.AreEqual(buscarCiudad.result.Contains(this.b), true);
+            Assert.AreEqual(buscarCiudad.resultadoBusqueda.Contains(this.b), true);
         }
 
         [Test]
@@ -92,8 +101,9 @@ namespace LibraryTests
             buscarPalabra.SetNext(new NullHandler());
             buscarPalabra.Input = lector;
             buscarPalabra.Handle(mensaje);
-            Assert.AreEqual(buscarPalabra.result.Contains(this.c), true);
+            Assert.AreEqual(buscarPalabra.resultadoBusqueda.Contains(this.c), true);
         }
     }
 }
 */
+

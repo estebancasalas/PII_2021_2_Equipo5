@@ -27,7 +27,7 @@ namespace Library
 
             foreach (Transaccion transaccion in transacciones)
             {
-                resultado.Append($"{transaccion.Vendedor.Nombre} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador.Nombre}\n");
+                resultado.Append($"{transaccion.Vendedor.Nombre} vendió {transaccion.Cantidad} de {transaccion.Material} a {transaccion.Comprador.Nombre}\n");
             }
 
             return resultado.ToString();

@@ -20,7 +20,7 @@ namespace Library
         /// Nombre de la publicación que desea comprar.
         /// </summary>
         private string nombreDeLaPublicacion;
-        private string cantidadComprada;   
+        private string cantidadComprada;
 
         /// <summary>
         /// Método que verifica el mensaje. Actúa si el mensaje es "/start" y sino lo envía
@@ -37,7 +37,6 @@ namespace Library
 
             if (mensaje.Text.ToLower() == "/comprar" || estado.Handler == "/comprar")
             {
-                
                 estado.Handler = "/comprar";
                 switch (estado.Step)
                 {

@@ -32,7 +32,11 @@ namespace Library
         /// <param name="transaccion"></param>
         public void Add(Transaccion transaccion)
         {
-            this.Transacciones.Add(transaccion);
+            if (!this.Transacciones.Contains(transaccion))
+            {
+                this.Transacciones.Add(transaccion);
+            }
+            
         }
 
         /// <summary>

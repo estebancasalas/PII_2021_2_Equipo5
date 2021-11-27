@@ -238,6 +238,26 @@
             </summary>
             <value>Guarda el nombre del empresario.</value>
         </member>
+        <member name="T:Library.EstadoUsuario">
+            <summary>
+            Clase para conocer el estado del usuario. 
+            </summary>
+        </member>
+        <member name="F:Library.EstadoUsuario.Handler">
+            <summary>
+            Atributo para saber en qué handler está el usuario.
+            </summary>
+        </member>
+        <member name="F:Library.EstadoUsuario.Step">
+            <summary>
+            Cuenta los pasos del usuario.
+            </summary>
+        </member>
+        <member name="M:Library.EstadoUsuario.#ctor">
+            <summary>
+            Constructor del estado del usuario.
+            </summary>
+        </member>
         <member name="T:Library.Material">
             <summary>
             Esta clase se encarga del modelado del material.
@@ -444,6 +464,35 @@
             <param name="ubicacion">Es la dirección que pasa el cliente.</param>
             <returns>Retorna la ubicación.</returns>
         </member>
+        <member name="T:Library.Usuario">
+            <summary>
+            Clase que modela un usuario no registrado en el bot.
+            Depende de la abstracción IUsuario, para que clases como ListaDeUsuario no dependan de una clase concreta (DIP).
+            El objetivo de esta clase es proveer una forma de almacenar el Id y Estado de la conversación de usuarios que están
+            interactuando con el bot pero aun no se han registrado como empresario o emprendedor.
+            Instancias de este objeto son almacenadas en ListaDeUsiarios y, a medida que completan el registro, iran siendo removidas de la
+            lista.
+            </summary>
+        </member>
+        <member name="M:Library.Usuario.#ctor(System.Int64,Library.EstadoUsuario)">
+            <summary>
+            Inicializa una nueva instancia de Usuario.
+            </summary>
+            <param name="id">Id de tipo long.</param>
+            <param name="estado">Estado de tipo EstadoUsuario.</param>
+        </member>
+        <member name="P:Library.Usuario.Id">
+            <summary>
+            Obtiene el Id del usuario.
+            </summary>
+            <value>Propiedad que almacena el id del usuario.</value>
+        </member>
+        <member name="P:Library.Usuario.Estado">
+            <summary>
+            Obtiene o Establece el valor de Estado.
+            </summary>
+            <value>Propiedad de tipo EstadoUsuario que contiene el handler y el paso del mismo en el que se encuentra.</value>
+        </member>
         <member name="T:Library.BuscarPublicacion">
             <summary>
             Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
@@ -613,7 +662,7 @@
             Lo que desea buscar.
             </summary>
         </member>
-        <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
+        <member name="F:Library.BuscarPublicacionHandler.resultadoBusqueda">
             <summary>
             Método para buscar en la lista de publicaciones.
             </summary>
@@ -1071,14 +1120,16 @@
         </member>
         <member name="T:Library.ListaDeUsuario">
             <summary>
-            ListaDeUsuario es quien se encarga de tener la lista con todos los
-            usuarios registrados, siendo los usuarios las empresas y emprendedores.
+            ListaDeUsuario es quien se encarga de tener la lista con todos los usuarios registrados, siendo los usuarios las empresas y
+            emprendedores.
+            Depende de las Clases concretas List y Usuario porque necesita ser deserializada desde formato json.
             Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
             </summary>
         </member>
         <member name="F:Library.ListaDeUsuario.ListaUsuarios">
             <summary>
             Lista que contiene a todos los ususarios.
+            Depende de List y Usuario debido a que debe ser deserializada.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
             <returns></returns>
@@ -1104,7 +1155,7 @@
             </summary>
             <param name="json"></param>
         </member>
-        <member name="M:Library.ListaDeUsuario.Add(Library.IUsuario)">
+        <member name="M:Library.ListaDeUsuario.Add(Library.Usuario)">
             <summary>
             Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
             ya existente.
@@ -1330,38 +1381,33 @@
         </member>
         <member name="M:Library.RegistroPublicaciones.Add(Library.Publicacion)">
             <summary>
-            Método para agregar una nueva publicación a la lista de
-            publicaciones activas.
+            Método para agregar una nueva publicación a la lista de publicaciones activas.
             </summary>
-            <param name="publi">Publicación a añadir.</param>
+            <param name="publicacion"></param>
         </member>
         <member name="M:Library.RegistroPublicaciones.PausarPublicacion(Library.Publicacion)">
             <summary>
             Método para pausar una publicación. Agrega dicha publicación a
-            la lista de publicaciones pausadas y la remueve de la lista de
-            publicaciones activas.
+            la lista de publicaciones pausadas y la remueve de la lista de publicaciones activas.
             </summary>
             <param name="publi">Publicación a pausar.</param>
         </member>
         <member name="M:Library.RegistroPublicaciones.EliminarPublicacion(Library.Publicacion)">
             <summary>
-            Método para eliminar una publicación. Se agrega la misma a la lista de
-            publicaciones eliminadas y se remueve de la lista de publicaciones activas
-            y publicaciones pausadas.
+            Método para eliminar una publicación. Se agrega la misma a la lista de publicaciones eliminadas y se remueve de la
+            lista de publicaciones activas y publicaciones pausadas.
             </summary>
             <param name="publi">Publicación a eliminar.</param>
         </member>
         <member name="M:Library.RegistroPublicaciones.ConvertToJson">
             <summary>
-            El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
-            json.
+            El CovertToJson es el método por el cual se guardan los datos dentro de un archivo json.
             </summary>
             <returns></returns>
         </member>
         <member name="M:Library.RegistroPublicaciones.LoadFromJson(System.String)">
             <summary>
-            LoadFromJson se encarga de cargar los datos guardados creando los objetos
-            a partir de el archivo json.
+            LoadFromJson se encarga de cargar los datos guardados creando los objetos a partir de el archivo json.
             </summary>
             <param name="json"></param>
         </member>

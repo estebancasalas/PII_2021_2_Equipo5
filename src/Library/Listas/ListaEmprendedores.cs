@@ -55,7 +55,10 @@ namespace Library
         /// <param name="emprendedor"></param>
         public void Add(Emprendedor emprendedor)
         {
-            this.Emprendedores.Add(emprendedor);
+            if (!this.Emprendedores.Contains(emprendedor))
+            {
+                this.Emprendedores.Add(emprendedor);
+            }
         }
 
         /// <summary>

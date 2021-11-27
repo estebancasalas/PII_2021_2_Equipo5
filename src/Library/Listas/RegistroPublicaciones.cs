@@ -40,19 +40,20 @@ namespace Library
         public List<Publicacion> Pausadas = Singleton<List<Publicacion>>.Instance;
 
         /// <summary>
-        /// Método para agregar una nueva publicación a la lista de
-        /// publicaciones activas.
+        /// Método para agregar una nueva publicación a la lista de publicaciones activas.
         /// </summary>
-        /// <param name="publi">Publicación a añadir.</param>
-        public void Add(Publicacion publi)
+        /// <param name="publicacion"></param>
+        public void Add(Publicacion publicacion)
         {
-            this.Activas.Add(publi);
+            if (!this.Activas.Contains(publicacion))
+            {
+                this.Activas.Add(publicacion);
+            }
         }
 
         /// <summary>
         /// Método para pausar una publicación. Agrega dicha publicación a
-        /// la lista de publicaciones pausadas y la remueve de la lista de
-        /// publicaciones activas.
+        /// la lista de publicaciones pausadas y la remueve de la lista de publicaciones activas.
         /// </summary>
         /// <param name="publi">Publicación a pausar.</param>
         public void PausarPublicacion(Publicacion publi)
@@ -68,9 +69,8 @@ namespace Library
         }
 
         /// <summary>
-        /// Método para eliminar una publicación. Se agrega la misma a la lista de
-        /// publicaciones eliminadas y se remueve de la lista de publicaciones activas
-        /// y publicaciones pausadas.
+        /// Método para eliminar una publicación. Se agrega la misma a la lista de publicaciones eliminadas y se remueve de la
+        /// lista de publicaciones activas y publicaciones pausadas.
         /// </summary>
         /// <param name="publi">Publicación a eliminar.</param>
         public void EliminarPublicacion(Publicacion publi)
@@ -95,8 +95,7 @@ namespace Library
         }
 
         /// <summary>
-        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
-        /// json.
+        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo json.
         /// </summary>
         /// <returns></returns>
         public string ConvertToJson()
@@ -105,8 +104,7 @@ namespace Library
         }
 
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
-        /// a partir de el archivo json.
+        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos a partir de el archivo json.
         /// </summary>
         /// <param name="json"></param>
         public void LoadFromJson(string json)
@@ -116,6 +114,6 @@ namespace Library
             this.Activas = listaPubl;
         }
 
-        // Solo una lista general a convertir o las 3 listas - Activas -Pausadas -¿¿Eliminadas???? Para que guardar algo eliminado no tiene sentido.
+        // Solo una lista general a convertir o las 3 listas - Activas -Pausadas -¿¿Eliminadas???? Para que guardar algo eliminado no tiene sentido. 
     }
 }

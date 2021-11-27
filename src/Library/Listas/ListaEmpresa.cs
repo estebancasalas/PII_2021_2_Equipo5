@@ -73,7 +73,11 @@ namespace Library
         /// <param name="empresa"></param>
         public void Add(Empresa empresa)
         {
-            this.Empresas.Add(empresa);
+            if (!this.Empresas.Contains(empresa))
+            {
+                this.Empresas.Add(empresa);
+            }
+            
         }
 
         /// <summary>

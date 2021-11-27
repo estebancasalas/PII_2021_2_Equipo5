@@ -6,25 +6,27 @@
 
 namespace Library
 {
+    /// <summary>
+    /// Clase para conocer el estado del usuario. 
+    /// </summary>
     public class EstadoUsuario
     {
-        private string handler;
-        public string Handler
-        {
-            get { return this.handler; }
-            set { this.handler = value; }
-        }
-        private int step;
-        public int Step
-        {
-            get { return this.step; }
-            set { this.step = value; }
-        }
-
+        /// <summary>
+        /// Atributo para saber en qué handler está el usuario.
+        /// </summary>
+        public string Handler;
+        /// <summary>
+        /// Cuenta los pasos del usuario.
+        /// </summary>
+        public int Step;
+          
+        /// <summary>
+        /// Constructor del estado del usuario.
+        /// </summary>
         public EstadoUsuario()
         {
-            this.handler = null;
-            this.step = 0;
+            this.Handler = null;
+            this.Step = 0;
         }
     }
 }

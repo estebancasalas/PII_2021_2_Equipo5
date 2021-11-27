@@ -15,57 +15,5 @@
             ids de la empresa.
             </summary>
         </member>
-        <member name="T:LibraryTests.CrearInvitacionTest">
-            <summary>
-            Casos de prueba para el metodo CrearInvitacion.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.CrearInvitacionTest.Setup">
-            <summary>
-            Setup de los casos de prueba.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.CrearInvitacionTest.InvitacionValidaTest">
-            <summary>
-            En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de
-            ids de la empresa.
-            </summary>
-        </member>
-        <member name="T:LibraryTests.CrearPublicacionTest">
-            <summary>
-            Test del handler crear publicacion.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.CrearPublicacionTest.PublicacionValidaTest">
-            <summary>
-            Test que verifica que los empresarios pueden crear publicaciones.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.CrearPublicacionTest.PublicacionNoValidaTest">
-            <summary>
-            Test que verifica que los emprendedores no pueden crear publicaciones.
-            </summary>
-        </member>
-        <member name="T:LibraryTests.RegistrarEmpresarioTest">
-            <summary>
-            Casos de prueba para el handler RegistrarEmpresario.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.RegistrarEmpresarioTest.Setup">
-            <summary>
-            SetUp de los casos de prueba.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.RegistrarEmpresarioTest.InvitacionValidaTest">
-            <summary>
-            En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a
-             la lista de ids de la empresa.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.RegistrarEmpresarioTest.InvitacionInvalidaTest">
-            <summary>
-            Este test verifica que no es posible el registro con una invitacion invalida.
-            </summary>
-        </member>
     </members>
 </doc>

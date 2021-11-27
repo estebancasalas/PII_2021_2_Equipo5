@@ -7,22 +7,26 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
-    /// ListaDeUsuario es quien se encarga de tener la lista con todos los
-    /// usuarios registrados, siendo los usuarios las empresas y emprendedores.
+    /// ListaDeUsuario es quien se encarga de tener la lista con todos los usuarios registrados, siendo los usuarios las empresas y
+    /// emprendedores.
+    /// Depende de las Clases concretas List y Usuario porque necesita ser deserializada desde formato json.
     /// Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
     /// </summary>
     public class ListaDeUsuario : IJsonConvertible
     {
         /// <summary>
         /// Lista que contiene a todos los ususarios.
+        /// Depende de List y Usuario debido a que debe ser deserializada.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns></returns>
-        public List<IUsuario> ListaUsuarios = Singleton<List<IUsuario>>.Instance;
+        [JsonInclude]
+        public List<Usuario> ListaUsuarios = Singleton<List<Usuario>>.Instance; 
 
         /// <summary>
         /// Método que verifica si un id está registrado como usuario.
@@ -37,7 +41,7 @@ namespace Library
 
         public int Buscar(long id)
         {
-            IUsuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
+            Usuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
             return this.ListaUsuarios.IndexOf(usuario);
         }
 
@@ -46,7 +50,10 @@ namespace Library
         /// json.
         /// </summary>
         /// <returns></returns>
-        public string ConvertToJson() => JsonSerializer.Serialize(Singleton<List<int>>.Instance);
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(Singleton<List<Usuario>>.Instance);
+        }
 
         /// <summary>
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
@@ -55,8 +62,8 @@ namespace Library
         /// <param name="json"></param>
         public void LoadFromJson(string json)
         {
-            List<IUsuario> listaUsers = new List<IUsuario>();
-            listaUsers = JsonSerializer.Deserialize<List<IUsuario>>(json);
+            List<Usuario> listaUsers = new List<Usuario>();
+            listaUsers = JsonSerializer.Deserialize<List<Usuario>>(json);
             this.ListaUsuarios = listaUsers;
         }
 
@@ -66,12 +73,15 @@ namespace Library
         /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
         /// los id de todos los usuarios.
         /// </summary>
-        /// <param name="usuario">Usuario que se va a agregar a la lista.</param>
-        public void Add(IUsuario usuario)
+        /// <param name="usuario">Usuario que se va a agregar a la lista</param>
+        public void Add(Usuario usuario)
         {
-            this.ListaUsuarios.Add(usuario);
+            if (!this.ListaUsuarios.Contains(usuario))
+            {
+                this.ListaUsuarios.Add(usuario);
+            }
         }
     }
 
-    // Checkear si cuando se registran se agregan id.
+    // Checkear si cuando se registran se agregan idSSS.
 }
