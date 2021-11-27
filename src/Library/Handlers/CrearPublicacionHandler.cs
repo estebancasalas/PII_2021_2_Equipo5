@@ -140,7 +140,8 @@ namespace Library
                         Material material = new Material(this.nombreMaterial, this.costo, this.cantidad, this.unidad, this.habilitaciones, this.categoria);
                         Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
                         Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
-                        estado = new EstadoUsuario();
+                        estado.Step = 0;
+                        estado.Handler = null;
                         break;
                     }
                 }

@@ -80,7 +80,8 @@ namespace Library
                             this.especializaciones = mensaje.Text;
                             Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.nombre, this.rubro, this.ubicacion, this.habilitacion, this.especializaciones);
                             this.TextResult.Append($"Usted ha sido registrado con los siguientes datos:\n{this.nombre}\n{this.rubro}\n{this.ubicacion}\n{this.habilitacion}\n{this.especializaciones}");
-                            estado = new EstadoUsuario();
+                            estado.Step = 0;
+                            estado.Handler = null;
                             break;
                     }
                 }

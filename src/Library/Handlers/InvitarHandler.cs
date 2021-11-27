@@ -111,7 +111,8 @@ namespace Library
                             this.TextResult = new StringBuilder();
                             this.Token = mensaje.Text;
                             Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token);
-                            estado = new EstadoUsuario();
+                            estado.Step = 0;
+                            estado.Handler = null;
                             this.TextResult.Append($"Empresa registrada con los siguientes datos:\nNombre: {this.nombre}\nUbicacion: {this.ubicacion}\nRubro: {this.rubro}\nInvitación: {this.token}");
                             break;
                     }

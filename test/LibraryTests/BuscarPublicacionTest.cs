@@ -229,7 +229,7 @@ namespace LibraryTests
             this.handler.Handle(this.mensaje);
             string expected = "La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: {empresa.telefono}";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
-            Assert.AreEqual(this.user.Estado.Step, 5);
+            Assert.AreEqual(this.user.Estado.Step, 0);
         }
     }
 }

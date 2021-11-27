@@ -72,7 +72,8 @@ namespace Library
                         this.nombre = mensaje.Text;
                         Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), this.nombre);
                         this.empresa.ListaEmpresarios.Add(empresario);
-                        estado = new EstadoUsuario();
+                        estado.Step = 0;
+                        estado.Handler = null;
                         break;
                     }
                 }

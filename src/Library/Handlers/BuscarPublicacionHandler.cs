@@ -133,10 +133,12 @@ namespace Library
                         float cantidad = float.Parse(mensaje.Text);
                         ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
                         Emprendedor comprador = listaEmprendedores.Buscar(mensaje.Id);
-                        Transaccion transaccion = new Transaccion(this.publicacionComprar.Vendedor, comprador,this.publicacionComprar.Material, cantidad);
+                        Transaccion transaccion = new Transaccion(this.publicacionComprar.Vendedor, comprador, this.publicacionComprar.Material, cantidad);
                         ListaTransacciones listaTransacciones = Singleton<ListaTransacciones>.Instance;
                         listaTransacciones.Add(transaccion);
                         this.TextResult.Append("La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: {empresa.telefono}");
+                        estado.Step = 0;
+                        estado.Handler = null;
 
                         break;
                 }

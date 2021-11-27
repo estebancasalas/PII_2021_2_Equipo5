@@ -52,7 +52,8 @@ namespace Library
                     this.cantidadComprada = mensaje.Text;
                     // buscar publicacion.
                     // crear transaccion.
-                    estado = new EstadoUsuario();
+                    estado.Step = 0;
+                    estado.Handler = null;
                     break;
                 }
 
