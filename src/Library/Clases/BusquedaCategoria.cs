@@ -29,7 +29,7 @@ namespace Library
 
             foreach (Publicacion publicacion in lista)
             {
-                if (publicacion.Material.Categoria.Contains(categoria))
+                if (publicacion.Material.Categoria.Contains(categoria.ToLower()))
                 {
                     result.Add(publicacion);
                 }
