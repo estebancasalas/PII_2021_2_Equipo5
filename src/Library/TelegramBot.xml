@@ -1121,14 +1121,16 @@
         </member>
         <member name="T:Library.ListaDeUsuario">
             <summary>
-            ListaDeUsuario es quien se encarga de tener la lista con todos los 
-            usuarios registrados, siendo los usuarios las empresas y emprendedores.  
+            ListaDeUsuario es quien se encarga de tener la lista con todos los usuarios registrados, siendo los usuarios las empresas y
+            emprendedores.
+            Depende de las Clases concretas List y Usuario porque necesita ser deserializada desde formato json.
             Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
             </summary>
         </member>
         <member name="F:Library.ListaDeUsuario.ListaUsuarios">
             <summary>
             Lista que contiene a todos los ususarios.
+            Depende de List y Usuario debido a que debe ser deserializada.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
             <returns></returns>

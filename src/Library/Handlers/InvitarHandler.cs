@@ -82,28 +82,28 @@ namespace Library
                     {
                         case 0:
                             this.TextResult = new StringBuilder();
-                            this.TextResult.Append("¿Cuál es su nombre?");
+                            this.TextResult.Append("¿Cuál es el nombre de la empresa?");
                             estado.Step++;
                             break;
 
                         case 1:
                             this.TextResult = new StringBuilder();
                             this.Nombre = mensaje.Text;
-                            this.TextResult.Append("¿Cuál es su ubicación?");
+                            this.TextResult.Append("¿Cuál es la ubicación de la empresa?");
                             estado.Step++;
                             break;
 
                         case 2:
                             this.TextResult = new StringBuilder();
                             this.Ubicacion = mensaje.Text;
-                            this.TextResult.Append("¿Cuál es su rubro?");
+                            this.TextResult.Append("¿Cuál es el rubro de la empresa?");
                             estado.Step++;
                             break;
 
                         case 3:
                             this.TextResult = new StringBuilder();
                             this.Rubro = mensaje.Text;
-                            this.TextResult.Append("¿Cuál es su Token?");
+                            this.TextResult.Append("¿Qué codigo de invitación desea asignarle?");
                             estado.Step++;
                             break;
 
@@ -112,6 +112,7 @@ namespace Library
                             this.Token = mensaje.Text;
                             Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token);
                             estado = new EstadoUsuario();
+                            this.TextResult.Append($"Empresa registrada con los siguientes datos:\nNombre: {this.nombre}\nUbicacion: {this.ubicacion}\nRubro: {this.rubro}\nInvitación: {this.token}");
                             break;
                     }
                 }
