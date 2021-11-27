@@ -31,7 +31,7 @@ namespace Library
             this.Cantidad = cantidad;
             this.Unidad = unidad;
             this.Habilitaciones = habilitaciones;
-            if (this.PosiblesCategorias.Contains(categoria))
+            if (this.PosiblesCategorias.Contains(categoria.ToLower()))
             {
                 this.Categoria = categoria;
             }
