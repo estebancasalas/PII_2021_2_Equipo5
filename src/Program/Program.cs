@@ -73,7 +73,7 @@ namespace Library
             listaInvitaciones2.Add("abc123");
             Usuario usuario = new Usuario(1566567912, new EstadoUsuario());
             Empresario ionas = new Empresario(1566567912, new EstadoUsuario(), "Ionas Josponis");
-            empresa1.listaEmpresarios.Add(ionas);
+            empresa1.ListaEmpresarios.Add(ionas);
 
             //SetUp demo parte 2
             Emprendedor pilar = new Emprendedor(2105185991, "Pilar Machado", "Montevideo", "Electricista", "Ninguna", "Motores electricos");

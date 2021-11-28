@@ -42,7 +42,7 @@ namespace Library
         /// </summary>
         /// <value></value>
         [JsonInclude]
-        public List<Empresario> listaEmpresarios = new List<Empresario>();
+        public List<Empresario> ListaEmpresarios = new List<Empresario>();
 
         /// <summary>
         /// Obtiene o establece el contacto de la empresa.

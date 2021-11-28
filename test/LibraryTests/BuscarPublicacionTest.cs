@@ -81,7 +81,7 @@ namespace LibraryTests
             this.mensaje.Id = 1234;
             this.mensaje.Text = "/categoria";
             this.handler.Handle(this.mensaje);
-            string expected = "Ingrese la categoría:\n     /Químicos, /Plásticos, /Celulósicos, /Eléctricos, /Textiles";
+            string expected = "Ingrese la categoría:\n  /Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
             Assert.AreEqual(this.handler.TipoBusqueda, this.mensaje.Text);
@@ -149,9 +149,9 @@ namespace LibraryTests
             this.mensaje.Text = "/Químicos";
             this.handler.TipoBusqueda = "/categoria";
             this.handler.Handle(this.mensaje);
-            string expected = "¿Desea realizar una compra?\n 1-Si \n 2-No";
+            string expected = "No se encontraron publicaciones que coincidan con esos parámetros. Vuelva a escribir /buscarpublicacion para realizar otra búsqueda.";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
-            Assert.AreEqual(this.user.Estado.Step, 3);
+            Assert.AreEqual(this.user.Estado.Step, 0);
             Assert.AreEqual(this.handler.Busqueda, this.mensaje.Text);
         }
 

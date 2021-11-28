@@ -43,14 +43,14 @@ namespace Library
                     bool notfound = true;
                     while (i < lista.Count && notfound)
                     {
-                        Empresario empresario = lista[i].listaEmpresarios.Find(x => x.Id == mensaje.Id);
+                        Empresario empresario = lista[i].ListaEmpresarios.Find(x => x.Id == mensaje.Id);
                         if (empresario != null)
                         {
                             notfound = false;
                         }
                     }
 
-                    this.TextResult.Append($"La cantidad de trabajadores de la empresa es: {lista[i].listaEmpresarios.Count}");
+                    this.TextResult.Append($"La cantidad de trabajadores de la empresa es: {lista[i].ListaEmpresarios.Count}");
                     estado.Step = 0;
                     estado.Handler = null;
                 }
