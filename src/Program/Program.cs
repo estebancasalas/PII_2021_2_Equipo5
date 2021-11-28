@@ -83,13 +83,13 @@ namespace Library
             bot.StopReceiving();
 
             // Se actualizan las listas
-            listaAdministradores = new ListaAdministradores();
-            listaDeUsuario = new ListaDeUsuario();
-            listaEmprendedores = new ListaEmprendedores();
-            listaEmpresa = new ListaEmpresa();
-            listaInvitaciones = new ListaInvitaciones();
-            listaTransacciones = new ListaTransacciones();
-            registroPublicaciones = new RegistroPublicaciones();
+            listaAdministradores = Singleton<ListaAdministradores>.Instance;
+            listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
+            listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
+            listaEmpresa = Singleton<ListaEmpresa>.Instance;
+            listaInvitaciones = Singleton<ListaInvitaciones>.Instance;
+            listaTransacciones = Singleton<ListaTransacciones>.Instance;
+            registroPublicaciones = Singleton<RegistroPublicaciones>.Instance;
 
             // Se guardan en los json
             string guardarAdmin = listaAdministradores.ConvertToJson();

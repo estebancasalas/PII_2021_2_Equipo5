@@ -106,9 +106,9 @@ namespace Library
 
                         case 5:
                             this.TextResult = new StringBuilder();
-                            this.especializaciones = mensaje.Text;
-                            Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.nombre, this.rubro, this.ubicacion, this.habilitacion, this.especializaciones);
-                            this.TextResult.Append($"Usted ha sido registrado con los siguientes datos:\n{this.nombre}\n{this.rubro}\n{this.ubicacion}\n{this.habilitacion}\n{this.especializaciones}");
+                            this.Especializaciones = mensaje.Text;
+                            Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.Nombre, this.Ubicacion, this.Rubro, this.Habilitacion, this.Especializaciones);
+                            this.TextResult.Append($"Usted ha sido registrado con los siguientes datos:\n{this.Nombre}\n{this.Rubro}\n{this.Ubicacion}\n{this.Habilitacion}\n{this.Especializaciones}");
                             estado.Step = 0;
                             estado.Handler = null;
                             break;

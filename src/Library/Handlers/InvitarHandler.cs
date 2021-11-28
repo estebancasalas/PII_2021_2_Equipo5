@@ -16,49 +16,35 @@ namespace Library
     /// </summary>
     public class InvitarHandler : AbstractHandler
     {
-        /// <summary>
-        /// Nombre de la emrpesa.
-        /// </summary>
-        private string nombre;
 
         /// <summary>
-        /// Ubicación de la empresa.
+        /// Obtiene o establece la ubicación.
         /// </summary>
-        private string ubicacion;
-
-        /// <summary>
-        /// Rubro de la empresa.
-        /// </summary>
-        private string rubro;
-
-        /// <summary>
-        /// Token de invitación.
-        /// </summary>
-        private string token;
-
-        /// <summary>
-        /// Obtiene o establece la ubicacion.
-        /// </summary>
-        /// <value>Ubicacion.</value>
-        public string Ubicacion { get => this.ubicacion; set => this.ubicacion = value; }
+        /// <value>Ubicación.</value>
+        public string Ubicacion { get; set; }
 
         /// <summary>
         /// Obtiene o establece el nombre.
         /// </summary>
-        /// <value>Nombre.</value>
-        public string Nombre { get => this.nombre; set => this.nombre = value; }
+        /// <value>Nombre de la empresa.</value>
+        public string Nombre { get; set; }
 
         /// <summary>
-        /// Obtiene o establece el token para la invitacion.
+        /// Obtiene o establece el token para la invitación.
         /// </summary>
-        /// <value>Token.</value>
-        public string Token { get => this.token; set => this.token = value; }
+        /// <value>Código de invitación de la empresa.</value>
+        public string Token { get; set; }
 
         /// <summary>
         /// Obtiene o establece el rubro.
         /// </summary>
-        /// <value>Rubro.</value>
-        public string Rubro { get => this.rubro; set => this.rubro = value; }
+        /// <value>Rubro de la empresa.</value>
+        public string Rubro { get; set; }
+        /// <summary>
+        /// Obtiene o establece en contacto de la empresa.
+        /// </summary>
+        /// <value>Mail o número de teléfono de la empresa</value>
+        public string Contacto { get; set; }
 
         /// <summary>
         /// Método para invitar a un usuario. Pide el nombre de un usuario y crea una invitación
@@ -103,17 +89,24 @@ namespace Library
                         case 3:
                             this.TextResult = new StringBuilder();
                             this.Rubro = mensaje.Text;
-                            this.TextResult.Append("¿Qué codigo de invitación desea asignarle?");
+                            this.TextResult.Append("¿Mail o numero de teléfono para contactar a la empresa?");
                             estado.Step++;
                             break;
 
                         case 4:
                             this.TextResult = new StringBuilder();
+                            this.Contacto = mensaje.Text;
+                            this.TextResult.Append("¿Qué codigo de invitación desea asignarle?");
+                            estado.Step++;
+                            break;
+
+                        case 5:
+                            this.TextResult = new StringBuilder();
                             this.Token = mensaje.Text;
-                            Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token);
+                            Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token, this.Contacto);
                             estado.Step = 0;
                             estado.Handler = null;
-                            this.TextResult.Append($"Empresa registrada con los siguientes datos:\nNombre: {this.nombre}\nUbicacion: {this.ubicacion}\nRubro: {this.rubro}\nInvitación: {this.token}");
+                            this.TextResult.Append($"Empresa registrada con los siguientes datos:\nNombre: {this.Nombre}\nUbicacion: {this.Ubicacion}\nRubro: {this.Rubro}\nContacto: {this.Contacto}\nInvitación: {this.Token}");
                             break;
                     }
                 }

@@ -1,1 +1,1 @@
-[]
+[{"Id":1128028626,"Estado":null,"Nombre":"Esteban","Ubicacion":"Prudencio Vazquez y Vega 893","Rubro":"Textil","Habilitaciones":"habilitacion1","Especializaciones":"telas"}]

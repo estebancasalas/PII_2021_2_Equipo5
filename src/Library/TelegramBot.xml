@@ -30,7 +30,7 @@
             </summary>
             <value>Nombre del administrador.</value>
         </member>
-        <member name="M:Library.Administrador.CrearInvitacion(System.String,System.String,System.String,System.String)">
+        <member name="M:Library.Administrador.CrearInvitacion(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Método que crea el objeto empresa y su token de invitación.
             </summary>
@@ -171,7 +171,7 @@
             surjan nuevos tipos de usuario.
             </summary>
         </member>
-        <member name="M:Library.Empresa.#ctor(System.String,System.String,System.String,System.String)">
+        <member name="M:Library.Empresa.#ctor(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Empresa"/>.
             Es el constructor que se encarga de crear a la empresa en su totalidad.
@@ -188,11 +188,17 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:Library.Empresa.Contacto">
+            <summary>
+            Obtiene o establece el contacto de la empresa.
+            </summary>
+            <value>Guarda el contacto en tipo string, la idea es que sea un mail o numero de teléfono</value>
+        </member>
         <member name="P:Library.Empresa.Invitacion">
             <summary>
-            Obtiene o establece guarda la invitación de la empresa.
+            Obtiene o establece la invitación de la empresa.
             </summary>
-            <value>Guarda la invitacion que la empresa le brinda a los empresarios para unirse.</value>
+            <value>Guarda la invitación que la empresa le brinda a los empresarios para unirse.</value>
         </member>
         <member name="P:Library.Empresa.Nombre">
             <summary>
@@ -204,7 +210,7 @@
             <summary>
             Obtiene o establece guarda la ubicación de la empresa.
             </summary>
-            <value>Guarda la ubicacion de la empresa.</value>
+            <value>Guarda la ubicación de la empresa.</value>
         </member>
         <member name="P:Library.Empresa.Rubro">
             <summary>
@@ -895,49 +901,35 @@
             con el usuario.
             </summary>
         </member>
-        <member name="F:Library.InvitarHandler.nombre">
-            <summary>
-            Nombre de la emrpesa.
-            </summary>
-        </member>
-        <member name="F:Library.InvitarHandler.ubicacion">
-            <summary>
-            Ubicación de la empresa.
-            </summary>
-        </member>
-        <member name="F:Library.InvitarHandler.rubro">
-            <summary>
-            Rubro de la empresa.
-            </summary>
-        </member>
-        <member name="F:Library.InvitarHandler.token">
-            <summary>
-            Token de invitación.
-            </summary>
-        </member>
         <member name="P:Library.InvitarHandler.Ubicacion">
             <summary>
-            Obtiene o establece la ubicacion.
+            Obtiene o establece la ubicación.
             </summary>
-            <value>Ubicacion.</value>
+            <value>Ubicación.</value>
         </member>
         <member name="P:Library.InvitarHandler.Nombre">
             <summary>
             Obtiene o establece el nombre.
             </summary>
-            <value>Nombre.</value>
+            <value>Nombre de la empresa.</value>
         </member>
         <member name="P:Library.InvitarHandler.Token">
             <summary>
-            Obtiene o establece el token para la invitacion.
+            Obtiene o establece el token para la invitación.
             </summary>
-            <value>Token.</value>
+            <value>Código de invitación de la empresa.</value>
         </member>
         <member name="P:Library.InvitarHandler.Rubro">
             <summary>
             Obtiene o establece el rubro.
             </summary>
-            <value>Rubro.</value>
+            <value>Rubro de la empresa.</value>
+        </member>
+        <member name="P:Library.InvitarHandler.Contacto">
+            <summary>
+            Obtiene o establece en contacto de la empresa.
+            </summary>
+            <value>Mail o número de teléfono de la empresa</value>
         </member>
         <member name="M:Library.InvitarHandler.Handle(Library.Mensaje)">
             <summary>

@@ -37,9 +37,9 @@ namespace LibraryTests
             IUbicacion beta = new Ubicacion("Uruguay", "Salto", null, null, null, null);
             IUbicacion gamma = new Ubicacion("Uruguay", "Tacuarembo", null, null, null, null);
 
-            Empresa empresa1 = new Empresa("Empresa1", "UbicacionEmpresa1", "maderero", "123");
-            Empresa empresa2 = new Empresa("Empresa2", "UbicacionEmpresa2", "plastico", "1232");
-            Empresa empresa3 = new Empresa("Empresa3", "UbicacionEmpresa3", "electrica", "1233");
+            Empresa empresa1 = new Empresa("Empresa1", "UbicacionEmpresa1", "maderero", "123", "091234567");
+            Empresa empresa2 = new Empresa("Empresa2", "UbicacionEmpresa2", "plastico", "1232", "099557959");
+            Empresa empresa3 = new Empresa("Empresa3", "UbicacionEmpresa3", "electrica", "1233", "098998895");
 
             this.a = new Publicacion("1", madera, "madera", "todos los dias", alfa, empresa1);
             this.b = new Publicacion("2", dos, "plastico", "todos los dias", beta, empresa2);
@@ -227,7 +227,7 @@ namespace LibraryTests
             this.mensaje.Text = "0";
             this.handler.publicacionComprar = this.handler.resultadoBusqueda[0];
             this.handler.Handle(this.mensaje);
-            string expected = "La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: {empresa.telefono}";
+            string expected = $"La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: 091234567";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 0);
         }
