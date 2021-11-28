@@ -77,9 +77,9 @@ namespace Library
 
             //SetUp demo parte 2
             Emprendedor pilar = new Emprendedor(2105185991, "Pilar Machado", "Montevideo", "Electricista", "Ninguna", "Motores electricos");
-            Publicacion publicacion1 = new Publicacion();
-            Publicacion publicacion2 = new Publicacion();
-            Publicacion publicacionIonas = new Publicacion();
+            //Publicacion publicacion1 = new Publicacion();
+            //Publicacion publicacion2 = new Publicacion();
+            //Publicacion publicacionIonas = new Publicacion();
 
 
 
