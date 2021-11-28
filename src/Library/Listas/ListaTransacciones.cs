@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.Json;
 
 namespace Library
@@ -14,14 +15,13 @@ namespace Library
     /// Clase que se encarga de conocer todas las transacciones que se realizan
     /// de una empresa a un emprendedor o viceversa.
     /// </summary>
-    public class ListaTransacciones : IJsonConvertible
+    public class ListaTransacciones : IJsonConvertible, IMostrar
     {
         /// <summary>
         /// Transacciones es quien tiene la lista con los objetos de la clase Transaccion.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns>Lista con todas las transacciones.</returns>
-
         public List<Transaccion> Transacciones = Singleton<List<Transaccion>>.Instance;
 
         /// <summary>
@@ -81,6 +81,29 @@ namespace Library
             List<Transaccion> listaTrans = new List<Transaccion>();
             listaTrans = JsonSerializer.Deserialize<List<Transaccion>>(json);
             this.Transacciones = listaTrans;
+        }
+
+        /// <summary>
+        /// Método para mostrar la lista pasada como parámetro en pantalla.
+        /// </summary>
+        /// <param name="lista">Lista que se desea mostrar.</param>
+        /// <returns>Devuelve el stringbuilder con los elementos de la lista.<returns>
+        public StringBuilder Mostrar(List<IConversorTexto> lista)
+        {
+            StringBuilder resultado = new StringBuilder();
+            if (lista != null)
+            {
+                foreach (IConversorTexto item in lista)
+                {
+                    resultado.Append(item.ConvertToString());
+                }
+            }
+            else
+            {
+                resultado.Append("No se encontraron elementos para mostrar.");
+            }
+
+            return resultado;
         }
     }
 }

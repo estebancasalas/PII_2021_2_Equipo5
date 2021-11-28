@@ -83,7 +83,7 @@ namespace LibraryTests
             this.usuario1.Estado.Step = 2;
             this.usuario1.Estado.Handler = "/Empresario";
             this.mensaje1.Text = "Pedro";
-            this.handlerTest1.Empresa = empresa;
+            this.handlerTest1.Empresa = this.empresa;
             this.handlerTest1.Handle(this.mensaje1);
             string expected = $"{this.handlerTest1.Nombre}, te has registrado a {this.handlerTest1.Empresa.Nombre} correctamente";
             Assert.AreEqual(expected, this.handlerTest1.TextResult.ToString());

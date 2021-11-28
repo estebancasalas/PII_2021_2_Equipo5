@@ -11,10 +11,10 @@ namespace Library
     /// <summary>
     /// Clase que modela un usario del tipo publicación.
     /// </summary>
-    public class Publicacion : IStringbuilder
+    public class Publicacion : IConversorTexto
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Publicacion"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="Publicacion"/>.
         /// Constructor de la clase Publicacion.
         /// </summary>
         /// <param name="titulo">Título de la publicación.</param>

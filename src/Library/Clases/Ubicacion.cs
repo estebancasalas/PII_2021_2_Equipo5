@@ -9,12 +9,12 @@ namespace Library
     /// <summary>
     /// Clase que modela una ubicación.
     /// Implementa IUbicacion.
-    /// Colabora con: UbicacionProvider,
+    /// Colabora con: UbicacionProvider.
     /// </summary>
     public class Ubicacion : IUbicacion
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Ubicacion"/> class.
+        /// Inicializa una nueva instancia de la clase <see cref="Ubicacion"/>.
         /// Constructor de la clase.
         /// </summary>
         /// <param name="pais">País donde se ubica.</param>
@@ -34,39 +34,39 @@ namespace Library
         }
 
         /// <summary>
-        /// Propiedad que almacena el País.
+        /// Obtiene o establece el País.
         /// </summary>
-        /// <value></value>
+        /// <value>País en donde se encuentra la ubicación.</value>
         public string Pais { get; set; } = "Uruguay";
 
         /// <summary>
-        /// Propiedad que almacena la Ciudad.
+        /// Obtiene o establece la Ciudad.
         /// </summary>
-        /// <value></value>
+        /// <value>Ciudad en donde se encuentra la ubicación.</value>
         public string Ciudad { get; set; } = "Montevideo";
 
         /// <summary>
-        /// Propiedad que almacena la dirección.
+        /// Obtiene o establece la dirección.
         /// </summary>
-        /// <value></value>
+        /// <value>Dirección en donde se encuentra la ubicación.</value>
         public string Direccion { get; set; } = string.Empty;
 
         /// <summary>
-        /// Propiedad que almacena el código postal.
+        /// Obtiene o establece el código postal.
         /// </summary>
-        /// <value></value>
+        /// <value>Código postal donde se encuentra la ubicación.</value>
         public string CodigoPostal { get; set; } = string.Empty;
 
         /// <summary>
-        /// Propiedad que almacena la Latitud de las coordenadas.
+        /// Obtiene o establece la Latitud de las coordenadas.
         /// </summary>
-        /// <value></value>
+        /// <value>Latitud de coordenadas donde se encuentra la ubicación.</value>
         public string Latitud { get; set; } = string.Empty;
 
         /// <summary>
-        /// Propiedad que almacena la Longitud de las coordenadas.
+        /// Obtiene o establece la Longitud de las coordenadas.
         /// </summary>
-        /// <value></value>
+        /// <value>Longitud de coordenadas donde se encuentra la ubicación.</value>
         public string Longitud { get; set; } = string.Empty;
     }
 }
