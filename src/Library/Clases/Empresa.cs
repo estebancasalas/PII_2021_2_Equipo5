@@ -75,12 +75,6 @@ namespace Library
         public string Rubro { get; set; }
 
         /// <summary>
-        /// Lista con todos los empresarios.
-        /// </summary>
-        /// <value></value>
-        public List<Empresario> ListaEmpresarios { get; set; } = new List<Empresario>();
-
-        /// <summary>
         /// Método que crea un string con la información de la empresa.
         /// </summary>
         /// <returns>Devuelve el string con la información de la empresa.</returns>

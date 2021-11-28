@@ -218,12 +218,6 @@
             </summary>
             <value>Guarda el rubro de la empresa.</value>
         </member>
-        <member name="P:Library.Empresa.ListaEmpresarios">
-            <summary>
-            Lista con todos los empresarios.
-            </summary>
-            <value></value>
-        </member>
         <member name="M:Library.Empresa.ConvertToString">
             <summary>
             Método que crea un string con la información de la empresa.
@@ -354,7 +348,7 @@
         </member>
         <member name="M:Library.Publicacion.#ctor(System.String,Library.Material,System.String,System.String,Library.IUbicacion,Library.Empresa)">
             <summary>
-            Initializes a new instance of the <see cref="T:Library.Publicacion"/> class.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Publicacion"/>.
             Constructor de la clase Publicacion.
             </summary>
             <param name="titulo">Título de la publicación.</param>
@@ -449,12 +443,12 @@
             <summary>
             Clase que modela una ubicación.
             Implementa IUbicacion.
-            Colabora con: UbicacionProvider,
+            Colabora con: UbicacionProvider.
             </summary>
         </member>
         <member name="M:Library.Ubicacion.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Library.Ubicacion"/> class.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Ubicacion"/>.
             Constructor de la clase.
             </summary>
             <param name="pais">País donde se ubica.</param>
@@ -466,39 +460,39 @@
         </member>
         <member name="P:Library.Ubicacion.Pais">
             <summary>
-            Propiedad que almacena el País.
+            Obtiene o establece el País.
             </summary>
-            <value></value>
+            <value>País en donde se encuentra la ubicación.</value>
         </member>
         <member name="P:Library.Ubicacion.Ciudad">
             <summary>
-            Propiedad que almacena la Ciudad.
+            Obtiene o establece la Ciudad.
             </summary>
-            <value></value>
+            <value>Ciudad en donde se encuentra la ubicación.</value>
         </member>
         <member name="P:Library.Ubicacion.Direccion">
             <summary>
-            Propiedad que almacena la dirección.
+            Obtiene o establece la dirección.
             </summary>
-            <value></value>
+            <value>Dirección en donde se encuentra la ubicación.</value>
         </member>
         <member name="P:Library.Ubicacion.CodigoPostal">
             <summary>
-            Propiedad que almacena el código postal.
+            Obtiene o establece el código postal.
             </summary>
-            <value></value>
+            <value>Código postal donde se encuentra la ubicación.</value>
         </member>
         <member name="P:Library.Ubicacion.Latitud">
             <summary>
-            Propiedad que almacena la Latitud de las coordenadas.
+            Obtiene o establece la Latitud de las coordenadas.
             </summary>
-            <value></value>
+            <value>Latitud de coordenadas donde se encuentra la ubicación.</value>
         </member>
         <member name="P:Library.Ubicacion.Longitud">
             <summary>
-            Propiedad que almacena la Longitud de las coordenadas.
+            Obtiene o establece la Longitud de las coordenadas.
             </summary>
-            <value></value>
+            <value>Longitud de coordenadas donde se encuentra la ubicación.</value>
         </member>
         <member name="T:Library.UbicacionProvider">
             <summary>
@@ -1152,13 +1146,14 @@
             en vez de clases concretas.
             </summary>
         </member>
-        <member name="M:Library.IMostrar.Mostrar(System.Collections.Generic.List{Library.IStringbuilder})">
+        <member name="M:Library.IMostrar.Mostrar(System.Collections.Generic.List{Library.IConversorTexto})">
             <summary>
-            Método para mostrar una lista. Depende de la clase que implemente la interfaz.
+            Método que construye un string con todos los elementos de la lista.
             </summary>
             <param name="lista">Lista para mostrar en pantalla.</param>
+            <returns>Te devuelve los string de la lista.</returns>
         </member>
-        <member name="T:Library.IStringbuilder">
+        <member name="T:Library.IConversorTexto">
             <summary>
             Interfaz para las clases que necesitan mostrar información. Fue creada para cumplir con
             DIP, para que las clases que implementan esta interfaz dependan de una abstracción y no
@@ -1526,17 +1521,7 @@
             </summary>
             <param name="json">Carga los datos de un archivo json.</param>
         </member>
-        <member name="T:Library.MostrarLista">
-            <summary>
-            Clase que sirve para mostrar una lista. Implementa la interfaz IMostrar para cumplir con DIP.
-            </summary>
-        </member>
-        <member name="M:Library.MostrarLista.Mostrar(System.Collections.Generic.List{Library.IStringbuilder})">
-            <summary>
-            Método para mostrar la lista pasada como parámetro en pantalla.
-            </summary>
-            <param name="lista">Lista que se desea mostrar.</param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.ListaTransacciones.Mostrar(System.Collections.Generic.List{Library.IConversorTexto})" -->
         <member name="T:Library.RegistroPublicaciones">
             <summary>
             Clase que tiene un registro de las publicaciones activas, eliminadas y pausadas. Tiene la responsabilidad de conocer el estados de las publicaciones.
@@ -1565,6 +1550,7 @@
             </summary>
             <param name="publi">Publicación a eliminar.</param>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.RegistroPublicaciones.Mostrar(System.Collections.Generic.List{Library.IConversorTexto})" -->
         <member name="M:Library.RegistroPublicaciones.ConvertToJson">
             <summary>
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo json.
