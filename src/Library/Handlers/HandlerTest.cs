@@ -1,7 +1,16 @@
+/*/* -----------------------------------------------------------------------
+// <copyright file="HandlerTest.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 
 namespace Library
 {
+    /// <summary>
+    /// Handler creado para los tests
+    /// </summary>
     public class HandlerTest
     {
         public int paso;
@@ -30,3 +39,4 @@ namespace Library
         }
     }
 }
+*/

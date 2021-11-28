@@ -40,7 +40,6 @@ namespace Library
                     this.TextResult = new StringBuilder();
                     List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
                     int i = 0;
-                    int j = 0;
                     bool notfound = true;
                     while (i < lista.Count && notfound)
                     {
@@ -52,12 +51,14 @@ namespace Library
                     }
 
                     this.TextResult.Append($"La cantidad de trabajadores de la empresa es: {lista[i].ListaEmpresarios.Count}");
-                    estado = new EstadoUsuario();
+                    estado.Step = 0;
+                    estado.Handler = null;
                 }
                 else
                 {
                     this.TextResult.Append("Lo siento, para utilizar este comando debe pertenecer a una empresa.");
                 }
+
                 return this.TextResult.ToString();
             }
             else

@@ -34,6 +34,8 @@ namespace Library
             this.Rubro = rubro;
             this.Habilitaciones = habilitaciones;
             this.Especializaciones = especializaciones;
+            ListaEmprendedores lista = Singleton<ListaEmprendedores>.Instance;
+            lista.Add(this);
         }
 
         /// <summary>
@@ -78,6 +80,10 @@ namespace Library
         /// <value>Se guardan las especializaciones del emprendedor.</value>
         public string Especializaciones { get; }
 
+        /// <summary>
+        /// Método que crea un string con toda la información del emprendedor.
+        /// </summary>
+        /// <returns>Devuelve el string con la información del emprendedor.</returns>
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();

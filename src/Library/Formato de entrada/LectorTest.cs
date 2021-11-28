@@ -18,9 +18,12 @@ namespace Library
     /// Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput,
     /// usar en tiempo de ejecución, dependiendo del objeto que recibe el mensaje GetInput.
     /// </summary>
-    public class LectorTest : EntaradaDeLaCadena
+    public class LectorTest : EntradaDeLaCadena
     {
-        Dictionary<string, string> diccionario;
+        /// <summary>
+        /// Diccionario que simula la interacción entre usuario y bot.
+        /// </summary>
+        public Dictionary<string, string> diccionario;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LectorTest"/> class.

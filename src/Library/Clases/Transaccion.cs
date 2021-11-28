@@ -32,15 +32,14 @@ namespace Library
         /// </summary>
         public double Cantidad;
 
-        public Empresa Vendedor { get => vendedor; set => vendedor = value; }
-
         /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Transaccion"/>.
         /// Constructor de la clase.
         /// </summary>
-        /// <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>
-        /// <param name="comprador">Comprador, es un objeto de la clase Emprendedor</param>
-        /// <param name="nombre">Nombre del material, tipo string</param>
-        /// <param name="cantidad">Cantidad del material, tipo double</param>
+        /// <param name="vendedor">Vendedor, es un objeto de la clase Empresa.</param>
+        /// <param name="comprador">Comprador, es un objeto de la clase Emprendedor.</param>
+        /// <param name="material">Material de la transacción.</param>
+        /// <param name="cantidad">Cantidad del material, tipo double.</param>
         public Transaccion(Empresa vendedor, Emprendedor comprador, Material material, double cantidad)
         {
             this.Vendedor = vendedor;
@@ -49,6 +48,16 @@ namespace Library
             this.Cantidad = cantidad;
         }
 
+        /// <summary>
+        /// Property para el atributo privado vendedor.
+        /// </summary>
+        /// <value></value>
+        public Empresa Vendedor { get => this.vendedor; set => this.vendedor = value; }
+
+        /// <summary>
+        /// Método para crear un string con la información de la transacción.
+        /// </summary>
+        /// <returns>Devuelve el string con la información de la transacción.</returns>
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();

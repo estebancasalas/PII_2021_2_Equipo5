@@ -63,7 +63,6 @@ namespace Library
             listaTransacciones.LoadFromJson(transacciones);
             registroPublicaciones.LoadFromJson(publicaciones);
 
-
             // Obtengo una instancia de TelegramBot
             TelegramBot telegramBot = TelegramBot.Instance;
             Console.WriteLine($"Hola soy el Bot de P2, mi nombre es {telegramBot.BotName} y tengo el Identificador {telegramBot.BotId}");
@@ -77,7 +76,6 @@ namespace Library
             // Inicio la escucha de mensajes
             bot.StartReceiving();
 
-
             Console.WriteLine("Presiona una tecla para terminar");
             Console.ReadKey();
 
@@ -85,13 +83,13 @@ namespace Library
             bot.StopReceiving();
 
             // Se actualizan las listas
-            listaAdministradores = new ListaAdministradores();
-            listaDeUsuario = new ListaDeUsuario();
-            listaEmprendedores = new ListaEmprendedores();
-            listaEmpresa = new ListaEmpresa();
-            listaInvitaciones = new ListaInvitaciones();
-            listaTransacciones = new ListaTransacciones();
-            registroPublicaciones = new RegistroPublicaciones();
+            listaAdministradores = Singleton<ListaAdministradores>.Instance;
+            listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
+            listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
+            listaEmpresa = Singleton<ListaEmpresa>.Instance;
+            listaInvitaciones = Singleton<ListaInvitaciones>.Instance;
+            listaTransacciones = Singleton<ListaTransacciones>.Instance;
+            registroPublicaciones = Singleton<RegistroPublicaciones>.Instance;
 
             // Se guardan en los json
             string guardarAdmin = listaAdministradores.ConvertToJson();

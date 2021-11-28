@@ -22,7 +22,7 @@ namespace Library
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
         /// json.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<Administrador>>.Instance);
@@ -32,7 +32,7 @@ namespace Library
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
         /// a partir de el archivo json.
         /// </summary>
-        /// <param name="json"></param>
+        /// <param name="json">Carga los datos de un archivo json.</param>
         public void LoadFromJson(string json)
         {
             List<Administrador> listaAdms = new List<Administrador>();
@@ -44,7 +44,7 @@ namespace Library
         /// Lista que contiene todos los administradores registrados.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista con los administradores.</returns>
         public List<Administrador> Administradores = Singleton<List<Administrador>>.Instance;
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Library
         /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
         /// a todos los Administradores.
         /// </summary>
-        /// <param name="administrador"></param>
+        /// <param name="administrador">Quien se desea agregar a la lista.</param>
         public void Add(Administrador administrador)
         {
             if (!this.Administradores.Contains(administrador))
@@ -62,6 +62,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Método que verifica si el id está en la lista de administradores.
+        /// </summary>
+        /// <param name="id">Id a verificar.</param>
+        /// <returns>Devuelve true si el id está en la lista, false en otro caso.</returns>
         public bool Verificar(long id)
         {
             Administrador administrador = null;

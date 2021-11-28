@@ -9,9 +9,9 @@ using Ucu.Poo.Locations.Client;
 namespace Library
 {
     /// <summary>
-    /// Esta clase se encarga de generar una ubicación utilizando la API Location. 
+    /// Esta clase se encarga de generar una ubicación utilizando la API Location.
     /// Implementa la interfaz IUbicacionProvider por DIP(Explicado en IUbicacionProvider).
-    /// Depende de IUbicacion y colabora con CrearPublicacionHandler
+    /// Depende de IUbicacion y colabora con CrearPublicacionHandler.
     /// </summary>
     public class UbicacionProvider : IUbicacionProvider
     {

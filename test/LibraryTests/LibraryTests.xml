@@ -9,10 +9,146 @@
             Casos de prueba para buscar la publicacion.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.BusquedaCategoriaTest">
+        <member name="M:LibraryTests.BuscarPublicacionTest.Setup">
             <summary>
-            En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de,
-            ids de la empresa.
+            Setup del test.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case0Test">
+            <summary>
+            Prueba el primer paso.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case1CategoriaTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario desee buscar por categoría.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case1CiudadTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario desee buscar por ciudad.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case1PalabrasClaveTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario desee buscar por palabras clave.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case1VacioTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case2Test">
+            <summary>
+            Prueba el tercer paso del handler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case3ComprarTest">
+            <summary>
+            Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case3NoComprarTest">
+            <summary>
+            Prueba el cuarto paso del handler, el caso en que el usuario desee realizar una compra.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case3NoValidoTest">
+            <summary>
+            Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case4Test">
+            <summary>
+            Prueba el quinto paso del handler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case5Test">
+            <summary>
+            Prueba el sexto paso del handler.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.RegistrarEmprendedorTests">
+            <summary>
+            Casos de prueba para el handler de CrearEmprendedor.
+            Se testean los pasos del handler individualmente, de esta forma se comprueba que cada
+            paso se ejecuta correctamente y que el conjunto de los pasos también lo hace.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Setup">
+            <summary>
+            SetUp de los casos de prueba.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Caso0Test">
+            <summary>
+            Verifica que la primer interacción del handler es correcta.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Caso1Test">
+            <summary>
+            Test que verfica la segunda interacción del handler es correcta.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Caso2Test">
+            <summary>
+            Test que verfica la tercera interacción del handler es correcta.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Caso3Test">
+            <summary>
+            Test que verfica la cuarta interacción del handler es correcta.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Caso4Test">
+            <summary>
+            Test que verfica la quinta interacción del handler es correcta.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.Caso5Test">
+            <summary>
+            Test que verfica la sexta interacción del handler es correcta.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmprendedorTests.UsuarioRegistradoTest">
+            <summary>
+            Verfica que el handler no se ejecuta si el usuario está previamente registrado.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.RegistrarEmpresarioTest">
+            <summary>
+            Casos de prueba para el handler RegistrarEmpresario.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmpresarioTest.Setup">
+            <summary>
+            SetUp de los casos de prueba.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmpresarioTest.Case0Test">
+            <summary>
+            Verifica que la primer interacción del handler es correcta.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmpresarioTest.Caso1InvitacionValidaTest">
+            <summary>
+            Verifica que, cuando la invitación es válida, el segundo paso del handler sea correcto.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmpresarioTest.Caso1InvitacionNoValidaTest">
+            <summary>
+            Verifica que, cuando la invitación no es válida, el segundo paso del handler sea correcto.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmpresarioTest.Caso2Test">
+            <summary>
+            Verifica que el tercer paso del handler sea correcto.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RegistrarEmpresarioTest.UsuarioRegistradoTest">
+            <summary>
+            Verfica que el handler no se ejecuta si el usuario está previamente registrado.
             </summary>
         </member>
     </members>

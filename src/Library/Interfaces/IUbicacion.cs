@@ -6,8 +6,6 @@
 
 namespace Library
 {
-    // Esta bien asi el comentario?
-
     /// <summary>
     /// Interfaz que modela una ubicación.
     /// Creada por DIP. Las clases que necesitan trabajar con una o varias ubicaciones ahora dependen de esta abstracción y no de una clase concreta(como podría ser la clase Location

@@ -15,17 +15,19 @@ namespace Library
         /// Atributo para saber en qué handler está el usuario.
         /// </summary>
         public string Handler;
+
         /// <summary>
         /// Cuenta los pasos del usuario.
         /// </summary>
         public int Step;
-          
+
         /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="EstadoUsuario"/>.
         /// Constructor del estado del usuario.
         /// </summary>
         public EstadoUsuario()
         {
-            this.Handler = null;
+            this.Handler = string.Empty;
             this.Step = 0;
         }
     }

@@ -15,7 +15,7 @@ namespace Library
     public interface IJsonConvertible
     {
         /// <summary>
-        /// Convirte el objeto a texto en formato Json. El objeto puede ser reconstruido a partir del texto en formato
+        /// Convierte el objeto a texto en formato Json. El objeto puede ser reconstruido a partir del texto en formato
         /// Json utilizando <see cref="LoadFromJson"/>.
         /// </summary>
         /// <returns>El objeto convertido a texto en formato Json.</returns>
