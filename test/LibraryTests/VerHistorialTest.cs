@@ -1,7 +1,7 @@
 // <copyright file="VerHistorialTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-/*
+
 // <copyright file="VerHistorialTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 using Library;
-using NUnit.Framework;
+/*using NUnit.Framework;
 
 namespace LibraryTests
 {
@@ -44,7 +44,7 @@ namespace LibraryTests
             historial.SetNext(new NullHandler());
             historial.Handle(mensaje);
             string expected = "Tus transacciones son:\n";
-            Assert.AreEqual(expected, historial.resultado);
+            Assert.AreEqual(expected, historial.TextResult);
         }
 
         /// <summary>
@@ -55,9 +55,10 @@ namespace LibraryTests
         {
             Empresa empresa = new Empresa("Adidas", "Montevideo", "zapatos", "1df2frgfrfdvuhwdujn3eji3rf");
             Emprendedor emprendedor = new Emprendedor(567, "Colgatte", "Mvd", "Veterinario", "ninguna", "curar");
+            Material material = new Material("Championes de Messi", 1, 1, "Cantidad", "ninguna", "zapatos");
             HistorialHandler historial = new HistorialHandler();
             Mensaje mensaje = new Mensaje(567, "/historial");
-            Transaccion transaccion = new Transaccion(empresa, emprendedor, "Championes de Messi", 1);
+            Transaccion transaccion = new Transaccion(empresa, emprendedor, material, 1);
             ListaTransacciones transacciones = new ListaTransacciones();
             List<Transaccion> listaTransacciones = Singleton<ListaTransacciones>.Instance.Transacciones;
             listaTransacciones.Add(transaccion);
@@ -66,8 +67,7 @@ namespace LibraryTests
             historial.SetNext(new NullHandler());
             historial.Handle(mensaje);
             string resultado = "Tus transacciones son:\nAdidas vendió 1 de Championes de Messi a Colgatte\n";
-            Assert.AreEqual(resultado, historial.resultado);
+            Assert.AreEqual(resultado, historial.TextResult);
         }
     }
-}
-*/
+}*/

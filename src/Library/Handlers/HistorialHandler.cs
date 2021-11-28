@@ -32,8 +32,9 @@ namespace Library
             {
                 VerHistorial historial = new VerHistorial();
                 this.Resultado = historial.EjecutarComando(mensaje.Id);
-                Output.PrintLine(this.Resultado);
+                Output.PrintLine($"{this.Resultado}\n");
                 return this.TextResult.ToString();
+                
             }
 
             return this.GetNext().Handle(mensaje);
