@@ -716,6 +716,18 @@
             Lo que desea buscar.
             </summary>
         </member>
+        <member name="P:Library.BuscarPublicacionHandler.Busqueda">
+            <summary>
+            Obtiene o establece el atributo de busqueda.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
+        </member>
+        <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
+            <summary>
+            Se define la property para los tests.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
+        </member>
         <member name="F:Library.BuscarPublicacionHandler.resultadoBusqueda">
             <summary>
             Lista que contiene todas las publicaciones encontradas.
