@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 
 namespace Library
@@ -34,7 +35,8 @@ namespace Library
 
         private string frecuencia;
 
-        private string localizacion;
+        public string localizacion;
+        
         
         /// <summary>
         /// Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
@@ -88,14 +90,14 @@ namespace Library
 
                         case 4:
                         this.TextResult = new StringBuilder();
-                        this.costo = Convert.ToDouble(mensaje.Text);
+                        this.costo = Convert.ToDouble(mensaje.Text, NumberFormatInfo.InvariantInfo);
                         this.TextResult.Append("Ingrese la cantidad:");
                         estado.Step++;
                         break;
 
                         case 5:
                         this.TextResult = new StringBuilder();
-                        this.cantidad = Convert.ToDouble(mensaje.Text);
+                        this.cantidad = Convert.ToDouble(mensaje.Text, NumberFormatInfo.InvariantInfo);
                         this.TextResult.Append("Ingrese habilitaciones necesarias para manipular el material:");
                         estado.Step++;
                         break;
@@ -103,37 +105,32 @@ namespace Library
                         case 6:
                         this.TextResult = new StringBuilder();
                         this.habilitaciones = mensaje.Text;
-                        estado.Step++;
-                        break;
-
-                        case 7:
-                        this.TextResult = new StringBuilder();
                         this.TextResult.Append("Ingrese el título:");
                         estado.Step++;
                         break;
 
-                        case 8:
+                        case 7:
                         this.TextResult = new StringBuilder();
                         this.titulo = mensaje.Text;
                         this.TextResult.Append("Ingrese palabras claves separadas con ',' : ");
                         estado.Step++;
                         break;
 
-                        case 9:
+                        case 8:
                         this.TextResult = new StringBuilder();
                         this.palabrasClave = mensaje.Text;
                         this.TextResult.Append("Ingrese frequencia de disponibilidad: ");
                         estado.Step++;
                         break;
 
-                        case 10:
+                        case 9:
                         this.TextResult = new StringBuilder();
                         this.frecuencia = mensaje.Text;
                         this.TextResult.Append("Ingrese dónde se encuentra: ");
                         estado.Step++;
                         break;
 
-                        case 11:
+                        case 10:
                         this.TextResult = new StringBuilder();
                         this.localizacion = mensaje.Text;
                         IUbicacionProvider ubicacionProvider = new UbicacionProvider();
@@ -141,6 +138,7 @@ namespace Library
                         Material material = new Material(this.nombreMaterial, this.costo, this.cantidad, this.unidad, this.habilitaciones, this.categoria);
                         Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
                         Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
+                        this.TextResult.Append("Tú publicación ahora se encuentra activa.");
                         estado = new EstadoUsuario();
                         break;
                     }

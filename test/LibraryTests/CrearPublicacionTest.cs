@@ -11,29 +11,33 @@ namespace LibraryTests
     [TestFixture]
     public class CrearPublicacionTest
     {
-        private CrearPublicacionHandler publi;
-        private Dictionary<string, string> diccionario = new Dictionary<string, string>();
-        private Dictionary<string, string> diccionario2 = new Dictionary<string, string>();
         CrearPublicacionHandler handler = new CrearPublicacionHandler();
         EstadoUsuario estado = new EstadoUsuario();
-        
-        
-        
+        EstadoUsuario estadoNE = new EstadoUsuario();
+        RegistroPublicaciones publicacionesAct = new RegistroPublicaciones();
+        Mensaje mensaje = new Mensaje(9999, "");
 
-
+        /// <summary>
+        /// Setup inicializa valores en común.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
             ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
-            Usuario usuario = new Usuario(9999, estado);
-            listaDeUsuario.Add(usuario);
+            Usuario empresario = new Usuario(9999, estado);
+            Usuario noempresario = new Usuario(8888,estadoNE);
+            listaDeUsuario.Add(empresario);
+            listaDeUsuario.Add(noempresario);
             Empresario user = new Empresario(9999, estado, "Pablo");
             ListaEmpresa listaEmpresa = new ListaEmpresa();
             Empresa empresa = new Empresa("Niike", "Montevieo", "Ropa", "1234567890");
             empresa.ListaEmpresarios.Add(user);
             listaEmpresa.Add(empresa);
         }
-        
+
+        /// <summary>
+        /// Test que verifica que el bot le pide que ingrese el material.
+        /// </summary>
         [Test]
         public void Case0Test()
         {
@@ -45,162 +49,172 @@ namespace LibraryTests
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide que ingrese la categoria del material.
+        /// </summary>
         [Test]
         public void Case1Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            mensaje.Text = "Agua oxigenada";
             estado.Step = 1;
-            estado.Handler = "";
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese la categoria:"; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide que la unidad que cuantifica el material.
+        /// </summary>
         [Test]
         public void Case2Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            mensaje.Text = "/químicos";
             estado.Step = 2;
-            estado.Handler = "";
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese la unidad con la que cuantifica el material:"; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide que ingrese precio por unidad.
+        /// </summary>
         [Test]
         public void Case3Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            mensaje.Text = "litros";
             estado.Step = 3;
-            estado.Handler = "";
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese el precio por unidad:"; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide que ingrese la cantidad que desea publicar del material.
+        /// </summary>
         [Test]
         public void Case4Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            mensaje.Text = "10";
             estado.Step = 4;
-            estado.Handler = "";
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese la cantidad:"; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide que si se necesita habilitaciones para manipular el material.
+        /// </summary>
         [Test]
         public void Case5Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            mensaje.Text = "40";
             estado.Step = 5;
-            estado.Handler = "";
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese habilitaciones necesarias para manipular el material:"; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide que ingrese el titulo de la publicación.
+        /// </summary>
         [Test]
-        public void Case7Test()
+        public void Case6Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
-            estado.Step = 7;
-            estado.Handler = "";
+            mensaje.Text = "Ninguna";
+            estado.Step = 6;
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese el título:"; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide que ingrese las palabras claves de su publicación.
+        /// </summary>
         [Test]
-        public void Case8Test()
+        public void Case7Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
-            estado.Step = 8;
-            estado.Handler = "";
+            mensaje.Text = "Agua Oxígenada para todos";
+            estado.Step = 7;
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese palabras claves separadas con ',' : "; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide que ingrese la frequencia del material.
+        /// </summary>
         [Test]
-        public void Case9Test()
+        public void Case8Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
-            estado.Step = 9;
-            estado.Handler = "";
+            mensaje.Text = "Agua Oxigenada, Agua";
+            estado.Step = 8;
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese frequencia de disponibilidad: "; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verifica que el bot le pide la ubicación donde se encuentra el material.
+        /// </summary>
         [Test]
-        public void Case10Test()
+        public void Case9Test()
         {
-            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
-            estado.Step = 10;
-            estado.Handler = "";
+            mensaje.Text = "1 vez por semana";
+            estado.Step = 9;
+            estado.Handler = "/crearpublicacion";
             handler.Handle(mensaje);
             string expected = "Ingrese dónde se encuentra: "; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
-
-        /*
+        
+        /// <summary>
+        /// Test que verifica si la publicación se creo correctamente.
+        /// </summary>
         [Test]
-        public void PublicacionValidaTest()
+        public void Case10Test_1()
         {
-            this.diccionario2.Add("Ingrese el material:", "tela");
-            this.diccionario2.Add("Ingrese la categoria:", "Textiles");
-            this.diccionario2.Add("Ingrese la unidad con la que cuantifica el material:", "Metro");
-            this.diccionario2.Add("Ingrese el precio por unidad:", "3");
-            this.diccionario2.Add("Ingrese la cantidad:", "6");
-            this.diccionario2.Add("Ingrese habilitaciones necesarias para manipular el material:", "a");
-            this.diccionario2.Add("Ingrese el título:", "tela");
-            this.diccionario2.Add("Ingrese palabras claves separadas con ',' : ", "a");
-            this.diccionario2.Add("Ingrese frequencia de disponibilidad: ", "mensual");
-            this.diccionario2.Add("Ingrese dónde se encuentra: ", "Av. 8 de Octubre 2738");
-            this.diccionario2.Add("Ingrese nombre de la empresa: ", "Esteban telas");
-            Mensaje mensaje = new Mensaje(1234, "/CrearPublicacion");
-            Empresa empresa = new Empresa("Esteban telas", "Av. 8 de Octubre 2738", "textil", "1");
-            Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), "juan");
-            empresa.ListaEmpresarios.Add(empresario);
-            EntaradaDeLaCadena lector = new LectorTest(this.diccionario2);
-            this.publi = new CrearPublicacionHandler();
-            this.publi.Input = lector;
-            this.publi.SetNext(new NullHandler());
-            this.publi.Handle(mensaje);
-            List<Publicacion> listaPublicacion = Singleton<RegistroPublicaciones>.Instance.Activas;
-            Publicacion expected = listaPublicacion.Find(x => x.Vendedor.Nombre == "Esteban telas");
-            Assert.AreNotEqual(expected, null);
+            mensaje.Text = "Montevideo";
+            estado.Step = 10;
+            estado.Handler = "/crearpublicacion";
+            handler.Handle(mensaje);
+            Assert.AreEqual(this.handler.localizacion, mensaje.Text);
         }
 
         /// <summary>
-        /// Test que verifica que los emprendedores no pueden crear publicaciones.
+        /// Test que verifica si el bot responde correctamente.
         /// </summary>
         [Test]
-        public void PublicacionNoValidaTest()
+        public void Case10Test_2()
         {
-            this.diccionario.Add("Ingrese el material:", "tela");
-            this.diccionario.Add("Ingrese la categoria:", "Textiles");
-            this.diccionario.Add("Ingrese la unidad con la que cuantifica el material:", "Metro");
-            this.diccionario.Add("Ingrese el precio por unidad:", "3");
-            this.diccionario.Add("Ingrese la cantidad:", "6");
-            this.diccionario.Add("Ingrese habilitaciones necesarias para manipular el material:", "a");
-            this.diccionario.Add("Ingrese el título:", "tela");
-            this.diccionario.Add("Ingrese palabras claves separadas con ',' : ", "a");
-            this.diccionario.Add("Ingrese frequencia de disponibilidad: ", "mensual");
-            this.diccionario.Add("Ingrese dónde se encuentra: ", "Av. 8 de Octubre 2738");
-            this.diccionario.Add("Ingrese nombre de la empresa: ", "jose");
-            Mensaje mensaje = new Mensaje(789, "/CrearPublicación");
-            IUsuario emprendedor = new Emprendedor(789, "jose", string.Empty, string.Empty, string.Empty, string.Empty);
-            EntaradaDeLaCadena lector = new LectorTest(this.diccionario);
-            this.publi = new CrearPublicacionHandler();
-            this.publi.Input = lector;
-            this.publi.SetNext(new NullHandler());
-            this.publi.Handle(mensaje);
-            List<Publicacion> listaPublicacion = Singleton<RegistroPublicaciones>.Instance.Activas;
-            Publicacion expected = listaPublicacion.Find(x => x.Vendedor.Nombre == "jose");
-            Assert.AreEqual(expected, null);
+            mensaje.Text = "Montevideo";
+            estado.Step = 10;
+            estado.Handler = "/crearpublicacion";
+            handler.Handle(mensaje);
+            string expected = "Tú publicación ahora se encuentra activa."; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
         }
-        */
+
+
+        /// <summary>
+        /// Test que verifica que si la persona no es un empresario no pueda crear una publicación.  
+        /// </summary>       
+        [Test]
+        public void ElseTest()
+        {
+            Mensaje mensaje = new Mensaje(8888, "/crearpublicacion");
+            estado.Step = 0;
+            estado.Handler = "/crearpublicacion";
+            handler.Handle(mensaje);
+            string expected = "Para crear publicaciones debe pertenecer a una empresa."; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
     }
 }

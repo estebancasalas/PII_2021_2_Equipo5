@@ -9,5 +9,75 @@
             Test del handler crear publicacion.
             </summary>
         </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Setup">
+            <summary>
+            Setup inicializa valores en común.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case0Test">
+            <summary>
+            Test que verifica que el bot le pide que ingrese el material.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case1Test">
+            <summary>
+            Test que verifica que el bot le pide que ingrese la categoria del material.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case2Test">
+            <summary>
+            Test que verifica que el bot le pide que la unidad que cuantifica el material.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case3Test">
+            <summary>
+            Test que verifica que el bot le pide que ingrese precio por unidad.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case4Test">
+            <summary>
+            Test que verifica que el bot le pide que ingrese la cantidad que desea publicar del material.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case5Test">
+            <summary>
+            Test que verifica que el bot le pide que si se necesita habilitaciones para manipular el material.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case6Test">
+            <summary>
+            Test que verifica que el bot le pide que ingrese el titulo de la publicación.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case7Test">
+            <summary>
+            Test que verifica que el bot le pide que ingrese las palabras claves de su publicación.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case8Test">
+            <summary>
+            Test que verifica que el bot le pide que ingrese la frequencia del material.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case9Test">
+            <summary>
+            Test que verifica que el bot le pide la ubicación donde se encuentra el material.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case10Test_1">
+            <summary>
+            Test que verifica si la publicación se creo correctamente.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case10Test_2">
+            <summary>
+            Test que verifica si el bot responde correctamente.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.ElseTest">
+            <summary>
+            Test que verifica que si la persona no es un empresario no pueda crear una publicación.  
+            </summary>       
+        </member>
     </members>
 </doc>
