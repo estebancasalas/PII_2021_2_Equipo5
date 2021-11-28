@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System.Text;
+
 namespace Library
 {
     /// <summary>
@@ -64,6 +65,10 @@ namespace Library
         // Atributo en dónde se guarda la ubicación del material.
         public IUbicacion Ubicacion { get; set; }
 
+        /// <summary>
+        /// Método para crear un string con la información de la publicación.
+        /// </summary>
+        /// <returns>String con la información de la publicación.</returns>
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();

@@ -63,7 +63,6 @@ namespace Library
             listaTransacciones.LoadFromJson(transacciones);
             registroPublicaciones.LoadFromJson(publicaciones);
 
-
             // Obtengo una instancia de TelegramBot
             TelegramBot telegramBot = TelegramBot.Instance;
             Console.WriteLine($"Hola soy el Bot de P2, mi nombre es {telegramBot.BotName} y tengo el Identificador {telegramBot.BotId}");
@@ -76,7 +75,6 @@ namespace Library
 
             // Inicio la escucha de mensajes
             bot.StartReceiving();
-
 
             Console.WriteLine("Presiona una tecla para terminar");
             Console.ReadKey();

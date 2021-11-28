@@ -26,13 +26,14 @@ namespace Library
         /// se envía al siguiente Handler.
         /// </summary>
         /// <param name="mensaje">Indica que se quiere ver el historial.</param>
+        /// <returns>El mensaje que el handler le envía al usuario.</returns>
         public override string Handle(Mensaje mensaje)
-        { 
+        {
             if (mensaje.Text.ToLower() == "/historial")
             {
                 VerHistorial historial = new VerHistorial();
                 this.Resultado = historial.EjecutarComando(mensaje.Id);
-                Output.PrintLine(this.Resultado);
+                this.Output.PrintLine(this.Resultado);
                 return this.TextResult.ToString();
             }
 

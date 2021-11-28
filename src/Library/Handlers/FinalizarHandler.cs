@@ -16,7 +16,7 @@ namespace Library
     public class FinalizarHandler : AbstractHandler
     {
         private NullHandler next2;
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FinalizarHandler"/> class.
         /// Constructor de la clase.
@@ -45,7 +45,7 @@ namespace Library
             {
                 this.GetNext().Handle(mensaje);  // Que vuelva al primer handler
             }
-            
+
             return this.TextResult.ToString();
         }
     }

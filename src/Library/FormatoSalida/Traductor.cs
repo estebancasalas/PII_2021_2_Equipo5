@@ -23,14 +23,14 @@ namespace Library
         /// <returns>Debe de ser un string.</returns>
         public string PrintLine(string line)
         {
-            string linea = "";
+            string linea = string.Empty;
             int num = 0;
             while (num < line.Length)
             {
                 if (line[num] == '#')
                 {
                     Console.WriteLine($"{linea}");
-                    linea = "";
+                    linea = string.Empty;
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace Library
                 {
                     linea = linea + line[num];
                     Console.WriteLine($"{linea}");
-                    linea = "";
+                    linea = string.Empty;
                 }
 
                 num += 1;
