@@ -294,7 +294,7 @@
             </summary>
             <param name="nombre">El nombre del material.</param>
             <param name="costo">El costo del material.</param>
-            <param name="cantidad">La cantidad de material.</param>
+            <param name="cantidad">LA cantidad de material.</param>
             <param name="unidad">La unidad en la cual se cuantifica el material.</param>
             <param name="habilitaciones">Las habliitaciones que se necesitan para el material.</param>
             <param name="categoria">La categoría del material.</param>
@@ -336,10 +336,12 @@
             </summary>
             <value>Guarda la categoria del material.</value>
         </member>
-        <member name="M:Library.Material.ConvertToString">
+        <member name="F:Library.Material.PosiblesCategorias">
             <summary>
             Lista que contiene las categorías del material.
             </summary>
+        </member>
+        <member name="M:Library.Material.ConvertToString">
             <summary>
             Método para crear un string con la información del material.
             </summary>
@@ -714,12 +716,6 @@
             Lo que desea buscar.
             </summary>
         </member>
-        <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
-            <summary>
-            Se define la property para los tests.
-            </summary>
-            <value>Lo que ingresa el usuario.</value>
-        </member>
         <member name="F:Library.BuscarPublicacionHandler.resultadoBusqueda">
             <summary>
             Lista que contiene todas las publicaciones encontradas.
@@ -729,6 +725,18 @@
             <summary>
             Atributo que se utiliza para mostrar las publicaciones encontradas al usuario.
             </summary>
+        </member>
+        <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
+            <summary>
+            Obtiene o establece, se define la property para los tests.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
+        </member>
+        <member name="P:Library.BuscarPublicacionHandler.Busqueda">
+            <summary>
+            Obtiene o establece, se define para los tests.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
         </member>
         <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
             <summary>
