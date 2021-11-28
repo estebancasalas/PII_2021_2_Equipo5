@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Library
 {
@@ -16,9 +17,10 @@ namespace Library
     public interface IMostrar
     {
         /// <summary>
-        /// Método para mostrar una lista. Depende de la clase que implemente la interfaz.
+        /// Método que construye un string con todos los elementos de la lista.
         /// </summary>
         /// <param name="lista">Lista para mostrar en pantalla.</param>
-        void Mostrar(List<IStringbuilder> lista);
+        /// <returns>Te devuelve los string de la lista.</returns>
+        StringBuilder Mostrar(List<IConversorTexto> lista);
     }
 }

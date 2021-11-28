@@ -113,9 +113,9 @@ namespace LibraryTests
             this.handlerTest.Nombre = "Juan";
             this.handlerTest.Rubro = "Textil";
             this.handlerTest.Ubicacion = "18 de Julio 2333";
-            this.handlerTest.Habilitacion = "No.";
+            this.handlerTest.Habilitacion = "No";
             this.handlerTest.Handle(this.mensaje);
-            string expected = $"Usted ha sido registrado con los siguientes datos:\nJuan\nTextil\n18 de Julio 2333\nNo.\nTelar";
+            string expected = $"Usted se ha registrado con los siguientes datos:\nJuan\nTextil\n18 de Julio 2333\nNo\nTelar\n\nSi quiere seguir utilizando el bot ingrese otro /comando .";
             Assert.AreEqual(expected, this.handlerTest.TextResult.ToString());
             Assert.AreEqual(this.mensaje.Text, this.handlerTest.Especializaciones);
         }

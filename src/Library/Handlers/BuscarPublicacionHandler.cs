@@ -27,16 +27,6 @@ namespace Library
         private string busqueda;
 
         /// <summary>
-        /// Se define la property para los tests.
-        /// </summary>
-        /// <value>Lo que ingresa el usuario.</value>
-        public string TipoBusqueda
-        {
-            get { return this.tipoBusqueda; }
-            set { this.tipoBusqueda = value; }
-        }
-
-        /// <summary>
         /// Lista que contiene todas las publicaciones encontradas.
         /// </summary>
 
@@ -46,6 +36,26 @@ namespace Library
         /// Atributo que se utiliza para mostrar las publicaciones encontradas al usuario.
         /// </summary>
         public Publicacion publicacionComprar;  //public para test
+
+        /// <summary>
+        /// Obtiene o establece, se define la property para los tests.
+        /// </summary>
+        /// <value>Lo que ingresa el usuario.</value>
+        public string TipoBusqueda
+        {
+            get { return this.tipoBusqueda; }
+            set { this.tipoBusqueda = value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece, se define para los tests.
+        /// </summary>
+        /// <value>Lo que ingresa el usuario.</value>
+        public string Busqueda
+        {
+            get { return this.busqueda; }
+            set { this.busqueda = value; }
+        }
 
         /// <summary>
         /// Método Handle. Busca una publicación e interactúa con el usuario.
@@ -98,7 +108,9 @@ namespace Library
                         this.resultadoBusqueda = buscarPublicacion.EjecutarComando();
                         this.TextResult.Append("¿Desea realizar una compra?\n 1-Si \n 2-No");
                         estado.Step++;
-
+                        
+                        //IMostrar mostrar = new MostrarLista();
+                        //mostrar.Mostrar(this.resultadoBusqueda);
                         // hacer metodo mostrar en pantalla y agregarlo aca.
                         break;
 

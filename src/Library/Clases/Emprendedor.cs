@@ -14,7 +14,7 @@ namespace Library
     /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
     /// surjan nuevos tipos de usuario.
     /// </summary>
-    public class Emprendedor : IUsuario, IStringbuilder
+    public class Emprendedor : IUsuario, IConversorTexto
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Emprendedor"/>.

@@ -13,7 +13,7 @@ namespace Library
     /// <summary>
     /// Esta clase se encarga del modelado del material.
     /// </summary>
-    public class Material : IStringbuilder
+    public class Material : IConversorTexto
     {
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Material"/>.
