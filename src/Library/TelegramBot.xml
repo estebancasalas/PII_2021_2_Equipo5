@@ -218,12 +218,6 @@
             </summary>
             <value>Guarda el rubro de la empresa.</value>
         </member>
-        <member name="P:Library.Empresa.ListaEmpresarios">
-            <summary>
-            Lista con todos los empresarios.
-            </summary>
-            <value></value>
-        </member>
         <member name="M:Library.Empresa.ConvertToString">
             <summary>
             Método que crea un string con la información de la empresa.
