@@ -716,12 +716,6 @@
             </summary>
             <value>Lo que ingresa el usuario.</value>
         </member>
-        <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
-            <summary>
-            Se define la property para los tests.
-            </summary>
-            <value>Lo que ingresa el usuario.</value>
-        </member>
         <member name="F:Library.BuscarPublicacionHandler.resultadoBusqueda">
             <summary>
             Lista que contiene todas las publicaciones encontradas.
@@ -735,12 +729,6 @@
         <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
             <summary>
             Obtiene o establece, se define la property para los tests.
-            </summary>
-            <value>Lo que ingresa el usuario.</value>
-        </member>
-        <member name="P:Library.BuscarPublicacionHandler.Busqueda">
-            <summary>
-            Obtiene o establece, se define para los tests.
             </summary>
             <value>Lo que ingresa el usuario.</value>
         </member>
