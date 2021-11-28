@@ -35,7 +35,9 @@ namespace Library
                            .SetNext(new HistorialHandler())
                            .SetNext(new InvitarHandler())
                            .SetNext(new RegistrarEmpresarioHandler())
-            .SetNext(new NullHandler()); // bullying a este handler
+            .SetNext(new NullHandler());
+
+            /*
             // Se crean las listas
             ListaAdministradores listaAdministradores = new ListaAdministradores();
             ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
@@ -62,6 +64,24 @@ namespace Library
             listaInvitaciones.LoadFromJson(invitaciones);
             listaTransacciones.LoadFromJson(transacciones);
             registroPublicaciones.LoadFromJson(publicaciones);
+            */
+
+
+            //SetUp demo parte 1
+            Empresa empresa1 = new Empresa("Crespi", "25 de Mayo 267", "Electrodomésticos", "abc123", "2311 5789");
+            ListaInvitaciones listaInvitaciones2 = Singleton<ListaInvitaciones>.Instance;
+            listaInvitaciones2.Add("abc123");
+            Usuario usuario = new Usuario(1566567912, new EstadoUsuario());
+            Empresario ionas = new Empresario(1566567912, new EstadoUsuario(), "Ionas Josponis");
+            empresa1.listaEmpresarios.Add(ionas);
+
+            //SetUp demo parte 2
+            Emprendedor pilar = new Emprendedor(2105185991, "Pilar Machado", "Montevideo", "Electricista", "Ninguna", "Motores electricos");
+            Publicacion publicacion1 = new Publicacion();
+            Publicacion publicacion2 = new Publicacion();
+            Publicacion publicacionIonas = new Publicacion();
+
+
 
             // Obtengo una instancia de TelegramBot
             TelegramBot telegramBot = TelegramBot.Instance;
@@ -82,6 +102,8 @@ namespace Library
             // Detengo la escucha de mensajes.
             bot.StopReceiving();
 
+
+            /*
             // Se actualizan las listas
             listaAdministradores = Singleton<ListaAdministradores>.Instance;
             listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
@@ -108,6 +130,7 @@ namespace Library
             File.WriteAllText(@"..\..\Datos_json\listaInvitaciones.txt", guardarInvit);
             File.WriteAllText(@"..\..\Datos_json\listaTransacciones.txt", guardarTrans);
             File.WriteAllText(@"..\..\Datos_json\registroPublicaciones.txt", guardarPubli);
+            */
         }
 
         private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
