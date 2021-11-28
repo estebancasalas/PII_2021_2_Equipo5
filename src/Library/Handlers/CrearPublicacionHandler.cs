@@ -139,7 +139,7 @@ namespace Library
                         Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
                         this.TextResult.Append("Tú publicación ahora se encuentra activa.");
                         estado.Step = 0;
-                        estado.Handler = null;
+                        estado.Handler = string.Empty;
 
                         break;
                     }
