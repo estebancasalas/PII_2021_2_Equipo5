@@ -121,7 +121,7 @@ namespace Library
                         Transaccion transaccion = new Transaccion(publicacionComprar.Vendedor,comprador,publicacionComprar.Material, cantidad);
                         ListaTransacciones listaTransacciones = Singleton<ListaTransacciones>.Instance;
                         listaTransacciones.Add(transaccion);
-                        this.TextResult.Append("La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: {empresa.telefono}");
+                        this.TextResult.Append($"La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: {publicacionComprar.Vendedor.Contacto}");
 
                         break;
                 }

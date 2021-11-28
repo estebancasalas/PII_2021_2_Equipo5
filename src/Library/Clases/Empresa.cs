@@ -26,14 +26,14 @@ namespace Library
         /// <param name="ubicacion">Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.</param>
         /// <param name="rubro">Se encarga de guardar el rubro de la empresa dentro del objeto empresa.</param>
         /// <param name="invitacion">Se encarga de guardar la invitación de la empresa dentro del objeto empresa.</param>
-        public Empresa(string nombre, string ubicacion, string rubro, string invitacion)
+        public Empresa(string nombre, string ubicacion, string rubro, string invitacion, string contacto)
         {
             this.Invitacion = invitacion;
             this.Nombre = nombre;
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
+            this.Contacto = contacto;
             Singleton<ListaEmpresa>.Instance.Add(this);
-            
         }
 
         /// <summary>
@@ -46,9 +46,15 @@ namespace Library
         public List<Empresario> listaEmpresarios = new List<Empresario>();
 
         /// <summary>
-        /// Obtiene o establece guarda la invitación de la empresa.
+        /// Obtiene o establece el contacto de la empresa.
         /// </summary>
-        /// <value>Guarda la invitacion que la empresa le brinda a los empresarios para unirse.</value>
+        /// <value>Guarda el contacto en tipo string, la idea es que sea un mail o numero de teléfono</value>
+        public string Contacto { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece la invitación de la empresa.
+        /// </summary>
+        /// <value>Guarda la invitación que la empresa le brinda a los empresarios para unirse.</value>
         public string Invitacion { get; set; }
 
         /// <summary>
@@ -60,7 +66,7 @@ namespace Library
         /// <summary>
         /// Obtiene o establece guarda la ubicación de la empresa.
         /// </summary>
-        /// <value>Guarda la ubicacion de la empresa.</value>
+        /// <value>Guarda la ubicación de la empresa.</value>
         public string Ubicacion { get; set; }
 
         /// <summary>

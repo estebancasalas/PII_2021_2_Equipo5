@@ -1,10 +1,11 @@
 
-/*/ <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
+/*
+// <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 
-/*
+
 
 using System.Collections.Generic;
 using Library;
@@ -66,7 +67,7 @@ namespace LibraryTests
             HandlerTest tester = new HandlerTest(4, mensaje);
             tester.SetNext(buscarCategoria);
             tester.Handle();
-            Assert.AreEqual(buscarCategoria.resultadoBusqueda.Contains(this.a), true);
+            Assert.AreEqual(buscarCategoria.TextResult.Contains(this.a), true);
         }
 
         [Test]
@@ -100,5 +101,5 @@ namespace LibraryTests
         }
     }
 }
-*/
 
+*/
