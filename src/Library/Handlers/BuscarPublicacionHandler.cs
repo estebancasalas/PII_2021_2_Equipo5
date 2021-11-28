@@ -58,16 +58,6 @@ namespace Library
         }
 
         /// <summary>
-        /// Obtiene o establece, se define para los tests.
-        /// </summary>
-        /// <value>Lo que ingresa el usuario.</value>
-        public string Busqueda
-        {
-            get { return this.busqueda; }
-            set { this.busqueda = value; }
-        }
-
-        /// <summary>
         /// Método Handle. Busca una publicación e interactúa con el usuario.
         /// </summary>
         /// <param name="mensaje">Mensaje que recibe del usuario.</param>
