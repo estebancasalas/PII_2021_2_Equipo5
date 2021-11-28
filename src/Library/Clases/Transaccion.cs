@@ -10,7 +10,7 @@ namespace Library
     /// <summary>
     /// Clase que modela las transacciones entre emprendedores y empresas o viceversa.
     /// </summary>
-    public class Transaccion : IStringbuilder
+    public class Transaccion : IConversorTexto
     {
         /// <summary>
         /// El vendedor es un objeto del tipo Empresa.

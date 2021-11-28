@@ -13,7 +13,7 @@ namespace Library
     /// DIP, para que las clases que implementan esta interfaz dependan de una abstracción y no
     /// de una clase concreta.
     /// </summary>
-    public interface IStringbuilder
+    public interface IConversorTexto
     {
         public string ConvertToString();
     }

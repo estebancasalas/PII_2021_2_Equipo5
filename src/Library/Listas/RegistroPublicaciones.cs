@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.Json;
 
 namespace Library
@@ -16,7 +17,7 @@ namespace Library
     /// sin tener que compartir la información de las listas, cumpliendo con el
     /// patrón Expert.
     /// </summary>
-    public class RegistroPublicaciones : IJsonConvertible
+    public class RegistroPublicaciones : IJsonConvertible, IMostrar
     {
         /// <summary>
         /// Lista con las publicaciones activas.
@@ -51,6 +52,29 @@ namespace Library
                     this.Activas.RemoveAt(this.Activas.IndexOf(publicaciones));
                 }
             }
+        }
+
+        /// <summary>
+        /// Método para mostrar la lista pasada como parámetro en pantalla.
+        /// </summary>
+        /// <param name="lista">Lista que se desea mostrar.</param>
+        /// <returns>Devuelve el stringbuilder con los elementos de la lista.<returns>
+        public StringBuilder Mostrar(List<IConversorTexto> lista)
+        {
+            StringBuilder resultado = new StringBuilder();
+            if (lista != null)
+            {
+                foreach (IConversorTexto item in lista)
+                {
+                    resultado.Append(item.ConvertToString());
+                }
+            }
+            else
+            {
+                resultado.Append("No se encontraron elementos para mostrar.");
+            }
+
+            return resultado;
         }
 
         /// <summary>
