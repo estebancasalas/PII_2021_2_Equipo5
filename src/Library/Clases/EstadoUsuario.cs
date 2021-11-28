@@ -27,7 +27,7 @@ namespace Library
         /// </summary>
         public EstadoUsuario()
         {
-            this.Handler = null;
+            this.Handler = string.Empty;
             this.Step = 0;
         }
     }

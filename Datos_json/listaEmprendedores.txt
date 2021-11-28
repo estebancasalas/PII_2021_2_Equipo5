@@ -1,1 +1,1 @@
-[{"Id":1128028626,"Estado":null,"Nombre":"Esteban","Ubicacion":"Prudencio Vazquez y Vega 893","Rubro":"Textil","Habilitaciones":"habilitacion1","Especializaciones":"telas"}]
+[{"Id":1128028626,"Estado":null,"Nombre":"Esteban","Ubicacion":"Prudencio Vazquez y Vega 893","Rubro":"Textil","Habilitaciones":"habilitacion1","Especializaciones":"telas"},{"Id":2105185991,"Estado":null,"Nombre":"Pilar","Ubicacion":"18 de julio 2333","Rubro":"Metal\u00FArgica","Habilitaciones":"No","Especializaciones":"En aluminio"}]
