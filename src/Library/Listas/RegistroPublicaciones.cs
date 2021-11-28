@@ -22,49 +22,18 @@ namespace Library
         /// Lista con las publicaciones activas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista con las publicaciones activas.</returns>
         public List<Publicacion> Activas { get; set; } = Singleton<List<Publicacion>>.Instance;
-
-        /// <summary>
-        /// Lista con las publicaciones que fueron eliminadas.
-        /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
-        /// </summary>
-        /// <returns></returns>
-        public List<Publicacion> Eliminadas = Singleton<List<Publicacion>>.Instance;
-
-        /// <summary>
-        /// Lista con las publicaciones pausadas.
-        /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
-        /// </summary>
-        /// <returns></returns>
-        public List<Publicacion> Pausadas = Singleton<List<Publicacion>>.Instance;
 
         /// <summary>
         /// Método para agregar una nueva publicación a la lista de publicaciones activas.
         /// </summary>
-        /// <param name="publicacion"></param>
+        /// <param name="publicacion">Publicación a agregar a la lista de publicaciones activas.</param>
         public void Add(Publicacion publicacion)
         {
             if (!this.Activas.Contains(publicacion))
             {
                 this.Activas.Add(publicacion);
-            }
-        }
-
-        /// <summary>
-        /// Método para pausar una publicación. Agrega dicha publicación a
-        /// la lista de publicaciones pausadas y la remueve de la lista de publicaciones activas.
-        /// </summary>
-        /// <param name="publi">Publicación a pausar.</param>
-        public void PausarPublicacion(Publicacion publi)
-        {
-            foreach (Publicacion publicaciones in Activas)
-            {
-                if (publicaciones.Equals(publi))
-                {
-                    this.Pausadas.Add(publicaciones);
-                    this.Activas.RemoveAt(Activas.IndexOf(publicaciones));
-                }
             }
         }
 
@@ -75,21 +44,11 @@ namespace Library
         /// <param name="publi">Publicación a eliminar.</param>
         public void EliminarPublicacion(Publicacion publi)
         {
-            foreach (Publicacion publicaciones in Activas)
+            foreach (Publicacion publicaciones in this.Activas)
             {
                 if (publicaciones.Equals(publi))
                 {
-                    this.Eliminadas.Add(publicaciones);
-                    this.Activas.RemoveAt(Activas.IndexOf(publicaciones));
-                }
-            }
-
-            foreach (Publicacion publicaciones in Pausadas)
-            {
-                if (publicaciones.Equals(publi))
-                {
-                    this.Eliminadas.Add(publicaciones);
-                    this.Pausadas.RemoveAt(Pausadas.IndexOf(publicaciones));
+                    this.Activas.RemoveAt(this.Activas.IndexOf(publicaciones));
                 }
             }
         }
@@ -97,7 +56,7 @@ namespace Library
         /// <summary>
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo json.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Guarda los datos en un archivo json.</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<Publicacion>>.Instance);
@@ -106,14 +65,12 @@ namespace Library
         /// <summary>
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos a partir de el archivo json.
         /// </summary>
-        /// <param name="json"></param>
+        /// <param name="json">Carga los datos de un archivo json.</param>
         public void LoadFromJson(string json)
         {
             List<Publicacion> listaPubl = new List<Publicacion>();
             listaPubl = JsonSerializer.Deserialize<List<Publicacion>>(json);
             this.Activas = listaPubl;
         }
-
-        // Solo una lista general a convertir o las 3 listas - Activas -Pausadas -¿¿Eliminadas???? Para que guardar algo eliminado no tiene sentido. 
     }
 }

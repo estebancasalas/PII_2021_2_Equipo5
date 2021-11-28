@@ -33,7 +33,6 @@ namespace Library
             this.Ubicacion = ubicacion;
             this.Rubro = rubro;
             Singleton<ListaEmpresa>.Instance.Add(this);
-            
         }
 
         /// <summary>
@@ -68,7 +67,17 @@ namespace Library
         /// <value>Guarda el rubro de la empresa.</value>
         public string Rubro { get; set; }
 
-        public List<Empresario> ListaEmpresarios { get; set; } = new List<Empresario>();
+        /// <summary>
+        /// Lista con todos los empresarios.
+        /// </summary>
+        /// <value></value>
+        public List<Empresario> ListaEmpresarios { get; set; }
+
+        /// <summary>
+        /// Método que crea un string con la información de la empresa.
+        /// </summary>
+        /// <returns>Devuelve el string con la información de la empresa.</returns>
+
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();

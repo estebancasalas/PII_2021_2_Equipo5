@@ -80,7 +80,7 @@
             Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
             </summary>
             <param name="palabras">Palabra clave que ayuda a la busqueda.</param>
-            <returns></returns>
+            <returns>Devuelve las publicaciones que cumplen con la búsqueda.</returns>
         </member>
         <member name="T:Library.BusquedaZonaCiudad">
             <summary>
@@ -95,7 +95,7 @@
             </summary>
             <param name="tipoZona">Tipo de zona en que se desea buscar(Ciudad, Departamento, etc).</param>
             <param name="ubicacion">Nombre de la zona.</param>
-            <returns></returns>
+            <returns>Devuelve la lista con publicaciones que cumplen con la búsqueda.</returns>
         </member>
         <member name="T:Library.Emprendedor">
             <summary>
@@ -158,6 +158,12 @@
             </summary>
             <value>Se guardan las especializaciones del emprendedor.</value>
         </member>
+        <member name="M:Library.Emprendedor.ConvertToString">
+            <summary>
+            Método que crea un string con toda la información del emprendedor.
+            </summary>
+            <returns>Devuelve el string con la información del emprendedor.</returns>
+        </member>
         <member name="T:Library.Empresa">
             <summary>
             Clase que modela un usario del tipo empresa.
@@ -205,6 +211,18 @@
             Obtiene o establece guarda el rubro de la empresa.
             </summary>
             <value>Guarda el rubro de la empresa.</value>
+        </member>
+        <member name="P:Library.Empresa.ListaEmpresarios">
+            <summary>
+            Lista con todos los empresarios.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Empresa.ConvertToString">
+            <summary>
+            Método que crea un string con la información de la empresa.
+            </summary>
+            <returns>Devuelve el string con la información de la empresa.</returns>
         </member>
         <member name="T:Library.Empresario">
             <summary>
@@ -255,6 +273,7 @@
         </member>
         <member name="M:Library.EstadoUsuario.#ctor">
             <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.EstadoUsuario"/>.
             Constructor del estado del usuario.
             </summary>
         </member>
@@ -315,7 +334,12 @@
             <summary>
             Lista que contiene las categorías del material.
             </summary>
-            <returns></returns>
+        </member>
+        <member name="M:Library.Material.ConvertToString">
+            <summary>
+            Método para crear un string con la información del material.
+            </summary>
+            <returns>String con la información del material.</returns>
         </member>
         <member name="T:Library.Publicacion">
             <summary>
@@ -362,6 +386,12 @@
             </summary>
             <value></value>
         </member>
+        <member name="M:Library.Publicacion.ConvertToString">
+            <summary>
+            Método para crear un string con la información de la publicación.
+            </summary>
+            <returns>String con la información de la publicación.</returns>
+        </member>
         <member name="T:Library.Transaccion">
             <summary>
             Clase que modela las transacciones entre emprendedores y empresas o viceversa.
@@ -389,12 +419,25 @@
         </member>
         <member name="M:Library.Transaccion.#ctor(Library.Empresa,Library.Emprendedor,Library.Material,System.Double)">
             <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Transaccion"/>.
             Constructor de la clase.
             </summary>
-            <param name="vendedor">Vendedor, es un objeto de la clase Empresa</param>
-            <param name="comprador">Comprador, es un objeto de la clase Emprendedor</param>
-            <param name="nombre">Nombre del material, tipo string</param>
-            <param name="cantidad">Cantidad del material, tipo double</param>
+            <param name="vendedor">Vendedor, es un objeto de la clase Empresa.</param>
+            <param name="comprador">Comprador, es un objeto de la clase Emprendedor.</param>
+            <param name="material">Material de la transacción.</param>
+            <param name="cantidad">Cantidad del material, tipo double.</param>
+        </member>
+        <member name="P:Library.Transaccion.Vendedor">
+            <summary>
+            Property para el atributo privado vendedor.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Library.Transaccion.ConvertToString">
+            <summary>
+            Método para crear un string con la información de la transacción.
+            </summary>
+            <returns>Devuelve el string con la información de la transacción.</returns>
         </member>
         <member name="T:Library.Ubicacion">
             <summary>
@@ -402,6 +445,18 @@
             Implementa IUbicacion.
             Colabora con: UbicacionProvider,
             </summary>
+        </member>
+        <member name="M:Library.Ubicacion.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Library.Ubicacion"/> class.
+            Constructor de la clase.
+            </summary>
+            <param name="pais">País donde se ubica.</param>
+            <param name="ciudad">Ciudad donde se ubica.</param>
+            <param name="direccion">Dirección donde se ubica.</param>
+            <param name="codigoPostal">Código postal de donde se ubica.</param>
+            <param name="latitud">Latitud de la ubicación.</param>
+            <param name="longitud">Longitud de la ubicación.</param>
         </member>
         <member name="P:Library.Ubicacion.Pais">
             <summary>
@@ -439,22 +494,11 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Ubicacion.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Library.Ubicacion"/> class.
-            </summary>Constructor de la clase.
-            <param name="pais"></param>
-            <param name="ciudad"></param>
-            <param name="direccion"></param>
-            <param name="codigoPostal"></param>
-            <param name="latitud"></param>
-            <param name="longitud"></param>
-        </member>
         <member name="T:Library.UbicacionProvider">
             <summary>
-            Esta clase se encarga de generar una ubicación utilizando la API Location. 
+            Esta clase se encarga de generar una ubicación utilizando la API Location.
             Implementa la interfaz IUbicacionProvider por DIP(Explicado en IUbicacionProvider).
-            Depende de IUbicacion y colabora con CrearPublicacionHandler
+            Depende de IUbicacion y colabora con CrearPublicacionHandler.
             </summary>
         </member>
         <member name="M:Library.UbicacionProvider.GetUbicacion(System.String)">
@@ -519,7 +563,6 @@
             <summary>
             Lista de coincidencias de la búsqueda.
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Library.BuscarPublicacion.#ctor(System.String,System.String)">
             <summary>
@@ -534,10 +577,10 @@
             EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y,
             palabras claves). Luego las delega a cada una de las clases que se encargan de,
             búsqueda, para cumplir con SRP.
-            Finalmente, devuelve una lista con todas la publiaciones encontradas, de la búsqueda
+            Finalmente, devuelve una lista con todas la publicaciones encontradas, de la búsqueda
             que se realizó.
             </summary>
-            <returns></returns>
+            <returns>Lista con las publicaciones encontradas.</returns>
         </member>
         <member name="T:Library.VerHistorial">
             <summary>
@@ -549,15 +592,15 @@
             Método que recorre la lista de transacciones de el usuario y retorna su historial.
             </summary>
             <param name="id">Nombre de quien quiere ver el historial.</param>
-            <returns></returns>
+            <returns>String con todas las transacciones hechas por el usuario con ese id.</returns>
         </member>
-        <member name="T:Library.EntaradaDeLaCadena">
+        <member name="T:Library.EntradaDeLaCadena">
             <summary>
             IEntradaDeLaCadena y IEntradaInt cumplen con el patrón de ISP ya que se utilizan interfaces chicas para implementar solo el comportamiento
             que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada.
             </summary>
         </member>
-        <member name="M:Library.EntaradaDeLaCadena.GetInput(System.String)">
+        <member name="M:Library.EntradaDeLaCadena.GetInput(System.String)">
             <summary>
             El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
             </summary>
@@ -573,6 +616,11 @@
             Cumple SRP pues su única razón de cambio es recibir una línea de la consola.
             Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput,
             usar en tiempo de ejecución, dependiendo del objeto que recibe el mensaje GetInput.
+            </summary>
+        </member>
+        <member name="F:Library.LectorTest.diccionario">
+            <summary>
+            Diccionario que simula la interacción entre usuario y bot.
             </summary>
         </member>
         <member name="M:Library.LectorTest.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
@@ -657,22 +705,33 @@
             Almacena la manera que el usuario desea buscar una publicación.
             </summary>
         </member>
-        <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
-            <summary>
-            Se define la property para los tests.
-            </summary>
-            <value></value>
-        </member>
         <member name="F:Library.BuscarPublicacionHandler.busqueda">
             <summary>
             Lo que desea buscar.
             </summary>
         </member>
+        <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
+            <summary>
+            Se define la property para los tests.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
+        </member>
         <member name="F:Library.BuscarPublicacionHandler.resultadoBusqueda">
             <summary>
-            Método para buscar en la lista de publicaciones.
+            Lista que contiene todas las publicaciones encontradas.
             </summary>
-            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
+        </member>
+        <member name="F:Library.BuscarPublicacionHandler.publicacionComprar">
+            <summary>
+            Atributo que se utiliza para mostrar las publicaciones encontradas al usuario.
+            </summary>
+        </member>
+        <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método Handle. Busca una publicación e interactúa con el usuario.
+            </summary>
+            <param name="mensaje">Mensaje que recibe del usuario.</param>
+            <returns>Los mensajes que le envía al usuario por pantalla.</returns>
         </member>
         <member name="T:Library.ComienzoHandler">
             <summary>
@@ -828,6 +887,7 @@
             se envía al siguiente Handler.
             </summary>
             <param name="mensaje">Indica que se quiere ver el historial.</param>
+            <returns>El mensaje que el handler le envía al usuario.</returns>
         </member>
         <member name="T:Library.InvitarHandler">
             <summary>
@@ -891,6 +951,13 @@
             <summary>
             Handler vacío, para ser utilizado al final de la cadena y en tests.
             </summary>
+        </member>
+        <member name="M:Library.NullHandler.Handle(Library.Mensaje)">
+            <summary>
+            Método que muestra un mensaje, dado que es el último de la cadena.
+            </summary>
+            <param name="mensaje">Mensaje que recibe del usuario.</param>
+            <returns>Devuelve el mensaje para mostrar al usuario.</returns>
         </member>
         <member name="T:Library.RegistrarEmpresarioHandler">
             <summary>
@@ -963,6 +1030,7 @@
             El metodo se fija si no hay ningun comando apuntando al handler. si no hay se pasa al siguiente.
             </summary>
             <param name="mensaje">El emensaje escrito por el usuario.</param>
+            <returns>Método Handle que van a implementar las clases que hereden a esta.</returns>
         </member>
         <member name="M:Library.AbstractHandler.SetNext(Library.IHandler)">
             <summary>
@@ -995,13 +1063,14 @@
             Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
             </summary>
             <param name="mensaje">Mensaje escrito por usuario.</param>
+            <returns>Devuelve un string para el usuario.</returns>
         </member>
         <member name="M:Library.IHandler.SetNext(Library.IHandler)">
             <summary>
             Método set para indicar el siguiente handler en la cadena.
             </summary>
             <param name="handler"> handler que esta indicado a continuacion en la cadena.</param>
-            <returns>Retorna cual es el siguiente handler.</returns>
+            <returns>Establece el siguiente handler.</returns>
         </member>
         <member name="M:Library.IHandler.GetNext">
             <summary>
@@ -1015,6 +1084,14 @@
             Es una clase con patron Mediator ya que los mensajes generados están restringidos a un formato especifico.
             </summary>
         </member>
+        <member name="M:Library.Mensaje.#ctor(System.Int64,System.String)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Mensaje"/>.
+            El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
+            </summary>
+            <param name="id">Id del usuario que escribe el mensaje.</param>
+            <param name="text">Lo que escribe el usuario.</param>
+        </member>
         <member name="P:Library.Mensaje.Id">
             <summary>
             Se guarda una Id en forma de un entero.
@@ -1027,30 +1104,17 @@
             </summary>
             <value></value>
         </member>
-        <member name="M:Library.Mensaje.#ctor(System.Int64,System.String)">
-            <summary>
-            El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
-            </summary>
-            <param name="id">Id del usuario que escribe el mensaje</param>
-            <param name="text">Lo que escribe el usuario</param>
-        </member>
         <member name="T:Library.Singleton`1">
             <summary>
             Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
             </summary>
-            <typeparam name="T">tipo generico.</typeparam>
+            <typeparam name="T">Tipo genérico que se establece cuando se crea una instancia.</typeparam>
         </member>
         <member name="P:Library.Singleton`1.Instance">
             <summary>
             Obtiene gets se crea una nueva instancia solo si no existe previamente.
             </summary>
             <value>Se guarda una nueva instancia.</value>
-        </member>
-        <member name="T:Library.AbstractBuscar">
-            <summary>
-            Clase abstracta buscar. Esta clase se creó para utilizar el Principio de Inversión de Dependencias,
-            para que los métodos de búsqueda dependan de una abstracción y no de clases concretas.
-            </summary>
         </member>
         <member name="T:Library.IJsonConvertible">
             <summary>
@@ -1060,7 +1124,7 @@
         </member>
         <member name="M:Library.IJsonConvertible.ConvertToJson">
             <summary>
-            Convirte el objeto a texto en formato Json. El objeto puede ser reconstruido a partir del texto en formato
+            Convierte el objeto a texto en formato Json. El objeto puede ser reconstruido a partir del texto en formato
             Json utilizando <see cref="M:Library.IJsonConvertible.LoadFromJson(System.String)"/>.
             </summary>
             <returns>El objeto convertido a texto en formato Json.</returns>
@@ -1071,6 +1135,25 @@
             obtenido utilizando <see cref="M:Library.IJsonConvertible.ConvertToJson"/>.
             </summary>
             <param name="json">El texto en formato Json a partir del cual asignas las propiedades del objeto.</param>
+        </member>
+        <member name="T:Library.IMostrar">
+            <summary>
+            Interfaz creada para cumplir con el patrón DIP. Permite que las clases dependan de abstracciones
+            en vez de clases concretas.
+            </summary>
+        </member>
+        <member name="M:Library.IMostrar.Mostrar(System.Collections.Generic.List{Library.IStringbuilder})">
+            <summary>
+            Método para mostrar una lista. Depende de la clase que implemente la interfaz.
+            </summary>
+            <param name="lista">Lista para mostrar en pantalla.</param>
+        </member>
+        <member name="T:Library.IStringbuilder">
+            <summary>
+            Interfaz para las clases que necesitan mostrar información. Fue creada para cumplir con
+            DIP, para que las clases que implementan esta interfaz dependan de una abstracción y no
+            de una clase concreta.
+            </summary>
         </member>
         <member name="T:Library.IUbicacion">
             <summary>
@@ -1126,7 +1209,7 @@
             Método para obtener la ubicación de tipo IUbicacion a partir de una dirección en string.
             </summary>
             <param name="ubicacion">Dirección de la que se desea obtener la ubicación.</param>
-            <returns></returns>
+            <returns>Devuelve la ubicación en formato IUbicacion.</returns>
         </member>
         <member name="T:Library.IUsuario">
             <summary>
@@ -1162,21 +1245,21 @@
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
             json.
             </summary>
-            <returns></returns>
+            <returns>Devuelve</returns>
         </member>
         <member name="M:Library.ListaAdministradores.LoadFromJson(System.String)">
             <summary>
             LoadFromJson se encarga de cargar los datos guardados creando los objetos
             a partir de el archivo json.
             </summary>
-            <param name="json"></param>
+            <param name="json">Carga los datos de un archivo json.</param>
         </member>
         <member name="F:Library.ListaAdministradores.Administradores">
             <summary>
             Lista que contiene todos los administradores registrados.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
-            <returns></returns>
+            <returns>Lista con los administradores.</returns>
         </member>
         <member name="M:Library.ListaAdministradores.Add(Library.Administrador)">
             <summary>
@@ -1185,7 +1268,14 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             a todos los Administradores.
             </summary>
-            <param name="administrador"></param>
+            <param name="administrador">Quien se desea agregar a la lista.</param>
+        </member>
+        <member name="M:Library.ListaAdministradores.Verificar(System.Int64)">
+            <summary>
+            Método que verifica si el id está en la lista de administradores.
+            </summary>
+            <param name="id">Id a verificar.</param>
+            <returns>Devuelve true si el id está en la lista, false en otro caso.</returns>
         </member>
         <member name="T:Library.ListaDeUsuario">
             <summary>
@@ -1201,28 +1291,35 @@
             Depende de List y Usuario debido a que debe ser deserializada.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
-            <returns></returns>
+            <returns>Lista que contiene a todos los usuarios.</returns>
         </member>
         <member name="M:Library.ListaDeUsuario.EstaRegistrado(System.Int64)">
             <summary>
             Método que verifica si un id está registrado como usuario.
             </summary>
             <param name="id">Id que se verifica.</param>
-            <returns></returns>
+            <returns>Devuelve true si el id está en la lista, false en otros casos.</returns>
+        </member>
+        <member name="M:Library.ListaDeUsuario.Buscar(System.Int64)">
+            <summary>
+            Método que devuelve la posición del usuario en la lista.
+            </summary>
+            <param name="id">Id del usuario que se quiere buscar.</param>
+            <returns>Índice del usuario en la lista.</returns>
         </member>
         <member name="M:Library.ListaDeUsuario.ConvertToJson">
             <summary>
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
             json.
             </summary>
-            <returns></returns>
+            <returns>Guarda la lista en un archivo json.</returns>
         </member>
         <member name="M:Library.ListaDeUsuario.LoadFromJson(System.String)">
             <summary>
             LoadFromJson se encarga de cargar los datos guardados creando los objetos
             a partir de el archivo json.
             </summary>
-            <param name="json"></param>
+            <param name="json">El archivo del cual se quieren cargar los datos.</param>
         </member>
         <member name="M:Library.ListaDeUsuario.Add(Library.Usuario)">
             <summary>
@@ -1245,21 +1342,21 @@
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
             json.
             </summary>
-            <returns></returns>
+            <returns>Guarda los datos en un archivo json.</returns>
         </member>
         <member name="M:Library.ListaEmprendedores.LoadFromJson(System.String)">
             <summary>
             LoadFromJson se encarga de cargar los datos guardados creando los objetos
             a partir de el archivo json.
             </summary>
-            <param name="json"></param>
+            <param name="json">Archivo json del cual se cargan los datos.</param>
         </member>
         <member name="F:Library.ListaEmprendedores.Emprendedores">
             <summary>
             Lista que contiene todos los emprendedores registrados.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
-            <returns></returns>
+            <returns>Lista con los emprendedores registrados.</returns>
         </member>
         <member name="M:Library.ListaEmprendedores.Add(Library.Emprendedor)">
             <summary>
@@ -1268,7 +1365,7 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             a todos los Emprendedores.
             </summary>
-            <param name="emprendedor"></param>
+            <param name="emprendedor">Emprendedor que se desea agregar a la lista.</param>
         </member>
         <member name="M:Library.ListaEmprendedores.Buscar(System.Int64)">
             <summary>
@@ -1276,7 +1373,7 @@
             que conoce la información de todos los emprendedores (patrón Expert).
             </summary>
             <param name="id">Id del emprendedor a buscar.</param>
-            <returns></returns>
+            <returns>Devuelve el emprendedor correspondiente al id.</returns>
         </member>
         <member name="T:Library.ListaEmpresa">
             <summary>
@@ -1289,7 +1386,7 @@
             Lista que contiene todas las empresas registradas.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
-            <returns></returns>
+            <returns>Lista con las empresas registradas.</returns>
         </member>
         <member name="M:Library.ListaEmpresa.Verificar(System.Int64)">
             <summary>
@@ -1297,7 +1394,7 @@
             que conoce a todas las empresas (patrón Expert).
             </summary>
             <param name="id">Id del empresario a verificar.</param>
-            <returns></returns>
+            <returns>Devuelve true si el id está registrado en alguna empresa, false en otro caso.</returns>
         </member>
         <member name="M:Library.ListaEmpresa.Buscar(System.Int64)">
             <summary>
@@ -1305,7 +1402,7 @@
             clase ya que es la que conoce a todas las empresas (patrón Expert).
             </summary>
             <param name="id">id de la empresa deseada.</param>
-            <returns></returns>
+            <returns>Devuelve la empresa que contiene el id pasado por parámetro.</returns>
         </member>
         <member name="M:Library.ListaEmpresa.Add(Library.Empresa)">
             <summary>
@@ -1313,21 +1410,21 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             a todas las Empresas.
             </summary>
-            <param name="empresa"></param>
+            <param name="empresa">Empresa que se va a agregar a la lista.</param>
         </member>
         <member name="M:Library.ListaEmpresa.ConvertToJson">
             <summary>
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
             json.
             </summary>
-            <returns></returns>
+            <returns>Guarga los datos en un archivo json.</returns>
         </member>
         <member name="M:Library.ListaEmpresa.LoadFromJson(System.String)">
             <summary>
             LoadFromJson se encarga de cargar los datos guardados creando los objetos
             a partir de el archivo json.
             </summary>
-            <param name="json"></param>
+            <param name="json">Carga los datos de un archivo json.</param>
         </member>
         <member name="T:Library.ListaInvitaciones">
             <summary>
@@ -1342,29 +1439,29 @@
             Lista que contiene todas las invtiaciones.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
-            <returns></returns>
+            <returns>Lista con todas las invitaciones.</returns>
         </member>
         <member name="M:Library.ListaInvitaciones.VerificarInvitacion(System.String)">
             <summary>
-            Método que verifica si una invitación es válida. Se incluye en esta clase porque es la que 
+            Método que verifica si una invitación es válida. Se incluye en esta clase porque es la que
             conoce todas las invitaciones (patrón Expert).
             </summary>
             <param name="invitacion">Invitación a verificar.</param>
-            <returns></returns>
+            <returns>Devuelve true si la invitación está registrada, false si no.</returns>
         </member>
         <member name="M:Library.ListaInvitaciones.ConvertToJson">
             <summary>
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
             json.
             </summary>
-            <returns></returns>
+            <returns>Guarda los datos en un archivo json.</returns>
         </member>
         <member name="M:Library.ListaInvitaciones.LoadFromJson(System.String)">
             <summary>
             LoadFromJson se encarga de cargar los datos guardados creando los objetos
             a partir de el archivo json.
             </summary>
-            <param name="json"></param>
+            <param name="json">Carga los datos de un archivo json.</param>
         </member>
         <member name="M:Library.ListaInvitaciones.Add(System.String)">
             <summary>
@@ -1373,7 +1470,7 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             todas las invitaciones que existen.
             </summary>
-            <param name="Invitacion"></param>
+            <param name="Invitacion">Invitación que se desea agregar a la lista.</param>
         </member>
         <member name="T:Library.ListaTransacciones">
             <summary>
@@ -1386,7 +1483,7 @@
             Transacciones es quien tiene la lista con los objetos de la clase Transaccion.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
-            <returns></returns>
+            <returns>Lista con todas las transacciones.</returns>
         </member>
         <member name="M:Library.ListaTransacciones.Add(Library.Transaccion)">
             <summary>
@@ -1395,29 +1492,40 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             todas las transacciones que se realizan.
             </summary>
-            <param name="transaccion"></param>
+            <param name="transaccion">Transacción que se desea agregar a la lista.</param>
         </member>
         <member name="M:Library.ListaTransacciones.Buscar(System.Int64)">
             <summary>
             Método que devuelve una lista con todas las transacciones hechas con ese id. Se busca cumplir
             con Expert, ya que esta clase es la que contiene toda la información de las transacciones.
             </summary>
-            <param name="id"></param>
-            <returns></returns>
+            <param name="id">Busca transacciones por id.</param>
+            <returns>Devuelve una lista con todas las transacciones encontradas.</returns>
         </member>
         <member name="M:Library.ListaTransacciones.ConvertToJson">
             <summary>
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
             json.
             </summary>
-            <returns></returns>
+            <returns>Guarda los datos en un archivo json.</returns>
         </member>
         <member name="M:Library.ListaTransacciones.LoadFromJson(System.String)">
             <summary>
             LoadFromJson se encarga de cargar los datos guardados creando los objetos
             a partir de el archivo json.
             </summary>
-            <param name="json"></param>
+            <param name="json">Carga los datos de un archivo json.</param>
+        </member>
+        <member name="T:Library.MostrarLista">
+            <summary>
+            Clase que sirve para mostrar una lista. Implementa la interfaz IMostrar para cumplir con DIP.
+            </summary>
+        </member>
+        <member name="M:Library.MostrarLista.Mostrar(System.Collections.Generic.List{Library.IStringbuilder})">
+            <summary>
+            Método para mostrar la lista pasada como parámetro en pantalla.
+            </summary>
+            <param name="lista">Lista que se desea mostrar.</param>
         </member>
         <member name="T:Library.RegistroPublicaciones">
             <summary>
@@ -1432,34 +1540,13 @@
             Lista con las publicaciones activas.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
-            <returns></returns>
-        </member>
-        <member name="F:Library.RegistroPublicaciones.Eliminadas">
-            <summary>
-            Lista con las publicaciones que fueron eliminadas.
-            Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="F:Library.RegistroPublicaciones.Pausadas">
-            <summary>
-            Lista con las publicaciones pausadas.
-            Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
-            </summary>
-            <returns></returns>
+            <returns>Lista con las publicaciones activas.</returns>
         </member>
         <member name="M:Library.RegistroPublicaciones.Add(Library.Publicacion)">
             <summary>
             Método para agregar una nueva publicación a la lista de publicaciones activas.
             </summary>
-            <param name="publicacion"></param>
-        </member>
-        <member name="M:Library.RegistroPublicaciones.PausarPublicacion(Library.Publicacion)">
-            <summary>
-            Método para pausar una publicación. Agrega dicha publicación a
-            la lista de publicaciones pausadas y la remueve de la lista de publicaciones activas.
-            </summary>
-            <param name="publi">Publicación a pausar.</param>
+            <param name="publicacion">Publicación a agregar a la lista de publicaciones activas.</param>
         </member>
         <member name="M:Library.RegistroPublicaciones.EliminarPublicacion(Library.Publicacion)">
             <summary>
@@ -1472,13 +1559,13 @@
             <summary>
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo json.
             </summary>
-            <returns></returns>
+            <returns>Guarda los datos en un archivo json.</returns>
         </member>
         <member name="M:Library.RegistroPublicaciones.LoadFromJson(System.String)">
             <summary>
             LoadFromJson se encarga de cargar los datos guardados creando los objetos a partir de el archivo json.
             </summary>
-            <param name="json"></param>
+            <param name="json">Carga los datos de un archivo json.</param>
         </member>
     </members>
 </doc>

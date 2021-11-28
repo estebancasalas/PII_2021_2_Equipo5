@@ -24,21 +24,26 @@ namespace Library
         /// Depende de List y Usuario debido a que debe ser deserializada.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista que contiene a todos los usuarios.</returns>
         [JsonInclude]
-        public List<Usuario> ListaUsuarios = Singleton<List<Usuario>>.Instance; 
+        public List<Usuario> ListaUsuarios = Singleton<List<Usuario>>.Instance;
 
         /// <summary>
         /// Método que verifica si un id está registrado como usuario.
         /// </summary>
         /// <param name="id">Id que se verifica.</param>
-        /// <returns></returns>
+        /// <returns>Devuelve true si el id está en la lista, false en otros casos.</returns>
         public bool EstaRegistrado(long id)
         {
             IUsuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
             return usuario != null;
         }
 
+        /// <summary>
+        /// Método que devuelve la posición del usuario en la lista.
+        /// </summary>
+        /// <param name="id">Id del usuario que se quiere buscar.</param>
+        /// <returns>Índice del usuario en la lista.</returns>
         public int Buscar(long id)
         {
             Usuario usuario = this.ListaUsuarios.Find(x => x.Id == id);
@@ -49,7 +54,7 @@ namespace Library
         /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
         /// json.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Guarda la lista en un archivo json.</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<Usuario>>.Instance);
@@ -59,7 +64,7 @@ namespace Library
         /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
         /// a partir de el archivo json.
         /// </summary>
-        /// <param name="json"></param>
+        /// <param name="json">El archivo del cual se quieren cargar los datos.</param>
         public void LoadFromJson(string json)
         {
             List<Usuario> listaUsers = new List<Usuario>();
@@ -82,6 +87,4 @@ namespace Library
             }
         }
     }
-
-    // Checkear si cuando se registran se agregan idSSS.
 }

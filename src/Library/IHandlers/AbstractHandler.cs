@@ -17,6 +17,7 @@ namespace Library
     public abstract class AbstractHandler : IHandler
     {
         public StringBuilder TextResult = new StringBuilder();
+
         /// <summary>
         /// Gets or sets las clases que apliquen AbstractHandler pueden tambien pasar el Next para que se recorran el resto de los handlers.
         /// </summary>
@@ -26,7 +27,7 @@ namespace Library
         /// <summary>
         /// Recibe una cadena, siempre en formato string.
         /// </summary>
-        public EntaradaDeLaCadena Input = Singleton<LeerConsola>.Instance;
+        public EntradaDeLaCadena Input = Singleton<LeerConsola>.Instance;
 
         /// <summary>
         /// Se envia la cadena recibida tal como está o con algun tipo de cambio implicito o explicito.
@@ -37,6 +38,7 @@ namespace Library
         /// El metodo se fija si no hay ningun comando apuntando al handler. si no hay se pasa al siguiente.
         /// </summary>
         /// <param name="mensaje">El emensaje escrito por el usuario.</param>
+        /// <returns>Método Handle que van a implementar las clases que hereden a esta.</returns>
         public virtual string Handle(Mensaje mensaje)
         {
             if (this.Next != null)
