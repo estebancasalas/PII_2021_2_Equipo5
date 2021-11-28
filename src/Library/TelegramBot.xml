@@ -294,7 +294,7 @@
             </summary>
             <param name="nombre">El nombre del material.</param>
             <param name="costo">El costo del material.</param>
-            <param name="cantidad">La cantidad de material.</param>
+            <param name="cantidad">LA cantidad de material.</param>
             <param name="unidad">La unidad en la cual se cuantifica el material.</param>
             <param name="habilitaciones">Las habliitaciones que se necesitan para el material.</param>
             <param name="categoria">La categoría del material.</param>
@@ -336,10 +336,12 @@
             </summary>
             <value>Guarda la categoria del material.</value>
         </member>
-        <member name="M:Library.Material.ConvertToString">
+        <member name="F:Library.Material.PosiblesCategorias">
             <summary>
             Lista que contiene las categorías del material.
             </summary>
+        </member>
+        <member name="M:Library.Material.ConvertToString">
             <summary>
             Método para crear un string con la información del material.
             </summary>
@@ -713,6 +715,12 @@
             <summary>
             Lo que desea buscar.
             </summary>
+        </member>
+        <member name="P:Library.BuscarPublicacionHandler.Busqueda">
+            <summary>
+            Obtiene o establece el atributo de busqueda.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
         </member>
         <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
             <summary>
