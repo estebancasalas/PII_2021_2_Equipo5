@@ -39,7 +39,7 @@
             Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case2Test">
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case2SinPublicacionTest">
             <summary>
             Prueba el tercer paso del handler.
             </summary>
