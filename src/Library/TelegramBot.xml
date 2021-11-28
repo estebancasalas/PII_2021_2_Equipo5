@@ -738,6 +738,18 @@
             Atributo que se utiliza para mostrar las publicaciones encontradas al usuario.
             </summary>
         </member>
+        <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
+            <summary>
+            Obtiene o establece, se define la property para los tests.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
+        </member>
+        <member name="P:Library.BuscarPublicacionHandler.Busqueda">
+            <summary>
+            Obtiene o establece, se define para los tests.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
+        </member>
         <member name="M:Library.BuscarPublicacionHandler.Handle(Library.Mensaje)">
             <summary>
             Método Handle. Busca una publicación e interactúa con el usuario.

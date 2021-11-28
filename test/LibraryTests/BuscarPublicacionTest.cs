@@ -85,6 +85,7 @@ namespace LibraryTests
             string expected = "Ingrese la categoría:\n  /Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
+            Assert.AreEqual(this.handler.TipoBusqueda, this.mensaje.Text);
         }
 
         /// <summary>
@@ -101,6 +102,7 @@ namespace LibraryTests
             string expected = "Ingrese la ciudad";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
+            Assert.AreEqual(this.handler.TipoBusqueda, this.mensaje.Text);
         }
 
         /// <summary>
@@ -117,6 +119,7 @@ namespace LibraryTests
             string expected = "Ingrese palabras clave";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
+            Assert.AreEqual(this.handler.TipoBusqueda, this.mensaje.Text);
         }
 
         /// <summary>
