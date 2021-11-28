@@ -1,3 +1,4 @@
+/*
 // <copyright file="CrearInvitacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
@@ -52,3 +53,4 @@ namespace LibraryTests
         }
     }
 }
+*/

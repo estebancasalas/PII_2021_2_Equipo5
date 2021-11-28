@@ -17,7 +17,7 @@ namespace LibraryTests
         private Usuario usuario1 = new Usuario(4567, new EstadoUsuario());
         private Mensaje mensaje1 = new Mensaje(4567, "/Empresario");
         private RegistrarEmpresarioHandler handlerTest1 = new RegistrarEmpresarioHandler();
-        private Empresa empresa = new Empresa("Colgate", "Montevideo", "Metalurgica", "invitación colgate");
+        private Empresa empresa = new Empresa("Colgate", "Montevideo", "Metalurgica", "invitación colgate", "099876543");
 
         /// <summary>
         /// SetUp de los casos de prueba.

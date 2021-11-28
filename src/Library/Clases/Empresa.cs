@@ -78,7 +78,7 @@ namespace Library
         /// Lista con todos los empresarios.
         /// </summary>
         /// <value></value>
-        public List<Empresario> ListaEmpresarios { get; set; }
+        public List<Empresario> ListaEmpresarios { get; set; } = new List<Empresario>();
 
         /// <summary>
         /// Método que crea un string con la información de la empresa.
