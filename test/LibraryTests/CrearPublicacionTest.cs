@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
 
+
 namespace LibraryTests
 {
     /// <summary>
@@ -31,10 +32,7 @@ namespace LibraryTests
             Empresa empresa = new Empresa("Niike", "Montevieo", "Ropa", "1234567890");
             empresa.ListaEmpresarios.Add(user);
             listaEmpresa.Add(empresa);
-            
         }
-        
-        
         
         [Test]
         public void Case0Test()
@@ -47,8 +45,104 @@ namespace LibraryTests
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
 
+        [Test]
+        public void Case1Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 1;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese la categoria:"; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
 
+        [Test]
+        public void Case2Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 2;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese la unidad con la que cuantifica el material:"; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
 
+        [Test]
+        public void Case3Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 3;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese el precio por unidad:"; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
+
+        [Test]
+        public void Case4Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 4;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese la cantidad:"; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
+
+        [Test]
+        public void Case5Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 5;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese habilitaciones necesarias para manipular el material:"; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
+
+        [Test]
+        public void Case7Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 7;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese el título:"; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
+
+        [Test]
+        public void Case8Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 8;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese palabras claves separadas con ',' : "; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
+
+        [Test]
+        public void Case9Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 9;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese frequencia de disponibilidad: "; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
+
+        [Test]
+        public void Case10Test()
+        {
+            Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
+            estado.Step = 10;
+            estado.Handler = "";
+            handler.Handle(mensaje);
+            string expected = "Ingrese dónde se encuentra: "; 
+            Assert.AreEqual(expected, handler.TextResult.ToString());
+        }
 
         /*
         [Test]
