@@ -35,14 +35,16 @@ namespace Library
         /// <summary>
         /// Todos los handlers deben tener un metodo para pasar al siguiente si no existe un comando que actualmente no esté apuntando.
         /// </summary>
-        /// <param name="mensaje">Mensaje escrito por usuario</param>
+        /// <param name="mensaje">Mensaje escrito por usuario.</param>
+        /// <returns>Devuelve un string para el usuario.</returns>
         string Handle(Mensaje mensaje);
+
 
         /// <summary>
         /// Método set para indicar el siguiente handler en la cadena.
         /// </summary>
         /// <param name="handler"> handler que esta indicado a continuacion en la cadena.</param>
-        /// <returns>Retorna cual es el siguiente handler.</returns>
+        /// <returns>Establece el siguiente handler.</returns>
         IHandler SetNext(IHandler handler);
 
         /// <summary>

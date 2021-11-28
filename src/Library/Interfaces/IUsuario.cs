@@ -17,10 +17,11 @@ namespace Library
         /// </summary>
         /// <value></value>
         long Id { get; }
+
         /// <summary>
         /// Atributo que contiene el estado del usuario, utilizado en los handlers.
         /// </summary>
         /// <value></value>
-        EstadoUsuario Estado{ get; set;}
+        EstadoUsuario Estado{ get; set; }
     }
 }

@@ -1,4 +1,6 @@
-/*
+// <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -6,85 +8,228 @@ using Ucu.Poo.Locations.Client;
 
 namespace LibraryTests
 {
-   
+    /// <summary>
+    /// Casos de prueba para buscar la publicacion.
+    /// </summary>
     [TestFixture]
     public class BuscarPublicacionTest
     {
         private Publicacion a;
         private Publicacion b;
         private Publicacion c;
+        private Mensaje mensaje = new Mensaje(1234, string.Empty);
+        private EstadoUsuario estado = new EstadoUsuario();
+        private BuscarPublicacionHandler handler = new BuscarPublicacionHandler();
+        private IHandler nullHandler = new NullHandler();
+        private Usuario user;
 
+        /// <summary>
+        /// Setup del test.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
-            Material madera = new Material("PMadera", 1, 2, "Cantidad", "Habilitación1", "Químicos");
-            Material dos = new Material("Material2", 3, 4, "Cantidad", "Habilitación1", "Plásticos");
-            Material tres = new Material("Material3", 5, 6, "Cantidad", "Habilitación1", "Eléctricos");
+            Material madera = new Material("PMadera", 1, 2, "Cantidad", "Habilitación1", "/Químicos");
+            Material dos = new Material("Material2", 3, 4, "Cantidad", "Habilitación1", "/Plásticos");
+            Material tres = new Material("Material3", 5, 6, "Cantidad", "Habilitación1", "/Eléctricos");
 
             IUbicacion alfa = new Ubicacion("Uruguay", "Montevideo", null, null, null, null);
             IUbicacion beta = new Ubicacion("Uruguay", "Salto", null, null, null, null);
             IUbicacion gamma = new Ubicacion("Uruguay", "Tacuarembo", null, null, null, null);
 
-            Empresa empresa1 = new Empresa("Empresa1", "UbicacionEmpresa1", "maderero", "123");
-            Empresa empresa2 = new Empresa("Empresa2", "UbicacionEmpresa2", "plastico", "1232");
-            Empresa empresa3 = new Empresa("Empresa3", "UbicacionEmpresa3", "electrica", "1233");
+            Empresa empresa1 = new Empresa("Empresa1", "UbicacionEmpresa1", "maderero", "123", "091234567");
+            Empresa empresa2 = new Empresa("Empresa2", "UbicacionEmpresa2", "plastico", "1232", "099557959");
+            Empresa empresa3 = new Empresa("Empresa3", "UbicacionEmpresa3", "electrica", "1233", "098998895");
 
             this.a = new Publicacion("1", madera, "madera", "todos los dias", alfa, empresa1);
             this.b = new Publicacion("2", dos, "plastico", "todos los dias", beta, empresa2);
             this.c = new Publicacion("3", tres, "electrico", "todos los dias", gamma, empresa3);
 
-            ListaDeUsuario listaUsers = new ListaDeUsuario();
-            EstadoUsuario estado = new EstadoUsuario();
-            Usuario fernando = new Usuario(1234, estado);
-            listaUsers.Add(fernando);
+            this.user = new Usuario(1234, this.estado);
+            ListaDeUsuario lista = new ListaDeUsuario();
+            lista.Add(this.user);
+
+            this.handler.SetNext(this.nullHandler);
+            this.handler.resultadoBusqueda.Add(this.a);
+            this.handler.resultadoBusqueda.Add(this.b);
+            this.handler.resultadoBusqueda.Add(this.c);
         }
 
-     
+        /// <summary>
+        /// Prueba el primer paso.
+        /// </summary>
         [Test]
-        public void BusquedaCategoriaTest()
+        public void Case0Test()
         {
-            Dictionary<string, string> diccionario = new Dictionary<string, string>();
-            diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave", "/categoria");
-            diccionario.Add("Que desea buscar?", "Químicos");
-            Mensaje mensaje = new Mensaje(1234, "/buscarpublicacion");
-            BuscarPublicacionHandler buscarCategoria = new BuscarPublicacionHandler();
-            EntaradaDeLaCadena lector = new LectorTest(diccionario);
-            buscarCategoria.Input = lector;
-            buscarCategoria.SetNext(new NullHandler());
-            buscarCategoria.Handle(mensaje);
-            Assert.AreEqual(buscarCategoria.resultadoBusqueda.Contains(this.a), true);
+            this.user.Estado.Step = 0;
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/buscarpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "¿De qué manera desea de buscar la publicación?\n Si desea buscar por categoría --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 1);
         }
 
+        /// <summary>
+        /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por categoría.
+        /// </summary>
         [Test]
-        public void BusquedaPorCiudadTest()
+        public void Case1CategoriaTest()
         {
-            Dictionary<string, string> diccionario = new Dictionary<string, string>();
-            diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave", "/ciudad");
-            diccionario.Add("Que desea buscar?", "Salto");
-            Mensaje mensaje = new Mensaje(1234, "/buscarpublicacion");
-            BuscarPublicacionHandler buscarCiudad = new BuscarPublicacionHandler();
-            EntaradaDeLaCadena lector = new LectorTest(diccionario);
-            buscarCiudad.Input = lector;
-            buscarCiudad.SetNext(new NullHandler());
-            buscarCiudad.Handle(mensaje);
-            Assert.AreEqual(buscarCiudad.resultadoBusqueda.Contains(this.b), true);
+            this.user.Estado.Step = 1;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/categoria";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese la categoría:\n     /Químicos, /Plásticos, /Celulósicos, /Eléctricos, /Textiles";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 2);
         }
 
+        /// <summary>
+        /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por ciudad.
+        /// </summary>
         [Test]
-        public void BusquedaPorPalabrasClaveTest()
+        public void Case1CiudadTest()
         {
-            Dictionary<string, string> diccionario = new Dictionary<string, string>();
-            diccionario.Add("Que tipo de busqueda desea realizar? /categoria, /ciudad, /palabrasclave", "/palabrasclave");
-            diccionario.Add("Que desea buscar?", "electrico");
-            Mensaje mensaje = new Mensaje(1234, "/buscarpublicacion");
-            BuscarPublicacionHandler buscarPalabra = new BuscarPublicacionHandler();
-            EntaradaDeLaCadena lector = new LectorTest(diccionario);
-            buscarPalabra.SetNext(new NullHandler());
-            buscarPalabra.Input = lector;
-            buscarPalabra.Handle(mensaje);
-            Assert.AreEqual(buscarPalabra.resultadoBusqueda.Contains(this.c), true);
+            this.user.Estado.Step = 1;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/ciudad";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese la ciudad";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 2);
+        }
+
+        /// <summary>
+        /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por palabras clave.
+        /// </summary>
+        [Test]
+        public void Case1PalabrasClaveTest()
+        {
+            this.user.Estado.Step = 1;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/palabrasclave";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese palabras clave";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 2);
+        }
+
+        /// <summary>
+        /// Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
+        /// </summary>
+        [Test]
+        public void Case1VacioTest()
+        {
+            this.user.Estado.Step = 1;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = string.Empty;
+            this.handler.Handle(this.mensaje);
+            string expected = "La opción que ingresó no es válida, por favor vuelva a intentarlo.";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 2);
+        }
+
+        /// <summary>
+        /// Prueba el tercer paso del handler.
+        /// </summary>
+        [Test]
+        public void Case2Test()
+        {
+            this.user.Estado.Step = 2;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/Químicos";
+            this.handler.TipoBusqueda = "/categoria";
+            this.handler.Handle(this.mensaje);
+            string expected = "¿Desea realizar una compra?\n 1-Si \n 2-No";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 3);
+        }
+
+        /// <summary>
+        /// Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.
+        /// </summary>
+        [Test]
+        public void Case3ComprarTest()
+        {
+            this.user.Estado.Step = 3;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "1";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese el número de la publicación que desea comprar.";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 4);
+        }
+
+        /// <summary>
+        /// Prueba el cuarto paso del handler, el caso en que el usuario desee realizar una compra.
+        /// </summary>
+        [Test]
+        public void Case3NoComprarTest()
+        {
+            this.user.Estado.Step = 3;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "2";
+            this.handler.Handle(this.mensaje);
+            string expected = "Gracias por buscar en nuestro bot. Si desea realizar otra busqueda vuelva a escribir /buscarpublicacion.";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 0);
+        }
+
+        /// <summary>
+        /// Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
+        /// </summary>
+        [Test]
+        public void Case3NoValidoTest()
+        {
+            this.user.Estado.Step = 3;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = string.Empty;
+            this.handler.Handle(this.mensaje);
+            string expected = "Usted ingresó una opción no válida. Intente nuevamente.";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 3);
+        }
+
+        /// <summary>
+        /// Prueba el quinto paso del handler.
+        /// </summary>
+        [Test]
+        public void Case4Test()
+        {
+            this.user.Estado.Step = 4;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "0";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese la cantidad que desea compar\n(En la unidad especificada en la publicación.)";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 5);
+        }
+
+        /// <summary>
+        /// Prueba el sexto paso del handler.
+        /// </summary>
+        [Test]
+        public void Case5Test()
+        {
+            this.user.Estado.Step = 5;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "0";
+            this.handler.publicacionComprar = this.handler.resultadoBusqueda[0];
+            this.handler.Handle(this.mensaje);
+            string expected = $"La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: 091234567";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 0);
         }
     }
 }
-*/
-

@@ -19,7 +19,7 @@ namespace Library
         /// Método que recorre la lista de transacciones de el usuario y retorna su historial.
         /// </summary>
         /// <param name="id">Nombre de quien quiere ver el historial.</param>
-        /// <returns></returns>
+        /// <returns>String con todas las transacciones hechas por el usuario con ese id.</returns>
         public string EjecutarComando(long id)
         {
             StringBuilder resultado = new StringBuilder("Tus transacciones son:\n");
@@ -27,7 +27,7 @@ namespace Library
 
             foreach (Transaccion transaccion in transacciones)
             {
-                resultado.Append($"{transaccion.Vendedor.Nombre} vendió {transaccion.Cantidad} de {transaccion.NombreDelMaterial} a {transaccion.Comprador.Nombre}\n");
+                resultado.Append($"{transaccion.Vendedor.Nombre} vendió {transaccion.Cantidad} de {transaccion.Material} a {transaccion.Comprador.Nombre}\n");
             }
 
             return resultado.ToString();

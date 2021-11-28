@@ -1,3 +1,8 @@
+
+// <copyright file="CrearPublicacionTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
@@ -30,7 +35,7 @@ namespace LibraryTests
             listaDeUsuario.Add(noempresario);
             Empresario user = new Empresario(9999, estado, "Pablo");
             ListaEmpresa listaEmpresa = new ListaEmpresa();
-            Empresa empresa = new Empresa("Niike", "Montevieo", "Ropa", "1234567890");
+            Empresa empresa = new Empresa("Niike", "Montevieo", "Ropa", "1234567890", "098 673 111");
             empresa.ListaEmpresarios.Add(user);
             listaEmpresa.Add(empresa);
         }

@@ -19,7 +19,7 @@ namespace Library
         /// <summary>
         /// Almacena la manera que el usuario desea buscar una publicación.
         /// </summary>
-        private string tipobusqueda;
+        private string tipoBusqueda;
 
         /// <summary>
         /// Lo que desea buscar.
@@ -27,15 +27,35 @@ namespace Library
         private string busqueda;
 
         /// <summary>
-        /// Método para buscar en la lista de publicaciones.
+        /// Se define la property para los tests.
         /// </summary>
-        /// <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-        
+        /// <value>Lo que ingresa el usuario.</value>
+        public string TipoBusqueda
+        {
+            get { return this.tipoBusqueda; }
+            set { this.tipoBusqueda = value; }
+        }
+
+        /// <summary>
+        /// Lista que contiene todas las publicaciones encontradas.
+        /// </summary>
+
         public List<Publicacion> resultadoBusqueda = new List<Publicacion>();
+
+        /// <summary>
+        /// Atributo que se utiliza para mostrar las publicaciones encontradas al usuario.
+        /// </summary>
+        public Publicacion publicacionComprar;  //public para test
+
+        /// <summary>
+        /// Método Handle. Busca una publicación e interactúa con el usuario.
+        /// </summary>
+        /// <param name="mensaje">Mensaje que recibe del usuario.</param>
+        /// <returns>Los mensajes que le envía al usuario por pantalla.</returns>
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(mensaje.Id);
+            int indice = listaUsuario.Buscar(id: mensaje.Id);
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
             if (mensaje.Text.ToLower() == "/buscarpublicacion" || estado.Handler == "/buscarpublicacion")
             {
@@ -44,16 +64,16 @@ namespace Library
                 {
                     case 0:
                         this.TextResult = new StringBuilder();
-                        this.TextResult.Append("¿De qué manera desea de buscar la publicación?\n Si desea buscar por categoria --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");
+                        this.TextResult.Append("¿De qué manera desea de buscar la publicación?\n Si desea buscar por categoría --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");
                         estado.Step++;
                         break;
 
                     case 1:
                         this.TextResult = new StringBuilder();
-                        this.tipobusqueda = mensaje.Text;
+                        this.tipoBusqueda = mensaje.Text;
                         if (mensaje.Text.ToLower() == "/categoria")
                         {
-                            this.TextResult.Append("Ingrese la categoria:\n     Químicos, Plásticos, Celulósicos, Eléctricos, Textiles");
+                            this.TextResult.Append("Ingrese la categoría:\n     /Químicos, /Plásticos, /Celulósicos, /Eléctricos, /Textiles");
                         }
                         else if (mensaje.Text.ToLower() == "/ciudad")
                         {
@@ -65,7 +85,7 @@ namespace Library
                         }
                         else
                         {
-                            this.TextResult.Append("Usted ingreso una opción invalida. Intente nuevamente.");
+                            this.TextResult.Append("La opción que ingresó no es válida, por favor vuelva a intentarlo.");
                         }
 
                         estado.Step++;
@@ -74,30 +94,29 @@ namespace Library
                     case 2:
                         this.TextResult = new StringBuilder();
                         this.busqueda = mensaje.Text;
-                        BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipobusqueda, this.busqueda);
-                        resultadoBusqueda = buscarPublicacion.EjecutarComando();
+                        BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipoBusqueda, this.busqueda);
+                        this.resultadoBusqueda = buscarPublicacion.EjecutarComando();
                         this.TextResult.Append("¿Desea realizar una compra?\n 1-Si \n 2-No");
+                        estado.Step++;
 
                         // hacer metodo mostrar en pantalla y agregarlo aca.
-                        estado = new EstadoUsuario();
                         break;
 
                     case 3:
                         this.TextResult = new StringBuilder();
                         if (mensaje.Text.ToLower() == "1")
                         {
-                            this.TextResult.Append("Ingrese el numero de la publicación que desea comprar.");
+                            this.TextResult.Append("Ingrese el número de la publicación que desea comprar.");
                             estado.Step++;
                         }
-
                         else if (mensaje.Text.ToLower() == "2")
                         {
+                            this.TextResult.Append("Gracias por buscar en nuestro bot. Si desea realizar otra busqueda vuelva a escribir /buscarpublicacion.");
                             estado.Step = 0;
                         }
-
                         else
                         {
-                            this.TextResult.Append("Usted ingreso una opción invalida. Intente nuevamente.");
+                            this.TextResult.Append("Usted ingresó una opción no válida. Intente nuevamente.");
                         }
 
                         break;
@@ -105,12 +124,26 @@ namespace Library
                     case 4:
                         this.TextResult = new StringBuilder();
                         int indicePublicacion = Int32.Parse(mensaje.Text);
-                        Publicacion publicacion = resultadoBusqueda[indicePublicacion];
-                        // ComprarHandler compra = new ComprarHandler(); Cambiar ComprarHandler.
+                        this.publicacionComprar = this.resultadoBusqueda[indicePublicacion];
+                        this.TextResult.Append("Ingrese la cantidad que desea compar\n(En la unidad especificada en la publicación.)");
+                        estado.Step++;
+                        break;
 
-                        estado = new EstadoUsuario();
+                    case 5:
+                        this.TextResult = new StringBuilder();
+                        float cantidad = float.Parse(mensaje.Text);
+                        ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
+                        Emprendedor comprador = listaEmprendedores.Buscar(mensaje.Id);
+                        Transaccion transaccion = new Transaccion(this.publicacionComprar.Vendedor, comprador, this.publicacionComprar.Material, cantidad);
+                        ListaTransacciones listaTransacciones = Singleton<ListaTransacciones>.Instance;
+                        listaTransacciones.Add(transaccion);
+
+                        this.TextResult.Append($"La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: {publicacionComprar.Vendedor.Contacto}");
+                        estado.Step = 0;
+                        estado.Handler = null;
                         break;
                 }
+
                 return this.TextResult.ToString();
             }
             else

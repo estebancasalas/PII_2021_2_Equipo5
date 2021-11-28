@@ -36,8 +36,7 @@ namespace Library
         private string frecuencia;
 
         public string localizacion;
-        
-        
+
         /// <summary>
         /// Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
         /// datos de materiales y llama a la clase CrearMaterial para cumplir con el SRP. Luego, se
@@ -139,7 +138,9 @@ namespace Library
                         Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
                         Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
                         this.TextResult.Append("Tú publicación ahora se encuentra activa.");
-                        estado = new EstadoUsuario();
+                        estado.Step = 0;
+                        estado.Handler = null;
+
                         break;
                     }
                 }

@@ -14,13 +14,13 @@ namespace Library
     /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por Palabras clave.
     /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
     /// </summary>
-    public class BusquedaKeyWord : AbstractBuscar
+    public class BusquedaKeyWord
     {
         /// <summary>
         /// Busqueda por palabras clave. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
         /// </summary>
         /// <param name="palabras">Palabra clave que ayuda a la busqueda.</param>
-        /// <returns></returns>
+        /// <returns>Devuelve las publicaciones que cumplen con la búsqueda.</returns>
         public List<Publicacion> Buscar(string palabras)
         {
             List<Publicacion> result = new List<Publicacion>();

@@ -1,4 +1,5 @@
-/*/ <copyright file="CrearInvitacionTest.cs" company="PlaceholderCompany">
+/*
+// <copyright file="CrearInvitacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
