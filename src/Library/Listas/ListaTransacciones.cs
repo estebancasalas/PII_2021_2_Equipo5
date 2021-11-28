@@ -21,6 +21,7 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns>Lista con todas las transacciones.</returns>
+
         public List<Transaccion> Transacciones = Singleton<List<Transaccion>>.Instance;
 
         /// <summary>
@@ -51,7 +52,7 @@ namespace Library
             Empresa empresa = lista.Buscar(id);
             foreach (Transaccion transaccion in this.Transacciones)
             {
-                if (transaccion.Vendedor == empresa || transaccion.Comprador.Id == id) 
+                if (transaccion.Vendedor == empresa || transaccion.Comprador.Id == id)
                 {
                     resultado.Add(transaccion);
                 }

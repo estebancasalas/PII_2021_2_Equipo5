@@ -18,7 +18,7 @@ namespace Library
         private static T instance;
 
         /// <summary>
-        /// Gets se crea una nueva instancia solo si no existe previamente.
+        /// Obtiene gets se crea una nueva instancia solo si no existe previamente.
         /// </summary>
         /// <value>Se guarda una nueva instancia.</value>
         public static T Instance

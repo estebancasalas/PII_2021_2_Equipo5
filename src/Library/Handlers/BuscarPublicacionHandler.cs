@@ -39,6 +39,7 @@ namespace Library
         /// <summary>
         /// Lista que contiene todas las publicaciones encontradas.
         /// </summary>
+
         public List<Publicacion> resultadoBusqueda = new List<Publicacion>();
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace Library
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(mensaje.Id);
+            int indice = listaUsuario.Buscar(id: mensaje.Id);
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
             if (mensaje.Text.ToLower() == "/buscarpublicacion" || estado.Handler == "/buscarpublicacion")
             {

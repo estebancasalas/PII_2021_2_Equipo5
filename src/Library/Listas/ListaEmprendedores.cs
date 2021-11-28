@@ -67,6 +67,7 @@ namespace Library
         /// </summary>
         /// <param name="id">Id del emprendedor a buscar.</param>
         /// <returns>Devuelve el emprendedor correspondiente al id.</returns>
+
         public Emprendedor Buscar(long id)
         {
             return this.Emprendedores.Find(x => x.Id == id);

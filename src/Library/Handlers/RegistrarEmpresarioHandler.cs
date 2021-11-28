@@ -16,12 +16,33 @@ namespace Library
     /// </summary>
     public class RegistrarEmpresarioHandler : AbstractHandler
     {
-        private bool invitacionValida;
+        /// <summary>
+        /// Obtiene o establece un valor que indica si la invitación es válida.
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Booleano que es resultado de la verificación de la invitación.</value>
+        public bool InvitacionValida { get; set; }
 
-        private string invitacion;
+        /// <summary>
+        /// Obtiene o establece la propiedad en donde se guarda la invitación.
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Código de invitación que introduce el usuario.</value>
+        public string Invitacion { get; set; }
 
-        private string nombre;
-        private Empresa empresa;
+        /// <summary>
+        /// Obtiene o establece la propiedad en donde se guarda el nombre.
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Nombre que ingresa el usuario al interactuar con el bot.</value>
+        public string Nombre { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece la propiedad en donde se guarda o establece la empresa en donde se registro el empresario..
+        /// Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+        /// </summary>
+        /// <value>Empresa donde se registra el empresario.</value>
+        public Empresa Empresa { get; set; }
 
         /// <summary>
         /// Método encargado de verificar si la invitación es válida. En caso de que lo sea y el
@@ -32,12 +53,14 @@ namespace Library
         /// <returns>Returna respuesta a la peticion del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
+            ListaEmpresa listaEmpresa = new ListaEmpresa();
+            ListaEmprendedores listaEmprendedores = new ListaEmprendedores();
             ListaDeUsuario listaUsuarios = new ListaDeUsuario();
             int indice = listaUsuarios.Buscar(mensaje.Id);
             EstadoUsuario estado = listaUsuarios.ListaUsuarios[indice].Estado;
-            if (mensaje.Text.ToLower() == "/empresario" || estado.Handler == "/empresario")
+            if (mensaje.Text.ToLower() == "/empresario" || estado.Handler.ToLower() == "/empresario")
             {
-                if (!listaUsuarios.EstaRegistrado(mensaje.Id))
+                if (!listaEmpresa.Verificar(mensaje.Id) && (listaEmprendedores.Buscar(mensaje.Id) == null))
                 {
                     estado.Handler = "/empresario";
                     switch (estado.Step)
@@ -50,14 +73,14 @@ namespace Library
 
                         case 1:
                         this.TextResult = new StringBuilder();
-                        this.invitacion = mensaje.Text;
+                        this.Invitacion = mensaje.Text;
                         ListaInvitaciones verificador = Singleton<ListaInvitaciones>.Instance;
-                        this.invitacionValida = verificador.VerificarInvitacion(this.invitacion);
-                        if (this.invitacionValida)
+                        this.InvitacionValida = verificador.VerificarInvitacion(this.Invitacion);
+                        if (this.InvitacionValida)
                         {
                             List<Empresa> lista = Singleton<ListaEmpresa>.Instance.Empresas;
-                            this.empresa = lista.Find(x => x.Invitacion == this.invitacion);
-                            this.TextResult.Append("Ingrese nombre: ");
+                            this.Empresa = lista.Find(x => x.Invitacion == this.Invitacion);
+                            this.TextResult.Append("Ingrese su nombre: ");
                         }
                         else
                         {
@@ -69,17 +92,19 @@ namespace Library
 
                         case 2:
                         this.TextResult = new StringBuilder();
-                        this.nombre = mensaje.Text;
-                        Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), this.nombre);
-                        this.empresa.ListaEmpresarios.Add(empresario);
+                        this.Nombre = mensaje.Text;
+                        Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), this.Nombre);
+                        this.Empresa.ListaEmpresarios.Add(empresario);
                         estado.Step = 0;
                         estado.Handler = null;
+                        this.TextResult.Append($"{this.Nombre}, te has registrado a {this.Empresa.Nombre} correctamente");
                         break;
                     }
                 }
                 else
                 {
-                    this.TextResult.Append("Usted ya esta registrado.");
+                    this.TextResult = new StringBuilder();
+                    this.TextResult.Append("Usted ya está registrado.");
                 }
 
                 return this.TextResult.ToString();

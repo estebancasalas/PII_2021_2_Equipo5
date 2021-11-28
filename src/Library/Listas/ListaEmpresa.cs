@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// <copyright file="ListaEmpresa.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -5,11 +11,10 @@ using System.Text.Json.Serialization;
 namespace Library
 {
     /// <summary>
-    /// Clase que contiene una lista en la cual están todas las empresas. 
+    /// Clase que contiene una lista en la cual están todas las empresas.
     /// Cumple con el principio SRP ya que su única responsabilidad es conocer los empresas.
     /// </summary>
-    public class
-    ListaEmpresa : IJsonConvertible
+    public class ListaEmpresa : IJsonConvertible
     {
 
         /// <summary>

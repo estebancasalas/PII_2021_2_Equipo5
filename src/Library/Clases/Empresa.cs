@@ -77,6 +77,7 @@ namespace Library
         /// Método que crea un string con la información de la empresa.
         /// </summary>
         /// <returns>Devuelve el string con la información de la empresa.</returns>
+
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();

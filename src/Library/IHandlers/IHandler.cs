@@ -39,6 +39,7 @@ namespace Library
         /// <returns>Devuelve un string para el usuario.</returns>
         string Handle(Mensaje mensaje);
 
+
         /// <summary>
         /// Método set para indicar el siguiente handler en la cadena.
         /// </summary>

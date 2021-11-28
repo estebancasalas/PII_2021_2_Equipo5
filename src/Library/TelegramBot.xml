@@ -772,6 +772,41 @@
             usuario.
             </summary>
         </member>
+        <member name="P:Library.CrearEmprendedorHandler.Nombre">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda el nombre.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Nombre que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.CrearEmprendedorHandler.Rubro">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda el rubro.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Rubro que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.CrearEmprendedorHandler.Ubicacion">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda la ubicacion.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Ubicacion que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.CrearEmprendedorHandler.Habilitacion">
+            <summary>
+            Obtiene o establece la propiedad en donde se guardan las habilitaciones.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Habilitaciones que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.CrearEmprendedorHandler.Especializaciones">
+            <summary>
+            Obtiene o establece la propiedad en donde se guardan las especializaciones.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Especializaciones que ingresa el usuario al interactuar con el bot.</value>
+        </member>
         <member name="M:Library.CrearEmprendedorHandler.Handle(Library.Mensaje)">
             <summary>
             Método encargado de crear un emprendedor. El mismo interactúa con el usuario para que le
@@ -930,6 +965,34 @@
             porque interactúa con el usuario.
             </summary>
         </member>
+        <member name="P:Library.RegistrarEmpresarioHandler.InvitacionValida">
+            <summary>
+            Obtiene o establece un valor que indica si la invitación es válida.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Booleano que es resultado de la verificación de la invitación.</value>
+        </member>
+        <member name="P:Library.RegistrarEmpresarioHandler.Invitacion">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda la invitación.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Código de invitación que introduce el usuario.</value>
+        </member>
+        <member name="P:Library.RegistrarEmpresarioHandler.Nombre">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda el nombre.
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Nombre que ingresa el usuario al interactuar con el bot.</value>
+        </member>
+        <member name="P:Library.RegistrarEmpresarioHandler.Empresa">
+            <summary>
+            Obtiene o establece la propiedad en donde se guarda o establece la empresa en donde se registro el empresario..
+            Debería ser privada pero esta publica ya que la nesecitamos utilizar en los tests.
+            </summary>
+            <value>Empresa donde se registra el empresario.</value>
+        </member>
         <member name="M:Library.RegistrarEmpresarioHandler.Handle(Library.Mensaje)">
             <summary>
             Método encargado de verificar si la invitación es válida. En caso de que lo sea y el
@@ -1049,7 +1112,7 @@
         </member>
         <member name="P:Library.Singleton`1.Instance">
             <summary>
-            Gets se crea una nueva instancia solo si no existe previamente.
+            Obtiene gets se crea una nueva instancia solo si no existe previamente.
             </summary>
             <value>Se guarda una nueva instancia.</value>
         </member>
@@ -1314,7 +1377,7 @@
         </member>
         <member name="T:Library.ListaEmpresa">
             <summary>
-            Clase que contiene una lista en la cual están todas las empresas. 
+            Clase que contiene una lista en la cual están todas las empresas.
             Cumple con el principio SRP ya que su única responsabilidad es conocer los empresas.
             </summary>
         </member>
