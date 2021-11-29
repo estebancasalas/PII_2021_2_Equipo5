@@ -330,7 +330,7 @@
             </summary>
             <value>Guarda la categoria del material.</value>
         </member>
-        <member name="F:Library.Material.PosiblesCategorias">
+        <member name="P:Library.Material.PosiblesCategorias">
             <summary>
             Lista que contiene las categorías del material.
             </summary>
@@ -855,14 +855,12 @@
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="M:Library.FinalizarHandler.#ctor(Library.IHandler)">
+        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
             <summary>
             Initializes a new instance of the <see cref="T:Library.FinalizarHandler"/> class.
             Constructor de la clase.
             </summary>
             <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro.</param>
-        </member>
-        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
             <summary>
             Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
             </summary>
