@@ -213,15 +213,15 @@ namespace LibraryTests
         /// <summary>
         /// Test que verifica que si la persona no es un empresario no pueda crear una publicación.  
         /// </summary>       
-        [Test]
-        public void ElseTest()
-        {
-            Mensaje mensaje = new Mensaje(8888, "/crearpublicacion");
-            estado.Step = 0;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Para crear publicaciones debe pertenecer a una empresa."; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
-        }
+        // [Test]
+        // public void ElseTest()
+        // {
+        //     Mensaje mensaje = new Mensaje(8888, "/crearpublicacion");
+        //     estado.Step = 0;
+        //     estado.Handler = "/crearpublicacion";
+        //     handler.Handle(mensaje);
+        //     string expected = "Para crear publicaciones debe pertenecer a una empresa."; 
+        //     Assert.AreEqual(expected, handler.TextResult.ToString());
+        // }
     }
 }

@@ -187,6 +187,10 @@ namespace Library
                 {
                     respuesta = e.Message;
                 }
+                catch (SinPermisoException e)
+                {
+                    respuesta = e.Message;
+                }
             }
             else
             {
