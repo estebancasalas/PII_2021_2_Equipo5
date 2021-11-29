@@ -70,6 +70,16 @@ namespace Library
 
                     case 1:
                         this.TextResult = new StringBuilder();
+
+                        try 
+                        {
+                            List<string> lista = new List<string>() {"/categoria", "/ciudad", "/palabrasclave"};
+                            if (!lista.Contains(mensaje.Text))
+                            {
+                                throw 
+                            }
+                        }
+
                         this.tipoBusqueda = mensaje.Text;
                         if (mensaje.Text.ToLower() == "/categoria")
                         {
