@@ -25,6 +25,7 @@ namespace Library
         /// Lo que desea buscar.
         /// </summary>
         public string busqueda;
+        public float cantidad;
 
         /// <summary>
         /// Lista que contiene todas las publicaciones encontradas.
@@ -59,17 +60,23 @@ namespace Library
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
             if (mensaje.Text.ToLower() == "/buscarpublicacion" || estado.Handler == "/buscarpublicacion")
             {
+                this.TextResult = new StringBuilder();
                 estado.Handler = "/buscarpublicacion";
                 switch (estado.Step)
                 {
                     case 0:
-                        this.TextResult = new StringBuilder();
                         this.TextResult.Append("¿De qué manera desea de buscar la publicación?\n Si desea buscar por categoría --> /categoria \n Si desea buscar por ciudad --> /ciudad \n Si desea buscar por palabras claves --> /palabrasclave");
                         estado.Step++;
                         break;
 
                     case 1:
-                        this.TextResult = new StringBuilder();
+                        List<string> lista = new List<string>() { "/categoria", "/ciudad", "/palabrasclave" };
+
+                        if (!lista.Contains(mensaje.Text))
+                        {
+                            throw new OpcionInvalidaException("El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.");
+                        }
+
                         this.tipoBusqueda = mensaje.Text;
                         if (mensaje.Text.ToLower() == "/categoria")
                         {
@@ -83,16 +90,16 @@ namespace Library
                         {
                             this.TextResult.Append("Ingrese palabras clave");
                         }
-                        else
-                        {
-                            this.TextResult.Append("La opción que ingresó no es válida, por favor vuelva a intentarlo.");
-                        }
 
                         estado.Step++;
                         break;
 
                     case 2:
-                        this.TextResult = new StringBuilder();
+                        if (this.tipoBusqueda == "/categoria" && !Material.PosiblesCategorias.Contains(mensaje.Text))
+                        {
+                            throw new OpcionInvalidaException("Lo siento, la categoría ingresada no es válida. Por favor vuelva a intentarlo.");
+                        }
+
                         this.busqueda = mensaje.Text;
                         BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipoBusqueda, this.busqueda);
                         this.resultadoBusqueda = buscarPublicacion.EjecutarComando();
@@ -115,11 +122,14 @@ namespace Library
                             estado.Handler = String.Empty;
                         }
 
-
                         break;
 
                     case 3:
-                        this.TextResult = new StringBuilder();
+                        if (mensaje.Text != "1" && mensaje.Text != "2")
+                        {
+                            throw new OpcionInvalidaException("Lo siento, la opción no es válida. Ingrese nuevamente.");
+                        }
+
                         if (mensaje.Text.ToLower() == "1")
                         {
                             this.TextResult.Append("Ingrese el número de la publicación que desea comprar.");
@@ -130,24 +140,41 @@ namespace Library
                             this.TextResult.Append("Gracias por buscar en nuestro bot. Si desea realizar otra busqueda vuelva a escribir /buscarpublicacion.");
                             estado.Step = 0;
                         }
-                        else
-                        {
-                            this.TextResult.Append("Usted ingresó una opción no válida. Intente nuevamente.");
-                        }
 
                         break;
 
                     case 4:
-                        this.TextResult = new StringBuilder();
-                        int indicePublicacion = Int32.Parse(mensaje.Text) - 1;
-                        this.publicacionComprar = this.resultadoBusqueda[indicePublicacion];
+                        try
+                        {
+                            int indicePublicacion = Int32.Parse(mensaje.Text) - 1;
+                            this.publicacionComprar = this.resultadoBusqueda[indicePublicacion];
+                        }
+                        catch (FormatException)
+                        {
+                            throw new FormatException("Lo siento, no entendí el mensaje. Por favor ingrese únicamente un número.");
+                        }
+                        catch (ArgumentOutOfRangeException)
+                        {
+                            throw new IndexOutOfRangeException("Usted no ingresó un número de publicación válido. Por favor, intente nuevamente.");
+                        }
+
+                        // En vez de la excepción anterior, se podría lanzar IndexOutOfRangeException en la línea siguiente y manejarla
+                        // en la clase program, pero nos pareció que manejar nuestra excepción podría resultar más específico para este caso.
+
                         this.TextResult.Append("Ingrese la cantidad que desea compar\n(En la unidad especificada en la publicación.)");
                         estado.Step++;
                         break;
 
                     case 5:
-                        this.TextResult = new StringBuilder();
-                        float cantidad = float.Parse(mensaje.Text);
+                        try 
+                        {
+                            cantidad = float.Parse(mensaje.Text);
+                        }
+                        catch
+                        {
+                            throw new FormatException("Lo siento, no entendí el mensaje. Por favor ingrese únicamente un número.");
+                        }
+                        
                         ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
                         Emprendedor comprador = listaEmprendedores.Buscar(mensaje.Id);
                         Transaccion transaccion = new Transaccion(this.publicacionComprar.Vendedor, comprador, this.publicacionComprar.Material, cantidad);
