@@ -34,7 +34,7 @@ namespace LibraryTests
             Material dos = new Material("Material2", 3, 4, "Cantidad", "Habilitación1", "/Plasticos");
             Material tres = new Material("Material3", 5, 6, "Cantidad", "Habilitación1", "/Electricos");
 
-            IUbicacion alfa = new Ubicacion("Uruguay", "Montevideo", null, null, null, null);
+            IUbicacion alfa = new Ubicacion("Uruguay", "Montevideo", "18", null, null, null);
             IUbicacion beta = new Ubicacion("Uruguay", "Salto", null, null, null, null);
             IUbicacion gamma = new Ubicacion("Uruguay", "Tacuarembo", null, null, null, null);
 
@@ -139,7 +139,6 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 2);
         }
 
-
         /// <summary>
         /// Prueba el tercer paso del handler.
         /// </summary>
@@ -158,26 +157,25 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 0);
             Assert.AreEqual(this.handler.busqueda, this.mensaje.Text);
         }
-    
+
         /// <summary>
         /// Test que prueba el tercer paso del handler cuando existen publicaciones. 
         /// </summary>
-        // [Test]
-        // public void Case2ConPublicacionTest()
-        // {
-        //     this.handler.resultadoBusqueda.Add(this.a);
-        //     this.user.Estado.Step = 2;
-        //     this.user.Estado.Handler = "/buscarpublicacion";
-        //     this.mensaje.Id = 1234;
-        //     this.mensaje.Text = "/Químicos";
-        //     this.handler.TipoBusqueda = "/categoria";
-        //     this.handler.Handle(this.mensaje);
-           
-        //     string expected = "Título: ";
-        //     Assert.AreEqual(expected, this.handler.TextResult.ToString());
-        //     Assert.AreEqual(this.user.Estado.Step, 0);
-        //     Assert.AreEqual(this.handler.Busqueda, this.mensaje.Text);
-        // }
+        [Test]
+        public void Case2ConPublicacionTest()
+        {
+            this.handler.resultadoBusqueda.Add(this.a);
+            this.user.Estado.Step = 2;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "/Quimicos";
+            this.handler.TipoBusqueda = "/categoria";
+            this.handler.Handle(this.mensaje);
+            string expected = "Publicación 1:\nTítulo: 1\nMaterial: Nombre: PMadera\nCosto: 1\nCantidad: 2\nUnidad: Cantidad\nHabilitaciones: Habilitación1\n\nPalabras clave: madera\nFrecuencia de disponibilidad: todos los dias\nUbicación: 18, Montevideo, Uruguay\nVendedor: Empresa1\n\n\n¿Desea realizar una compra?\n 1-Si \n 2-No";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
+            Assert.AreEqual(this.user.Estado.Step, 3);
+            Assert.AreEqual(this.handler.busqueda, this.mensaje.Text);
+        }
 
         /// <summary>
         /// Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.

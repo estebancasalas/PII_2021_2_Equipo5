@@ -39,6 +39,11 @@
             Prueba el tercer paso del handler.
             </summary>
         </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case2ConPublicacionTest">
+            <summary>
+            Test que prueba el tercer paso del handler cuando existen publicaciones. 
+            </summary>
+        </member>
         <member name="M:LibraryTests.BuscarPublicacionTest.Case3ComprarTest">
             <summary>
             Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.
