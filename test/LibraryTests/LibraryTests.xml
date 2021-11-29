@@ -49,6 +49,11 @@
             Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
             </summary>
         </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case4Test">
+            <summary>
+            Prueba el quinto paso del handler.
+            </summary>
+        </member>
         <member name="M:LibraryTests.BuscarPublicacionTest.Case5Test">
             <summary>
             Prueba el sexto paso del handler.

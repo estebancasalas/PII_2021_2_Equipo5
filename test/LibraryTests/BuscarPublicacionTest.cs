@@ -157,7 +157,7 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 0);
             Assert.AreEqual(this.handler.Busqueda, this.mensaje.Text);
         }
-    */
+    
         /// <summary>
         /// Test que prueba el tercer paso del handler cuando existen publicaciones. 
         /// </summary>
@@ -225,23 +225,23 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 3);
         }
-/*
+
         /// <summary>
         /// Prueba el quinto paso del handler.
         /// </summary>
         [Test]
         public void Case4Test()
         {
+            this.handler.resultadoBusqueda.Add(a);
             this.user.Estado.Step = 4;
             this.user.Estado.Handler = "/buscarpublicacion";
             this.mensaje.Id = 1234;
-            this.mensaje.Text = "0";
+            this.mensaje.Text = "1";
             this.handler.Handle(this.mensaje);
             string expected = "Ingrese la cantidad que desea compar\n(En la unidad especificada en la publicación.)";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 5);
         }
-    */
 
         /// <summary>
         /// Prueba el sexto paso del handler.
