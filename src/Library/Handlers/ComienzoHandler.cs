@@ -37,13 +37,13 @@ namespace Library
                         .Append("/cantidadtrabajadores\n")
                         .Append("/crearinvitacion\n")
                         .Append("/historial\n")
-                        .Append("/finalizar\n")
+                        .Append("/salir\n")
                         .Append("Como emprendedor tus comandos son: \n")
                         .Append("/emprendedor\n")
                         .Append("/buscarpublicacion\n")
                         .Append("/historial\n")
                         .Append("/comprar\n")
-                        .Append("/finalizar\n");
+                        .Append("/salir\n");
                 return this.TextResult.ToString();
             }
             else

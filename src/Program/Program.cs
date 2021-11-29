@@ -183,6 +183,10 @@ namespace Library
                 {
                     respuesta = e.Message;
                 }
+                catch (YaRegistradoException e)
+                {
+                    respuesta = e.Message;
+                }
             }
             else
             {
