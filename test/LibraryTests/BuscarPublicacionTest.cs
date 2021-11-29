@@ -30,9 +30,9 @@ namespace LibraryTests
         [SetUp]
         public void Setup()
         {
-            Material madera = new Material("PMadera", 1, 2, "Cantidad", "Habilitación1", "/Químicos");
-            Material dos = new Material("Material2", 3, 4, "Cantidad", "Habilitación1", "/Plásticos");
-            Material tres = new Material("Material3", 5, 6, "Cantidad", "Habilitación1", "/Eléctricos");
+            Material madera = new Material("PMadera", 1, 2, "Cantidad", "Habilitación1", "/Quimicos");
+            Material dos = new Material("Material2", 3, 4, "Cantidad", "Habilitación1", "/Plasticos");
+            Material tres = new Material("Material3", 5, 6, "Cantidad", "Habilitación1", "/Electricos");
 
             IUbicacion alfa = new Ubicacion("Uruguay", "Montevideo", null, null, null, null);
             IUbicacion beta = new Ubicacion("Uruguay", "Salto", null, null, null, null);
@@ -138,7 +138,8 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
         }
-/*
+
+
         /// <summary>
         /// Prueba el tercer paso del handler.
         /// </summary>
@@ -149,13 +150,13 @@ namespace LibraryTests
             this.user.Estado.Step = 2;
             this.user.Estado.Handler = "/buscarpublicacion";
             this.mensaje.Id = 1234;
-            this.mensaje.Text = "/Químicos";
+            this.mensaje.Text = "/Quimicos";
             this.handler.TipoBusqueda = "/categoria";
             this.handler.Handle(this.mensaje);
             string expected = "No se encontraron publicaciones que coincidan con esos parámetros. Vuelva a escribir /buscarpublicacion para realizar otra búsqueda.";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 0);
-            Assert.AreEqual(this.handler.Busqueda, this.mensaje.Text);
+            Assert.AreEqual(this.handler.busqueda, this.mensaje.Text);
         }
     
         /// <summary>
