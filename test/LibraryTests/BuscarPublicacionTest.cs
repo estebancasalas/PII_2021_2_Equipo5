@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
 using Ucu.Poo.Locations.Client;
+using System.Text;
 
 namespace LibraryTests
 {
@@ -81,7 +82,7 @@ namespace LibraryTests
             this.mensaje.Id = 1234;
             this.mensaje.Text = "/categoria";
             this.handler.Handle(this.mensaje);
-            string expected = "Ingrese la categoría:\n     /Químicos, /Plásticos, /Celulósicos, /Eléctricos, /Textiles";
+            string expected = "Ingrese la categoría:\n  /Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
             Assert.AreEqual(this.handler.TipoBusqueda, this.mensaje.Text);
@@ -141,19 +142,39 @@ namespace LibraryTests
         /// Prueba el tercer paso del handler.
         /// </summary>
         [Test]
-        public void Case2Test()
+        public void Case2SinPublicacionTest()
         {
+            this.handler.resultadoBusqueda.Clear();
             this.user.Estado.Step = 2;
             this.user.Estado.Handler = "/buscarpublicacion";
             this.mensaje.Id = 1234;
             this.mensaje.Text = "/Químicos";
             this.handler.TipoBusqueda = "/categoria";
             this.handler.Handle(this.mensaje);
-            string expected = "¿Desea realizar una compra?\n 1-Si \n 2-No";
+            string expected = "No se encontraron publicaciones que coincidan con esos parámetros. Vuelva a escribir /buscarpublicacion para realizar otra búsqueda.";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
-            Assert.AreEqual(this.user.Estado.Step, 3);
+            Assert.AreEqual(this.user.Estado.Step, 0);
             Assert.AreEqual(this.handler.Busqueda, this.mensaje.Text);
         }
+        /// <summary>
+        /// Test que prueba el tercer paso del handler cuando existen publicaciones. 
+        /// </summary>
+        // [Test]
+        // public void Case2ConPublicacionTest()
+        // {
+        //     this.handler.resultadoBusqueda.Add(this.a);
+        //     this.user.Estado.Step = 2;
+        //     this.user.Estado.Handler = "/buscarpublicacion";
+        //     this.mensaje.Id = 1234;
+        //     this.mensaje.Text = "/Químicos";
+        //     this.handler.TipoBusqueda = "/categoria";
+        //     this.handler.Handle(this.mensaje);
+           
+        //     string expected = "Título: ";
+        //     Assert.AreEqual(expected, this.handler.TextResult.ToString());
+        //     Assert.AreEqual(this.user.Estado.Step, 0);
+        //     Assert.AreEqual(this.handler.Busqueda, this.mensaje.Text);
+        // }
 
         /// <summary>
         /// Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.

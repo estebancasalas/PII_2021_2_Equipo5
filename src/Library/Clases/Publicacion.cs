@@ -76,7 +76,7 @@ namespace Library
             resultado.Append($"Material: {this.Material.ConvertToString()}\n");
             resultado.Append($"Palabras clave: {this.PalabrasClave}\n");
             resultado.Append($"Frecuencia de disponibilidad: {this.FrecuenciaDeDisponibilidad}\n");
-            resultado.Append($"Ubicación: {this.Ubicacion}\n");
+            resultado.Append($"Ubicación: {this.Ubicacion.Direccion}, {this.Ubicacion.Ciudad}, {this.Ubicacion.Pais}\n");
             resultado.Append($"Vendedor: {this.Vendedor.Nombre}\n");
             return resultado.ToString();
         }

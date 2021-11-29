@@ -62,7 +62,7 @@ namespace Library
         public StringBuilder Mostrar(List<IConversorTexto> lista)
         {
             StringBuilder resultado = new StringBuilder();
-            if (lista != null)
+            if (lista.Count != 0)
             {
                 foreach (IConversorTexto item in lista)
                 {
@@ -96,5 +96,7 @@ namespace Library
             listaPubl = JsonSerializer.Deserialize<List<Publicacion>>(json);
             this.Activas = listaPubl;
         }
+        
+        
     }
 }
