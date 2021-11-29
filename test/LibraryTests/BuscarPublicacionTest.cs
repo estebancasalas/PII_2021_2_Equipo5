@@ -122,7 +122,7 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 2);
             Assert.AreEqual(this.handler.TipoBusqueda, this.mensaje.Text);
         }
-
+/*
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
         /// </summary>
@@ -138,8 +138,8 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
         }
-
-
+*/
+/*
         /// <summary>
         /// Prueba el tercer paso del handler.
         /// </summary>
@@ -158,7 +158,7 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 0);
             Assert.AreEqual(this.handler.busqueda, this.mensaje.Text);
         }
-    
+ */   
         /// <summary>
         /// Test que prueba el tercer paso del handler cuando existen publicaciones. 
         /// </summary>
@@ -210,7 +210,7 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 0);
         }
-
+/*
         /// <summary>
         /// Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
         /// </summary>
@@ -226,6 +226,7 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 3);
         }
+*/
 /*
         /// <summary>
         /// Prueba el quinto paso del handler.
