@@ -126,16 +126,24 @@ namespace LibraryTests
         [Test]
         public void UsuarioRegistradoTest()
         {
-            Emprendedor emprendedor = new Emprendedor(4321, "Pedro", "A.v 8 de Octubre 2347", "Metalúrgico", "Si.", "Aluminio");
+            Emprendedor emprendedor = new Emprendedor(4321, "Pedro", "Av. 8 de Octubre 2347", "Metalúrgico", "Si.", "Aluminio");
             ListaEmprendedores listaEmprendedores = new ListaEmprendedores();
             listaEmprendedores.Add(emprendedor);
             Usuario usuario = new Usuario(4321, new EstadoUsuario());
             ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
             listaDeUsuario.Add(usuario);
             Mensaje mensaje1 = new Mensaje(4321, "/Emprendedor");
-            this.handlerTest.Handle(mensaje1);
+            string resultado = string.Empty;
+            try
+            {
+                this.handlerTest.Handle(mensaje1);
+            }
+            catch (YaRegistradoException)
+            {
+                resultado = "Usted ya está registrado.";
+            }
             string expected = "Usted ya está registrado.";
-            Assert.AreEqual(expected, this.handlerTest.TextResult.ToString());
+            Assert.AreEqual(expected, resultado);
         }
     }
 }
