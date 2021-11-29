@@ -61,7 +61,7 @@ namespace Library
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();
-            resultado.Append($"Material: {this.Material}\n");
+            resultado.Append($"Material: {this.Material.Nombre}\n");
             resultado.Append($"Cantidad: {this.Cantidad}\n");
             resultado.Append($"Vendedor: {this.Vendedor.Nombre}\n");
             resultado.Append($"Comprador: {this.Comprador.Nombre}\n");

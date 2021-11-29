@@ -83,7 +83,7 @@ namespace Library
                         this.tipoBusqueda = mensaje.Text;
                         if (mensaje.Text.ToLower() == "/categoria")
                         {
-                            this.TextResult.Append("Ingrese la categoría:\n  /Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles");
+                            this.TextResult.Append("Ingrese la categoría:\n  /quimicos, /plasticos, /celulosicos, /electricos, /textiles, /metalicos, /MetalicosFerrosos, /Solventes, /Vidrio, /ResiduosOrganicos, /Otros");
                         }
                         else if (mensaje.Text.ToLower() == "/ciudad")
                         {
@@ -149,7 +149,7 @@ namespace Library
 
                     case 4:
                         this.TextResult = new StringBuilder();
-                        int indicePublicacion = Int32.Parse(mensaje.Text);
+                        int indicePublicacion = Int32.Parse(mensaje.Text) - 1;
                         this.publicacionComprar = this.resultadoBusqueda[indicePublicacion];
                         this.TextResult.Append("Ingrese la cantidad que desea compar\n(En la unidad especificada en la publicación.)");
                         estado.Step++;
@@ -166,7 +166,7 @@ namespace Library
 
                         this.TextResult.Append($"La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: {publicacionComprar.Vendedor.Contacto}");
                         estado.Step = 0;
-                        estado.Handler = null;
+                        estado.Handler = string.Empty;
                         break;
                 }
 

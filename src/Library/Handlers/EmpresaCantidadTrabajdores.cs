@@ -52,7 +52,7 @@ namespace Library
 
                     this.TextResult.Append($"La cantidad de trabajadores de la empresa es: {lista[i].ListaEmpresarios.Count}");
                     estado.Step = 0;
-                    estado.Handler = null;
+                    estado.Handler = string.Empty;
                 }
                 else
                 {

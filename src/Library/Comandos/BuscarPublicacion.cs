@@ -34,7 +34,7 @@ namespace Library
         /// <summary>
         /// Lista de coincidencias de la búsqueda.
         /// </summary>
-        public List<Publicacion> Result;
+        public List<Publicacion> Result = new List<Publicacion>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BuscarPublicacion"/> class.
