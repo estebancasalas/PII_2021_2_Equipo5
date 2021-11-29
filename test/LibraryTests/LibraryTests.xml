@@ -19,11 +19,6 @@
             Prueba el primer paso.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case1CategoriaTest">
-            <summary>
-            Prueba el segundo paso del handler, el caso en que el usuario desee buscar por categoría.
-            </summary>
-        </member>
         <member name="M:LibraryTests.BuscarPublicacionTest.Case1CiudadTest">
             <summary>
             Prueba el segundo paso del handler, el caso en que el usuario desee buscar por ciudad.
@@ -39,11 +34,6 @@
             Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case2SinPublicacionTest">
-            <summary>
-            Prueba el tercer paso del handler.
-            </summary>
-        </member>
         <member name="M:LibraryTests.BuscarPublicacionTest.Case3ComprarTest">
             <summary>
             Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.
@@ -57,11 +47,6 @@
         <member name="M:LibraryTests.BuscarPublicacionTest.Case3NoValidoTest">
             <summary>
             Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case4Test">
-            <summary>
-            Prueba el quinto paso del handler.
             </summary>
         </member>
         <member name="M:LibraryTests.BuscarPublicacionTest.Case5Test">
@@ -82,11 +67,6 @@
         <member name="M:LibraryTests.CrearPublicacionTest.Case0Test">
             <summary>
             Test que verifica que el bot le pide que ingrese el material.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.CrearPublicacionTest.Case1Test">
-            <summary>
-            Test que verifica que el bot le pide que ingrese la categoria del material.
             </summary>
         </member>
         <member name="M:LibraryTests.CrearPublicacionTest.Case2Test">

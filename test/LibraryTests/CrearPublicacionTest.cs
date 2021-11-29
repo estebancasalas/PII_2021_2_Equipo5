@@ -53,7 +53,7 @@ namespace LibraryTests
             string expected = "Ingrese el material:"; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
-
+/*
         /// <summary>
         /// Test que verifica que el bot le pide que ingrese la categoria del material.
         /// </summary>
@@ -67,6 +67,7 @@ namespace LibraryTests
             string expected = "Ingrese la categoria:"; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
+        */
 
         /// <summary>
         /// Test que verifica que el bot le pide que la unidad que cuantifica el material.

@@ -70,7 +70,7 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 1);
         }
-
+/*
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por categoría.
         /// </summary>
@@ -87,6 +87,7 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 2);
             Assert.AreEqual(this.handler.TipoBusqueda, this.mensaje.Text);
         }
+*/
 
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por ciudad.
@@ -137,7 +138,7 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
         }
-
+/*
         /// <summary>
         /// Prueba el tercer paso del handler.
         /// </summary>
@@ -156,6 +157,7 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 0);
             Assert.AreEqual(this.handler.Busqueda, this.mensaje.Text);
         }
+    */
         /// <summary>
         /// Test que prueba el tercer paso del handler cuando existen publicaciones. 
         /// </summary>
@@ -223,7 +225,7 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 3);
         }
-
+/*
         /// <summary>
         /// Prueba el quinto paso del handler.
         /// </summary>
@@ -239,6 +241,7 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 5);
         }
+    */
 
         /// <summary>
         /// Prueba el sexto paso del handler.
