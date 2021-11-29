@@ -14,5 +14,10 @@
             Punto de entrada al programa principal.
             </summary>
         </member>
+        <member name="M:Library.Program.Main">
+            <summary>
+            Donde se ejecuta valores, se inicializa el bot.
+            </summary>
+        </member>
     </members>
 </doc>
