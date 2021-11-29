@@ -43,7 +43,7 @@ namespace Library
                     bool notfound = true;
                     while (i < lista.Count && notfound)
                     {
-                        Empresario empresario = lista[i].listaEmpresarios.Find(x => x.Id == mensaje.Id);
+                        Empresario empresario = lista[i].ListaEmpresarios.Find(x => x.Id == mensaje.Id);
                         if (empresario != null)
                         {
                             notfound = false;

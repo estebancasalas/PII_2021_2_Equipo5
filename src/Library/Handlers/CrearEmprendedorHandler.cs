@@ -108,9 +108,9 @@ namespace Library
                             this.TextResult = new StringBuilder();
                             this.Especializaciones = mensaje.Text;
                             Emprendedor emprendedor = new Emprendedor(mensaje.Id, this.Nombre, this.Ubicacion, this.Rubro, this.Habilitacion, this.Especializaciones);
-                            this.TextResult.Append($"Usted se ha registrado con los siguientes datos:\n{this.Nombre}\n{this.Rubro}\n{this.Ubicacion}\n{this.Habilitacion}\n{this.Especializaciones}\n\nSi quiere seguir utilizando el bot ingrese otro /comando .");
+                            this.TextResult.Append($"Usted se ha registrado con los siguientes datos:\n{this.Nombre}\n{this.Rubro}\n{this.Ubicacion}\n{this.Habilitacion}\n{this.Especializaciones}\n\nSi quiere seguir utilizando el bot ingrese otro /comandos .");
                             estado.Step = 0;
-                            estado.Handler = null;
+                            estado.Handler = String.Empty;
                             break;
                     }
                 }

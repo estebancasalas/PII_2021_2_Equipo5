@@ -42,7 +42,7 @@ namespace Library
         /// </summary>
         /// <value></value>
         [JsonInclude]
-        public List<Empresario> listaEmpresarios = new List<Empresario>();
+        public List<Empresario> ListaEmpresarios = new List<Empresario>();
 
         /// <summary>
         /// Obtiene o establece el contacto de la empresa.
@@ -73,12 +73,6 @@ namespace Library
         /// </summary>
         /// <value>Guarda el rubro de la empresa.</value>
         public string Rubro { get; set; }
-
-        /// <summary>
-        /// Lista con todos los empresarios.
-        /// </summary>
-        /// <value></value>
-        public List<Empresario> ListaEmpresarios { get; set; } = new List<Empresario>();
 
         /// <summary>
         /// Método que crea un string con la información de la empresa.

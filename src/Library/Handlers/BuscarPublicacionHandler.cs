@@ -83,7 +83,7 @@ namespace Library
                         this.tipoBusqueda = mensaje.Text;
                         if (mensaje.Text.ToLower() == "/categoria")
                         {
-                            this.TextResult.Append("Ingrese la categoría:\n     /Químicos, /Plásticos, /Celulósicos, /Eléctricos, /Textiles");
+                            this.TextResult.Append("Ingrese la categoría:\n  /Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles");
                         }
                         else if (mensaje.Text.ToLower() == "/ciudad")
                         {
@@ -106,12 +106,26 @@ namespace Library
                         this.busqueda = mensaje.Text;
                         BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipoBusqueda, this.busqueda);
                         this.resultadoBusqueda = buscarPublicacion.EjecutarComando();
-                        this.TextResult.Append("¿Desea realizar una compra?\n 1-Si \n 2-No");
-                        estado.Step++;
-                        
-                        //IMostrar mostrar = new MostrarLista();
-                        //mostrar.Mostrar(this.resultadoBusqueda);
-                        // hacer metodo mostrar en pantalla y agregarlo aca.
+                        if (resultadoBusqueda.Count != 0)
+                        {
+                            IMostrar conversor = new RegistroPublicaciones();
+                            List<IConversorTexto> listaTexto = new List<IConversorTexto>();
+                            foreach (Publicacion publicacion in this.resultadoBusqueda)
+                            {
+                                listaTexto.Add(publicacion);
+                            }
+                            this.TextResult.Append($"{conversor.Mostrar(listaTexto)}\n");
+                            this.TextResult.Append("¿Desea realizar una compra?\n 1-Si \n 2-No");
+                            estado.Step++;
+                        }
+                        else
+                        {
+                            this.TextResult.Append("No se encontraron publicaciones que coincidan con esos parámetros. Vuelva a escribir /buscarpublicacion para realizar otra búsqueda.");
+                            estado.Step = 0;
+                            estado.Handler = String.Empty;
+                        }
+
+
                         break;
 
                     case 3:
