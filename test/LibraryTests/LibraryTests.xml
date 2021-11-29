@@ -34,6 +34,11 @@
             Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
             </summary>
         </member>
+        <member name="M:LibraryTests.BuscarPublicacionTest.Case2SinPublicacionTest">
+            <summary>
+            Prueba el tercer paso del handler.
+            </summary>
+        </member>
         <member name="M:LibraryTests.BuscarPublicacionTest.Case3ComprarTest">
             <summary>
             Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.

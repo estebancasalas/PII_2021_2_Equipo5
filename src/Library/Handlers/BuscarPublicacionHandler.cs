@@ -24,7 +24,7 @@ namespace Library
         /// <summary>
         /// Lo que desea buscar.
         /// </summary>
-        private string busqueda;
+        public string busqueda;
 
         /// <summary>
         /// Lista que contiene todas las publicaciones encontradas.
