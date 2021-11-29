@@ -38,6 +38,7 @@
             <param name="ubicacion">Ubicación de la empresa.</param>
             <param name="rubro">Rubro de la empresa.</param>
             <param name="token">Token de invitación creada por el administrador.</param>
+            <param name="contacto">Un telefono para contactactar a la empresa.</param>
         </member>
         <member name="T:Library.BuscarEmpresaPorPublicacion">
             <summary>
@@ -582,18 +583,6 @@
             </summary>
             <returns>Lista con las publicaciones encontradas.</returns>
         </member>
-        <member name="T:Library.VerHistorial">
-            <summary>
-            Clase que permite al usuario(emprendedor, empresa) ver su historial de compra o venta. 
-            </summary>
-        </member>
-        <member name="M:Library.VerHistorial.EjecutarComando(System.Int64)">
-            <summary>
-            Método que recorre la lista de transacciones de el usuario y retorna su historial.
-            </summary>
-            <param name="id">Nombre de quien quiere ver el historial.</param>
-            <returns>String con todas las transacciones hechas por el usuario con ese id.</returns>
-        </member>
         <member name="T:Library.EntradaDeLaCadena">
             <summary>
             IEntradaDeLaCadena y IEntradaInt cumplen con el patrón de ISP ya que se utilizan interfaces chicas para implementar solo el comportamiento
@@ -740,25 +729,6 @@
             </summary>
         </member>
         <member name="M:Library.ComienzoHandler.Handle(Library.Mensaje)">
-            <summary>
-            Método que verifica el mensaje. Actúa si el mensaje es "/start" y sino lo envía
-            al siguiente Handler.
-            </summary>
-            <param name="mensaje">Mensaje recibido como parámetro. Contiene Id y el texto a evaluar.</param>
-            <returns>Retorna la respuesta a la petición del usuario.</returns>
-        </member>
-        <member name="T:Library.ComprarHandler">
-            <summary>
-            Primer Handler de la Chain of Responsibility. Implementa AbstractHandler porque interactúa
-            con el usuario.
-            </summary>
-        </member>
-        <member name="F:Library.ComprarHandler.nombreDeLaPublicacion">
-            <summary>
-            Nombre de la publicación que desea comprar.
-            </summary>
-        </member>
-        <member name="M:Library.ComprarHandler.Handle(Library.Mensaje)">
             <summary>
             Método que verifica el mensaje. Actúa si el mensaje es "/start" y sino lo envía
             al siguiente Handler.
@@ -1140,6 +1110,12 @@
             de una clase concreta.
             </summary>
         </member>
+        <member name="M:Library.IConversorTexto.ConvertToString">
+            <summary>
+            Firma del método que convierte a strings.
+            </summary>
+            <returns>string convetida.</returns>
+        </member>
         <member name="T:Library.IUbicacion">
             <summary>
             Interfaz que modela una ubicación.
@@ -1501,7 +1477,13 @@
             </summary>
             <param name="json">Carga los datos de un archivo json.</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Library.ListaTransacciones.Mostrar(System.Collections.Generic.List{Library.IConversorTexto})" -->
+        <member name="M:Library.ListaTransacciones.Mostrar(System.Collections.Generic.List{Library.IConversorTexto})">
+            <summary>
+            Método para mostrar la lista pasada como parámetro en pantalla.
+            </summary>
+            <param name="lista">Lista que se desea mostrar.</param>
+            <returns>Devuelve el stringbuilder con los elementos de la lista.</returns>
+        </member>
         <member name="T:Library.RegistroPublicaciones">
             <summary>
             Clase que tiene un registro de las publicaciones activas, eliminadas y pausadas. Tiene la responsabilidad de conocer el estados de las publicaciones.
@@ -1530,7 +1512,13 @@
             </summary>
             <param name="publi">Publicación a eliminar.</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Library.RegistroPublicaciones.Mostrar(System.Collections.Generic.List{Library.IConversorTexto})" -->
+        <member name="M:Library.RegistroPublicaciones.Mostrar(System.Collections.Generic.List{Library.IConversorTexto})">
+            <summary>
+            Método para mostrar la lista pasada como parámetro en pantalla.
+            </summary>
+            <param name="lista">Lista que se desea mostrar.</param>
+            <returns>Devuelve el stringbuilder con los elementos de la lista.</returns>
+        </member>
         <member name="M:Library.RegistroPublicaciones.ConvertToJson">
             <summary>
             El CovertToJson es el método por el cual se guardan los datos dentro de un archivo json.
@@ -1542,6 +1530,35 @@
             LoadFromJson se encarga de cargar los datos guardados creando los objetos a partir de el archivo json.
             </summary>
             <param name="json">Carga los datos de un archivo json.</param>
+        </member>
+        <member name="T:Library.TelegramBot">
+            <summary>
+            Clase que contiene datos sobre Telegram, usuarios, etc.
+            </summary>
+        </member>
+        <member name="P:Library.TelegramBot.Client">
+            <summary>
+            Obtiene el cliente de Telegam.
+            </summary>
+            <value>client.</value>
+        </member>
+        <member name="P:Library.TelegramBot.BotId">
+            <summary>
+            Obtiene el id.
+            </summary>
+            <value>id.</value>
+        </member>
+        <member name="P:Library.TelegramBot.BotName">
+            <summary>
+            Obtiene el nombre del bot.
+            </summary>
+            <value>Nombre.</value>
+        </member>
+        <member name="P:Library.TelegramBot.Instance">
+            <summary>
+            Obtiene una instancia de TelegramBot.
+            </summary>
+            <value>instancia.</value>
         </member>
     </members>
 </doc>

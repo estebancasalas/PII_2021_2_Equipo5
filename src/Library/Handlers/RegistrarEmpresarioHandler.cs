@@ -60,6 +60,7 @@ namespace Library
             EstadoUsuario estado = listaUsuarios.ListaUsuarios[indice].Estado;
             if (mensaje.Text.ToLower() == "/empresario" || estado.Handler.ToLower() == "/empresario")
             {
+                this.TextResult = new StringBuilder();
                 if (!listaEmpresa.Verificar(mensaje.Id) && (listaEmprendedores.Buscar(mensaje.Id) == null))
                 {
                     estado.Handler = "/empresario";
@@ -72,7 +73,6 @@ namespace Library
                         break;
 
                         case 1:
-                        this.TextResult = new StringBuilder();
                         this.Invitacion = mensaje.Text;
                         ListaInvitaciones verificador = Singleton<ListaInvitaciones>.Instance;
                         this.InvitacionValida = verificador.VerificarInvitacion(this.Invitacion);
@@ -84,14 +84,13 @@ namespace Library
                         }
                         else
                         {
-                            this.TextResult.Append("Lo siento, su invitacion no es valida. El proceso se ha finalizado.");
+                            throw new OpcionInvalidaException("Lo siento, su invitacion no es valida. El proceso se ha finalizado.");
                         }
 
                         estado.Step++;
                         break;
 
                         case 2:
-                        this.TextResult = new StringBuilder();
                         this.Nombre = mensaje.Text;
                         Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), this.Nombre);
                         this.Empresa.ListaEmpresarios.Add(empresario);
@@ -103,8 +102,7 @@ namespace Library
                 }
                 else
                 {
-                    this.TextResult = new StringBuilder();
-                    this.TextResult.Append("Usted ya está registrado.");
+                    throw new OpcionInvalidaException("Usted ya está registrado.");
                 }
 
                 return this.TextResult.ToString();
