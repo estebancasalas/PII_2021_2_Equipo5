@@ -29,11 +29,6 @@
             Prueba el segundo paso del handler, el caso en que el usuario desee buscar por palabras clave.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case1VacioTest">
-            <summary>
-            Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
-            </summary>
-        </member>
         <member name="M:LibraryTests.BuscarPublicacionTest.Case3ComprarTest">
             <summary>
             Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.
@@ -42,11 +37,6 @@
         <member name="M:LibraryTests.BuscarPublicacionTest.Case3NoComprarTest">
             <summary>
             Prueba el cuarto paso del handler, el caso en que el usuario desee realizar una compra.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case3NoValidoTest">
-            <summary>
-            Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
             </summary>
         </member>
         <member name="M:LibraryTests.BuscarPublicacionTest.Case5Test">
