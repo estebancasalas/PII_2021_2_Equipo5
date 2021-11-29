@@ -53,7 +53,7 @@ namespace Library
                     // buscar publicacion.
                     // crear transaccion.
                     estado.Step = 0;
-                    estado.Handler = null;
+                    estado.Handler = string.Empty;
                     break;
                 }
 

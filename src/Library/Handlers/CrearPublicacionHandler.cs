@@ -69,7 +69,7 @@ namespace Library
                         case 1:
                         this.TextResult = new StringBuilder();
                         this.nombreMaterial = mensaje.Text;
-                        this.TextResult.Append("Ingrese la categoria:");
+                        this.TextResult.Append("Ingrese la categoria: \n(/Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles)\n");
                         estado.Step++;
                         break;
 

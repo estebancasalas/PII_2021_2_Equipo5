@@ -63,10 +63,12 @@ namespace Library
         {
             StringBuilder resultado = new StringBuilder();
             if (lista.Count != 0)
-            {
+            {   int i = 0;
                 foreach (IConversorTexto item in lista)
                 {
-                    resultado.Append(item.ConvertToString());
+                    i++;
+                    resultado.Append($"Publicación {i}:\n");
+                    resultado.Append($"{item.ConvertToString()}\n");
                 }
             }
             else
@@ -96,7 +98,5 @@ namespace Library
             listaPubl = JsonSerializer.Deserialize<List<Publicacion>>(json);
             this.Activas = listaPubl;
         }
-        
-        
     }
 }
