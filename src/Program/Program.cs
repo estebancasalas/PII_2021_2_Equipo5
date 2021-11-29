@@ -84,9 +84,9 @@ namespace Library
             Publicacion b = new Publicacion("Recortes de aluminio", aluminio, "aluminio, recortes", "Mensual", ubicacionAluminio, empresa2);
 
 
-             Material tapas = new Material("Tapas plasticas", 17, 230, "Kg", "Ninguna", "/plasticos");
-             IUbicacion ubicacionTapas = new Ubicacion("Uruguay", "Tacuarembo", "", "", "", "");
-             Publicacion c = new Publicacion("tapas de refrescos", tapas, "tapas, plastico, residuos", "diario", ubicacionTapas, empresaIonas);
+            // Material tapas = new Material("Tapas plasticas", 17, 230, "Kg", "Ninguna", "/plasticos");
+            // IUbicacion ubicacionTapas = new Ubicacion("Uruguay", "Tacuarembo", "", "", "", "");
+            // Publicacion c = new Publicacion("tapas de refrescos", tapas, "tapas, plastico, residuos", "diario", ubicacionTapas, empresaIonas);
 
             //SetUp demo parte 1
             ListaInvitaciones listaInvitaciones2 = Singleton<ListaInvitaciones>.Instance;
