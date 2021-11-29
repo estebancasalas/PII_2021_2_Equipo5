@@ -24,17 +24,7 @@ namespace Library
         /// <summary>
         /// Lo que desea buscar.
         /// </summary>
-        private string busqueda;
-        
-        /// <summary>
-        /// Obtiene o establece el atributo de busqueda.
-        /// </summary>
-        /// <value>Lo que ingresa el usuario.</value>
-        public string Busqueda
-        {
-            get { return this.busqueda; }
-            set { this.busqueda = value; }
-        }
+        public string busqueda;
 
         /// <summary>
         /// Lista que contiene todas las publicaciones encontradas.
