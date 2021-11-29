@@ -37,9 +37,9 @@ namespace Library
             Empresario empresario = null;
             while (i < this.Empresas.Count && empresario == null)
             {
-                if (this.Empresas[i].listaEmpresarios != null)
+                if (this.Empresas[i].ListaEmpresarios != null)
                 {
-                    empresario = this.Empresas[i].listaEmpresarios.Find(x => x.Id == id);
+                    empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
                 }
 
                 i++;
@@ -60,7 +60,7 @@ namespace Library
             Empresario empresario = null;
             while (i < this.Empresas.Count && empresario == null)
             {
-                empresario = this.Empresas[i].listaEmpresarios.Find(x => x.Id == id);
+                empresario = this.Empresas[i].ListaEmpresarios.Find(x => x.Id == id);
                 i++;
             }
 

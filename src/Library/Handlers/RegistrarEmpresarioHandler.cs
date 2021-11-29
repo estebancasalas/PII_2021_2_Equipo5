@@ -94,7 +94,7 @@ namespace Library
                         this.TextResult = new StringBuilder();
                         this.Nombre = mensaje.Text;
                         Empresario empresario = new Empresario(mensaje.Id, new EstadoUsuario(), this.Nombre);
-                        this.Empresa.listaEmpresarios.Add(empresario);
+                        this.Empresa.ListaEmpresarios.Add(empresario);
                         estado.Step = 0;
                         estado.Handler = string.Empty;
                         this.TextResult.Append($"{this.Nombre}, te has registrado a {this.Empresa.Nombre} correctamente");

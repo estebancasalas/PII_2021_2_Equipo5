@@ -36,7 +36,7 @@ namespace LibraryTests
             Empresario user = new Empresario(9999, estado, "Pablo");
             ListaEmpresa listaEmpresa = new ListaEmpresa();
             Empresa empresa = new Empresa("Niike", "Montevieo", "Ropa", "1234567890", "098 673 111");
-            empresa.listaEmpresarios.Add(user);
+            empresa.ListaEmpresarios.Add(user);
             listaEmpresa.Add(empresa);
         }
 

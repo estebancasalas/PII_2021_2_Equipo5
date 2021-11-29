@@ -181,7 +181,7 @@
             <param name="rubro">Se encarga de guardar el rubro de la empresa dentro del objeto empresa.</param>
             <param name="invitacion">Se encarga de guardar la invitación de la empresa dentro del objeto empresa.</param>
         </member>
-        <member name="F:Library.Empresa.listaEmpresarios">
+        <member name="F:Library.Empresa.ListaEmpresarios">
             <summary>
             La ListaEmpresarios se encarga de registrar todos los usuarios que
             puede tener una misma empresa.
@@ -710,6 +710,12 @@
             Lo que desea buscar.
             </summary>
         </member>
+        <member name="P:Library.BuscarPublicacionHandler.Busqueda">
+            <summary>
+            Obtiene o establece el atributo de busqueda.
+            </summary>
+            <value>Lo que ingresa el usuario.</value>
+        </member>
         <member name="F:Library.BuscarPublicacionHandler.resultadoBusqueda">
             <summary>
             Lista que contiene todas las publicaciones encontradas.
@@ -723,12 +729,6 @@
         <member name="P:Library.BuscarPublicacionHandler.TipoBusqueda">
             <summary>
             Obtiene o establece, se define la property para los tests.
-            </summary>
-            <value>Lo que ingresa el usuario.</value>
-        </member>
-        <member name="P:Library.BuscarPublicacionHandler.Busqueda">
-            <summary>
-            Obtiene o establece, se define para los tests.
             </summary>
             <value>Lo que ingresa el usuario.</value>
         </member>
