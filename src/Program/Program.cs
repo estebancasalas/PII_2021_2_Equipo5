@@ -25,6 +25,9 @@ namespace Library
 
         private static IHandler comienzoHandler = new ComienzoHandler();
 
+        /// <summary>
+        /// Donde se ejecuta valores, se inicializa el bot.
+        /// </summary>
         public static void Main()
         {
             comienzoHandler.SetNext(new BuscarPublicacionHandler())

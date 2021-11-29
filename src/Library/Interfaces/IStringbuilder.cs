@@ -15,6 +15,10 @@ namespace Library
     /// </summary>
     public interface IConversorTexto
     {
+        /// <summary>
+        /// Firma del método que convierte a strings.
+        /// </summary>
+        /// <returns>string convetida.</returns>
         public string ConvertToString();
     }
 }
