@@ -99,11 +99,6 @@
             Test que verifica que el bot le pide la ubicación donde se encuentra el material.
             </summary>
         </member>
-        <member name="M:LibraryTests.CrearPublicacionTest.ElseTest">
-            <summary>
-            Test que verifica que si la persona no es un empresario no pueda crear una publicación.  
-            </summary>       
-        </member>
         <member name="T:LibraryTests.RegistrarEmprendedorTests">
             <summary>
             Casos de prueba para el handler de CrearEmprendedor.
