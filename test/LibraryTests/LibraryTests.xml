@@ -4,6 +4,21 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="T:LibraryTests.EmpresaCandTrabajadoresHandlerTest">
+            <summary>
+            Casos de prueba para el handler que muestra la cantidad de trabajadores de una empresa.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EmpresaCandTrabajadoresHandlerTest.Setup">
+            <summary>
+            Setup del test.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EmpresaCandTrabajadoresHandlerTest.PerteneceAEmpresaTest">
+            <summary>
+            Prueba el primer handler.
+            </summary>
+        </member>
         <member name="T:LibraryTests.AceptarInvitacionTest">
             <summary>
             Test de User Story.
@@ -103,6 +118,21 @@
         <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case5FormatExceptionTest">
             <summary>
             Prueba el sexto paso, cuando hay una excepción.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.ComienzoHandlerTest">
+            <summary>
+            Casos de prueba para el handler inicial de la cadena.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ComienzoHandlerTest.Setup">
+            <summary>
+            Setup del test.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ComienzoHandlerTest.Case0Test">
+            <summary>
+            Prueba el primer handler.
             </summary>
         </member>
         <member name="T:LibraryTests.CrearInvitacionHandlerTest">
