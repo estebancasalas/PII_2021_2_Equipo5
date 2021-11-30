@@ -15,14 +15,11 @@ namespace Library
     /// </summary>
     public class FinalizarHandler : AbstractHandler
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="FinalizarHandler"/> class.
         /// Constructor de la clase.
         /// </summary>
         /// <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro.</param>
-
-
         /// <summary>
         /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
         /// </summary>

@@ -23,7 +23,7 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns>Lista con todas las invitaciones.</returns>
-        public List <string> Invitaciones = Singleton<List<string>>.Instance;
+        private List<string> invitaciones = Singleton<List<string>>.Instance;
 
         /// <summary>
         /// Método que verifica si una invitación es válida. Se incluye en esta clase porque es la que
@@ -33,7 +33,7 @@ namespace Library
         /// <returns>Devuelve true si la invitación está registrada, false si no.</returns>
         public bool VerificarInvitacion(string invitacion)
         {
-            return Invitaciones.Contains(invitacion);
+            return this.invitaciones.Contains(invitacion);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Library
         {
             List<string> listaInvs = new List<string>();
             listaInvs = JsonSerializer.Deserialize<List<string>>(json);
-            this.Invitaciones = listaInvs;
+            this.invitaciones = listaInvs;
         }
 
         /// <summary>
@@ -67,9 +67,9 @@ namespace Library
         /// <param name="invitacion">Invitación que se desea agregar a la lista.</param>
         public void Add(string invitacion)
         {
-            if (!this.Invitaciones.Contains(invitacion))
+            if (!this.invitaciones.Contains(invitacion))
             {
-                this.Invitaciones.Add(invitacion);
+                this.invitaciones.Add(invitacion);
             }
         }
     }

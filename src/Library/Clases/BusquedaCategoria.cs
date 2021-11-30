@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Library
 {
@@ -22,14 +23,15 @@ namespace Library
         /// </summary>
         /// <param name="categoria">Categoria del material que se quiere buscar.</param>
         /// <returns>Lista de coincidencias.</returns>
-        public static List<Publicacion> Buscar(string categoria)
+        public List<Publicacion> Buscar(string categoria)
         {
             List<Publicacion> result = new List<Publicacion>();
             List<Publicacion> lista = Singleton<RegistroPublicaciones>.Instance.Activas;
 
             foreach (Publicacion publicacion in lista)
             {
-                if (publicacion.Material.Categoria.ToLower() == categoria.ToLower())
+                if (publicacion.Material.Categoria.ToLower(CultureInfo.InvariantCulture)
+                    == categoria.ToLower(CultureInfo.InvariantCulture))
                 {
                     result.Add(publicacion);
                 }

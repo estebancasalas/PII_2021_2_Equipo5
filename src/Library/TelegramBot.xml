@@ -283,6 +283,11 @@
             Esta clase se encarga del modelado del material.
             </summary>
         </member>
+        <member name="P:Library.Material.PosiblesCategorias">
+            <summary>
+            Lista que contiene las categorías del material.
+            </summary>
+        </member>
         <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Material"/>.
@@ -330,11 +335,6 @@
             Obtiene gets se encarga de guardar la categoría del material dentro del objeto material.
             </summary>
             <value>Guarda la categoria del material.</value>
-        </member>
-        <member name="P:Library.Material.PosiblesCategorias">
-            <summary>
-            Lista que contiene las categorías del material.
-            </summary>
         </member>
         <member name="M:Library.Material.ConvertToString">
             <summary>
@@ -1297,7 +1297,7 @@
             </summary>
             <param name="json">Archivo json del cual se cargan los datos.</param>
         </member>
-        <member name="F:Library.ListaEmprendedores.Emprendedores">
+        <member name="F:Library.ListaEmprendedores.emprendedores">
             <summary>
             Lista que contiene todos los emprendedores registrados.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
@@ -1380,7 +1380,7 @@
             invitaciones.
             </summary>
         </member>
-        <member name="F:Library.ListaInvitaciones.Invitaciones">
+        <member name="F:Library.ListaInvitaciones.invitaciones">
             <summary>
             Lista que contiene todas las invtiaciones.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
@@ -1479,7 +1479,7 @@
         </member>
         <member name="P:Library.RegistroPublicaciones.Activas">
             <summary>
-            Lista con las publicaciones activas.
+            Obtiene o establece lista con las publicaciones activas.
             Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
             </summary>
             <returns>Lista con las publicaciones activas.</returns>

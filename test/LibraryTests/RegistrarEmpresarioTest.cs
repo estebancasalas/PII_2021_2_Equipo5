@@ -77,6 +77,7 @@ namespace LibraryTests
             {
                 resultado = "Lo siento, su invitacion no es valida. El proceso se ha finalizado.";
             }
+
             string expected = "Lo siento, su invitacion no es valida. El proceso se ha finalizado.";
             Assert.AreEqual(expected, resultado);
         }
@@ -119,6 +120,7 @@ namespace LibraryTests
             {
                 resultado = "Usted ya está registrado.";
             }
+
             string expected = "Usted ya está registrado.";
             Assert.AreEqual(expected, resultado);
         }
