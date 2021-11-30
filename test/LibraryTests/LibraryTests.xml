@@ -115,6 +115,7 @@
             Setup de los casos de prueba.
             </summary>
         </member>
+<
         <member name="M:LibraryTests.CrearInvitacionHandlerTest.NoEsAdminTest">
             <summary>
             Caso de prueba que verifica que es necesario ser un administrador para crear una invitación.
@@ -123,6 +124,7 @@
         <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case0Test">
             <summary>
             Test del caso 0 de InvitarHandler.
+
             </summary>
         </member>
         <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case1Test">

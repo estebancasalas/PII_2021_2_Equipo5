@@ -21,6 +21,7 @@ namespace LibraryTests
         private Usuario user;
         private Usuario userNoAdmin;
         private Administrador admin;
+        private string expected = string.Empty;
 
         /// <summary>
         /// Setup de los casos de prueba.
