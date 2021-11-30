@@ -3,6 +3,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,16 +19,17 @@ namespace LibraryTests
     public class HistorialHandlerTest
     {
         // Dictionary<string, string> comprarDicc = new Dictionary<string, string>();
-        HistorialHandler handlerInvitar = new HistorialHandler();
-        Emprendedor emprendedor = new Emprendedor(9999, "emprendedor", "8 de Octubre", "textil", "nada", "nada");
-        Empresa empresa = new Empresa("empresa", "8 de Octubre", "textol", "12", "gmail");
-        EstadoUsuario estado = new EstadoUsuario();
-        Empresario empresario;
-        Material material = new Material("tela", 2, 2, "m", "nada", "nada");
-        Transaccion transaccion;
-        Mensaje mensaje1 = new Mensaje(9999, "/historial"); //emprendedor
-        Mensaje mensaje2 = new Mensaje(8765, "/historial"); //empresa
-        ListaTransacciones lista = new ListaTransacciones();
+        private HistorialHandler handlerInvitar = new HistorialHandler();
+        private Emprendedor emprendedor = new Emprendedor(9999, "emprendedor", "8 de Octubre", "textil", "nada", "nada");
+        private Empresa empresa = new Empresa("empresa", "8 de Octubre", "textol", "12", "gmail");
+        private EstadoUsuario estado = new EstadoUsuario();
+        private Empresario empresario;
+        private Material material = new Material("tela", 2, 2, "m", "nada", "nada");
+        private Transaccion transaccion;
+        private Mensaje mensaje1 = new Mensaje(9999, "/historial");
+        private Mensaje mensaje2 = new Mensaje(8765, "/historial");
+        private ListaTransacciones lista = new ListaTransacciones();
+
         /// <summary>
         /// SetUp de los casos de prueba.
         /// </summary>
@@ -39,6 +41,10 @@ namespace LibraryTests
             this.lista.Transacciones.Clear();
         }
 
+        /// <summary>
+        /// Test que verefica que el historial no este vacio cuando el emprendedor ya tiene transacciònes
+        /// y lo quiere revisar.
+        /// </summary>
         [Test]
         public void HistorialNoVacioPorEmprendedorTest()
         {
@@ -48,6 +54,10 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handlerInvitar.TextResult.ToString());
         }
 
+        /// <summary>
+        /// Test que verefica que el historial no este vacio cuando la empresa ya tiene transacciònes
+        /// y lo quiere revisar.
+        /// </summary>
         [Test]
         public void HistorialNoVacioPorEmpresaTest()
         {
@@ -79,5 +89,5 @@ namespace LibraryTests
             string resultado = "No se encontraron elementos para mostrar.";
             Assert.AreEqual(resultado, this.handlerInvitar.TextResult.ToString());
         }
-   }
+    }
 }
