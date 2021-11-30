@@ -20,7 +20,7 @@ namespace Library
     public class RegistroPublicaciones : IJsonConvertible, IMostrar
     {
         /// <summary>
-        /// Lista con las publicaciones activas.
+        /// Obtiene o establece lista con las publicaciones activas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns>Lista con las publicaciones activas.</returns>
@@ -63,7 +63,8 @@ namespace Library
         {
             StringBuilder resultado = new StringBuilder();
             if (lista.Count != 0)
-            {   int i = 0;
+            {
+                int i = 0;
                 foreach (IConversorTexto item in lista)
                 {
                     i++;

@@ -16,7 +16,6 @@ namespace Library
     /// </summary>
     public class ListaEmpresa : IJsonConvertible
     {
-
         /// <summary>
         /// Lista que contiene todas las empresas registradas.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.

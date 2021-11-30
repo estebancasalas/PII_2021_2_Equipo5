@@ -1,8 +1,10 @@
+
 // -----------------------------------------------------------------------
 // <copyright file="InvitarEmpresaTest.cs" company="Universidad Católica del Uruguay">
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 // -----------------------------------------------------------------------
+
 using Library;
 using NUnit.Framework;
 
