@@ -56,7 +56,7 @@ namespace Library
                 }
                 else
                 {
-                    this.TextResult.Append("Lo siento, para utilizar este comando debe pertenecer a una empresa.");
+                   throw new SinPermisoException("Lo siento, para utilizar este comando debe pertenecer a una empresa.");
                 }
 
                 return this.TextResult.ToString();

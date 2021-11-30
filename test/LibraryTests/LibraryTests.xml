@@ -4,6 +4,16 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="M:LibraryTests.AceptarInvitacionTest.SetUp">
+            <summary>
+            SetUp del caso de prueba.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.AceptarInvitacionTest.AceptarInvitacionEmpresaTest">
+            <summary>
+            Caso de prueba que verifica que un usuario se puede unir a una empresa mediante un codigo de invitación.
+            </summary>
+        </member>
         <member name="T:LibraryTests.BuscarPublicacionTest">
             <summary>
             Casos de prueba para buscar la publicacion.
@@ -97,6 +107,19 @@
         <member name="M:LibraryTests.CrearPublicacionTest.Case9Test">
             <summary>
             Test que verifica que el bot le pide la ubicación donde se encuentra el material.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.InvitarEmpresaTest">
+            <summary>
+            Test de User Story.
+            Este test comprueba que un Administrador puede crear una invitacion de una empresa para que sus empresario puedan unirse 
+            y crear publicaciones.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.InvitarEmpresaTest.InvitarTest">
+            <summary>
+            En este caso de prueba, se simula la conversación del administrador con el bot.
+            Al final de éste, se comprueba que se creo la empresa buscándola por su nombre.
             </summary>
         </member>
         <member name="T:LibraryTests.RegistrarEmprendedorTests">

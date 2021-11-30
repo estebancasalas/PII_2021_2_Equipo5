@@ -160,7 +160,6 @@ namespace Library
 
                         // En vez de la excepción anterior, se podría lanzar IndexOutOfRangeException en la línea siguiente y manejarla
                         // en la clase program, pero nos pareció que manejar nuestra excepción podría resultar más específico para este caso.
-
                         this.TextResult.Append("Ingrese la cantidad que desea compar\n(En la unidad especificada en la publicación.)");
                         estado.Step++;
                         break;
@@ -172,9 +171,9 @@ namespace Library
                         }
                         catch
                         {
-                            throw new FormatException("Lo siento, no entendí el mensaje. Por favor ingrese únicamente un número.");
+                            throw new FormatException("Lo siento, no entendí el mensaje. Por favor ingrese únicamente numeros.");
                         }
-                        
+
                         ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
                         Emprendedor comprador = listaEmprendedores.Buscar(mensaje.Id);
                         Transaccion transaccion = new Transaccion(this.publicacionComprar.Vendedor, comprador, this.publicacionComprar.Material, cantidad);
