@@ -21,6 +21,16 @@ namespace LibraryTests
         EstadoUsuario estadoNE = new EstadoUsuario();
         RegistroPublicaciones publicacionesAct = new RegistroPublicaciones();
         Mensaje mensaje = new Mensaje(9999, "");
+        ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
+
+        EstadoUsuario pabloestado = new EstadoUsuario();
+        Emprendedor pedroEmprendedor = new Emprendedor(1313,"Pablo Fernandez", "Montevideo", "Administrador de empresas", null, null);
+        Usuario pedroUsuario = new Usuario(1313, new EstadoUsuario());
+        
+        
+        
+        
+
 
         /// <summary>
         /// Setup inicializa valores en común.
@@ -28,7 +38,7 @@ namespace LibraryTests
         [SetUp]
         public void Setup()
         {
-            ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
+            
             Usuario empresario = new Usuario(9999, estado);
             Usuario noempresario = new Usuario(8888,estadoNE);
             listaDeUsuario.Add(empresario);
@@ -37,7 +47,10 @@ namespace LibraryTests
             ListaEmpresa listaEmpresa = new ListaEmpresa();
             Empresa empresa = new Empresa("Niike", "Montevieo", "Ropa", "1234567890", "098 673 111");
             empresa.ListaEmpresarios.Add(user);
+            listaDeUsuario.Add(pedroUsuario);
+            
             listaEmpresa.Add(empresa);
+            
         }
 
         /// <summary>
@@ -181,18 +194,19 @@ namespace LibraryTests
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
         
-/*      /// <summary>
+      /// <summary>
         /// Test que verifica si la publicación se creo correctamente.
         /// </summary>
           [Test]
         public void Case10Test_1()
         {
-            mensaje.Text = "Montevideo";
-            this.handler.localizacion = mensaje.Text;
-            estado.Step = 10;
+            this.mensaje.Text = "Montevideo";
+            this.handler.Localizacion = mensaje.Text;
+            this.estado.Step = 10;
             estado.Handler = "/crearpublicacion";
+            this.handler.Categoria = "/quimicos";
             handler.Handle(mensaje);
-            Assert.AreEqual(this.handler.localizacion, mensaje.Text);
+            Assert.AreEqual(this.handler.Localizacion, mensaje.Text);
         }
 
         /// <summary>
@@ -202,28 +216,42 @@ namespace LibraryTests
         public void Case10Test_2()
         {
             mensaje.Text = "Montevideo";
-            this.handler.localizacion = mensaje.Text;
+            this.handler.Localizacion = mensaje.Text;
             estado.Step = 10;
             estado.Handler = "/crearpublicacion";
+            this.handler.Categoria = "/quimicos";
             handler.Handle(mensaje);
             string expected = "Tú publicación ahora se encuentra activa."; 
             Assert.AreEqual(expected, handler.TextResult.ToString());
         }
-*/
-/*
+
+
         /// <summary>
+        /// 
         /// Test que verifica que si la persona no es un empresario no pueda crear una publicación.  
         /// </summary>       
-        // [Test]
-        // public void ElseTest()
-        // {
-        //     Mensaje mensaje = new Mensaje(8888, "/crearpublicacion");
-        //     estado.Step = 0;
-        //     estado.Handler = "/crearpublicacion";
-        //     handler.Handle(mensaje);
-        //     string expected = "Para crear publicaciones debe pertenecer a una empresa."; 
-        //     Assert.AreEqual(expected, handler.TextResult.ToString());
-        // }
-    */
+        [Test]
+        public void ElseTest()
+        {
+        
+            Mensaje mensajePedro = new Mensaje(1313, "/crearpublicacion");
+            this.estado.Step = 0;
+            ListaEmprendedores listaEmprendedores = new ListaEmprendedores();
+            listaEmprendedores.Add(pedroEmprendedor);    
+            string resultado = string.Empty;
+            try
+            {
+                this.handler.Handle(mensajePedro);
+            }
+            catch (SinPermisoException)
+            {
+                
+                resultado = "No tienes permiso para crear una publicación, usted debe pertenecer a una empresa para crear publicaciones.";
+            }
+            
+            string expected = "No tienes permiso para crear una publicación, usted debe pertenecer a una empresa para crear publicaciones."; 
+            Assert.AreEqual(expected, resultado);
+        }
+    
     }
 }

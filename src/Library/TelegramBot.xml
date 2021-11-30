@@ -799,6 +799,11 @@
             con el usuario.
             </summary>
         </member>
+        <member name="F:Library.CrearPublicacionHandler.NombreMaterial">
+            <summary>
+            Atributo que guarda el nombre del material.
+            </summary>
+        </member>
         <member name="M:Library.CrearPublicacionHandler.Handle(Library.Mensaje)">
             <summary>
             Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
