@@ -102,7 +102,7 @@ namespace Library
                 }
                 else
                 {
-                    throw new OpcionInvalidaException("Usted ya está registrado.");
+                    throw new YaRegistradoException("Usted ya está registrado.");
                 }
 
                 return this.TextResult.ToString();

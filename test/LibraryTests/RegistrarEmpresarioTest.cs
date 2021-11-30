@@ -115,7 +115,7 @@ namespace LibraryTests
             {
                 this.handlerTest1.Handle(mensaje1);
             }
-            catch (OpcionInvalidaException)
+            catch (YaRegistradoException)
             {
                 resultado = "Usted ya está registrado.";
             }

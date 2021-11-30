@@ -179,7 +179,7 @@ namespace Library
                         }
                         catch
                         {
-                            throw new FormatException("Lo siento, no entendí el mensaje. Por favor ingrese únicamente un número.");
+                            throw new FormatException("Lo siento, no entendí el mensaje. Por favor ingrese únicamente numeros.");
                         }
 
                         ListaEmprendedores listaEmprendedores = Singleton<ListaEmprendedores>.Instance;
