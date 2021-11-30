@@ -33,10 +33,7 @@ namespace Library
         /// <param name="transaccion">Transacción que se desea agregar a la lista.</param>
         public void Add(Transaccion transaccion)
         {
-            if (!this.Transacciones.Contains(transaccion))
-            {
-                this.Transacciones.Add(transaccion);
-            }
+            this.Transacciones.Add(transaccion);
         }
 
         /// <summary>
@@ -87,7 +84,7 @@ namespace Library
         /// Método para mostrar la lista pasada como parámetro en pantalla.
         /// </summary>
         /// <param name="lista">Lista que se desea mostrar.</param>
-        /// <returns>Devuelve el stringbuilder con los elementos de la lista.<returns>
+        /// <returns>Devuelve el stringbuilder con los elementos de la lista.</returns>
         public StringBuilder Mostrar(List<IConversorTexto> lista)
         {
             StringBuilder resultado = new StringBuilder();

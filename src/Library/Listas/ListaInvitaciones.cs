@@ -64,7 +64,7 @@ namespace Library
         /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
         /// todas las invitaciones que existen.
         /// </summary>
-        /// <param name="Invitacion">Invitación que se desea agregar a la lista.</param>
+        /// <param name="invitacion">Invitación que se desea agregar a la lista.</param>
         public void Add(string invitacion)
         {
             if (!this.Invitaciones.Contains(invitacion))

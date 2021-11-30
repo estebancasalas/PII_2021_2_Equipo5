@@ -74,5 +74,11 @@ namespace Library
 
             return administrador != null;
         }
+
+        public int Buscar(long id)
+        {
+            Administrador usuario = this.Administradores.Find(x => x.Id == id);
+            return this.Administradores.IndexOf(usuario);
+        }
     }
 }

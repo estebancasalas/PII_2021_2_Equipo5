@@ -1,11 +1,13 @@
 // <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Text;
 using Library;
 using NUnit.Framework;
 using Ucu.Poo.Locations.Client;
-using System.Text;
 
 namespace LibraryTests
 {
@@ -13,7 +15,7 @@ namespace LibraryTests
     /// Casos de prueba para buscar la publicacion.
     /// </summary>
     [TestFixture]
-    public class BuscarPublicacionTest
+    public class BuscarPublicacionHandlerTest
     {
         private Publicacion a;
         private Publicacion b;
@@ -34,7 +36,7 @@ namespace LibraryTests
             Material dos = new Material("Material2", 3, 4, "Cantidad", "Habilitación1", "/Plasticos");
             Material tres = new Material("Material3", 5, 6, "Cantidad", "Habilitación1", "/Electricos");
 
-            IUbicacion alfa = new Ubicacion("Uruguay", "Montevideo", "18", null, null, null);
+            IUbicacion alfa = new Ubicacion("Uruguay", "Montevideo", "8 de Octubre 1234", null, null, null);
             IUbicacion beta = new Ubicacion("Uruguay", "Salto", null, null, null, null);
             IUbicacion gamma = new Ubicacion("Uruguay", "Tacuarembo", null, null, null, null);
 
@@ -51,9 +53,6 @@ namespace LibraryTests
             lista.Add(this.user);
 
             this.handler.SetNext(this.nullHandler);
-            this.handler.resultadoBusqueda.Add(this.a);
-            this.handler.resultadoBusqueda.Add(this.b);
-            this.handler.resultadoBusqueda.Add(this.c);
         }
 
         /// <summary>
@@ -70,7 +69,7 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 1);
         }
-/*
+
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por categoría.
         /// </summary>
@@ -82,12 +81,11 @@ namespace LibraryTests
             this.mensaje.Id = 1234;
             this.mensaje.Text = "/categoria";
             this.handler.Handle(this.mensaje);
-            string expected = "Ingrese la categoría:\n  /Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles";
+            string expected = "Ingrese la categoría:\n  /quimicos, /plasticos, /celulosicos, /electricos, /textiles, /metalicos, /MetalicosFerrosos, /Solventes, /Vidrio, /ResiduosOrganicos, /Otros";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
             Assert.AreEqual(this.handler.TipoBusqueda, this.mensaje.Text);
         }
-*/
 
         /// <summary>
         /// Prueba el segundo paso del handler, el caso en que el usuario desee buscar por ciudad.
@@ -124,7 +122,7 @@ namespace LibraryTests
         }
 
         /// <summary>
-        /// Prueba el segundo paso del handler, el caso en que el usuario envíe un mensaje vacío.
+        /// Prueba la excepción en en segundo paso del test.
         /// </summary>
         [Test]
         public void Case1VacioTest()
@@ -133,14 +131,22 @@ namespace LibraryTests
             this.user.Estado.Handler = "/buscarpublicacion";
             this.mensaje.Id = 1234;
             this.mensaje.Text = string.Empty;
-            this.handler.Handle(this.mensaje);
-            string expected = "La opción que ingresó no es válida, por favor vuelva a intentarlo.";
-            Assert.AreEqual(expected, this.handler.TextResult.ToString());
-            Assert.AreEqual(this.user.Estado.Step, 2);
+            string resultado = string.Empty;
+            try
+            {
+                this.handler.Handle(this.mensaje);
+            }
+            catch (OpcionInvalidaException)
+            {
+                resultado = "El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.";
+            }
+
+            string expected = "El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.";
+            Assert.AreEqual(expected, resultado);
         }
 
         /// <summary>
-        /// Prueba el tercer paso del handler.
+        /// Prueba la excepción en el tercer paso del Handler.
         /// </summary>
         [Test]
         public void Case2SinPublicacionTest()
@@ -149,29 +155,33 @@ namespace LibraryTests
             this.user.Estado.Step = 2;
             this.user.Estado.Handler = "/buscarpublicacion";
             this.mensaje.Id = 1234;
-            this.mensaje.Text = "/Quimicos";
+            this.mensaje.Text = "/otros";
             this.handler.TipoBusqueda = "/categoria";
             this.handler.Handle(this.mensaje);
+
             string expected = "No se encontraron publicaciones que coincidan con esos parámetros. Vuelva a escribir /buscarpublicacion para realizar otra búsqueda.";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 0);
-            Assert.AreEqual(this.handler.busqueda, this.mensaje.Text);
         }
 
         /// <summary>
-        /// Test que prueba el tercer paso del handler cuando existen publicaciones. 
+        /// Test que prueba el tercer paso del handler cuando existen publicaciones.
         /// </summary>
         [Test]
         public void Case2ConPublicacionTest()
         {
-            this.handler.resultadoBusqueda.Add(this.a);
+            RegistroPublicaciones lista = new RegistroPublicaciones();
+            lista.Activas.Clear();
+            lista.Add(this.a);
+            lista.Add(this.b);
+            lista.Add(this.c);
             this.user.Estado.Step = 2;
             this.user.Estado.Handler = "/buscarpublicacion";
             this.mensaje.Id = 1234;
             this.mensaje.Text = "/Quimicos";
             this.handler.TipoBusqueda = "/categoria";
             this.handler.Handle(this.mensaje);
-            string expected = "Publicación 1:\nTítulo: 1\nMaterial: Nombre: PMadera\nCosto: 1\nCantidad: 2\nUnidad: Cantidad\nHabilitaciones: Habilitación1\n\nPalabras clave: madera\nFrecuencia de disponibilidad: todos los dias\nUbicación: 18, Montevideo, Uruguay\nVendedor: Empresa1\n\n\n¿Desea realizar una compra?\n 1-Si \n 2-No";
+            string expected = "Publicación 1:\nTítulo: 1\nMaterial: Nombre: PMadera\nCosto: 1\nCantidad: 2\nUnidad: Cantidad\nHabilitaciones: Habilitación1\n\nPalabras clave: madera\nFrecuencia de disponibilidad: todos los dias\nUbicación: 8 de Octubre 1234, Montevideo, Uruguay\nVendedor: Empresa1\n\n\n¿Desea realizar una compra?\n 1-Si \n 2-No";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 3);
             Assert.AreEqual(this.handler.busqueda, this.mensaje.Text);
@@ -219,17 +229,25 @@ namespace LibraryTests
             this.user.Estado.Handler = "/buscarpublicacion";
             this.mensaje.Id = 1234;
             this.mensaje.Text = string.Empty;
-            this.handler.Handle(this.mensaje);
-            string expected = "Usted ingresó una opción no válida. Intente nuevamente.";
-            Assert.AreEqual(expected, this.handler.TextResult.ToString());
-            Assert.AreEqual(this.user.Estado.Step, 3);
+            string resultado = string.Empty;
+            try
+            {
+                this.handler.Handle(this.mensaje);
+            }
+            catch (OpcionInvalidaException)
+            {
+                resultado = "Lo siento, la opción no es válida. Ingrese nuevamente.";
+            }
+
+            string expected = "Lo siento, la opción no es válida. Ingrese nuevamente.";
+            Assert.AreEqual(expected, resultado);
         }
 
         /// <summary>
         /// Prueba el quinto paso del handler.
         /// </summary>
         [Test]
-        public void Case4Test()
+        public void Case4ValidoTest()
         {
             this.handler.resultadoBusqueda.Add(a);
             this.user.Estado.Step = 4;
@@ -240,6 +258,54 @@ namespace LibraryTests
             string expected = "Ingrese la cantidad que desea compar\n(En la unidad especificada en la publicación.)";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 5);
+        }
+
+        /// <summary>
+        /// Prueba el quinto paso, cuando hay una excepción por los datos ingresados.
+        /// </summary>
+        [Test]
+        public void Case4OutOfRangeTest()
+        {
+            this.user.Estado.Step = 4;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "0";
+            string resultado = string.Empty;
+            try
+            {
+                this.handler.Handle(this.mensaje);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                resultado = "Usted no ingresó un número de publicación válido. Por favor, intente nuevamente.";
+            }
+
+            string expected = "Usted no ingresó un número de publicación válido. Por favor, intente nuevamente.";
+            Assert.AreEqual(expected, resultado);
+        }
+
+        /// <summary>
+        /// Prueba el quinto paso, cuando hay una excepción de formato.
+        /// </summary>
+        [Test]
+        public void Case4FormatExceptionTest()
+        {
+            this.user.Estado.Step = 4;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "1a";
+            string resultado = string.Empty;
+            try
+            {
+                this.handler.Handle(this.mensaje);
+            }
+            catch (FormatException)
+            {
+                resultado = "Lo siento, no entendí el mensaje. Por favor ingrese únicamente un número.";
+            }
+
+            string expected = "Lo siento, no entendí el mensaje. Por favor ingrese únicamente un número.";
+            Assert.AreEqual(expected, resultado);
         }
 
         /// <summary>
@@ -257,6 +323,30 @@ namespace LibraryTests
             string expected = $"La compra ha sido registrada con éxito, por favor proceda a comunicarse con la empresa para finalizar la compra.\nContacto: 091234567";
             Assert.AreEqual(expected, this.handler.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 0);
+        }
+
+        /// <summary>
+        /// Prueba el sexto paso, cuando hay una excepción.
+        /// </summary>
+        [Test]
+        public void Case5FormatExceptionTest()
+        {
+            this.user.Estado.Step = 4;
+            this.user.Estado.Handler = "/buscarpublicacion";
+            this.mensaje.Id = 1234;
+            this.mensaje.Text = "1a";
+            string resultado = string.Empty;
+            try
+            {
+                this.handler.Handle(this.mensaje);
+            }
+            catch (FormatException)
+            {
+                resultado = "Lo siento, no entendí el mensaje. Por favor ingrese únicamente un número.";
+            }
+
+            string expected = "Lo siento, no entendí el mensaje. Por favor ingrese únicamente un número.";
+            Assert.AreEqual(expected, resultado);
         }
     }
 }

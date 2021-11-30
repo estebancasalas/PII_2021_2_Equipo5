@@ -68,10 +68,17 @@ namespace LibraryTests
             this.usuario1.Estado.Step = 1;
             this.usuario1.Estado.Handler = "/Empresario";
             this.mensaje1.Text = "invitación colgaatee";
-            this.handlerTest1.Handle(this.mensaje1);
+            string resultado = string.Empty;
+            try
+            {
+                this.handlerTest1.Handle(mensaje1);
+            }
+            catch (OpcionInvalidaException)
+            {
+                resultado = "Lo siento, su invitacion no es valida. El proceso se ha finalizado.";
+            }
             string expected = "Lo siento, su invitacion no es valida. El proceso se ha finalizado.";
-            Assert.AreEqual(expected, this.handlerTest1.TextResult.ToString());
-            Assert.AreEqual(this.mensaje1.Text, this.handlerTest1.Invitacion);
+            Assert.AreEqual(expected, resultado);
         }
 
         /// <summary>
@@ -103,9 +110,17 @@ namespace LibraryTests
             ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
             listaDeUsuario.Add(usuario);
             Mensaje mensaje1 = new Mensaje(4321, "/Empresario");
-            this.handlerTest1.Handle(mensaje1);
+            string resultado = string.Empty;
+            try
+            {
+                this.handlerTest1.Handle(mensaje1);
+            }
+            catch (YaRegistradoException)
+            {
+                resultado = "Usted ya está registrado.";
+            }
             string expected = "Usted ya está registrado.";
-            Assert.AreEqual(expected, this.handlerTest1.TextResult.ToString());
+            Assert.AreEqual(expected, resultado);
         }
     }
 }

@@ -146,7 +146,7 @@ namespace Library
                 }
                 else
                 {
-                    this.TextResult.Append("Para crear publicaciones debe pertenecer a una empresa.");
+                    throw new SinPermisoException("No tienes permiso para crear una publicación, usted debe pertenecer a una empresa para crear publicaciones.");
                 }
 
                 return this.TextResult.ToString();

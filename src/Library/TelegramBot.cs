@@ -5,6 +5,9 @@ using Telegram.Bot.Types;
 
 namespace Library
 {
+    /// <summary>
+    /// Clase que contiene datos sobre Telegram, usuarios, etc.
+    /// </summary>
     public class TelegramBot
     {
 
@@ -17,6 +20,10 @@ namespace Library
             this.bot = new TelegramBotClient(TELEBRAM_BOT_TOKEN);
         }
 
+        /// <summary>
+        /// Obtiene el cliente de Telegam.
+        /// </summary>
+        /// <value>client.</value>
         public ITelegramBotClient Client
         {
             get
@@ -33,6 +40,10 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Obtiene el id.
+        /// </summary>
+        /// <value>id.</value>
         public int BotId
         {
             get
@@ -41,6 +52,10 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Obtiene el nombre del bot.
+        /// </summary>
+        /// <value>Nombre.</value>
         public string BotName
         {
             get
@@ -49,6 +64,10 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Obtiene una instancia de TelegramBot.
+        /// </summary>
+        /// <value>instancia.</value>
         public static TelegramBot Instance
         {
             get

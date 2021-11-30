@@ -54,12 +54,14 @@ namespace Library
         /// <returns>Retorna la espuesta a la peticion del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
-            ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(mensaje.Id);
-            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+            ListaDeUsuario lista = new ListaDeUsuario();
+            int indice = lista.Buscar(mensaje.Id);
+            EstadoUsuario estado = new EstadoUsuario();
+            estado = lista.ListaUsuarios[indice].Estado;
 
             if (mensaje.Text.ToLower() == "/crearinvitacion" || estado.Handler == "/crearinvitacion")
             {
+                this.TextResult = new StringBuilder();
                 ListaAdministradores listaAdministradores = new ListaAdministradores();
                 if (listaAdministradores.Verificar(mensaje.Id))
                 {
@@ -67,41 +69,35 @@ namespace Library
                     switch (estado.Step)
                     {
                         case 0:
-                            this.TextResult = new StringBuilder();
                             this.TextResult.Append("¿Cuál es el nombre de la empresa?");
                             estado.Step++;
                             break;
 
                         case 1:
-                            this.TextResult = new StringBuilder();
                             this.Nombre = mensaje.Text;
                             this.TextResult.Append("¿Cuál es la ubicación de la empresa?");
                             estado.Step++;
                             break;
 
                         case 2:
-                            this.TextResult = new StringBuilder();
                             this.Ubicacion = mensaje.Text;
                             this.TextResult.Append("¿Cuál es el rubro de la empresa?");
                             estado.Step++;
                             break;
 
                         case 3:
-                            this.TextResult = new StringBuilder();
                             this.Rubro = mensaje.Text;
                             this.TextResult.Append("¿Mail o numero de teléfono para contactar a la empresa?");
                             estado.Step++;
                             break;
 
                         case 4:
-                            this.TextResult = new StringBuilder();
                             this.Contacto = mensaje.Text;
                             this.TextResult.Append("¿Qué codigo de invitación desea asignarle?");
                             estado.Step++;
                             break;
 
                         case 5:
-                            this.TextResult = new StringBuilder();
                             this.Token = mensaje.Text;
                             Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token, this.Contacto);
                             estado.Step = 0;
@@ -112,7 +108,7 @@ namespace Library
                 }
                 else
                 {
-                    this.TextResult.Append("Usted no es un administrador.");
+                    throw new SinPermisoException("Usted no es un administrador.");
                 }
 
                 return this.TextResult.ToString();

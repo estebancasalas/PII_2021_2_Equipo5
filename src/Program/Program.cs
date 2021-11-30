@@ -25,10 +25,12 @@ namespace Library
 
         private static IHandler comienzoHandler = new ComienzoHandler();
 
+        /// <summary>
+        /// Donde se ejecuta valores, se inicializa el bot.
+        /// </summary>
         public static void Main()
         {
             comienzoHandler.SetNext(new BuscarPublicacionHandler())
-                           .SetNext(new ComprarHandler())
                            .SetNext(new CrearEmprendedorHandler())
                            .SetNext(new CrearPublicacionHandler())
                            .SetNext(new EmpresaCantidadTrabajadores())
@@ -153,6 +155,7 @@ namespace Library
 
         private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
         {
+            string respuesta;
             Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
             ListaDeUsuario listaUsuario = Singleton<ListaDeUsuario>.Instance;
             ITelegramBotClient client = TelegramBot.Instance.Client;
@@ -164,8 +167,39 @@ namespace Library
 
             if (mensaje.Text != "/salir")
             {
-                await client.SendTextMessageAsync(chatId: mensaje.Id, text: comienzoHandler.Handle(mensaje));
+                try
+                {
+                    respuesta = comienzoHandler.Handle(mensaje);
+                }
+                catch (OpcionInvalidaException e)
+                {
+                    respuesta = e.Message;
+                }
+                catch (FormatException e)
+                {
+                    respuesta = e.Message;
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    respuesta = e.Message;
+                }
+                catch (YaRegistradoException e)
+                {
+                    respuesta = e.Message;
+                }
+                catch (SinPermisoException e)
+                {
+                    respuesta = e.Message;
+                }
             }
+            else
+            {
+                int indice2 = listaUsuario.Buscar(mensaje.Id);
+                listaUsuario.ListaUsuarios[indice2].Estado = new EstadoUsuario();
+                respuesta = "Gracias por usar nuestro bot, esperamos que te haya ayudado. Si quieres continuar utilizando nuestro bot vuelve a escribir un /comandos .";
+            }
+
+            await client.SendTextMessageAsync(chatId: mensaje.Id, text: respuesta);
         }
     }
 }
