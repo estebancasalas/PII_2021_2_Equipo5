@@ -138,9 +138,9 @@ namespace LibraryTests
             {
                 this.handler.Handle(this.mensaje);
             }
-            catch (OpcionInvalidaException)
+            catch (OpcionInvalidaException e)
             {
-                resultado = "El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.";
+                resultado = e.Message;
             }
 
             string expected = "El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.";
