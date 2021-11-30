@@ -1,3 +1,4 @@
+
 // -----------------------------------------------------------------------
 // <copyright file="AceptarInvitacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
