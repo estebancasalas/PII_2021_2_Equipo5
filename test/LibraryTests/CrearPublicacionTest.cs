@@ -1,12 +1,12 @@
-
+// -----------------------------------------------------------------------
 // <copyright file="CrearPublicacionTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+// -----------------------------------------------------------------------
 
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;
-
 
 namespace LibraryTests
 {
@@ -16,21 +16,13 @@ namespace LibraryTests
     [TestFixture]
     public class CrearPublicacionTest
     {
-        CrearPublicacionHandler handler = new CrearPublicacionHandler();
-        EstadoUsuario estado = new EstadoUsuario();
-        EstadoUsuario estadoNE = new EstadoUsuario();
-        RegistroPublicaciones publicacionesAct = new RegistroPublicaciones();
-        Mensaje mensaje = new Mensaje(9999, "");
-        ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
-
-        EstadoUsuario pabloestado = new EstadoUsuario();
-        Emprendedor pedroEmprendedor = new Emprendedor(1313,"Pablo Fernandez", "Montevideo", "Administrador de empresas", null, null);
+        private CrearPublicacionHandler handler = new CrearPublicacionHandler();
+        private EstadoUsuario estado = new EstadoUsuario();
+        private EstadoUsuario estadoNE = new EstadoUsuario();
+        private RegistroPublicaciones publicacionesAct = new RegistroPublicaciones();
+        private Mensaje mensaje = new Mensaje(9999, string.Empty);
         Usuario pedroUsuario = new Usuario(1313, new EstadoUsuario());
-        
-        
-        
-        
-
+        Emprendedor pedroEmprendedor = new Emprendedor(1313, "Pedro Rodriguez", "Montevideo", "Feriante", null, null);
 
         /// <summary>
         /// Setup inicializa valores en común.
@@ -38,15 +30,16 @@ namespace LibraryTests
         [SetUp]
         public void Setup()
         {
-            
-            Usuario empresario = new Usuario(9999, estado);
-            Usuario noempresario = new Usuario(8888,estadoNE);
+            ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
+            Usuario empresario = new Usuario(9999, this.estado);
+            Usuario noempresario = new Usuario(8888, this.estadoNE);
             listaDeUsuario.Add(empresario);
             listaDeUsuario.Add(noempresario);
-            Empresario user = new Empresario(9999, estado, "Pablo");
+            Empresario user = new Empresario(9999, this.estado, "Pablo");
             ListaEmpresa listaEmpresa = new ListaEmpresa();
             Empresa empresa = new Empresa("Niike", "Montevieo", "Ropa", "1234567890", "098 673 111");
             empresa.ListaEmpresarios.Add(user);
+            
             listaDeUsuario.Add(pedroUsuario);
             
             listaEmpresa.Add(empresa);
@@ -60,27 +53,26 @@ namespace LibraryTests
         public void Case0Test()
         {
             Mensaje mensaje = new Mensaje(9999, "/crearpublicacion");
-            estado.Step = 0;
-            estado.Handler = "";
-            handler.Handle(mensaje);
-            string expected = "Ingrese el material:"; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.estado.Step = 0;
+            this.estado.Handler = string.Empty;
+            this.handler.Handle(mensaje);
+            string expected = "Ingrese el material:";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
-/*
+
         /// <summary>
         /// Test que verifica que el bot le pide que ingrese la categoria del material.
         /// </summary>
         [Test]
         public void Case1Test()
         {
-            mensaje.Text = "Agua oxigenada";
-            estado.Step = 1;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese la categoria:"; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "Agua oxigenada";
+            this.estado.Step = 1;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese la categoria: \n(/Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles)\n";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
-        */
 
         /// <summary>
         /// Test que verifica que el bot le pide que la unidad que cuantifica el material.
@@ -88,12 +80,12 @@ namespace LibraryTests
         [Test]
         public void Case2Test()
         {
-            mensaje.Text = "/químicos";
-            estado.Step = 2;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese la unidad con la que cuantifica el material:"; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "/quimicos";
+            this.estado.Step = 2;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese la unidad con la que cuantifica el material:";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
 
         /// <summary>
@@ -102,12 +94,12 @@ namespace LibraryTests
         [Test]
         public void Case3Test()
         {
-            mensaje.Text = "litros";
-            estado.Step = 3;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese el precio por unidad:"; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "litros";
+            this.estado.Step = 3;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese el precio por unidad:";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
 
         /// <summary>
@@ -116,12 +108,12 @@ namespace LibraryTests
         [Test]
         public void Case4Test()
         {
-            mensaje.Text = "10";
-            estado.Step = 4;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese la cantidad:"; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "10";
+            this.estado.Step = 4;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese la cantidad:";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
 
         /// <summary>
@@ -130,12 +122,12 @@ namespace LibraryTests
         [Test]
         public void Case5Test()
         {
-            mensaje.Text = "40";
-            estado.Step = 5;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese habilitaciones necesarias para manipular el material:"; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "40";
+            this.estado.Step = 5;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese habilitaciones necesarias para manipular el material:";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
 
         /// <summary>
@@ -144,12 +136,12 @@ namespace LibraryTests
         [Test]
         public void Case6Test()
         {
-            mensaje.Text = "Ninguna";
-            estado.Step = 6;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese el título:"; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "Ninguna";
+            this.estado.Step = 6;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese el título:";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
 
         /// <summary>
@@ -158,12 +150,12 @@ namespace LibraryTests
         [Test]
         public void Case7Test()
         {
-            mensaje.Text = "Agua Oxígenada para todos";
-            estado.Step = 7;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese palabras claves separadas con ',' : "; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "Agua Oxígenada para todos";
+            this.estado.Step = 7;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese palabras claves separadas con ',' : ";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
 
         /// <summary>
@@ -172,12 +164,12 @@ namespace LibraryTests
         [Test]
         public void Case8Test()
         {
-            mensaje.Text = "Agua Oxigenada, Agua";
-            estado.Step = 8;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese frequencia de disponibilidad: "; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "Agua Oxigenada, Agua";
+            this.estado.Step = 8;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese frequencia de disponibilidad: ";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
 
         /// <summary>
@@ -186,18 +178,19 @@ namespace LibraryTests
         [Test]
         public void Case9Test()
         {
-            mensaje.Text = "1 vez por semana";
-            estado.Step = 9;
-            estado.Handler = "/crearpublicacion";
-            handler.Handle(mensaje);
-            string expected = "Ingrese dónde se encuentra: "; 
-            Assert.AreEqual(expected, handler.TextResult.ToString());
+            this.mensaje.Text = "1 vez por semana";
+            this.estado.Step = 9;
+            this.estado.Handler = "/crearpublicacion";
+            this.handler.Handle(this.mensaje);
+            string expected = "Ingrese dónde se encuentra: ";
+            Assert.AreEqual(expected, this.handler.TextResult.ToString());
         }
-        
-      /// <summary>
+
+
+        /// <summary>
         /// Test que verifica si la publicación se creo correctamente.
         /// </summary>
-          [Test]
+        [Test]
         public void Case10Test_1()
         {
             this.mensaje.Text = "Montevideo";

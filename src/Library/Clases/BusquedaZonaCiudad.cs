@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace Library
@@ -26,7 +27,7 @@ namespace Library
         {
             List<Publicacion> result = new List<Publicacion>();
             List<Publicacion> lista = Singleton<RegistroPublicaciones>.Instance.Activas;
-            if (tipoZona.ToLower() == "/ciudad")
+            if (tipoZona.ToLower(CultureInfo.InvariantCulture) == "/ciudad")
             {
                 foreach (Publicacion publicacion in lista)
                 {

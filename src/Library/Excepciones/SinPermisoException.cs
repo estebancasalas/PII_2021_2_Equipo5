@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Library
 {
-    public class SinPermisoException : Exception 
+    public class SinPermisoException : Exception
     {
         public SinPermisoException()
         {

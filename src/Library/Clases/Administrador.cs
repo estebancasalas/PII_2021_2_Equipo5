@@ -16,7 +16,7 @@ namespace Library
     {
         private int id;
         private string nombre;
-        public EstadoUsuario Estado = new EstadoUsuario();
+        private EstadoUsuario estado = new EstadoUsuario();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Administrador"/>.
@@ -49,6 +49,8 @@ namespace Library
         {
             get { return this.nombre; } set { this.nombre = value; }
         }
+
+        public EstadoUsuario Estado1 { get => this.estado; set => this.estado = value; }
 
         /// <summary>
         /// Método que crea el objeto empresa y su token de invitación.

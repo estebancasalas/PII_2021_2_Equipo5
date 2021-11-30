@@ -1,6 +1,9 @@
-// <copyright file="BuscarPublicacionTest.cs" company="PlaceholderCompany">
+// -----------------------------------------------------------------------
+// <copyright file="BuscarPublicacionHandlerTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -136,9 +139,9 @@ namespace LibraryTests
             {
                 this.handler.Handle(this.mensaje);
             }
-            catch (OpcionInvalidaException)
+            catch (OpcionInvalidaException e)
             {
-                resultado = "El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.";
+                resultado = e.Message;
             }
 
             string expected = "El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.";
@@ -249,7 +252,7 @@ namespace LibraryTests
         [Test]
         public void Case4ValidoTest()
         {
-            this.handler.resultadoBusqueda.Add(a);
+            this.handler.resultadoBusqueda.Add(this.a);
             this.user.Estado.Step = 4;
             this.user.Estado.Handler = "/buscarpublicacion";
             this.mensaje.Id = 1234;

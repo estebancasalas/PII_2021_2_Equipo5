@@ -36,7 +36,7 @@ namespace Library
         {
             List<Emprendedor> listaEmprs = new List<Emprendedor>();
             listaEmprs = JsonSerializer.Deserialize<List<Emprendedor>>(json);
-            this.Emprendedores = listaEmprs;
+            this.emprendedores = listaEmprs;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns>Lista con los emprendedores registrados.</returns>
-        public List<Emprendedor> Emprendedores = Singleton<List<Emprendedor>>.Instance;
+        private List<Emprendedor> emprendedores = Singleton<List<Emprendedor>>.Instance;
 
         /// <summary>
         /// Se crea el método Add para añadir un Emprendedor a la ListaEmprendedores
@@ -55,9 +55,9 @@ namespace Library
         /// <param name="emprendedor">Emprendedor que se desea agregar a la lista.</param>
         public void Add(Emprendedor emprendedor)
         {
-            if (!this.Emprendedores.Contains(emprendedor))
+            if (!this.emprendedores.Contains(emprendedor))
             {
-                this.Emprendedores.Add(emprendedor);
+                this.emprendedores.Add(emprendedor);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Library
 
         public Emprendedor Buscar(long id)
         {
-            return this.Emprendedores.Find(x => x.Id == id);
+            return this.emprendedores.Find(x => x.Id == id);
         }
     }
 }

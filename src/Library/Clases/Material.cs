@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Library
@@ -15,6 +16,11 @@ namespace Library
     /// </summary>
     public class Material : IConversorTexto
     {
+        /// <summary>
+        /// Lista que contiene las categorías del material.
+        /// </summary>
+        public static List<string> PosiblesCategorias { get; } = new List<string>() { "/quimicos", "/plasticos", "/celulosicos", "/electricos", "/textiles", "/metalicos", "/metalicosferrosos", "/solventes", "/vidrio", "/residuosorganicos", "/otros" };
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Material"/>.
         /// </summary>
@@ -31,7 +37,8 @@ namespace Library
             this.Cantidad = cantidad;
             this.Unidad = unidad;
             this.Habilitaciones = habilitaciones;
-            if (Material.PosiblesCategorias.Contains(categoria.ToLower()))
+            bool categoriaCorrecta = PosiblesCategorias.Contains(categoria.ToLower());
+            if (categoriaCorrecta)
             {
                 this.Categoria = categoria;
             }
@@ -77,11 +84,6 @@ namespace Library
         /// </summary>
         /// <value>Guarda la categoria del material.</value>
         public string Categoria { get; }
-
-        /// <summary>
-        /// Lista que contiene las categorías del material.
-        /// </summary>
-        public static List<string> PosiblesCategorias { get; } = new List<string>() { "/quimicos", "/plasticos", "/celulosicos", "/electricos", "/textiles", "/metalicos", "/metalicosferrosos", "/solventes", "/vidrio", "/residuosorganicos", "/otros" };
 
         /// <summary>
         /// Método para crear un string con la información del material.

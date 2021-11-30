@@ -1,6 +1,8 @@
+// -----------------------------------------------------------------------
 // <copyright file="RegistrarEmprendedorTests.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+// -----------------------------------------------------------------------
 
 using System.Collections.Generic;
 using Library;
@@ -142,6 +144,7 @@ namespace LibraryTests
             {
                 resultado = "Usted ya está registrado.";
             }
+
             string expected = "Usted ya está registrado.";
             Assert.AreEqual(expected, resultado);
         }
