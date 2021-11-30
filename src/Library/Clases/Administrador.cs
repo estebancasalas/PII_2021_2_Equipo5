@@ -16,6 +16,7 @@ namespace Library
     {
         private int id;
         private string nombre;
+        public EstadoUsuario Estado = new EstadoUsuario();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Administrador"/>.

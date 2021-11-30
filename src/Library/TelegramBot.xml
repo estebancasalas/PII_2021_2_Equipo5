@@ -698,6 +698,14 @@
             <summary>
             Lo que desea buscar.
             </summary>
+            <summary>
+            Atributo que guarda lo que desea buscar el usuario. Público para los tests.
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacionHandler.cantidad">
+            <summary>
+            Atributo que guarda la cantidad que desea buscar el usuario. Público para los tests.
+            </summary>
         </member>
         <member name="F:Library.BuscarPublicacionHandler.resultadoBusqueda">
             <summary>
