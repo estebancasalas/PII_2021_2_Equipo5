@@ -3,7 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 // -----------------------------------------------------------------------
-
+/*
 using System;
 using System.Text;
 
@@ -43,4 +43,4 @@ namespace Library
         }
 
     }
-}
+}*/

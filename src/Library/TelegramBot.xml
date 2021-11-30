@@ -827,24 +827,6 @@
             <param name="mensaje">Contiene el Id con el que se encuentra la empresa deseada.</param>
             <returns>Retorna la respuesta a la petición del usuario.</returns>
         </member>
-        <member name="T:Library.FinalizarHandler">
-            <summary>
-            Handler final, para salir de la ejecución del bot. Implementa AbstractHandler porque
-            interactúa con el usuario.
-            </summary>
-        </member>
-        <member name="M:Library.FinalizarHandler.Handle(Library.Mensaje)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Library.FinalizarHandler"/> class.
-            Constructor de la clase.
-            </summary>
-            <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro.</param>
-            <summary>
-            Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
-            </summary>
-            <param name="mensaje">El mensaje contiene el comando para finaliar.</param>
-            <returns>Retorna la respuesta a la petición del usuario.</returns>
-        </member>
         <member name="T:Library.HistorialHandler">
             <summary>
             Handler para verificar el historial de un usuario. Implementa AbstractHandler porque
@@ -1434,7 +1416,7 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             todas las invitaciones que existen.
             </summary>
-            <param name="Invitacion">Invitación que se desea agregar a la lista.</param>
+            <param name="invitacion">Invitación que se desea agregar a la lista.</param>
         </member>
         <member name="T:Library.ListaTransacciones">
             <summary>
