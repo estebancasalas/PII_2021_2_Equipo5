@@ -1,4 +1,8 @@
-
+// -----------------------------------------------------------------------
+// <copyright file="InvitarEmpresaTest.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+// -----------------------------------------------------------------------
 using Library;
 using NUnit.Framework;
 
@@ -6,13 +10,12 @@ namespace LibraryTests
 {
     /// <summary>
     /// Test de User Story.
-    /// Este test comprueba que un Administrador puede crear una invitacion de una empresa para que sus empresario puedan unirse 
+    /// Este test comprueba que un Administrador puede crear una invitacion de una empresa para que sus empresario puedan unirse
     /// y crear publicaciones.
     /// </summary>
     [TestFixture]
     public class InvitarEmpresaTest
     {
-
         private readonly Usuario usuarioAdmin = new Usuario(1234, new EstadoUsuario());
         private readonly ListaDeUsuario listaUsuario = new ListaDeUsuario();
 

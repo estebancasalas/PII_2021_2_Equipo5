@@ -71,7 +71,7 @@ namespace LibraryTests
             string resultado = string.Empty;
             try
             {
-                this.handlerTest1.Handle(mensaje1);
+                this.handlerTest1.Handle(this.mensaje1);
             }
             catch (OpcionInvalidaException)
             {
