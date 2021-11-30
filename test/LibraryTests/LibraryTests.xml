@@ -99,6 +99,16 @@
             Test que verifica que el bot le pide la ubicación donde se encuentra el material.
             </summary>
         </member>
+        <member name="T:LibraryTests.HistorialHandlerTest">
+            <summary>
+            Casos de prueba para el handler Historial.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.HistorialHandlerTest.Setup">
+            <summary>
+            SetUp de los casos de prueba.
+            </summary>
+        </member>
         <member name="T:LibraryTests.RegistrarEmprendedorTests">
             <summary>
             Casos de prueba para el handler de CrearEmprendedor.
