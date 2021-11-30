@@ -10,9 +10,9 @@ namespace LibraryTests
     /// </summary>
     public class AceptarInvitacionTest
     {
-        private readonly Usuario user = new Usuario(1234, new EstadoUsuario());
+        private readonly Usuario user = new Usuario(45, new EstadoUsuario());
         private readonly RegistrarEmpresarioHandler handler = new RegistrarEmpresarioHandler();
-        private readonly Mensaje message = new Mensaje(1234, string.Empty);
+        private readonly Mensaje message = new Mensaje(45, string.Empty);
         private readonly ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
         private readonly ListaInvitaciones listaInvitaciones = new ListaInvitaciones();
         private readonly ListaEmpresa listaEmpresa = new ListaEmpresa();
