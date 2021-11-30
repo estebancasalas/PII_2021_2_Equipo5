@@ -1,9 +1,13 @@
-
+// -----------------------------------------------------------------------
+// <copyright file="HistorialHandlerTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Text;
 using Library;
 using NUnit.Framework;
-using System.Text;
 
 namespace LibraryTests
 {

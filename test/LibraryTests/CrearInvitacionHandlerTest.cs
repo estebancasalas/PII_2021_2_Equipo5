@@ -1,7 +1,8 @@
-// <copyright file="CrearInvitacionTest.cs" company="PlaceholderCompany">
+// -----------------------------------------------------------------------
+// <copyright file="CrearInvitacionHandlerTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-
+// -----------------------------------------------------------------------
 using System.Collections.Generic;
 using Library;
 using NUnit.Framework;

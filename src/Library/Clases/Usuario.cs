@@ -19,6 +19,8 @@ namespace Library
         {
             this.Id = id;
             this.Estado = estado;
+            ListaDeUsuario listaUsuario = new ListaDeUsuario();
+            listaUsuario.Add(this);
         }
 
         /// <summary>

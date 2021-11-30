@@ -88,7 +88,7 @@ namespace Library
         public StringBuilder Mostrar(List<IConversorTexto> lista)
         {
             StringBuilder resultado = new StringBuilder();
-            if (lista != null)
+            if (lista != null && lista.Count != 0)
             {
                 foreach (IConversorTexto item in lista)
                 {
