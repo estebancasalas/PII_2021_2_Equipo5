@@ -33,14 +33,6 @@ namespace Library
         {
             if (mensaje.Text.ToLowerInvariant() == "/historial")
             {
-
-                VerHistorial historial = new VerHistorial();
-                this.Resultado = historial.EjecutarComando(mensaje.Id);
-
-                this.Output.PrintLine(this.Resultado);
-                return this.TextResult.ToString();
-                
-
                 ListaTransacciones listaTransacciones = new ListaTransacciones();
                 List<IConversorTexto> listaTexto = new List<IConversorTexto>();
                 List<Transaccion> transacciones = listaTransacciones.Buscar(mensaje.Id);
@@ -51,7 +43,6 @@ namespace Library
 
                 IMostrar conversor = new ListaTransacciones();
                 this.TextResult = conversor.Mostrar(listaTexto);
-
                 return this.TextResult.ToString();
             }
 
