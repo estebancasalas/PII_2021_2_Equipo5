@@ -1,6 +1,9 @@
+// -----------------------------------------------------------------------
 // <copyright file="HistorialHandlerTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -72,7 +75,7 @@ namespace LibraryTests
         public void VerHistorialVacioPorEmprendedorTest()
         {
             this.handlerInvitar.Handle(this.mensaje1);
-            string expected = string.Empty;
+            string expected = "No se encontraron elementos para mostrar.";
             Assert.AreEqual(expected, this.handlerInvitar.TextResult.ToString());
         }
 
@@ -83,7 +86,7 @@ namespace LibraryTests
         public void VerHistorialVacioPorEmpresaTest()
         {
             this.handlerInvitar.Handle(this.mensaje2);
-            string resultado = string.Empty;
+            string resultado = "No se encontraron elementos para mostrar.";
             Assert.AreEqual(resultado, this.handlerInvitar.TextResult.ToString());
         }
     }

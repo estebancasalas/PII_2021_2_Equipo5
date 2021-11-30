@@ -88,16 +88,17 @@ namespace Library
         public StringBuilder Mostrar(List<IConversorTexto> lista)
         {
             StringBuilder resultado = new StringBuilder();
-            if (lista != null)
+            if (lista == null || lista.Count == 0 )
             {
+                resultado.Append("No se encontraron elementos para mostrar.");
+            }
+            else
+            {
+                
                 foreach (IConversorTexto item in lista)
                 {
                     resultado.Append(item.ConvertToString());
                 }
-            }
-            else
-            {
-                resultado.Append("No se encontraron elementos para mostrar.");
             }
 
             return resultado;

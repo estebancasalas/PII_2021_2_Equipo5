@@ -1,6 +1,8 @@
+// -----------------------------------------------------------------------
 // <copyright file="BuscarPublicacionHandlerTest.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+// -----------------------------------------------------------------------
 
 using System;
 using System.Collections.Generic;
@@ -137,9 +139,9 @@ namespace LibraryTests
             {
                 this.handler.Handle(this.mensaje);
             }
-            catch (OpcionInvalidaException)
+            catch (OpcionInvalidaException e)
             {
-                resultado = "El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.";
+                resultado = e.Message;
             }
 
             string expected = "El tipo de búsqueda que ingresó no es válido, por favor intente nuevamente.";
