@@ -212,6 +212,22 @@
             Test que verifica que el bot le pide la ubicación donde se encuentra el material.
             </summary>
         </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case10Test_1">
+            <summary>
+            Test que verifica si la publicación se creo correctamente.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case10Test_2">
+            <summary>
+            Test que verifica si el bot responde correctamente.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.ElseTest">
+            <summary>
+            
+            Test que verifica que si la persona no es un empresario no pueda crear una publicación.  
+            </summary>       
+        </member>
         <member name="T:LibraryTests.HistorialHandlerTest">
             <summary>
             Casos de prueba para el handler Historial.
