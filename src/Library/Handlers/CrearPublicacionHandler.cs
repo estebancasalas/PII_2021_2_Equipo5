@@ -18,24 +18,55 @@ namespace Library
     /// </summary>
     public class CrearPublicacionHandler : AbstractHandler
     {
-        private string nombreMaterial;
-        private string categoria;
+        /// <summary>
+        /// Atributo que guarda el nombre del material.
+        /// </summary>
+        public string NombreMaterial;
+        
+        /// <summary>
+        /// Atributo que guarda la categoria del material.
+        /// </summary>
+        public string Categoria; 
 
-        private string unidad;
+        /// <summary>
+        /// Atributo que guarda la unidad del material.
+        /// </summary>
+        public string Unidad;
+        
+        /// <summary>
+        /// Atributo que guarda el costo del material.
+        /// </summary>
+        public double Costo;
 
-        private double costo;
+        /// <summary>
+        /// Atributo que guarda la cantidad del material.
+        /// </summary>
+        public double Cantidad;
 
-        private double cantidad;
+        /// <summary>
+        /// Atributo que guarda las habilidades que se necesitan para manipular el material.
+        /// </summary>
+        public string Habilitaciones;
 
-        private string habilitaciones;
+        /// <summary>
+        /// Atributo que guarda el titulo de la publicación.
+        /// </summary>
+        public string Titulo;
 
-        private string titulo;
+        /// <summary>
+        /// Atributo que guarda las palabras claves de la publicación.
+        /// </summary>
+        public string PalabrasClave;
 
-        private string palabrasClave;
+        /// <summary>
+        /// Atributo que guarda la frecuencia del material.
+        /// </summary>
+        public string Frecuencia;
 
-        private string frecuencia;
-
-        public string localizacion;
+        /// <summary>
+        /// Atributo que guarda la localización del material.
+        /// </summary>
+        public string Localizacion;
 
         /// <summary>
         /// Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
@@ -68,75 +99,75 @@ namespace Library
 
                         case 1:
                         this.TextResult = new StringBuilder();
-                        this.nombreMaterial = mensaje.Text;
+                        this.NombreMaterial = mensaje.Text;
                         this.TextResult.Append("Ingrese la categoria: \n(/Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles)\n");
                         estado.Step++;
                         break;
 
                         case 2:
                         this.TextResult = new StringBuilder();
-                        this.categoria = mensaje.Text;
+                        this.Categoria = mensaje.Text;
                         this.TextResult.Append("Ingrese la unidad con la que cuantifica el material:");
                         estado.Step++;
                         break;
 
                         case 3:
                         this.TextResult = new StringBuilder();
-                        this.unidad = mensaje.Text;
+                        this.Unidad = mensaje.Text;
                         this.TextResult.Append("Ingrese el precio por unidad:");
                         estado.Step++;
                         break;
 
                         case 4:
                         this.TextResult = new StringBuilder();
-                        this.costo = Convert.ToDouble(mensaje.Text, NumberFormatInfo.InvariantInfo);
+                        this.Costo = Convert.ToDouble(mensaje.Text, NumberFormatInfo.InvariantInfo);
                         this.TextResult.Append("Ingrese la cantidad:");
                         estado.Step++;
                         break;
 
                         case 5:
                         this.TextResult = new StringBuilder();
-                        this.cantidad = Convert.ToDouble(mensaje.Text, NumberFormatInfo.InvariantInfo);
+                        this.Cantidad = Convert.ToDouble(mensaje.Text, NumberFormatInfo.InvariantInfo);
                         this.TextResult.Append("Ingrese habilitaciones necesarias para manipular el material:");
                         estado.Step++;
                         break;
 
                         case 6:
                         this.TextResult = new StringBuilder();
-                        this.habilitaciones = mensaje.Text;
+                        this.Habilitaciones = mensaje.Text;
                         this.TextResult.Append("Ingrese el título:");
                         estado.Step++;
                         break;
 
                         case 7:
                         this.TextResult = new StringBuilder();
-                        this.titulo = mensaje.Text;
+                        this.Titulo = mensaje.Text;
                         this.TextResult.Append("Ingrese palabras claves separadas con ',' : ");
                         estado.Step++;
                         break;
 
                         case 8:
                         this.TextResult = new StringBuilder();
-                        this.palabrasClave = mensaje.Text;
+                        this.PalabrasClave = mensaje.Text;
                         this.TextResult.Append("Ingrese frequencia de disponibilidad: ");
                         estado.Step++;
                         break;
 
                         case 9:
                         this.TextResult = new StringBuilder();
-                        this.frecuencia = mensaje.Text;
+                        this.Frecuencia = mensaje.Text;
                         this.TextResult.Append("Ingrese dónde se encuentra: ");
                         estado.Step++;
                         break;
 
                         case 10:
                         this.TextResult = new StringBuilder();
-                        this.localizacion = mensaje.Text;
+                        this.Localizacion = mensaje.Text;
                         IUbicacionProvider ubicacionProvider = new UbicacionProvider();
-                        IUbicacion ubi = ubicacionProvider.GetUbicacion(this.localizacion);
-                        Material material = new Material(this.nombreMaterial, this.costo, this.cantidad, this.unidad, this.habilitaciones, this.categoria);
+                        IUbicacion ubi = ubicacionProvider.GetUbicacion(this.Localizacion);
+                        Material material = new Material(this.NombreMaterial, this.Costo, this.Cantidad, this.Unidad, this.Habilitaciones, this.Categoria);
                         Empresa empresa = Singleton<ListaEmpresa>.Instance.Buscar(mensaje.Id);
-                        Publicacion publicacion = new Publicacion(this.titulo, material, this.palabrasClave, this.frecuencia, ubi, empresa);
+                        Publicacion publicacion = new Publicacion(this.Titulo, material, this.PalabrasClave, this.Frecuencia, ubi, empresa);
                         this.TextResult.Append("Tú publicación ahora se encuentra activa.");
                         estado.Step = 0;
                         estado.Handler = string.Empty;
