@@ -54,10 +54,10 @@ namespace Library
         /// <returns>Retorna la espuesta a la peticion del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
-            // Caso cuando usuario entra acá
-            ListaAdministradores listaAdmin = new ListaAdministradores();
-            int indice = listaAdmin.Buscar(mensaje.Id);
-            EstadoUsuario estado = listaAdmin.Administradores[indice].Estado;
+            ListaDeUsuario lista = new ListaDeUsuario();
+            int indice = lista.Buscar(mensaje.Id);
+            EstadoUsuario estado = new EstadoUsuario();
+            estado = lista.ListaUsuarios[indice].Estado;
 
             if (mensaje.Text.ToLower() == "/crearinvitacion" || estado.Handler == "/crearinvitacion")
             {

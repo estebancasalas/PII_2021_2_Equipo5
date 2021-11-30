@@ -18,11 +18,6 @@ namespace Library
     public class HistorialHandler : AbstractHandler
     {
         /// <summary>
-        /// Obtiene o establece atributo donde se guarda el resultado.
-        /// </summary>
-        private string Resultado { get; set; }
-
-        /// <summary>
         /// Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre
         /// al usuario y devuelve el historial de compras/ventas con ese nombre. Si el mensaje es otro,
         /// se envía al siguiente Handler.

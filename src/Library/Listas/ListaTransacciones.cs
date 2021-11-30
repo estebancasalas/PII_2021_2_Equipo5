@@ -33,10 +33,7 @@ namespace Library
         /// <param name="transaccion">Transacción que se desea agregar a la lista.</param>
         public void Add(Transaccion transaccion)
         {
-            if (!this.Transacciones.Contains(transaccion))
-            {
-                this.Transacciones.Add(transaccion);
-            }
+            this.Transacciones.Add(transaccion);
         }
 
         /// <summary>
