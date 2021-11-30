@@ -115,6 +115,36 @@
             Setup de los casos de prueba.
             </summary>
         </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case0Test">
+            <summary>
+            Test del caso 0 de InvitarHandler
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case1Test">
+            <summary>
+            Test del caso 1 de InvitarHandler
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case2Test">
+            <summary>
+            Test del caso 2 de InvitarHandler
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case3Test">
+            <summary>
+            Test del caso 3 de InvitarHandler
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case4Test">
+            <summary>
+            Test del caso 4 de InvitarHandler
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case5Test">
+            <summary>
+            Test del caso 5 de InvitarHandler
+            </summary>
+        </member>
         <member name="T:LibraryTests.CrearPublicacionTest">
             <summary>
             Test del handler crear publicacion.
@@ -194,7 +224,7 @@
         <member name="T:LibraryTests.InvitarEmpresaTest">
             <summary>
             Test de User Story.
-            Este test comprueba que un Administrador puede crear una invitacion de una empresa para que sus empresario puedan unirse 
+            Este test comprueba que un Administrador puede crear una invitacion de una empresa para que sus empresario puedan unirse
             y crear publicaciones.
             </summary>
         </member>

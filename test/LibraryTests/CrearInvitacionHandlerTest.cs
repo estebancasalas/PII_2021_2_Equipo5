@@ -21,6 +21,7 @@ namespace LibraryTests
         private Usuario user;
         private Usuario userNoAdmin;
         private Administrador admin;
+        private string expected = string.Empty;
 
         /// <summary>
         /// Setup de los casos de prueba.
@@ -36,15 +37,24 @@ namespace LibraryTests
             this.admin = new Administrador(1122, "Juan");
         }
 
-        // [Test]
-        // public void NoEsAdminTest()
-        // {
-        //     this.mensajeNoAdmin.Text = "/crearinvitacion";
-        //     this.estado.Step = 0;
-        //     string expected = "Usted no es un administrador.";
-        //     invitar.Handle(mensajeNoAdmin);
-        //     Assert.AreEqual(this.invitar.TextResult.ToString(), expected);
-        // }
+        [Test]
+        public void NoEsAdminTest()
+        {
+            this.mensajeNoAdmin.Text = "/crearinvitacion";
+            this.estado.Step = 0;
+            string expected = "Usted no es un administrador.";
+            try 
+            {
+                invitar.Handle(mensajeNoAdmin);
+            }
+            catch (SinPermisoException)
+            {
+                this.expected = "Usted no es un administrador.";
+            }
+
+            
+            Assert.AreEqual("Usted no es un administrador.", expected);
+        }
 
         /// <summary>
         /// Test del caso 0 de InvitarHandler
