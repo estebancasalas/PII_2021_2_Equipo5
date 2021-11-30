@@ -119,6 +119,7 @@ namespace Library
                             {
                                 listaTexto.Add(publicacion);
                             }
+
                             this.TextResult.Append($"{conversor.Mostrar(listaTexto)}\n");
                             this.TextResult.Append("¿Desea realizar una compra?\n 1-Si \n 2-No");
                             estado.Step++;

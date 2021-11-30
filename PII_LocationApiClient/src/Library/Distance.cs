@@ -14,20 +14,20 @@ namespace Ucu.Poo.Locations.Client
     public class Distance
     {
         /// <summary>
-        /// Gets or sets a value indicating whether obtiene o establece un valor que indica si se encontraron o no las coordenas o las direcciones de origen y
+        /// Obtiene o establece un valor que indica si se encontraron o no las coordenas o las direcciones de origen y
         /// destino.
         /// </summary>
         /// <value>true si se encontró la dirección; false en caso contrario.</value>
         public bool Found { get; set; }
 
         /// <summary>
-        /// Gets or sets obtiene o establece la distancia entre las coordenadas o las direcciones de origen y destino.
+        /// Obtiene o establece la distancia entre las coordenadas o las direcciones de origen y destino.
         /// </summary>
         /// <value>La distancia en metros.</value>
         public double TravelDistance { get; set; }
 
         /// <summary>
-        /// Gets or sets obtiene o establece el tiempo que se demora en llegar de las coordenadas o de las direcciones de origen a las de destino.
+        /// Obtiene o establece el tiempo que se demora en llegar de las coordenadas o de las direcciones de origen a las de destino.
         /// </summary>
         /// <value>El tiempo que se demora en minutos.</value>
         public double TravelDuration { get; set; }

@@ -61,7 +61,7 @@ namespace Library
             if (this.TipoBusqueda.ToLower() == "/categoria")
             {
                 BusquedaCategoria buscador = new BusquedaCategoria();
-                this.Result = BusquedaCategoria.Buscar(this.Busqueda);
+                this.Result = buscador.Buscar(this.Busqueda);
             }
             else if (this.TipoBusqueda.ToLower() == "/ciudad")
             {

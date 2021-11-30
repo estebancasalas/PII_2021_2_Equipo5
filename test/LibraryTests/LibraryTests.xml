@@ -86,6 +86,9 @@
             </summary>
         </member>
         <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case4OutOfRangeTest">
+            <summary>
+            Prueba el quinto paso, cuando hay una excepción por los datos ingresados.
+            </summary>
         </member>
         <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case4FormatExceptionTest">
             <summary>
@@ -96,6 +99,7 @@
             <summary>
             Prueba el sexto paso del handler.
             </summary>
+        </member>
         <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case5FormatExceptionTest">
             <summary>
             Prueba el sexto paso, cuando hay una excepción.
@@ -111,6 +115,41 @@
             Setup de los casos de prueba.
             </summary>
         </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.NoEsAdminTest">
+            <summary>
+            Caso de prueba que verifica que es necesario ser un administrador para crear una invitación.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case0Test">
+            <summary>
+            Test del caso 0 de InvitarHandler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case1Test">
+            <summary>
+            Test del caso 1 de InvitarHandler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case2Test">
+            <summary>
+            Test del caso 2 de InvitarHandler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case3Test">
+            <summary>
+            Test del caso 3 de InvitarHandler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case4Test">
+            <summary>
+            Test del caso 4 de InvitarHandler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case5Test">
+            <summary>
+            Test del caso 5 de InvitarHandler.
+            </summary>
+        </member>
         <member name="T:LibraryTests.CrearPublicacionTest">
             <summary>
             Test del handler crear publicacion.
@@ -124,6 +163,11 @@
         <member name="M:LibraryTests.CrearPublicacionTest.Case0Test">
             <summary>
             Test que verifica que el bot le pide que ingrese el material.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case1Test">
+            <summary>
+            Test que verifica que el bot le pide que ingrese la categoria del material.
             </summary>
         </member>
         <member name="M:LibraryTests.CrearPublicacionTest.Case2Test">
@@ -166,6 +210,11 @@
             Test que verifica que el bot le pide la ubicación donde se encuentra el material.
             </summary>
         </member>
+        <member name="M:LibraryTests.CrearPublicacionTest.Case10Test_2">
+            <summary>
+            Test que verifica si el bot responde correctamente.
+            </summary>
+        </member>
         <member name="T:LibraryTests.HistorialHandlerTest">
             <summary>
             Casos de prueba para el handler Historial.
@@ -174,6 +223,18 @@
         <member name="M:LibraryTests.HistorialHandlerTest.Setup">
             <summary>
             SetUp de los casos de prueba.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.HistorialHandlerTest.HistorialNoVacioPorEmprendedorTest">
+            <summary>
+            Test que verefica que el historial no este vacio cuando el emprendedor ya tiene transacciònes
+            y lo quiere revisar.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.HistorialHandlerTest.HistorialNoVacioPorEmpresaTest">
+            <summary>
+            Test que verefica que el historial no este vacio cuando la empresa ya tiene transacciònes
+            y lo quiere revisar.
             </summary>
         </member>
         <member name="M:LibraryTests.HistorialHandlerTest.VerHistorialVacioPorEmprendedorTest">

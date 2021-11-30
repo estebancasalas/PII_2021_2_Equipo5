@@ -142,6 +142,7 @@ namespace LibraryTests
             {
                 resultado = "Usted ya está registrado.";
             }
+
             string expected = "Usted ya está registrado.";
             Assert.AreEqual(expected, resultado);
         }

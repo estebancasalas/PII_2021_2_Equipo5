@@ -283,6 +283,11 @@
             Esta clase se encarga del modelado del material.
             </summary>
         </member>
+        <member name="P:Library.Material.PosiblesCategorias">
+            <summary>
+            Lista que contiene las categorías del material.
+            </summary>
+        </member>
         <member name="M:Library.Material.#ctor(System.String,System.Double,System.Double,System.String,System.String,System.String)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Material"/>.
@@ -330,11 +335,6 @@
             Obtiene gets se encarga de guardar la categoría del material dentro del objeto material.
             </summary>
             <value>Guarda la categoria del material.</value>
-        </member>
-        <member name="P:Library.Material.PosiblesCategorias">
-            <summary>
-            Lista que contiene las categorías del material.
-            </summary>
         </member>
         <member name="M:Library.Material.ConvertToString">
             <summary>
@@ -1434,7 +1434,7 @@
             Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
             todas las invitaciones que existen.
             </summary>
-            <param name="Invitacion">Invitación que se desea agregar a la lista.</param>
+            <param name="invitacion">Invitación que se desea agregar a la lista.</param>
         </member>
         <member name="T:Library.ListaTransacciones">
             <summary>
