@@ -39,22 +39,6 @@ namespace Library
         }
 
         /// <summary>
-        /// Método para eliminar una publicación. Se agrega la misma a la lista de publicaciones eliminadas y se remueve de la
-        /// lista de publicaciones activas y publicaciones pausadas.
-        /// </summary>
-        /// <param name="publi">Publicación a eliminar.</param>
-        public void EliminarPublicacion(Publicacion publi)
-        {
-            foreach (Publicacion publicaciones in this.Activas)
-            {
-                if (publicaciones.Equals(publi))
-                {
-                    this.Activas.RemoveAt(this.Activas.IndexOf(publicaciones));
-                }
-            }
-        }
-
-        /// <summary>
         /// Método para mostrar la lista pasada como parámetro en pantalla.
         /// </summary>
         /// <param name="lista">Lista que se desea mostrar.</param>
