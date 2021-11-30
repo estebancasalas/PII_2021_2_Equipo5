@@ -1,10 +1,3 @@
-// // <copyright file="VerHistorialTest.cs" company="PlaceholderCompany">
-// // Copyright (c) PlaceholderCompany. All rights reserved.
-// // </copyright>
-
-// // <copyright file="VerHistorialTest.cs" company="PlaceholderCompany">
-// // Copyright (c) PlaceholderCompany. All rights reserved.
-// // </copyright>
 
 // using System;
 // using System.Collections.Generic;
@@ -120,5 +113,5 @@
         //     string resultado = "Tus transacciones son:\nAdidas vendió 1 de Championes de Messi a Colgatte\n";
         //     Assert.AreEqual(resultado, historial.resultado);
         // }
-    }
-}
+  //  }
+//}
