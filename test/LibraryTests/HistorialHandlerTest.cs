@@ -86,5 +86,5 @@ namespace LibraryTests
             string resultado = string.Empty;
             Assert.AreEqual(resultado, this.handlerInvitar.TextResult.ToString());
         }
-   }
+    }
 }

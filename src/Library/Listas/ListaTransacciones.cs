@@ -22,7 +22,7 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns>Lista con todas las transacciones.</returns>
-        private List<Transaccion> transacciones = Singleton<List<Transaccion>>.Instance;
+        public List<Transaccion> Transacciones = Singleton<List<Transaccion>>.Instance;
 
         /// <summary>
         /// Se crea el método Add para añadir una Transaccion a la ListaTransacciones
@@ -33,7 +33,7 @@ namespace Library
         /// <param name="transaccion">Transacción que se desea agregar a la lista.</param>
         public void Add(Transaccion transaccion)
         {
-            this.transacciones.Add(transaccion);
+            this.Transacciones.Add(transaccion);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Library
             List<Transaccion> resultado = new List<Transaccion>();
             ListaEmpresa lista = new ListaEmpresa();
             Empresa empresa = lista.Buscar(id);
-            foreach (Transaccion transaccion in this.transacciones)
+            foreach (Transaccion transaccion in this.Transacciones)
             {
                 if (transaccion.Vendedor == empresa || transaccion.Comprador.Id == id)
                 {
@@ -77,7 +77,7 @@ namespace Library
         {
             List<Transaccion> listaTrans = new List<Transaccion>();
             listaTrans = JsonSerializer.Deserialize<List<Transaccion>>(json);
-            this.transacciones = listaTrans;
+            this.Transacciones = listaTrans;
         }
 
         /// <summary>
