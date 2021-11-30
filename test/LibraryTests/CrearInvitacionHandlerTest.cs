@@ -56,70 +56,68 @@ namespace LibraryTests
             Assert.AreEqual(this.admin.Estado.Step, 1);
         }
 
-        // [Test]
-        // public void Case1Test()
-        // {
-        //     this.mensaje.Text = "colgatee";
-        //     this.admin.Estado.Step = 1;
-        //     this.admin.Estado.Handler = "/crearinvitacion";
-        //     invitar.Handle(mensaje);
-        //     string expected = "¿Cuál es la ubicación de la empresa?";
-        //     Assert.AreEqual(expected, this.invitar.TextResult.ToString());
-        //     Assert.AreEqual(this.admin.Estado.Step, 2);
-        // }
+        [Test]
+        public void Case1Test()
+        {
+            this.mensaje.Text = "colgatee";
+            this.admin.Estado.Step = 1;
+            this.admin.Estado.Handler = "/crearinvitacion";
+            invitar.Handle(mensaje);
+            string expected = "¿Cuál es la ubicación de la empresa?";
+            Assert.AreEqual(expected, this.invitar.TextResult.ToString());
+           // Assert.AreEqual(this.admin.Estado.Step, 2);
+        }
 
-        // [Test]
-        // public void Case2Test()
-        // {
-        //     this.mensaje.Text = "8 de Octubre";
-        //     this.admin.Estado.Step = 2;
-        //     this.admin.Estado.Handler = "/crearinvitacion";
-        //     invitar.Handle(mensaje);
-        //     string expected = "¿Cuál es el rubro de la empresa?";
-        //     Assert.AreEqual(expected, this.invitar.TextResult.ToString());
-        //     Assert.AreEqual(this.admin.Estado.Step, 3);
-        // }
+        [Test]
+        public void Case2Test()
+        {
+            this.mensaje.Text = "8 de Octubre";
+            this.admin.Estado.Step = 2;
+            this.admin.Estado.Handler = "/crearinvitacion";
+            invitar.Handle(mensaje);
+            string expected = "¿Cuál es el rubro de la empresa?";
+            Assert.AreEqual(expected, this.invitar.TextResult.ToString());
+            //Assert.AreEqual(this.admin.Estado.Step, 3);
+        }
 
-        // [Test]
-        // public void Case3Test()
-        // {
-        //     this.mensaje.Text = "textil";
-        //     this.admin.Estado.Step = 3;
-        //     this.admin.Estado.Handler = "/crearinvitacion";
-        //     invitar.Handle(mensaje);
-        //     string expected = "¿Mail o numero de teléfono para contactar a la empresa?";
-        //     Assert.AreEqual(expected, this.invitar.TextResult.ToString());
-        //     Assert.AreEqual(this.admin.Estado.Step, 4);
-        // }
+        [Test]
+        public void Case3Test()
+        {
+            this.mensaje.Text = "textil";
+            this.admin.Estado.Step = 3;
+            this.admin.Estado.Handler = "/crearinvitacion";
+            invitar.Handle(mensaje);
+            string expected = "¿Mail o numero de teléfono para contactar a la empresa?";
+            Assert.AreEqual(expected, this.invitar.TextResult.ToString());
+            //Assert.AreEqual(this.admin.Estado.Step, 4);
+        }
 
-        // [Test]
-        // public void Case4Test()
-        // {
-        //     this.mensaje.Text = "contacto@gmail.com";
-        //     this.admin.Estado.Step = 4;
-        //     this.admin.Estado.Handler = "/crearinvitacion";
-        //     invitar.Handle(mensaje);
-        //     string expected = "¿Qué codigo de invitación desea asignarle?";
-        //     Assert.AreEqual(expected, this.invitar.TextResult.ToString());
-        //     Assert.AreEqual(this.admin.Estado.Step, 5);
-        // }
+        [Test]
+        public void Case4Test()
+        {
+            this.mensaje.Text = "contacto@gmail.com";
+            this.admin.Estado.Step = 4;
+            this.admin.Estado.Handler = "/crearinvitacion";
+            invitar.Handle(mensaje);
+            string expected = "¿Qué codigo de invitación desea asignarle?";
+            Assert.AreEqual(expected, this.invitar.TextResult.ToString());
+            //Assert.AreEqual(this.admin.Estado.Step, 5);
+        }
 
-        // [Test]
-        // public void Case5Test()
-        // {
-        //     this.mensaje.Text = "abc123";
-        //     this.admin.Estado.Step = 5;
-        //     this.admin.Estado.Handler = "/crearinvitacion";
-        //     this.invitar.Nombre = "colgatee";
-        //     this.invitar.Ubicacion = "8 de Octubre";
-        //     this.invitar.Rubro = "textil";
-        //     this.invitar.Contacto = "contacto@gmail.com";
-        //     invitar.Handle(mensaje);
-        //     string expected = "Empresa registrada con los siguientes datos:\nNombre: colgatee\nUbicacion: 8 de Octubre\nRubro: textil\nContacto: contacto@gmail.com\nInvitación: abc123";
-        //     Assert.AreEqual(expected, this.invitar.TextResult.ToString());
-        //     Assert.AreEqual(this.admin.Estado.Step, 0);
-        // }
-        
+        [Test]
+        public void Case5Test()
+        {
+            this.mensaje.Text = "abc123";
+            this.admin.Estado.Step = 5;
+            this.admin.Estado.Handler = "/crearinvitacion";
+            this.invitar.Nombre = "colgatee";
+            this.invitar.Ubicacion = "8 de Octubre";
+            this.invitar.Rubro = "textil";
+            this.invitar.Contacto = "contacto@gmail.com";
+            this.invitar.Handle(mensaje);
+            string expected = "Empresa registrada con los siguientes datos:\nNombre: colgatee\nUbicacion: 8 de Octubre\nRubro: textil\nContacto: contacto@gmail.com\nInvitación: abc123";
+            Assert.AreEqual(expected, this.invitar.TextResult.ToString());
+            //Assert.AreEqual(this.admin.Estado.Step, 0);
+        }
     }
 }
-
