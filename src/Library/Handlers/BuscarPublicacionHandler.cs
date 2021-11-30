@@ -24,7 +24,15 @@ namespace Library
         /// <summary>
         /// Lo que desea buscar.
         /// </summary>
+        
+        /// <summary>
+        /// Atributo que guarda lo que desea buscar el usuario. Público para los tests.
+        /// </summary>
         public string busqueda;
+
+        /// <summary>
+        /// Atributo que guarda la cantidad que desea buscar el usuario. Público para los tests.
+        /// </summary>
         public float cantidad;
 
         /// <summary>
@@ -56,7 +64,7 @@ namespace Library
         public override string Handle(Mensaje mensaje)
         {
             ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(id: mensaje.Id);
+            int indice = listaUsuario.Buscar(mensaje.Id);
             EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
             if (mensaje.Text.ToLower() == "/buscarpublicacion" || estado.Handler == "/buscarpublicacion")
             {
@@ -95,7 +103,7 @@ namespace Library
                         break;
 
                     case 2:
-                        if (this.tipoBusqueda == "/categoria" && !Material.PosiblesCategorias.Contains(mensaje.Text))
+                        if (this.tipoBusqueda == "/categoria" && !Material.PosiblesCategorias.Contains(mensaje.Text.ToLower()))
                         {
                             throw new OpcionInvalidaException("Lo siento, la categoría ingresada no es válida. Por favor vuelva a intentarlo.");
                         }
@@ -103,7 +111,7 @@ namespace Library
                         this.busqueda = mensaje.Text;
                         BuscarPublicacion buscarPublicacion = new BuscarPublicacion(this.tipoBusqueda, this.busqueda);
                         this.resultadoBusqueda = buscarPublicacion.EjecutarComando();
-                        if (resultadoBusqueda.Count != 0)
+                        if (this.resultadoBusqueda.Count != 0)
                         {
                             IMostrar conversor = new RegistroPublicaciones();
                             List<IConversorTexto> listaTexto = new List<IConversorTexto>();
@@ -165,9 +173,9 @@ namespace Library
                         break;
 
                     case 5:
-                        try 
+                        try
                         {
-                            cantidad = float.Parse(mensaje.Text);
+                            this.cantidad = float.Parse(mensaje.Text);
                         }
                         catch
                         {

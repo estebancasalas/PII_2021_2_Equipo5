@@ -4,54 +4,99 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="M:LibraryTests.AceptarInvitacionTest.SetUp">
-            <summary>
-            SetUp del caso de prueba.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.AceptarInvitacionTest.AceptarInvitacionEmpresaTest">
-            <summary>
-            Caso de prueba que verifica que un usuario se puede unir a una empresa mediante un codigo de invitación.
-            </summary>
-        </member>
-        <member name="T:LibraryTests.BuscarPublicacionTest">
+        <member name="T:LibraryTests.BuscarPublicacionHandlerTest">
             <summary>
             Casos de prueba para buscar la publicacion.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Setup">
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Setup">
             <summary>
             Setup del test.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case0Test">
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case0Test">
             <summary>
             Prueba el primer paso.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case1CiudadTest">
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case1CategoriaTest">
+            <summary>
+            Prueba el segundo paso del handler, el caso en que el usuario desee buscar por categoría.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case1CiudadTest">
             <summary>
             Prueba el segundo paso del handler, el caso en que el usuario desee buscar por ciudad.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case1PalabrasClaveTest">
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case1PalabrasClaveTest">
             <summary>
             Prueba el segundo paso del handler, el caso en que el usuario desee buscar por palabras clave.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case3ComprarTest">
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case1VacioTest">
+            <summary>
+            Prueba la excepción en en segundo paso del test.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case2SinPublicacionTest">
+            <summary>
+            Prueba la excepción en el tercer paso del Handler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case2ConPublicacionTest">
+            <summary>
+            Test que prueba el tercer paso del handler cuando existen publicaciones.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case3ComprarTest">
             <summary>
             Prueba el cuarto paso del handler, el caso en que el usuario no desee realizar una compra.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case3NoComprarTest">
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case3NoComprarTest">
             <summary>
             Prueba el cuarto paso del handler, el caso en que el usuario desee realizar una compra.
             </summary>
         </member>
-        <member name="M:LibraryTests.BuscarPublicacionTest.Case5Test">
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case3NoValidoTest">
+            <summary>
+            Prueba el cuarto paso del handler, el caso en que el mensaje no sea válido.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case4ValidoTest">
+            <summary>
+            Prueba el quinto paso del handler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case4OutOfRangeTest">
+            <summary>
+            Prueba el quinto paso, cuando hay una excepción por los datos ingresados.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case4FormatExceptionTest">
+            <summary>
+            Prueba el quinto paso, cuando hay una excepción de formato.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case5Test">
             <summary>
             Prueba el sexto paso del handler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case5FormatExceptionTest">
+            <summary>
+            Prueba el sexto paso, cuando hay una excepción.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.CrearInvitacionHandlerTest">
+            <summary>
+            Casos de prueba para el metodo CrearInvitacion.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CrearInvitacionHandlerTest.Setup">
+            <summary>
+            Setup de los casos de prueba.
             </summary>
         </member>
         <member name="T:LibraryTests.CrearPublicacionTest">
@@ -109,17 +154,14 @@
             Test que verifica que el bot le pide la ubicación donde se encuentra el material.
             </summary>
         </member>
-        <member name="T:LibraryTests.InvitarEmpresaTest">
+        <member name="T:LibraryTests.HistorialHandlerTest">
             <summary>
-            Test de User Story.
-            Este test comprueba que un Administrador puede crear una invitacion de una empresa para que sus empresario puedan unirse 
-            y crear publicaciones.
+            Casos de prueba para el handler Historial.
             </summary>
         </member>
-        <member name="M:LibraryTests.InvitarEmpresaTest.InvitarTest">
+        <member name="M:LibraryTests.HistorialHandlerTest.Setup">
             <summary>
-            En este caso de prueba, se simula la conversación del administrador con el bot.
-            Al final de éste, se comprueba que se creo la empresa buscándola por su nombre.
+            SetUp de los casos de prueba.
             </summary>
         </member>
         <member name="T:LibraryTests.RegistrarEmprendedorTests">
