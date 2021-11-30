@@ -38,8 +38,6 @@ namespace LibraryTests
             Empresa empresa3 = new Empresa("Empresa3", "UbicacionEmpresa3", "electrica", "1233", "098998895");
             
             
-            
-            
             Material madera = new Material("PMadera", 1, 2, "Cantidad", "Habilitación1", "/Quimicos");
             Material dos = new Material("Material2", 3, 4, "Cantidad", "Habilitación1", "/Plasticos");
             Material tres = new Material("Material3", 5, 6, "Cantidad", "Habilitación1", "/Electricos");
@@ -63,7 +61,7 @@ namespace LibraryTests
 
 
 
-        [Test]
+       /* [Test]
         public void EmprendedorBuscaPublicacionTest()
         {
             
@@ -71,6 +69,6 @@ namespace LibraryTests
 
         [Test]
         public void EmprendedorVeHistorialTest()
-        {}
+        {}*/
     }
 }
