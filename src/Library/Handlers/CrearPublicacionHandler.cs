@@ -69,7 +69,7 @@ namespace Library
                         case 1:
                         this.TextResult = new StringBuilder();
                         this.nombreMaterial = mensaje.Text;
-                        this.TextResult.Append("Ingrese la categoria:");
+                        this.TextResult.Append("Ingrese la categoria: \n(/Químicos\n  /Plásticos\n  /Celulósicos\n  /Eléctricos\n  /Textiles)\n");
                         estado.Step++;
                         break;
 
@@ -146,7 +146,7 @@ namespace Library
                 }
                 else
                 {
-                    this.TextResult.Append("Para crear publicaciones debe pertenecer a una empresa.");
+                    throw new SinPermisoException("No tienes permiso para crear una publicacion, usted debe pertenecer a una empresa para crear.");
                 }
 
                 return this.TextResult.ToString();

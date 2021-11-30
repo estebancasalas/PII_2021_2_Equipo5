@@ -15,18 +15,13 @@ namespace Library
     /// </summary>
     public class FinalizarHandler : AbstractHandler
     {
-        private NullHandler next2;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FinalizarHandler"/> class.
         /// Constructor de la clase.
         /// </summary>
         /// <param name="handler">Dado que tiene dos handlers siguientes, uno de ellos se pasa como parámetro.</param>
-        public FinalizarHandler(IHandler handler)
-        {
-            this.SetNext(handler);
-            this.next2 = new NullHandler();
-        }
+
 
         /// <summary>
         /// Método que muestra en pantalla un mensaje, último Handler de la cadena principal.
@@ -39,14 +34,13 @@ namespace Library
             {
                 this.TextResult = new StringBuilder();
                 this.TextResult.Append("Gracias por usar nuestro bot, esperamos que te haya ayudado.");
-                this.next2.Handle(mensaje); // Next2 = NullHandler
+                return this.TextResult.ToString();
             }
             else
             {
-                this.GetNext().Handle(mensaje);  // Que vuelva al primer handler
+                return this.GetNext().Handle(mensaje);
             }
-
-            return this.TextResult.ToString();
         }
+
     }
 }

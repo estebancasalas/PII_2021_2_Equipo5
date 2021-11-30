@@ -16,6 +16,7 @@ namespace Library
     {
         private int id;
         private string nombre;
+        public EstadoUsuario Estado = new EstadoUsuario();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Administrador"/>.
@@ -56,6 +57,7 @@ namespace Library
         /// <param name="ubicacion">Ubicación de la empresa.</param>
         /// <param name="rubro">Rubro de la empresa.</param>
         /// <param name="token">Token de invitación creada por el administrador.</param>
+        /// <param name="contacto">Un telefono para contactactar a la empresa.</param>
         public static void CrearInvitacion(string nombre, string ubicacion, string rubro, string token, string contacto)
         {
             Empresa empresa = new Empresa(nombre, ubicacion, rubro, token, contacto);

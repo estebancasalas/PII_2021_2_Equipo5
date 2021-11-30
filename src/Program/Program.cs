@@ -25,10 +25,12 @@ namespace Library
 
         private static IHandler comienzoHandler = new ComienzoHandler();
 
+        /// <summary>
+        /// Donde se ejecuta valores, se inicializa el bot.
+        /// </summary>
         public static void Main()
         {
             comienzoHandler.SetNext(new BuscarPublicacionHandler())
-                           .SetNext(new ComprarHandler())
                            .SetNext(new CrearEmprendedorHandler())
                            .SetNext(new CrearPublicacionHandler())
                            .SetNext(new EmpresaCantidadTrabajadores())
@@ -66,9 +68,29 @@ namespace Library
             registroPublicaciones.LoadFromJson(publicaciones);
             */
 
+            //Publicaciones
+            Material madera = new Material("Aserrín", 10, 500, "Kg", "Ninguna", "/celulosicos");
+            Material aluminio = new Material("Recortes de aluminio", 100, 37, "Kg", "Ninguna", "/metalicos");
+
+
+            IUbicacion ubicacionMadera = new Ubicacion("Uruguay", "Tacuarembó", "Manuel Oribe 637", "45000", "", "");
+            IUbicacion ubicacionAluminio = new Ubicacion("Uruguay", "Tacuarembó", "", "", "", "");
+
+
+            Empresa empresa1 = new Empresa("Woods.", "Tacuarembo, Uruguay", "Maderero", "invitacion1", "46325889");
+            Empresa empresa2 = new Empresa("Aberturas Uruguay.", "Salto, Uruguay", "Carpinteria en aluminio", "Invitacion2", "45698765");
+            Empresa empresaIonas = new Empresa("Ionas S.A.", "Tacuarembo, Uruguay", "Reciclaje de residuos", "Invitacion3", "46359877");
+
+
+            Publicacion a = new Publicacion("Aserrín", madera, "madera, aserrin", "Semanal", ubicacionMadera, empresa1);
+            Publicacion b = new Publicacion("Recortes de aluminio", aluminio, "aluminio, recortes", "Mensual", ubicacionAluminio, empresa2);
+
+
+            // Material tapas = new Material("Tapas plasticas", 17, 230, "Kg", "Ninguna", "/plasticos");
+            // IUbicacion ubicacionTapas = new Ubicacion("Uruguay", "Tacuarembo", "", "", "", "");
+            // Publicacion c = new Publicacion("tapas de refrescos", tapas, "tapas, plastico, residuos", "diario", ubicacionTapas, empresaIonas);
 
             //SetUp demo parte 1
-            Empresa empresa1 = new Empresa("Crespi", "25 de Mayo 267", "Electrodomésticos", "abc123", "2311 5789");
             ListaInvitaciones listaInvitaciones2 = Singleton<ListaInvitaciones>.Instance;
             listaInvitaciones2.Add("abc123");
             Usuario usuario = new Usuario(1566567912, new EstadoUsuario());
@@ -77,9 +99,7 @@ namespace Library
 
             //SetUp demo parte 2
             Emprendedor pilar = new Emprendedor(2105185991, "Pilar Machado", "Montevideo", "Electricista", "Ninguna", "Motores electricos");
-            //Publicacion publicacion1 = new Publicacion();
-            //Publicacion publicacion2 = new Publicacion();
-            //Publicacion publicacionIonas = new Publicacion();
+
 
 
 
@@ -135,6 +155,7 @@ namespace Library
 
         private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
         {
+            string respuesta;
             Mensaje mensaje = new Mensaje(messageEventArgs.Message.Chat.Id, messageEventArgs.Message.Text);
             ListaDeUsuario listaUsuario = Singleton<ListaDeUsuario>.Instance;
             ITelegramBotClient client = TelegramBot.Instance.Client;
@@ -146,8 +167,39 @@ namespace Library
 
             if (mensaje.Text != "/salir")
             {
-                await client.SendTextMessageAsync(chatId: mensaje.Id, text: comienzoHandler.Handle(mensaje));
+                try
+                {
+                    respuesta = comienzoHandler.Handle(mensaje);
+                }
+                catch (OpcionInvalidaException e)
+                {
+                    respuesta = e.Message;
+                }
+                catch (FormatException e)
+                {
+                    respuesta = e.Message;
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    respuesta = e.Message;
+                }
+                catch (YaRegistradoException e)
+                {
+                    respuesta = e.Message;
+                }
+                catch (SinPermisoException e)
+                {
+                    respuesta = e.Message;
+                }
             }
+            else
+            {
+                int indice2 = listaUsuario.Buscar(mensaje.Id);
+                listaUsuario.ListaUsuarios[indice2].Estado = new EstadoUsuario();
+                respuesta = "Gracias por usar nuestro bot, esperamos que te haya ayudado. Si quieres continuar utilizando nuestro bot vuelve a escribir un /comandos .";
+            }
+
+            await client.SendTextMessageAsync(chatId: mensaje.Id, text: respuesta);
         }
     }
 }

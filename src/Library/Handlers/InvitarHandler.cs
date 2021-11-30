@@ -54,9 +54,10 @@ namespace Library
         /// <returns>Retorna la espuesta a la peticion del usuario.</returns>
         public override string Handle(Mensaje mensaje)
         {
-            ListaDeUsuario listaUsuario = new ListaDeUsuario();
-            int indice = listaUsuario.Buscar(mensaje.Id);
-            EstadoUsuario estado = listaUsuario.ListaUsuarios[indice].Estado;
+            // Caso cuando usuario entra acá
+            ListaAdministradores listaAdmin = new ListaAdministradores();
+            int indice = listaAdmin.Buscar(mensaje.Id);
+            EstadoUsuario estado = listaAdmin.Administradores[indice].Estado;
 
             if (mensaje.Text.ToLower() == "/crearinvitacion" || estado.Handler == "/crearinvitacion")
             {
@@ -105,7 +106,7 @@ namespace Library
                             this.Token = mensaje.Text;
                             Administrador.CrearInvitacion(this.Nombre, this.Ubicacion, this.Rubro, this.Token, this.Contacto);
                             estado.Step = 0;
-                            estado.Handler = null;
+                            estado.Handler = string.Empty;
                             this.TextResult.Append($"Empresa registrada con los siguientes datos:\nNombre: {this.Nombre}\nUbicacion: {this.Ubicacion}\nRubro: {this.Rubro}\nContacto: {this.Contacto}\nInvitación: {this.Token}");
                             break;
                     }

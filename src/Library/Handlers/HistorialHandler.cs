@@ -52,6 +52,7 @@ namespace Library
                 IMostrar conversor = new ListaTransacciones();
                 this.TextResult = conversor.Mostrar(listaTexto);
 
+                return this.TextResult.ToString();
             }
 
             return this.GetNext().Handle(mensaje);
