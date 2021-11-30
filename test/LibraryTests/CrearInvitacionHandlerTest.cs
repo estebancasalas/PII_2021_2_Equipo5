@@ -46,6 +46,10 @@ namespace LibraryTests
         //     Assert.AreEqual(this.invitar.TextResult.ToString(), expected);
         // }
 
+        /// <summary>
+        /// Test del caso 0 de InvitarHandler
+        /// </summary>
+
         [Test]
         public void Case0Test()
         {
@@ -57,6 +61,10 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 1);
         }
 
+        /// <summary>
+        /// Test del caso 1 de InvitarHandler
+        /// </summary>
+        
         [Test]
         public void Case1Test()
         {
@@ -68,6 +76,10 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.invitar.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 2);
         }
+
+        /// <summary>
+        /// Test del caso 2 de InvitarHandler
+        /// </summary>
 
         [Test]
         public void Case2Test()
@@ -81,6 +93,10 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 3);
         }
 
+        /// <summary>
+        /// Test del caso 3 de InvitarHandler
+        /// </summary>
+
         [Test]
         public void Case3Test()
         {
@@ -93,6 +109,10 @@ namespace LibraryTests
             Assert.AreEqual(this.user.Estado.Step, 4);
         }
 
+        /// <summary>
+        /// Test del caso 4 de InvitarHandler
+        /// </summary>
+
         [Test]
         public void Case4Test()
         {
@@ -104,6 +124,10 @@ namespace LibraryTests
             Assert.AreEqual(expected, this.invitar.TextResult.ToString());
             Assert.AreEqual(this.user.Estado.Step, 5);
         }
+
+        /// <summary>
+        /// Test del caso 5 de InvitarHandler
+        /// </summary>
 
         [Test]
         public void Case5Test()
