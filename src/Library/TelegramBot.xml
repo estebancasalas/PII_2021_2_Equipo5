@@ -851,11 +851,6 @@
             interactúa con el usuario.
             </summary>
         </member>
-        <member name="P:Library.HistorialHandler.Resultado">
-            <summary>
-            Obtiene o establece atributo donde se guarda el resultado.
-            </summary>
-        </member>
         <member name="M:Library.HistorialHandler.Handle(Library.Mensaje)">
             <summary>
             Método que evalúa el mensaje. Si el mensaje es "/historial", el Handler le pide el nombre

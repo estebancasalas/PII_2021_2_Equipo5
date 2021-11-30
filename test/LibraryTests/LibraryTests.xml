@@ -164,6 +164,17 @@
             SetUp de los casos de prueba.
             </summary>
         </member>
+        <member name="M:LibraryTests.HistorialHandlerTest.VerHistorialVacioPorEmprendedorTest">
+            <summary>
+            En este test verificamos que, cuando la invitación es válida, el id del usuario se añade correctamente a la lista de
+            ids de la empresa.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.HistorialHandlerTest.VerHistorialVacioPorEmpresaTest">
+            <summary>
+            Se testea el metodo mostrar historial cuando el emprendedor tiene compras registradas.
+            </summary>
+        </member>
         <member name="T:LibraryTests.RegistrarEmprendedorTests">
             <summary>
             Casos de prueba para el handler de CrearEmprendedor.
