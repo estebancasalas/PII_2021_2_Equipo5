@@ -40,19 +40,6 @@
             <param name="token">Token de invitación creada por el administrador.</param>
             <param name="contacto">Un telefono para contactactar a la empresa.</param>
         </member>
-        <member name="T:Library.BuscarEmpresaPorPublicacion">
-            <summary>
-            Clase que sirve para buscar empresas. Cumple con SRP, ya que hay una clase encargada de
-            conocer todas las empresas que no tiene la responsabilidad de buscarlas.
-            </summary>
-        </member>
-        <member name="M:Library.BuscarEmpresaPorPublicacion.Buscar(System.String)">
-            <summary>
-            Método para buscar una empresa a partir de una publicación.
-            </summary>
-            <param name="nombrePublicacion">Se pasa el nombre de la publicación para buscar la empresa.</param>
-            <returns>Devuelve la empresa que hizo la publicacion.</returns>
-        </member>
         <member name="T:Library.BuscarPublicacion">
             <summary>
             Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
@@ -609,51 +596,6 @@
             </summary>
             <value>Propiedad de tipo EstadoUsuario que contiene el handler y el paso del mismo en el que se encuentra.</value>
         </member>
-        <member name="T:Library.BuscarPublicacion">
-            <summary>
-            Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
-            devuelve una lista con las coincidencias.
-            Además, se deberá preguntar por los parámetros necesarios para la búsqueda.
-            En caso de una búsqueda por más de un tipo, se realizan todas las búsquedas y,
-            devuelve las coincidencias comunes a todas las búsquedas.
-            Esta clase además cumple con el principio SRP, ya que tiene como responsabilidad
-            devolver una lista de publicaciones que cumplen con lo buscado, pero delega
-            la responsabilidad de buscar a otras clases.
-            </summary>
-        </member>
-        <member name="F:Library.BuscarPublicacion.TipoBusqueda">
-            <summary>
-            Contiene el tipo de búsqueda que se va a realizar.
-            </summary>
-        </member>
-        <member name="F:Library.BuscarPublicacion.Busqueda">
-            <summary>
-            Lo que se desea buscar.
-            </summary>
-        </member>
-        <member name="F:Library.BuscarPublicacion.Result">
-            <summary>
-            Lista de coincidencias de la búsqueda.
-            </summary>
-        </member>
-        <member name="M:Library.BuscarPublicacion.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Library.BuscarPublicacion"/> class.
-            Constructor de la clase.
-            </summary>
-            <param name="tipobusqueda"></param>
-            <param name="busqueda"></param>
-        </member>
-        <member name="M:Library.BuscarPublicacion.EjecutarComando">
-            <summary>
-            EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y,
-            palabras claves). Luego las delega a cada una de las clases que se encargan de,
-            búsqueda, para cumplir con SRP.
-            Finalmente, devuelve una lista con todas la publicaciones encontradas, de la búsqueda
-            que se realizó.
-            </summary>
-            <returns>Lista con las publicaciones encontradas.</returns>
-        </member>
         <member name="T:Library.BuscarPublicacionHandler">
             <summary>
             Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque
@@ -1027,6 +969,19 @@
             Método get para obtener el siguiente handler en la cadena.
             </summary>
             <returns>Retorna el handler siguiente.</returns>
+        </member>
+        <member name="T:Library.IConversorTexto">
+            <summary>
+            Interfaz para las clases que necesitan mostrar información. Fue creada para cumplir con
+            DIP, para que las clases que implementan esta interfaz dependan de una abstracción y no
+            de una clase concreta.
+            </summary>
+        </member>
+        <member name="M:Library.IConversorTexto.ConvertToString">
+            <summary>
+            Firma del método que convierte a strings.
+            </summary>
+            <returns>string convetida.</returns>
         </member>
         <member name="T:Library.IJsonConvertible">
             <summary>
@@ -1483,18 +1438,6 @@
         <member name="T:Library.Singleton`1">
             <summary>
             Tiene la responsabilidad de hacer que ciertas instancias sean únicas y globales.
-            Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
-            </summary>
-            <typeparam name="T">Tipo genérico que se establece cuando se crea una instancia.</typeparam>
-        </member>
-        <member name="P:Library.Singleton`1.Instance">
-            <summary>
-            Obtiene gets se crea una nueva instancia solo si no existe previamente.
-            </summary>
-            <value>Se guarda una nueva instancia.</value>
-        </member>
-        <member name="T:Library.Singleton`1">
-            <summary>
             Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
             </summary>
             <typeparam name="T">Tipo genérico que se establece cuando se crea una instancia.</typeparam>
