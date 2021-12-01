@@ -8,22 +8,22 @@ using System.Text;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela las transacciones entre emprendedores y empresas o viceversa.
+    /// Clase que modela las transacciones entre emprendedores y empresas.  Implementa la interfaz IConversorTexto para que dependa de una abstracción cumpliendo con el principio DIP.
     /// </summary>
     public class Transaccion : IConversorTexto
     {
         /// <summary>
-        /// El vendedor es un objeto del tipo Empresa.
+        /// El vendedor del material como tipo Empresa.
         /// </summary>
-        public Empresa vendedor;
+        public Empresa Vendedor;
 
         /// <summary>
-        /// El Comprador es un objeto de tipo Emprendedor.
+        /// El Comprador del material como tipo Emprendedor.
         /// </summary>
         public Emprendedor Comprador;
 
         /// <summary>
-        /// El NombreDelMaterial es el nombre del material que se vendió o se compró.
+        /// Es el material que se compró o vendió.
         /// </summary>
         public Material Material;
 
@@ -36,8 +36,8 @@ namespace Library
         /// Inicializa una nueva instancia de la clase <see cref="Transaccion"/>.
         /// Constructor de la clase.
         /// </summary>
-        /// <param name="vendedor">Vendedor, es un objeto de la clase Empresa.</param>
-        /// <param name="comprador">Comprador, es un objeto de la clase Emprendedor.</param>
+        /// <param name="vendedor">Empresa que vende el material.</param>
+        /// <param name="comprador">Comprador del material.</param>
         /// <param name="material">Material de la transacción.</param>
         /// <param name="cantidad">Cantidad del material, tipo double.</param>
         public Transaccion(Empresa vendedor, Emprendedor comprador, Material material, double cantidad)
@@ -47,12 +47,6 @@ namespace Library
             this.Material = material;
             this.Cantidad = cantidad;
         }
-
-        /// <summary>
-        /// Property para el atributo privado vendedor.
-        /// </summary>
-        /// <value></value>
-        public Empresa Vendedor { get => this.vendedor; set => this.vendedor = value; }
 
         /// <summary>
         /// Método para crear un string con la información de la transacción.

@@ -9,7 +9,8 @@ using System;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela un empresario perteneciente a una empresa.
+    /// Clase que modela un empresario que pertenece a una empresa.
+    /// Implementa la abstracción IUsuario ya que por el principio OCP permite su extension en caso de posibles nuevos usuarios y disminuye su modificación.
     /// </summary>
     public class Empresario : IUsuario
     {
@@ -17,9 +18,9 @@ namespace Library
         /// Inicializa una nueva instancia de la clase <see cref="Empresario"/>.
         /// Método constructor de la clase.
         /// </summary>
-        /// <param name="id">Indica el Id del empresario.</param>
-        /// <param name="estado">Indica el estado en el que se encuentra el empresario.</param>
-        /// <param name="nombre">Indica el nombre que tiene el empresario.</param>
+        /// <param name="id">Id del empresario.</param>
+        /// <param name="estado">Estado del empresario.</param>
+        /// <param name="nombre">Nombre del empresario.</param>
         public Empresario(long id, EstadoUsuario estado, string nombre)
         {
             this.Id = id;

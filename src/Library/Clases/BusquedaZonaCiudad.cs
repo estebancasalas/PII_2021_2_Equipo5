@@ -11,18 +11,20 @@ using System.Threading.Tasks;
 namespace Library
 {
     /// <summary>
-    /// Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias en zona.
-    /// Se decide crear esta clase para cumplir SRP ya que, esta se encarga solo de realizar la búsqueda por zona.
+    /// Clase que busca por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias de la zona ingresada.
+    /// Se decide crear esta clase para cumplir SRP ya que se encarga solamente de realizar la búsqueda por zona.
     /// Esta clase colabora con BuscarPublicacionHandler y BuscarPublicacion.
+    /// Clase componente la cual está compuesta con BuscarPublicacion. Las instancias de esta clase existen solo cuando BuscarPublicacion lo delega.
+    /// </summary>
     /// </summary>
     public class BusquedaZonaCiudad
     {
         /// <summary>
-        /// Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias.
+        /// Busqueda por zona. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias de zona.
         /// </summary>
-        /// <param name="tipoZona">Tipo de zona en que se desea buscar(Ciudad, Departamento, etc).</param>
+        /// <param name="tipoZona">Tipo de zona en que se desea buscar(Ciudad, Departamento, etc) el usuario.</param>
         /// <param name="ubicacion">Nombre de la zona.</param>
-        /// <returns>Devuelve la lista con publicaciones que cumplen con la búsqueda.</returns>
+        /// <returns>Devuelve la lista con publicaciones que coinciden con la búsqueda.</returns>
         public List<Publicacion> Buscar(string tipoZona, string ubicacion)
         {
             List<Publicacion> result = new List<Publicacion>();

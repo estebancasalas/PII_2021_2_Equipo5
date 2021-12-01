@@ -10,9 +10,9 @@ using System.Text;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela un usario del tipo emprendedor.
-    /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
-    /// surjan nuevos tipos de usuario.
+    /// Clase que modela un usuario del tipo emprendedor.
+    /// Implementa la interfaz IUsuario e IConversorTexto. 
+    /// Por el principio DIP depende de la abstracción IConversorTexto y también la interfaz IUsuario que por OCP facilita su extensión por si surjen nuevos usuarios y disminuye su modificación.
     /// </summary>
     public class Emprendedor : IUsuario, IConversorTexto
     {
@@ -20,12 +20,12 @@ namespace Library
         /// Inicializa una nueva instancia de la clase <see cref="Emprendedor"/>.
         /// Constructor de la clase emprendedor.
         /// </summary>
-        /// <param name="id">Id del emprendedor.</param>
-        /// <param name="nombre">Nombre del emprendedor.</param>
-        /// <param name="ubicacion">Ubicación del emprendedor.</param>
-        /// <param name="rubro">Rubro del emprendedor.</param>
-        /// <param name="habilitaciones">Habilitaciones que tiene el emprendedor.</param>
-        /// <param name="especializaciones">Especializaciones que tiene el emprendedor.</param>
+        /// <param name="id">id del emprendedor.</param>
+        /// <param name="nombre">nombre del emprendedor.</param>
+        /// <param name="ubicacion">ubicación del emprendedor.</param>
+        /// <param name="rubro">rubro del emprendedor.</param>
+        /// <param name="habilitaciones">habilitaciones del emprendedor.</param>
+        /// <param name="especializaciones">especializaciones del emprendedor.</param>
         public Emprendedor(long id, string nombre, string ubicacion, string rubro, string habilitaciones, string especializaciones)
         {
             this.Id = id;
@@ -83,7 +83,7 @@ namespace Library
         /// <summary>
         /// Método que crea un string con toda la información del emprendedor.
         /// </summary>
-        /// <returns>Devuelve el string con la información del emprendedor.</returns>
+        /// <returns>Devuelve una string con la información del emprendedor.</returns>
         public string ConvertToString()
         {
             StringBuilder resultado = new StringBuilder();

@@ -10,13 +10,13 @@ namespace Library
 {
     /// <summary>
     /// Esta clase se encarga de generar una ubicación utilizando la API Location.
-    /// Implementa la interfaz IUbicacionProvider por DIP(Explicado en IUbicacionProvider).
-    /// Depende de IUbicacion y colabora con CrearPublicacionHandler.
+    /// Implementa la interfaz IUbicacionProvider para cumplir con el principio DIP.
+    /// Depende de IUbicacionProvider y colabora con CrearPublicacionHandler.
     /// </summary>
     public class UbicacionProvider : IUbicacionProvider
     {
         /// <summary>
-        /// GetUbicacion es el método que al pasarle una udirección la convierte en un objeto de tipo IUbicacion.
+        /// GetUbicacion es el método que, al pasarle una dirección, la convierte en un objeto de tipo IUbicacion.
         /// </summary>
         /// <param name="ubicacion">Es la dirección que pasa el cliente.</param>
         /// <returns>Retorna la ubicación.</returns>

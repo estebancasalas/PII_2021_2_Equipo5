@@ -8,7 +8,7 @@ namespace Library
 {
     /// <summary>
     /// Clase que modela una ubicación.
-    /// Implementa IUbicacion.
+    /// Implementa IUbicacion para cumplir con el principio DIP.
     /// Colabora con: UbicacionProvider.
     /// </summary>
     public class Ubicacion : IUbicacion

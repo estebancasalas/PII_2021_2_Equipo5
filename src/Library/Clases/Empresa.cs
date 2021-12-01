@@ -12,9 +12,8 @@ using System.Text.Json.Serialization;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela un usario del tipo empresa.
-    /// Implementa la interfaz IUsuario, para lograr facilitar la extensión en caso de que
-    /// surjan nuevos tipos de usuario.
+    /// Clase que modela una empresa.
+    /// Implementa la interfaz IConversorTexto para que dependa de una abstracción cumpliendo con el principio DIP.
     /// </summary>
     public class Empresa : IConversorTexto
     {
@@ -22,10 +21,12 @@ namespace Library
         /// Inicializa una nueva instancia de la clase <see cref="Empresa"/>.
         /// Es el constructor que se encarga de crear a la empresa en su totalidad.
         /// </summary>
-        /// <param name="nombre">Se encarga de guardar el nombre de la empresa dentro del objeto empresa.</param>
-        /// <param name="ubicacion">Se encarga de guardar la ubicación de la empresa dentro del objeto empresa.</param>
-        /// <param name="rubro">Se encarga de guardar el rubro de la empresa dentro del objeto empresa.</param>
-        /// <param name="invitacion">Se encarga de guardar la invitación de la empresa dentro del objeto empresa.</param>
+        /// <param name="nombre">Nombre de la empresa.</param>
+        /// <param name="ubicacion">Ubicación de la empresa.</param>
+        /// <param name="rubro">Rubro de la empresa.</param>
+        /// <param name="invitacion">Invitación de la empresa.</param>
+        /// <param name="contacto">Contacto de la empresa.</param>
+        
         public Empresa(string nombre, string ubicacion, string rubro, string invitacion, string contacto)
         {
             this.Invitacion = invitacion;
@@ -37,8 +38,8 @@ namespace Library
         }
 
         /// <summary>
-        /// La ListaEmpresarios se encarga de registrar todos los usuarios que
-        /// puede tener una misma empresa.
+        /// La ListaEmpresarios se encarga de registrar todos los usuarios que puede tener una misma empresa.
+        /// Utiliza la libreria "System.Text.Json.Serialization" para serializar dicha lista.
         /// </summary>
         /// <value></value>
         [JsonInclude]

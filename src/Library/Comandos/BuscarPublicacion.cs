@@ -18,6 +18,8 @@ namespace Library
     /// Esta clase además cumple con el principio SRP, ya que tiene como responsabilidad
     /// devolver una lista de publicaciones que cumplen con lo buscado, pero delega
     /// la responsabilidad de buscar a otras clases.
+    /// Esta clase utiliza delegación ya que, cuando recibe un mensaje para buscar una publicación, delega la tarea a otras clases.
+    /// Al delegar aumenta la cohesión y también el acoplamiento pero es el mejor balance que puede ocurrir.
     /// </summary>
     public class BuscarPublicacion
     {

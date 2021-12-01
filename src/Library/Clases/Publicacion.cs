@@ -9,7 +9,7 @@ using System.Text;
 namespace Library
 {
     /// <summary>
-    /// Clase que modela un usario del tipo publicación.
+    /// Clase que modela una publicación. Cumple con el principio DIP ya que depende de una abstracción IConversorTexto.
     /// </summary>
     public class Publicacion : IConversorTexto
     {
@@ -35,34 +35,39 @@ namespace Library
         }
 
         /// <summary>
-        /// Gets or sets nombre de quien hace la publicación.
+        /// Obtiene o establece nombre de quien realiza la publicación.
         /// </summary>
+        /// <value>Vendedor de la publicación.</value>
         public Empresa Vendedor { get; set; }
 
         /// <summary>
-        /// Se encarga de guardar el título de la publicación dentro del objeto publicación.
+        /// Obtiene o establece el título de la publicación.
         /// </summary>
-        /// <value></value>
+        /// <value>Título</value>
         public string Titulo { get; set; }
 
         /// <summary>
-        /// Se encarga de guardar el material de la publicación dentro del objeto publicación.
+        /// Obtiene o establece el material de la publicación.
         /// </summary>
-        /// <value></value>
+        /// <value>Material.</value>
         public Material Material { get; set; }
 
         /// <summary>
-        /// Se encarga de guardar las palabras claves para lograr una búsqueda efectiva dentro del objeto publicación.
+        /// Obtiene o establece las palabras claves para buscar una publicación.
         /// </summary>
+        /// <value>Palabras claves.</value>
         public string PalabrasClave { get; set; }
 
         /// <summary>
-        /// Permite conocer cada cuánto tiempo se genera el mismo y los guarda en el objeto material.
+        /// Obtiene o establece cada cuánto tiempo se genera el material.
         /// </summary>
-        /// <value></value>
+        /// <value>Frecuencia de disponibilidad del material.</value>
         public string FrecuenciaDeDisponibilidad { get; set; }
 
-        // Atributo en dónde se guarda la ubicación del material.
+        /// <summary>
+        /// Obtiene o establece la ubicación del material.
+        /// </summary>
+        /// <value>Ubicación del material.</value>
         public IUbicacion Ubicacion { get; set; }
 
         /// <summary>
