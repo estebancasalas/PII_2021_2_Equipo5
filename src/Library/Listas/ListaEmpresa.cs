@@ -59,7 +59,7 @@ namespace Library
         /// <returns>Devuelve la empresa que contiene el id pasado por parámetro.</returns>
         public Empresa Buscar(long id)
         {
-            if (this.Empresas.Count > 0 || this.Empresas != null)
+            if (this.Empresas.Count > 0 && this.Empresas != null)
             {
                 int i = 0;
                 Empresario empresario = null;

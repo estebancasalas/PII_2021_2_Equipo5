@@ -1,9 +1,0 @@
-Tenemos que ver como devolver el resultado de los comando al usuario. En IComando tenemos void EjecutarComando y puede ser que nos complique.
-
-Factory method o abstract factory para armar la cadena de handlers.
-
-Administrador no se crea interactuando con el bot, se crea por codigo.
-
-La empresa deberia crearla el Administrador, cada vez que alguien usa un codigo de invitacion tiene que poner nuevamente los datos de la empresa.
-
-Hacer clase conversacion.
