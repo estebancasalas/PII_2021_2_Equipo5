@@ -1,9 +1,0 @@
-Pilar: ComienzoHandlers, AceptarInvitacion, BuscarPublicacion, CrearPublicacion,
-
-Juan: EmpresaCantidadTrabajadores, Comprar
-
-Esteban: CrearEmprendedor, RegistrarEmpresario
-
-Ionas: CrearUsuario, Finalizar, FrecuenciaDeDispoinibilidad, Habilitaciones, Historial.
-
-Santiago: Invitar, Materiales, PalabrasClave, Titulo, Ubicacion.

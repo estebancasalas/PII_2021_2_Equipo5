@@ -1,17 +1,18 @@
-Juan: CrearPublicacion, Publicacion, Conversaciones, IComando, BuscarEmprendedorId, BuscarEmpresaPorPublicacion, 
-VerificarEmpresarioId,
+Juan: CrearPublicacion, Publicacion,  Transaccion, EmpresaCantidadTrabajadoresHandler, IConversorTexto, IMostrar
 
 
-Ionas: VerHistorial, ListaComandos, ListaConversaciones, ListaEmprendedores, ListaEmpresa, IUsuario, ListaCodigosValidos, 
-ListaDeUsuarios, ListaInvitaciones,
+Ionas: ListaEmprendedores, ListaEmpresa, IUsuario, ListaCodigosValidos, 
+ListaDeUsuarios, ListaInvitaciones, SinPermisoException, YaRegistradoException, HistorialHandler, IJsonConvertible
 
 
-Pilar: BuscarEmpresa, BuscarEmprendedor, HistorialTransacciones, ListaAdministradores, RegistroPublicaciones,  Singleton, 
-AbstractHandler, IHandler, Traductor, VerificarInvitacion, Transaccion,
+Pilar: BuscarEmpresa, BuscarEmprendedor, ListaTransacciones, ListaAdministradores, RegistroPublicaciones,  Singleton, 
+AbstractHandler, IHandler, Traductor, VerificarInvitacion, Transaccion, ComienzoHandler, 
+InvitarHandler, CrearPublicacionHandler, RegistrarEmpresarioHandler
 
 
 Santiago: Administrador, IUsuario, Material, Emprendedor, Empresa, CrearMaterial, Ubicacion,
 
 
 Esteban: BuscarPublicaciones, BusquedaPublicacion, BusquedaCategoría, BusquedaKeyWord, BusquedaZona, Mensaje, VerificadorUsuario, 
-IUbicacion, IUbicacionProvider, Ubicacion, UbicacionProvider.
+IUbicacion, IUbicacionProvider, Ubicacion, UbicacionProvider, Empresario, EstadoUsuario, Usuario, 
+OpcionInvalidaException, CrearEmprendedorHandler, NullHandler
