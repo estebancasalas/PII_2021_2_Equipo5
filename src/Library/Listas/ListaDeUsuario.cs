@@ -12,17 +12,18 @@ using System.Text.Json.Serialization;
 namespace Library
 {
     /// <summary>
-    /// ListaDeUsuario es quien se encarga de tener la lista con todos los usuarios registrados, siendo los usuarios las empresas y
-    /// emprendedores.
-    /// Depende de las Clases concretas List y Usuario porque necesita ser deserializada desde formato json.
-    /// Se implementa esta lista con un tipo genérico para expandir los usos en otras clases.
+    /// Clase que modela un contenedor de los usuarios que han interactuado con el bot.
+    /// Tiene la responsabilidad de conocer todos los usuario, verificar si un Id tiene un objeto Usuario asociado,
+    /// y tambien realizar la misma busqueda pero retornando el indice del usuario dentro de la lista.
+    /// Depende de la Clase Usuario.
+    /// Implementa IJsonConvertible para depender de una abstracción y no directamente de los metodos de Json.Serialization. (DIP).
     /// </summary>
     public class ListaDeUsuario : IJsonConvertible
     {
         /// <summary>
-        /// Lista que contiene a todos los ususarios.
-        /// Depende de List y Usuario debido a que debe ser deserializada.
+        /// Obtiene o establece la lista que contiene los usuarios que han interactuado con el bot.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
+        /// No es readonly para facilitar el testing.
         /// </summary>
         /// <returns>Lista que contiene a todos los usuarios.</returns>
         [JsonInclude]
@@ -51,20 +52,20 @@ namespace Library
         }
 
         /// <summary>
-        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
-        /// json.
+        /// Método que crea una instancia de esta clase y convierte su atributo ListaUsuarios en un string
+        /// en formato json.
         /// </summary>
-        /// <returns>Guarda la lista en un archivo json.</returns>
+        /// <returns>String en formato json.</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<Usuario>>.Instance);
         }
 
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
-        /// a partir de el archivo json.
+        /// Método que crea una instancia de esta clase y, a partir de un string en formato json, carga los Usuarios al
+        /// atributo ListaUsuarios del objeto.
         /// </summary>
-        /// <param name="json">El archivo del cual se quieren cargar los datos.</param>
+        /// <param name="json">String en formato json.</param>
         public void LoadFromJson(string json)
         {
             List<Usuario> listaUsers = new List<Usuario>();
@@ -73,12 +74,11 @@ namespace Library
         }
 
         /// <summary>
-        /// Se crea el método Add para añadir un IdUsuario a la ListaDeUsuario
-        /// ya existente.
+        /// Se crea el método Add para añadir un Usuario a la Lista evitando duplicados.
         /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
-        /// los id de todos los usuarios.
+        /// a todos los Usuarios.
         /// </summary>
-        /// <param name="usuario">Usuario que se va a agregar a la lista</param>
+        /// <param name="usuario">Usuario que se va a agregar a la lista.</param>
         public void Add(Usuario usuario)
         {
             if (!this.ListaUsuarios.Contains(usuario))

@@ -7,14 +7,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
-    /// ListaInvitaciones es quien se encarga de tener la lista con todas las
-    /// invitaciones que fueron hechas.
-    /// Se cumple principio SRP ya que libra al administrador de conocer todas las
-    /// invitaciones.
+    /// Clase que modela un contenedor de las Invitaciones Válidas.
+    /// Tiene la responsabilidad de conocer todas las invitaciones, y verificar que un invitación dada es válida.
+    /// Implementa IJsonConvertible para depender de una abstracción y no directamente de los metodos de Json.Serialization. (DIP).
     /// </summary>
     public class ListaInvitaciones : IJsonConvertible
     {
@@ -23,7 +23,8 @@ namespace Library
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
         /// </summary>
         /// <returns>Lista con todas las invitaciones.</returns>
-        private List<string> invitaciones = Singleton<List<string>>.Instance;
+        [JsonInclude]
+        public List<string> invitaciones = Singleton<List<string>>.Instance;
 
         /// <summary>
         /// Método que verifica si una invitación es válida. Se incluye en esta clase porque es la que
@@ -37,20 +38,20 @@ namespace Library
         }
 
         /// <summary>
-        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
-        /// json.
+        /// Método que crea una instancia de esta clase y convierte su atributo invitaciones en un string
+        /// en formato json.
         /// </summary>
-        /// <returns>Guarda los datos en un archivo json.</returns>
+        /// <returns>String en formato json.</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<string>>.Instance);
         }
 
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
-        /// a partir de el archivo json.
+        /// Método que crea una instancia de esta clase y, a partir de un string en formato json, carga las invitaciones al
+        /// atributo Invitaciones del objeto.
         /// </summary>
-        /// <param name="json">Carga los datos de un archivo json.</param>
+        /// <param name="json">String en formato json</param>
         public void LoadFromJson(string json)
         {
             List<string> listaInvs = new List<string>();

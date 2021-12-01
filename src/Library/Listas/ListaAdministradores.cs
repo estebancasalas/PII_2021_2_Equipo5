@@ -7,32 +7,34 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
-    /// ListaAdministradores es quien se encarga de tener la lista con todos los
-    /// Administradores registrados.
-    /// Se cumple principio SRP ya que libra al administrador de tener que crearse a él mismo
-    /// y al mismo tiempo conocer todos los Administradores registrados.
+    /// Clase que modela un contenedor de los administrdores registradas.
+    /// Tiene la responsabilidad de conocer todos los administradores, buscar un adminstrador a partir de su Id retornando
+    /// un valor booleano que indica si lo encontró.
+    /// Depende de la Clase Administrador.
+    /// Implementa IJsonConvertible para depender de una abstracción y no directamente de los metodos Json.Serialization. (DIP).
     /// </summary>
     public class ListaAdministradores : IJsonConvertible
     {
         /// <summary>
-        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
-        /// json.
+        /// Método que crea una instancia de esta clase y convierte su atributo Administradores en un string
+        /// en formato json.
         /// </summary>
-        /// <returns>Devuelve</returns>
+        /// <returns>String en formato json.</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<Administrador>>.Instance);
         }
 
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
-        /// a partir de el archivo json.
+        /// Método que crea una instancia de esta clase y, a partir de un string en formato json, carga los administrdores al
+        /// atributo Administradores del objeto.
         /// </summary>
-        /// <param name="json">Carga los datos de un archivo json.</param>
+        /// <param name="json">String en formato json.</param>
         public void LoadFromJson(string json)
         {
             List<Administrador> listaAdms = new List<Administrador>();
@@ -41,19 +43,19 @@ namespace Library
         }
 
         /// <summary>
-        /// Lista que contiene todos los administradores registrados.
+        /// Obtiene o establece los Administradores registrados en el bot.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
+        /// No es readonly para facilitar el testing.
         /// </summary>
         /// <returns>Lista con los administradores.</returns>
-        public List<Administrador> Administradores = Singleton<List<Administrador>>.Instance;
+        [JsonInclude]
+        public List<Administrador> Administradores { get; set; } = Singleton<List<Administrador>>.Instance;
 
         /// <summary>
-        /// Se crea el método Add para añadir un Administrador a la ListaAdministradores
-        /// ya existente.
-        /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce
-        /// a todos los Administradores.
+        /// Se crea el método Add para añadir un Administrador a la Lista evitando duplicados.
+        /// Se pone en esta clase para cumplir el patrón Expert ya que es la que conoce todos los administradores.
         /// </summary>
-        /// <param name="administrador">Quien se desea agregar a la lista.</param>
+        /// <param name="administrador">Administrador que se desea añadir.</param>
         public void Add(Administrador administrador)
         {
             if (!this.Administradores.Contains(administrador))
@@ -63,7 +65,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Método que verifica si el id está en la lista de administradores.
+        /// Método que verifica si el Id esta registrado como administrador.
         /// </summary>
         /// <param name="id">Id a verificar.</param>
         /// <returns>Devuelve true si el id está en la lista, false en otro caso.</returns>
@@ -73,12 +75,6 @@ namespace Library
             administrador = this.Administradores.Find(x => x.Id == id);
 
             return administrador != null;
-        }
-
-        public int Buscar(long id)
-        {
-            Administrador usuario = this.Administradores.Find(x => x.Id == id);
-            return this.Administradores.IndexOf(usuario);
         }
     }
 }

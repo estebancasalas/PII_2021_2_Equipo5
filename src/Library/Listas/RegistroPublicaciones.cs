@@ -81,18 +81,20 @@ namespace Library
         }
 
         /// <summary>
-        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo json.
+        /// Método que crea una instancia de esta clase y convierte su atributo Activas en un string
+        /// en formato json.
         /// </summary>
-        /// <returns>Guarda los datos en un archivo json.</returns>
+        /// <returns>String en formato json.</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<Publicacion>>.Instance);
         }
 
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos a partir de el archivo json.
+        /// Método que crea una instancia de esta clase y, a partir de un string en formato json, carga las Publicaicones Activas al
+        /// atributo Activas del objeto.
         /// </summary>
-        /// <param name="json">Carga los datos de un archivo json.</param>
+        /// <param name="json">String en formato json.</param>
         public void LoadFromJson(string json)
         {
             List<Publicacion> listaPubl = new List<Publicacion>();

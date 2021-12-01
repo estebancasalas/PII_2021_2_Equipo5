@@ -7,44 +7,49 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Library
 {
     /// <summary>
-    /// Clase la cual contiene una lista en la cual estaran todos los emprendedores.
-    /// Cumple con el principio SRP ya que su única responsabilidad es conocer los
-    /// emprendedores.
+    /// Clase que modela un contenedor de los emprendedores registrados.
+    /// Tiene la responsabilidad de conocer todos los emprendedores, buscar una emprendedor a partir de un Id retornando
+    /// un objeto de tipo emprendedor.
+    /// Depende de la Clase Emprendedor.
+    /// Implementa IJsonConvertible para depender de una abstracción y no directamente de los metodos de Json.Serialization. (DIP).
     /// </summary>
     public class ListaEmprendedores : IJsonConvertible
     {
         /// <summary>
-        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
-        /// json.
+        /// Método que crea una instancia de esta clase y convierte su atributo Emprendedores en un string
+        /// en formato json.
         /// </summary>
-        /// <returns>Guarda los datos en un archivo json.</returns>
+        /// <returns>String en formato json.</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<Emprendedor>>.Instance);
         }
 
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
-        /// a partir de el archivo json.
+        /// Método que crea una instancia de esta clase y, a partir de un string en formato json, carga los Emprendedores al
+        /// atributo Emprendedores del objeto.
         /// </summary>
-        /// <param name="json">Archivo json del cual se cargan los datos.</param>
+        /// <param name="json">String en formato json.</param>
         public void LoadFromJson(string json)
         {
             List<Emprendedor> listaEmprs = new List<Emprendedor>();
             listaEmprs = JsonSerializer.Deserialize<List<Emprendedor>>(json);
-            this.emprendedores = listaEmprs;
+            this.Emprendedores = listaEmprs;
         }
 
         /// <summary>
         /// Lista que contiene todos los emprendedores registrados.
         /// Utiliza el patrón de diseño Singleton para que el atributo sea único y global.
+        /// No es readonly para facilitar el testing.
         /// </summary>
         /// <returns>Lista con los emprendedores registrados.</returns>
-        private List<Emprendedor> emprendedores = Singleton<List<Emprendedor>>.Instance;
+        [JsonInclude]
+        public List<Emprendedor> Emprendedores = Singleton<List<Emprendedor>>.Instance;
 
         /// <summary>
         /// Se crea el método Add para añadir un Emprendedor a la ListaEmprendedores
@@ -55,9 +60,9 @@ namespace Library
         /// <param name="emprendedor">Emprendedor que se desea agregar a la lista.</param>
         public void Add(Emprendedor emprendedor)
         {
-            if (!this.emprendedores.Contains(emprendedor))
+            if (!this.Emprendedores.Contains(emprendedor))
             {
-                this.emprendedores.Add(emprendedor);
+                this.Emprendedores.Add(emprendedor);
             }
         }
 
@@ -70,7 +75,7 @@ namespace Library
 
         public Emprendedor Buscar(long id)
         {
-            return this.emprendedores.Find(x => x.Id == id);
+            return this.Emprendedores.Find(x => x.Id == id);
         }
     }
 }

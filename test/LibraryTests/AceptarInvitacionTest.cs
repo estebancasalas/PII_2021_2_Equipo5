@@ -17,12 +17,12 @@ namespace LibraryTests
     /// </summary>
     public class AceptarInvitacionTest
     {
-        private readonly Usuario user = new Usuario(45, new EstadoUsuario());
-        private readonly RegistrarEmpresarioHandler handler = new RegistrarEmpresarioHandler();
-        private readonly Mensaje message = new Mensaje(45, string.Empty);
-        private readonly ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
-        private readonly ListaInvitaciones listaInvitaciones = new ListaInvitaciones();
-        private readonly ListaEmpresa listaEmpresa = new ListaEmpresa();
+        private Usuario user = new Usuario(45, new EstadoUsuario());
+        private RegistrarEmpresarioHandler handler = new RegistrarEmpresarioHandler();
+        private Mensaje message = new Mensaje(45, string.Empty);
+        private ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
+        private ListaInvitaciones listaInvitaciones = new ListaInvitaciones();
+        private ListaEmpresa listaEmpresa = new ListaEmpresa();
         private Empresa empresa;
 
         /// <summary>
