@@ -12,8 +12,11 @@ using System.Text.Json;
 namespace Library
 {
     /// <summary>
-    /// Clase que se encarga de conocer todas las transacciones que se realizan
-    /// de una empresa a un emprendedor o viceversa.
+    /// Clase que modela un contenedor de las transacciones realizadas.
+    /// Tiene la responsabilidad de conocer todos las transacciones, buscar todas las transacciones que involucran cierto Id retornando
+    /// una lista con las mismas.
+    /// Depende de la Clase Transacción.
+    /// Implementa IJsonConvertible para depender de una abstracción y no directamente de los metodos Json.Serialization. (DIP).
     /// </summary>
     public class ListaTransacciones : IJsonConvertible, IMostrar
     {
@@ -59,20 +62,20 @@ namespace Library
         }
 
         /// <summary>
-        /// El CovertToJson es el método por el cual se guardan los datos dentro de un archivo
-        /// json.
+        /// Método que crea una instancia de esta clase y convierte su atributo Transacciones en un string
+        /// en formato json.
         /// </summary>
-        /// <returns>Guarda los datos en un archivo json.</returns>
+        /// <returns>String en formato json.</returns>
         public string ConvertToJson()
         {
             return JsonSerializer.Serialize(Singleton<List<Transaccion>>.Instance);
         }
 
         /// <summary>
-        /// LoadFromJson se encarga de cargar los datos guardados creando los objetos
-        /// a partir de el archivo json.
+        /// Método que crea una instancia de esta clase y, a partir de un string en formato json, carga las transacciones al
+        /// atributo Transacciones del objeto.
         /// </summary>
-        /// <param name="json">Carga los datos de un archivo json.</param>
+        /// <param name="json">String en formato json.</param>
         public void LoadFromJson(string json)
         {
             List<Transaccion> listaTrans = new List<Transaccion>();
@@ -88,13 +91,12 @@ namespace Library
         public StringBuilder Mostrar(List<IConversorTexto> lista)
         {
             StringBuilder resultado = new StringBuilder();
-            if (lista == null || lista.Count == 0 )
+            if (lista == null || lista.Count == 0)
             {
                 resultado.Append("No se encontraron elementos para mostrar.");
             }
             else
             {
-                
                 foreach (IConversorTexto item in lista)
                 {
                     resultado.Append(item.ConvertToString());
