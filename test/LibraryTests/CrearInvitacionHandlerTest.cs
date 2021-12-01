@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace LibraryTests
 {
     /// <summary>
-    /// Casos de prueba para el metodo CrearInvitacion.
+    /// Casos de prueba para el handler que crea una invitacion a una empresa.
     /// </summary>
     [TestFixture]
     public class CrearInvitacionHandlerTest
@@ -23,7 +23,6 @@ namespace LibraryTests
         private Usuario user;
         private Usuario userNoAdmin;
         private Administrador admin;
-        private string expected = string.Empty;
 
         /// <summary>
         /// Setup de los casos de prueba.

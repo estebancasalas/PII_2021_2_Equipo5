@@ -16,11 +16,17 @@ namespace LibraryTests
         private CrearPublicacionHandler handler = new CrearPublicacionHandler();
         private readonly RegistroPublicaciones registroPublicaciones = new RegistroPublicaciones();
 
+        /// <summary>
+        /// SetUp de los tests.
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
         }
 
+        /// <summary>
+        /// Caso de prueba que verifica que un empresario puede crear una publicacion,
+        /// </summary>
         [Test]
         public void CrearPublicacionTest()
         {

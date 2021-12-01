@@ -15,7 +15,7 @@ using Ucu.Poo.Locations.Client;
 namespace LibraryTests
 {
     /// <summary>
-    /// Casos de prueba para buscar la publicacion.
+    /// Casos de prueba para el handler de buscar publicacion.
     /// </summary>
     [TestFixture]
     public class BuscarPublicacionHandlerTest
@@ -125,7 +125,7 @@ namespace LibraryTests
         }
 
         /// <summary>
-        /// Prueba la excepción en en segundo paso del test.
+        /// Prueba la excepción en el segundo paso del test.
         /// </summary>
         [Test]
         public void Case1VacioTest()
