@@ -11,8 +11,8 @@ using System.Text;
 namespace Library
 {
     /// <summary>
-    /// Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque
-    /// interactúa con el usuario.
+    /// Handler que tiene la responsabilidad de manejar el mensaje /buscarpublicacion.
+    /// Creado por el patron de diseño Chain of Responsibility.
     /// </summary>
     public class BuscarPublicacionHandler : AbstractHandler
     {

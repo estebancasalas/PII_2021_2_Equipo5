@@ -40,6 +40,7 @@ namespace Library
             .SetNext(new NullHandler());
 
             // Sección donde se crean los administradores
+            Administrador juan = new Administrador(1566567912, "Ionas Josponis");
 
             // Se crean las listas
             ListaAdministradores listaAdministradores = new ListaAdministradores();

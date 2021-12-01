@@ -1,1 +1,1 @@
-[]
+[{"Contacto":"099 666 999","Invitacion":"abcdeeeeeeee","Nombre":"Colgate","Ubicacion":"Moontevideo","Rubro":"PAstosos","ListaEmpresarios":[]}]
