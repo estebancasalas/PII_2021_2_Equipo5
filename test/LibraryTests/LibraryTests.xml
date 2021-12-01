@@ -4,21 +4,6 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
-        <member name="T:LibraryTests.EmpresaCandTrabajadoresHandlerTest">
-            <summary>
-            Casos de prueba para el handler que muestra la cantidad de trabajadores de una empresa.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.EmpresaCandTrabajadoresHandlerTest.Setup">
-            <summary>
-            Setup del test.
-            </summary>
-        </member>
-        <member name="M:LibraryTests.EmpresaCandTrabajadoresHandlerTest.PerteneceAEmpresaTest">
-            <summary>
-            Prueba el primer handler.
-            </summary>
-        </member>
         <member name="T:LibraryTests.AceptarInvitacionTest">
             <summary>
             Test de User Story.
@@ -145,7 +130,6 @@
             Setup de los casos de prueba.
             </summary>
         </member>
-<
         <member name="M:LibraryTests.CrearInvitacionHandlerTest.NoEsAdminTest">
             <summary>
             Caso de prueba que verifica que es necesario ser un administrador para crear una invitación.
@@ -154,7 +138,6 @@
         <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case0Test">
             <summary>
             Test del caso 0 de InvitarHandler.
-
             </summary>
         </member>
         <member name="M:LibraryTests.CrearInvitacionHandlerTest.Case1Test">
@@ -257,6 +240,26 @@
             
             Test que verifica que si la persona no es un empresario no pueda crear una publicación.  
             </summary>       
+        </member>
+        <member name="T:LibraryTests.EmpresaCantidadTrabajadoresHandlerTest">
+            <summary>
+            Casos de prueba para el handler que muestra la cantidad de trabajadores de una empresa.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EmpresaCantidadTrabajadoresHandlerTest.Setup">
+            <summary>
+            Setup del test.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EmpresaCantidadTrabajadoresHandlerTest.PerteneceAEmpresaTest">
+            <summary>
+            Prueba el primer handler.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EmpresaCantidadTrabajadoresHandlerTest.NoPerteneceAEmpresaTest">
+            <summary>
+            Test que prueba el comando cuando el usuario no pertenece a una empresa.
+            </summary>
         </member>
         <member name="T:LibraryTests.HistorialHandlerTest">
             <summary>

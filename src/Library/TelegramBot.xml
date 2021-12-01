@@ -53,6 +53,51 @@
             <param name="nombrePublicacion">Se pasa el nombre de la publicación para buscar la empresa.</param>
             <returns>Devuelve la empresa que hizo la publicacion.</returns>
         </member>
+        <member name="T:Library.BuscarPublicacion">
+            <summary>
+            Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
+            devuelve una lista con las coincidencias.
+            Además, se deberá preguntar por los parámetros necesarios para la búsqueda.
+            En caso de una búsqueda por más de un tipo, se realizan todas las búsquedas y,
+            devuelve las coincidencias comunes a todas las búsquedas.
+            Esta clase además cumple con el principio SRP, ya que tiene como responsabilidad
+            devolver una lista de publicaciones que cumplen con lo buscado, pero delega
+            la responsabilidad de buscar a otras clases.
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacion.TipoBusqueda">
+            <summary>
+            Contiene el tipo de búsqueda que se va a realizar.
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacion.Busqueda">
+            <summary>
+            Lo que se desea buscar.
+            </summary>
+        </member>
+        <member name="F:Library.BuscarPublicacion.Result">
+            <summary>
+            Lista de coincidencias de la búsqueda.
+            </summary>
+        </member>
+        <member name="M:Library.BuscarPublicacion.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Library.BuscarPublicacion"/> class.
+            Constructor de la clase.
+            </summary>
+            <param name="tipobusqueda"></param>
+            <param name="busqueda"></param>
+        </member>
+        <member name="M:Library.BuscarPublicacion.EjecutarComando">
+            <summary>
+            EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y,
+            palabras claves). Luego las delega a cada una de las clases que se encargan de,
+            búsqueda, para cumplir con SRP.
+            Finalmente, devuelve una lista con todas la publicaciones encontradas, de la búsqueda
+            que se realizó.
+            </summary>
+            <returns>Lista con las publicaciones encontradas.</returns>
+        </member>
         <member name="T:Library.BusquedaCategoria">
             <summary>
             Busqueda por categoría. Recorre la lista de todas las publicaciones y devuelve una lista con las coincidencias
@@ -342,6 +387,32 @@
             </summary>
             <returns>String con la información del material.</returns>
         </member>
+        <member name="T:Library.Mensaje">
+            <summary>
+            Clase para usar en otras clases que requieran el envio y la recepción de mensajes.
+            Es una clase con patron Mediator ya que los mensajes generados están restringidos a un formato especifico.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.#ctor(System.Int64,System.String)">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Mensaje"/>.
+            El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
+            </summary>
+            <param name="id">Id del usuario que escribe el mensaje.</param>
+            <param name="text">Lo que escribe el usuario.</param>
+        </member>
+        <member name="P:Library.Mensaje.Id">
+            <summary>
+            Se guarda una Id en forma de un entero.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Library.Mensaje.Text">
+            <summary>
+            String que guarda un mensaje en forma de texto.
+            </summary>
+            <value></value>
+        </member>
         <member name="T:Library.Publicacion">
             <summary>
             Clase que modela un usario del tipo publicación.
@@ -538,151 +609,6 @@
             </summary>
             <value>Propiedad de tipo EstadoUsuario que contiene el handler y el paso del mismo en el que se encuentra.</value>
         </member>
-        <member name="T:Library.BuscarPublicacion">
-            <summary>
-            Pregunta por el tipo de búsqueda, pide a la clase correspondiente que la realice y
-            devuelve una lista con las coincidencias.
-            Además, se deberá preguntar por los parámetros necesarios para la búsqueda.
-            En caso de una búsqueda por más de un tipo, se realizan todas las búsquedas y,
-            devuelve las coincidencias comunes a todas las búsquedas.
-            Esta clase además cumple con el principio SRP, ya que tiene como responsabilidad
-            devolver una lista de publicaciones que cumplen con lo buscado, pero delega
-            la responsabilidad de buscar a otras clases.
-            </summary>
-        </member>
-        <member name="F:Library.BuscarPublicacion.TipoBusqueda">
-            <summary>
-            Contiene el tipo de búsqueda que se va a realizar.
-            </summary>
-        </member>
-        <member name="F:Library.BuscarPublicacion.Busqueda">
-            <summary>
-            Lo que se desea buscar.
-            </summary>
-        </member>
-        <member name="F:Library.BuscarPublicacion.Result">
-            <summary>
-            Lista de coincidencias de la búsqueda.
-            </summary>
-        </member>
-        <member name="M:Library.BuscarPublicacion.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Library.BuscarPublicacion"/> class.
-            Constructor de la clase.
-            </summary>
-            <param name="tipobusqueda"></param>
-            <param name="busqueda"></param>
-        </member>
-        <member name="M:Library.BuscarPublicacion.EjecutarComando">
-            <summary>
-            EjecutarComando se encarga de decidir qué tipo de búsqueda se va a realizar(categoría, zona y,
-            palabras claves). Luego las delega a cada una de las clases que se encargan de,
-            búsqueda, para cumplir con SRP.
-            Finalmente, devuelve una lista con todas la publicaciones encontradas, de la búsqueda
-            que se realizó.
-            </summary>
-            <returns>Lista con las publicaciones encontradas.</returns>
-        </member>
-        <member name="T:Library.EntradaDeLaCadena">
-            <summary>
-            IEntradaDeLaCadena y IEntradaInt cumplen con el patrón de ISP ya que se utilizan interfaces chicas para implementar solo el comportamiento
-            que las clases necesiten, para de esa forma no acumular todo en IFormatoDeEntrada.
-            </summary>
-        </member>
-        <member name="M:Library.EntradaDeLaCadena.GetInput(System.String)">
-            <summary>
-            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
-            </summary>
-            <param name="message">Mensaje para mostrar en cosola.</param>
-            <returns>Debe de er una string.</returns>
-        </member>
-        <member name="T:Library.LectorTest">
-            <summary>
-            LectorTest hereda la clase de EntradaDeLaCadena para simular la interacción con el,
-            usuario en los tests.
-            Cumple con DIP pues la comunicación es a través de clases de alto nivel y
-            abstracciones (Interfaces).
-            Cumple SRP pues su única razón de cambio es recibir una línea de la consola.
-            Se aplica el patrón Polimorfismo ya que se decide cuál de los métodos GetInput,
-            usar en tiempo de ejecución, dependiendo del objeto que recibe el mensaje GetInput.
-            </summary>
-        </member>
-        <member name="F:Library.LectorTest.diccionario">
-            <summary>
-            Diccionario que simula la interacción entre usuario y bot.
-            </summary>
-        </member>
-        <member name="M:Library.LectorTest.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Library.LectorTest"/> class.
-            Constructor de la clase.
-            </summary>
-            <param name="dic">diccionario del cual se leen las claves.</param>
-        </member>
-        <member name="M:Library.LectorTest.GetInput(System.String)">
-            <summary>
-            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
-            </summary>
-            <param name="message">Mensaje que se muestra en consola al usuario.</param>
-            <returns>Debe de ser un string.</returns>
-        </member>
-        <member name="T:Library.LeerConsola">
-            <summary>
-            LeerConsola es una implementación de la interface IEntaradaDeLaCadena para interactuar con el usuario a través de la
-            consola. Cumple con DIP pues la comunicación es a través de clases de alto nivel y abstracciones (Interfaces).
-            Cumple SRP pues su unica razon de cambio es recibir una linea de la consola.
-            </summary>
-        </member>
-        <member name="M:Library.LeerConsola.GetInput(System.String)">
-            <summary>
-            El GetInput es método el cúal despliega un mensaje en consola y recibe su respuesta.
-            </summary>
-            <param name="message">Mensaje que se muestra en consola al usuario.</param>
-            <returns>Debe de ser un string.</returns>
-        </member>
-        <member name="T:Library.IFormatoSalida">
-            <summary>
-            Interfaz para implementar una forma de mostrar un string en pantalla. Al ser una interfaz, se busca
-            que se cumpla el principio OCP a través del principio LSP. Se pueden extender las capacidades del
-            programa sin modificarlo (por ejemplo agregando otras API), al agregar clases que implementen la,
-            interfaz y sustituyendo en el programa principal.
-            </summary>
-        </member>
-        <member name="M:Library.IFormatoSalida.PrintLine(System.String)">
-            <summary>
-            Método para las clases que implementen esta interfaz. Muestra en pantalla el string pasado
-            como parámetro.
-            </summary>
-            <param name="line">Lo que se muestra en consola.</param>
-            <returns>Debe de ser una string.</returns>
-        </member>
-        <member name="T:Library.OutputTest">
-            <summary>
-            Clase utilizada en los tests, para poder mostrar texto en pantalla al usuario.
-            </summary>
-        </member>
-        <member name="M:Library.OutputTest.PrintLine(System.String)">
-            <summary>
-            Método encargado de mostrar en pantalla.
-            </summary>
-            <param name="line">Lo que se va a mostrar.</param>
-            <returns>Debe de ser un string.</returns>
-        </member>
-        <member name="T:Library.Traductor">
-            <summary>
-            Clase encargada de modelar un string para ser mostrado en pantalla. Implementa la interfaz
-            IFormatoSalida ya que es una de las clases que muestra información en pantalla.
-            Al implementar una interfaz, es posible extender los usos sin modificar el programa principal ya que
-            depende de una abstracción (patrón Polymorphism).
-            </summary>
-        </member>
-        <member name="M:Library.Traductor.PrintLine(System.String)">
-            <summary>
-            Método encargado de modelar el string pasado como parámetro. Luego, lo muestra en pantalla.
-            </summary>
-            <param name="line">Lo que se modela para mostrar en pantalla.</param>
-            <returns>Debe de ser un string.</returns>
-        </member>
         <member name="T:Library.BuscarPublicacionHandler">
             <summary>
             Este handler te dirrecciona a la clase BuscarPublicación, implementa AbstractHandler porque
@@ -802,6 +728,51 @@
         <member name="F:Library.CrearPublicacionHandler.NombreMaterial">
             <summary>
             Atributo que guarda el nombre del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Categoria">
+            <summary>
+            Atributo que guarda la categoria del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Unidad">
+            <summary>
+            Atributo que guarda la unidad del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Costo">
+            <summary>
+            Atributo que guarda el costo del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Cantidad">
+            <summary>
+            Atributo que guarda la cantidad del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Habilitaciones">
+            <summary>
+            Atributo que guarda las habilidades que se necesitan para manipular el material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Titulo">
+            <summary>
+            Atributo que guarda el titulo de la publicación.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.PalabrasClave">
+            <summary>
+            Atributo que guarda las palabras claves de la publicación.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Frecuencia">
+            <summary>
+            Atributo que guarda la frecuencia del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Localizacion">
+            <summary>
+            Atributo que guarda la localización del material.
             </summary>
         </member>
         <member name="M:Library.CrearPublicacionHandler.Handle(Library.Mensaje)">
@@ -959,16 +930,6 @@
             </summary>
             <value>Se guarda el next handler.</value>
         </member>
-        <member name="F:Library.AbstractHandler.Input">
-            <summary>
-            Recibe una cadena, siempre en formato string.
-            </summary>
-        </member>
-        <member name="F:Library.AbstractHandler.Output">
-            <summary>
-            Se envia la cadena recibida tal como está o con algun tipo de cambio implicito o explicito.
-            </summary>
-        </member>
         <member name="M:Library.AbstractHandler.Handle(Library.Mensaje)">
             <summary>
             El metodo se fija si no hay ningun comando apuntando al handler. si no hay se pasa al siguiente.
@@ -1022,43 +983,18 @@
             </summary>
             <returns>Retorna el handler siguiente.</returns>
         </member>
-        <member name="T:Library.Mensaje">
+        <member name="T:Library.IConversorTexto">
             <summary>
-            Clase para usar en otras clases que requieran el envio y la recepción de mensajes.
-            Es una clase con patron Mediator ya que los mensajes generados están restringidos a un formato especifico.
+            Interfaz para las clases que necesitan mostrar información. Fue creada para cumplir con
+            DIP, para que las clases que implementan esta interfaz dependan de una abstracción y no
+            de una clase concreta.
             </summary>
         </member>
-        <member name="M:Library.Mensaje.#ctor(System.Int64,System.String)">
+        <member name="M:Library.IConversorTexto.ConvertToString">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Mensaje"/>.
-            El metodo permite crear un mensaje con una cierta Id y un cierto mensaje.
+            Firma del método que convierte a strings.
             </summary>
-            <param name="id">Id del usuario que escribe el mensaje.</param>
-            <param name="text">Lo que escribe el usuario.</param>
-        </member>
-        <member name="P:Library.Mensaje.Id">
-            <summary>
-            Se guarda una Id en forma de un entero.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Library.Mensaje.Text">
-            <summary>
-            String que guarda un mensaje en forma de texto.
-            </summary>
-            <value></value>
-        </member>
-        <member name="T:Library.Singleton`1">
-            <summary>
-            Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
-            </summary>
-            <typeparam name="T">Tipo genérico que se establece cuando se crea una instancia.</typeparam>
-        </member>
-        <member name="P:Library.Singleton`1.Instance">
-            <summary>
-            Obtiene gets se crea una nueva instancia solo si no existe previamente.
-            </summary>
-            <value>Se guarda una nueva instancia.</value>
+            <returns>string convetida.</returns>
         </member>
         <member name="T:Library.IJsonConvertible">
             <summary>
@@ -1092,19 +1028,6 @@
             </summary>
             <param name="lista">Lista para mostrar en pantalla.</param>
             <returns>Te devuelve los string de la lista.</returns>
-        </member>
-        <member name="T:Library.IConversorTexto">
-            <summary>
-            Interfaz para las clases que necesitan mostrar información. Fue creada para cumplir con
-            DIP, para que las clases que implementan esta interfaz dependan de una abstracción y no
-            de una clase concreta.
-            </summary>
-        </member>
-        <member name="M:Library.IConversorTexto.ConvertToString">
-            <summary>
-            Firma del método que convierte a strings.
-            </summary>
-            <returns>string convetida.</returns>
         </member>
         <member name="T:Library.IUbicacion">
             <summary>
@@ -1495,13 +1418,6 @@
             </summary>
             <param name="publicacion">Publicación a agregar a la lista de publicaciones activas.</param>
         </member>
-        <member name="M:Library.RegistroPublicaciones.EliminarPublicacion(Library.Publicacion)">
-            <summary>
-            Método para eliminar una publicación. Se agrega la misma a la lista de publicaciones eliminadas y se remueve de la
-            lista de publicaciones activas y publicaciones pausadas.
-            </summary>
-            <param name="publi">Publicación a eliminar.</param>
-        </member>
         <member name="M:Library.RegistroPublicaciones.Mostrar(System.Collections.Generic.List{Library.IConversorTexto})">
             <summary>
             Método para mostrar la lista pasada como parámetro en pantalla.
@@ -1520,6 +1436,18 @@
             LoadFromJson se encarga de cargar los datos guardados creando los objetos a partir de el archivo json.
             </summary>
             <param name="json">Carga los datos de un archivo json.</param>
+        </member>
+        <member name="T:Library.Singleton`1">
+            <summary>
+            Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
+            </summary>
+            <typeparam name="T">Tipo genérico que se establece cuando se crea una instancia.</typeparam>
+        </member>
+        <member name="P:Library.Singleton`1.Instance">
+            <summary>
+            Obtiene gets se crea una nueva instancia solo si no existe previamente.
+            </summary>
+            <value>Se guarda una nueva instancia.</value>
         </member>
         <member name="T:Library.TelegramBot">
             <summary>
