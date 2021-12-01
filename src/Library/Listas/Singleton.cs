@@ -9,6 +9,7 @@ using System;
 namespace Library
 {
     /// <summary>
+    /// Tiene la responsabilidad de hacer que ciertas instancias sean únicas y globales.
     /// Se usa en los handlers que requieren la utilización del patrón singleton, tales como AbstractHandler y UsuarioInterfaz.
     /// </summary>
     /// <typeparam name="T">Tipo genérico que se establece cuando se crea una instancia.</typeparam>

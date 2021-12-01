@@ -39,7 +39,8 @@ namespace Library
                            .SetNext(new RegistrarEmpresarioHandler())
             .SetNext(new NullHandler());
 
-            /*
+            // Sección donde se crean los administradores
+
             // Se crean las listas
             ListaAdministradores listaAdministradores = new ListaAdministradores();
             ListaDeUsuario listaDeUsuario = new ListaDeUsuario();
@@ -66,42 +67,6 @@ namespace Library
             listaInvitaciones.LoadFromJson(invitaciones);
             listaTransacciones.LoadFromJson(transacciones);
             registroPublicaciones.LoadFromJson(publicaciones);
-            */
-
-            //Publicaciones
-            Material madera = new Material("Aserrín", 10, 500, "Kg", "Ninguna", "/celulosicos");
-            Material aluminio = new Material("Recortes de aluminio", 100, 37, "Kg", "Ninguna", "/metalicos");
-
-
-            IUbicacion ubicacionMadera = new Ubicacion("Uruguay", "Tacuarembó", "Manuel Oribe 637", "45000", "", "");
-            IUbicacion ubicacionAluminio = new Ubicacion("Uruguay", "Tacuarembó", "", "", "", "");
-
-
-            Empresa empresa1 = new Empresa("Woods.", "Tacuarembo, Uruguay", "Maderero", "invitacion1", "46325889");
-            Empresa empresa2 = new Empresa("Aberturas Uruguay.", "Salto, Uruguay", "Carpinteria en aluminio", "Invitacion2", "45698765");
-            Empresa empresaIonas = new Empresa("Ionas S.A.", "Tacuarembo, Uruguay", "Reciclaje de residuos", "Invitacion3", "46359877");
-
-
-            Publicacion a = new Publicacion("Aserrín", madera, "madera, aserrin", "Semanal", ubicacionMadera, empresa1);
-            Publicacion b = new Publicacion("Recortes de aluminio", aluminio, "aluminio, recortes", "Mensual", ubicacionAluminio, empresa2);
-
-
-            // Material tapas = new Material("Tapas plasticas", 17, 230, "Kg", "Ninguna", "/plasticos");
-            // IUbicacion ubicacionTapas = new Ubicacion("Uruguay", "Tacuarembo", "", "", "", "");
-            // Publicacion c = new Publicacion("tapas de refrescos", tapas, "tapas, plastico, residuos", "diario", ubicacionTapas, empresaIonas);
-
-            //SetUp demo parte 1
-            ListaInvitaciones listaInvitaciones2 = Singleton<ListaInvitaciones>.Instance;
-            listaInvitaciones2.Add("abc123");
-            Usuario usuario = new Usuario(1566567912, new EstadoUsuario());
-            Empresario ionas = new Empresario(1566567912, new EstadoUsuario(), "Ionas Josponis");
-            empresa1.ListaEmpresarios.Add(ionas);
-
-            //SetUp demo parte 2
-            Emprendedor pilar = new Emprendedor(2105185991, "Pilar Machado", "Montevideo", "Electricista", "Ninguna", "Motores electricos");
-
-
-
 
             // Obtengo una instancia de TelegramBot
             TelegramBot telegramBot = TelegramBot.Instance;
@@ -122,8 +87,6 @@ namespace Library
             // Detengo la escucha de mensajes.
             bot.StopReceiving();
 
-
-            /*
             // Se actualizan las listas
             listaAdministradores = Singleton<ListaAdministradores>.Instance;
             listaDeUsuario = Singleton<ListaDeUsuario>.Instance;
@@ -150,7 +113,6 @@ namespace Library
             File.WriteAllText(@"..\..\Datos_json\listaInvitaciones.txt", guardarInvit);
             File.WriteAllText(@"..\..\Datos_json\listaTransacciones.txt", guardarTrans);
             File.WriteAllText(@"..\..\Datos_json\registroPublicaciones.txt", guardarPubli);
-            */
         }
 
         private static async void OnMessage(object sender, MessageEventArgs messageEventArgs)
