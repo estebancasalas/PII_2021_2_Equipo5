@@ -7,7 +7,8 @@
 namespace Library
 {
     /// <summary>
-    /// Clase para conocer el estado del usuario. 
+    /// Clase para conocer el estado del usuario. Cumple con SRP porque tiene la responsabilidad de conocer que handler se esta ejecutando y el. 
+    /// paso que se debe de ejecutar.
     /// </summary>
     public class EstadoUsuario
     {

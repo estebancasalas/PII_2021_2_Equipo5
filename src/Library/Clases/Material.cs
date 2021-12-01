@@ -12,7 +12,7 @@ using System.Text;
 namespace Library
 {
     /// <summary>
-    /// Esta clase se encarga del modelado del material.
+    /// Esta clase se encarga del modelado del material. Cumple con el principio DIP ya que depende de una abstracción IConversorTexto.
     /// </summary>
     public class Material : IConversorTexto
     {
@@ -26,7 +26,7 @@ namespace Library
         /// </summary>
         /// <param name="nombre">El nombre del material.</param>
         /// <param name="costo">El costo del material.</param>
-        /// <param name="cantidad">LA cantidad de material.</param>
+        /// <param name="cantidad">La cantidad de material.</param>
         /// <param name="unidad">La unidad en la cual se cuantifica el material.</param>
         /// <param name="habilitaciones">Las habliitaciones que se necesitan para el material.</param>
         /// <param name="categoria">La categoría del material.</param>

@@ -804,6 +804,51 @@
             Atributo que guarda el nombre del material.
             </summary>
         </member>
+        <member name="F:Library.CrearPublicacionHandler.Categoria">
+            <summary>
+            Atributo que guarda la categoria del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Unidad">
+            <summary>
+            Atributo que guarda la unidad del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Costo">
+            <summary>
+            Atributo que guarda el costo del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Cantidad">
+            <summary>
+            Atributo que guarda la cantidad del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Habilitaciones">
+            <summary>
+            Atributo que guarda las habilidades que se necesitan para manipular el material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Titulo">
+            <summary>
+            Atributo que guarda el titulo de la publicación.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.PalabrasClave">
+            <summary>
+            Atributo que guarda las palabras claves de la publicación.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Frecuencia">
+            <summary>
+            Atributo que guarda la frecuencia del material.
+            </summary>
+        </member>
+        <member name="F:Library.CrearPublicacionHandler.Localizacion">
+            <summary>
+            Atributo que guarda la localización del material.
+            </summary>
+        </member>
         <member name="M:Library.CrearPublicacionHandler.Handle(Library.Mensaje)">
             <summary>
             Método que interpreta el mensaje. Si el mensaje es "/CrearPublicación", el método pide los
