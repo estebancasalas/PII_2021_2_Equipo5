@@ -22,7 +22,7 @@
         </member>
         <member name="T:LibraryTests.BuscarPublicacionHandlerTest">
             <summary>
-            Casos de prueba para buscar la publicacion.
+            Casos de prueba para el handler de buscar publicacion.
             </summary>
         </member>
         <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Setup">
@@ -52,7 +52,7 @@
         </member>
         <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case1VacioTest">
             <summary>
-            Prueba la excepción en en segundo paso del test.
+            Prueba la excepción en el segundo paso del test.
             </summary>
         </member>
         <member name="M:LibraryTests.BuscarPublicacionHandlerTest.Case2SinPublicacionTest">
@@ -107,7 +107,7 @@
         </member>
         <member name="T:LibraryTests.CrearInvitacionHandlerTest">
             <summary>
-            Casos de prueba para el metodo CrearInvitacion.
+            Casos de prueba para el handler que crea una invitacion a una empresa.
             </summary>
         </member>
         <member name="M:LibraryTests.CrearInvitacionHandlerTest.Setup">
@@ -157,7 +157,7 @@
         </member>
         <member name="M:LibraryTests.CrearPublicacionTest.Setup">
             <summary>
-            Setup inicializa valores en común.
+            Setup de los test.
             </summary>
         </member>
         <member name="M:LibraryTests.CrearPublicacionTest.Case0Test">
@@ -215,16 +215,25 @@
             Test que verifica si la publicación se creo correctamente.
             </summary>
         </member>
-        <member name="M:LibraryTests.CrearPublicacionTest.Case10Test_2">
+        <member name="M:LibraryTests.CrearPublicacionTest.Case10parte2Test">
             <summary>
             Test que verifica si el bot responde correctamente.
             </summary>
         </member>
         <member name="M:LibraryTests.CrearPublicacionTest.ElseTest">
             <summary>
-            
-            Test que verifica que si la persona no es un empresario no pueda crear una publicación.  
-            </summary>       
+            Test que verifica que si la persona no es un empresario no pueda crear una publicación.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EscenarioCrearPublicacionTest.SetUp">
+            <summary>
+            SetUp de los tests.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EscenarioCrearPublicacionTest.CrearPublicacionTest">
+            <summary>
+            Caso de prueba que verifica que un empresario puede crear una publicacion,
+            </summary>
         </member>
         <member name="T:LibraryTests.HistorialHandlerTest">
             <summary>
